@@ -1,18 +1,18 @@
 ---
-// Logo.astro — Versión premium compacta: más grandes y más pegados
+
 ---
 
 <div
   class="logo-wrapper flex items-center select-none group cursor-pointer pointer-events-auto"
 >
-  <!-- Subimos a 76px y metemos un margen negativo a la derecha (-mr-1) para pegar el texto -->
+  
   <div
     class="w-[76px] h-[76px] flex items-center justify-center shrink-0 -mr-1 pointer-events-none"
   >
     <canvas class="logo-canvas w-full h-full block"></canvas>
   </div>
 
-  <!-- Texto VEZNER subido a 30px de alto -->
+  
   <div class="flex items-center shrink-0 pointer-events-none">
     <img
       src="/assets/vezner-text.webp"
@@ -59,7 +59,7 @@
           }
         });
 
-        // Eventos limpios directo a la caja contenedora
+
         wrapper.addEventListener("mouseenter", () => {
           shouldStopAtEnd = false;
           dotLottie.play();
@@ -72,7 +72,7 @@
     });
   }
 
-  // Ejecución segura en el ciclo de vida de Astro
+
   initLogo();
   document.addEventListener("astro:page-load", initLogo);
 </script>

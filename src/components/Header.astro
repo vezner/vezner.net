@@ -1,5 +1,5 @@
 ---
-// Header.astro — Navegación principal de VEZNER (Compacto, Estilizado y Corregido)
+
 import Logo from "./Logo.astro";
 
 export interface Props {
@@ -97,7 +97,7 @@ const { theme = "light" } = Astro.props;
     class="fixed top-0 right-0 h-screen w-full md:w-[320px] bg-[#0a0a0a] border-l border-blanco/10 z-50 flex flex-col translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-2xl"
     aria-hidden="true"
   >
-    <!-- Top: Logo + Close -->
+    
     <div class="flex items-center justify-between px-6 h-20 border-b border-blanco/10">
       <a href="/" class="invert opacity-90 w-20">
         <Logo />
@@ -111,7 +111,7 @@ const { theme = "light" } = Astro.props;
       </button>
     </div>
 
-    <!-- Middle: Links -->
+    
     <ul class="flex flex-col flex-1 px-8 justify-center list-none m-0 gap-8">
       <li class="mobile-item overflow-hidden">
         <a href="/" class="text-blanco font-display text-5xl mobile-menu-link block translate-y-full hover:text-blanco/70 transition-colors">Inicio</a>
@@ -124,7 +124,7 @@ const { theme = "light" } = Astro.props;
       </li>
     </ul>
 
-    <!-- Bottom: CTA -->
+    
     <div class="p-6 border-t border-blanco/10 bg-negro">
       <a
         href="/contacto"
@@ -156,14 +156,14 @@ const { theme = "light" } = Astro.props;
     border-bottom-color: rgba(10, 10, 10, 0.06);
   }
 
-  /* En tema oscuro scrolled: header negro con blur */
+  
   :global(#header.theme-dark.scrolled) {
     background: rgba(10, 10, 10, 0.92);
     border-bottom-color: rgba(255, 255, 255, 0.08);
   }
 
-  /* ===== TEMA OSCURO: LOGO siempre blanco ===== */
-  /* :global() es necesario porque img y canvas pertenecen al scope de Logo.astro */
+  
+  
   :global(#header.theme-dark .logo-container img) {
     filter: invert(1);
   }
@@ -171,7 +171,7 @@ const { theme = "light" } = Astro.props;
     filter: invert(1);
   }
 
-  /* Nav links, CTA y hamburguesa blancos siempre en dark */
+  
   :global(#header.theme-dark .nav-link),
   :global(#header.theme-dark .cta-text) {
     color: #ffffff;
@@ -189,7 +189,7 @@ const { theme = "light" } = Astro.props;
     background-color: #ffffff;
   }
 
-  /* Nav link con slide vertical */
+  
   .nav-link {
     position: relative;
     display: inline-block;
@@ -220,7 +220,7 @@ const { theme = "light" } = Astro.props;
     transform: translateY(-100%);
   }
 
-  /* Mobile menu items animación stagger */
+  
   .mobile-menu-link {
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -239,7 +239,7 @@ const { theme = "light" } = Astro.props;
     transition-delay: 0.4s;
   }
 
-  /* Hamburger → X */
+  
   .menu-toggle-open .menu-bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }

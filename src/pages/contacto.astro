@@ -1,5 +1,5 @@
 ---
-// contacto.astro — Página de contacto de VEZNER
+
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -14,7 +14,7 @@ import Footer from "../components/Footer.astro";
   <main class="bg-blanco min-h-screen pt-32 pb-0">
     <section class="px-6 md:px-12 py-20">
       <div class="container mx-auto max-w-6xl">
-        <!-- Header de la página -->
+        
         <div class="mb-20">
           <div class="flex items-center gap-4 mb-8 opacity-0 contact-label">
             <div class="w-8 h-px bg-negro/30"></div>
@@ -41,9 +41,9 @@ import Footer from "../components/Footer.astro";
           </p>
         </div>
 
-        <!-- Grid: Formulario + Info -->
+        
         <div class="grid md:grid-cols-2 gap-16 items-start">
-          <!-- Formulario -->
+          
           <form id="contact-form" class="space-y-6 contact-form opacity-0">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="form-group">
@@ -112,7 +112,7 @@ import Footer from "../components/Footer.astro";
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Dropdown Servicio -->
+              
               <div class="form-group relative custom-dropdown-container">
                 <label
                   class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
@@ -137,7 +137,7 @@ import Footer from "../components/Footer.astro";
                 </div>
               </div>
 
-              <!-- Dropdown Presupuesto -->
+              
               <div class="form-group relative custom-dropdown-container">
                 <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Presupuesto estimado (USD)</label>
                 <input type="hidden" id="presupuesto" name="presupuesto" value="" />
@@ -160,7 +160,7 @@ import Footer from "../components/Footer.astro";
               </div>
             </div>
 
-            <!-- Campo oculto para "Otro" -->
+            
             <div id="otro-servicio-container" class="form-group hidden opacity-0 transition-opacity duration-300">
               <label
                 for="otro_servicio"
@@ -211,7 +211,7 @@ import Footer from "../components/Footer.astro";
               </div>
             </button>
 
-            <!-- Estado de éxito -->
+            
             <div
               id="form-success"
               class="hidden font-mono font-medium text-xs text-verde bg-verde/5 border border-verde/20 px-4 py-3"
@@ -220,7 +220,7 @@ import Footer from "../components/Footer.astro";
             </div>
           </form>
 
-          <!-- Información de contacto -->
+          
           <div class="contact-info opacity-0 space-y-12">
             <div>
               <p
@@ -326,7 +326,7 @@ import Footer from "../components/Footer.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animaciones de entrada
+
   const tl = gsap.timeline({ delay: 0.3 });
 
   tl.to(".contact-label", { opacity: 1, duration: 0.7, ease: "power3.out" });
@@ -351,9 +351,9 @@ import Footer from "../components/Footer.astro";
     "-=0.6",
   );
 
-  // =============================================
-  // Custom Dropdowns Genéricos
-  // =============================================
+
+
+
   const dropdownContainers = document.querySelectorAll(".custom-dropdown-container");
   const otroContainer = document.getElementById("otro-servicio-container");
   const otroInput = document.getElementById("otro_servicio") as HTMLInputElement;
@@ -366,12 +366,12 @@ import Footer from "../components/Footer.astro";
     const hiddenInput = container.querySelector("input[type='hidden']") as HTMLInputElement;
     const optionBtns = container.querySelectorAll(".dropdown-option");
 
-    // Toggle dropdown
+
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       const isOpen = !optionsDiv.classList.contains("invisible");
 
-      // Cerrar todos los demás
+
       closeAllDropdowns();
 
       if (!isOpen) {
@@ -382,7 +382,7 @@ import Footer from "../components/Footer.astro";
       }
     });
 
-    // Option select
+
     optionBtns.forEach((opt) => {
       opt.addEventListener("click", (e) => {
         const value = (e.currentTarget as HTMLButtonElement).getAttribute("data-value") || "";
@@ -393,11 +393,11 @@ import Footer from "../components/Footer.astro";
         textSpan.classList.remove("text-negro/70");
         textSpan.classList.add("text-negro");
 
-        // Lógica condicional para el campo "Otro" si es el dropdown de servicio
+
         if (hiddenInput.id === "servicio") {
           if (value === "Otro") {
             otroContainer?.classList.remove("hidden");
-            // Delay para la transición
+
             setTimeout(() => otroContainer?.classList.remove("opacity-0"), 10);
             otroInput.setAttribute("required", "true");
           } else {
@@ -413,7 +413,7 @@ import Footer from "../components/Footer.astro";
     });
   });
 
-  // Cerrar al clickear afuera
+
   document.addEventListener("click", () => {
     closeAllDropdowns();
   });
@@ -431,14 +431,14 @@ import Footer from "../components/Footer.astro";
     });
   }
 
-  // Manejo del formulario (Formspree AJAX)
+
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const success = document.getElementById("form-success");
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const btn = document.getElementById("submit-btn") as HTMLButtonElement;
-    // Buscamos el primer span que contiene el texto del botón
+
     const btnText = btn?.querySelector("span.relative") as HTMLSpanElement;
 
     if (btn && btnText) {
@@ -459,7 +459,7 @@ import Footer from "../components/Footer.astro";
       if (response.ok) {
         form.reset();
 
-        // Resetear los custom dropdowns visualmente
+
         dropdownContainers.forEach((container) => {
           const textSpan = container.querySelector(".dropdown-text") as HTMLSpanElement;
           const defaultText = container.querySelector("input")?.id === "presupuesto" ? "Opcional" : "Seleccioná un servicio";
@@ -488,8 +488,8 @@ import Footer from "../components/Footer.astro";
       }
     } catch (error) {
       if (btn && btnText) {
-        btnText.textContent = "Enviar consulta"; // Reset text
-        btn.disabled = false; // Re-enable
+        btnText.textContent = "Enviar consulta";
+        btn.disabled = false;
       }
       alert(
         "Hubo un error al enviar tu consulta. Por favor, intentá nuevamente más tarde.",

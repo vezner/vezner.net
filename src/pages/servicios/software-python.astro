@@ -11,13 +11,11 @@ import Footer from "../../components/Footer.astro";
   <Header theme="dark" />
 
   <main class="bg-[#0a0a0a] text-blanco min-h-screen overflow-hidden">
-    <!-- =========================================
-         § HERO SECTION
-    ========================================= -->
+    
     <section
       class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20"
     >
-      <!-- Background Matrix Style -->
+      
       <div
         class="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
         style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #00c851 2px, #00c851 4px); background-size: 100% 4px;"
@@ -87,7 +85,7 @@ import Footer from "../../components/Footer.astro";
         </div>
       </div>
 
-      <!-- Scroll prompt -->
+      
       <div
         class="scroll-prompt absolute bottom-10 left-16 flex items-center gap-4 opacity-0"
       >
@@ -103,9 +101,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
-    <!-- =========================================
-         § CASOS DE USO
-    ========================================= -->
+    
     <section class="py-32 bg-[#050505] relative overflow-hidden">
       <div class="container mx-auto px-6 md:px-16 max-w-7xl">
         <h2
@@ -155,9 +151,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
-    <!-- =========================================
-         § INTERFAZ DEMO INTERACTIVA (TERMINAL)
-    ========================================= -->
+    
     <section
       class="py-32 px-6 md:px-16 bg-[#0a0a0a] border-y border-blanco/5 overflow-hidden"
     >
@@ -176,7 +170,7 @@ import Footer from "../../components/Footer.astro";
           </p>
         </div>
 
-        <!-- Terminal Mockup -->
+        
         <div
           class="term-mockup opacity-0 translate-y-20 bg-[#0d1117] rounded-lg shadow-2xl overflow-hidden border border-verde/20"
         >
@@ -274,9 +268,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
-    <!-- =========================================
-         § CARACTERÍSTICAS TÉCNICAS
-    ========================================= -->
+    
     <section class="py-32 px-6 md:px-16 bg-[#0a0a0a]">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-3 gap-x-12 gap-y-20">
@@ -326,9 +318,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
-    <!-- =========================================
-         § CTA FINAL
-    ========================================= -->
+    
     <section
       class="py-32 bg-verde text-negro text-center relative overflow-hidden"
     >
@@ -397,7 +387,7 @@ import Footer from "../../components/Footer.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Hero
+
   const tl = gsap.timeline();
   tl.to(".hero-reveal", {
     opacity: 1,
@@ -422,7 +412,7 @@ import Footer from "../../components/Footer.astro";
   );
   tl.to(".scroll-prompt", { opacity: 1, duration: 1 }, "-=0.5");
 
-  // Use Cases
+
   gsap.to(".section-title", {
     scrollTrigger: { trigger: ".section-title", start: "top 85%", once: true },
     opacity: 1,
@@ -445,7 +435,7 @@ import Footer from "../../components/Footer.astro";
     });
   });
 
-  // Terminal
+
   gsap.to(".term-title", {
     scrollTrigger: { trigger: ".term-title", start: "top 85%", once: true },
     opacity: 1,
@@ -462,7 +452,7 @@ import Footer from "../../components/Footer.astro";
     ease: "power3.out",
   });
 
-  // Reset animations when scrolled into view so the terminal plays from 0
+
   ScrollTrigger.create({
     trigger: ".term-mockup",
     start: "top 70%",
@@ -474,11 +464,11 @@ import Footer from "../../components/Footer.astro";
         duration: 1.2,
         ease: "power3.out",
       });
-      // Remove animation-delay via a hack class if needed, but CSS handles it
+
     },
   });
 
-  // Features
+
   gsap.utils.toArray(".feat-card").forEach((feat, i) => {
     gsap.to(feat as HTMLElement, {
       scrollTrigger: {

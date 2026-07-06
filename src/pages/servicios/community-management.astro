@@ -11,13 +11,11 @@ import Footer from "../../components/Footer.astro";
   <Header />
 
   <main class="bg-[#fafafa] text-negro min-h-screen overflow-hidden">
-    <!-- =========================================
-         § HERO SECTION
-    ========================================= -->
+    
     <section
       class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20"
     >
-      <!-- Background Abstract Shapes (CSS) -->
+      
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div
           class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-rosa/10 rounded-full blur-[80px] animate-pulse"
@@ -92,7 +90,7 @@ import Footer from "../../components/Footer.astro";
         </div>
       </div>
 
-      <!-- Scroll prompt -->
+      
       <div
         class="scroll-prompt absolute bottom-10 left-16 flex items-center gap-4 opacity-0"
       >
@@ -108,9 +106,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
-    <!-- =========================================
-         § DASHBOARD SOCIAL (INTERACTIVO)
-    ========================================= -->
+    
     <section
       class="py-32 px-6 md:px-16 bg-blanco border-y border-negro/5 overflow-hidden"
     >
@@ -130,11 +126,11 @@ import Footer from "../../components/Footer.astro";
           </p>
         </div>
 
-        <!-- Social Dashboard Mockup -->
+        
         <div
           class="term-mockup opacity-0 translate-y-20 bg-blanco rounded-xl shadow-[0_30px_100px_rgba(255,0,92,0.1)] border border-negro/5 overflow-hidden max-w-5xl mx-auto"
         >
-          <!-- Top -->
+          
           <div
             class="flex items-center justify-between p-6 border-b border-negro/5 bg-[#fafafa]"
           >
@@ -164,7 +160,7 @@ import Footer from "../../components/Footer.astro";
             </div>
           </div>
 
-          <!-- Content -->
+          
           <div class="p-8">
             <div class="grid grid-cols-4 gap-4 mb-8">
               {
@@ -197,7 +193,7 @@ import Footer from "../../components/Footer.astro";
               }
             </div>
 
-            <!-- Campaign List -->
+            
             <div class="border border-negro/5 rounded-lg overflow-hidden">
               <div
                 class="grid grid-cols-12 gap-4 p-4 border-b border-negro/5 bg-[#fafafa] font-mono text-[10px] uppercase tracking-widest text-negro/40"
@@ -271,9 +267,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
-    <!-- =========================================
-         § PROCESO CM
-    ========================================= -->
+    
     <section class="py-32 px-6 md:px-16 bg-[#fafafa]">
       <div class="max-w-7xl mx-auto">
         <h2
@@ -321,9 +315,7 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
-    <!-- =========================================
-         § CTA FINAL
-    ========================================= -->
+    
     <section
       class="py-32 bg-rosa text-blanco text-center relative overflow-hidden"
     >
@@ -387,7 +379,7 @@ import Footer from "../../components/Footer.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Hero
+
   const tl = gsap.timeline();
   tl.to(".hero-reveal", {
     opacity: 1,
@@ -412,7 +404,7 @@ import Footer from "../../components/Footer.astro";
   );
   tl.to(".scroll-prompt", { opacity: 1, duration: 1 }, "-=0.5");
 
-  // Mockup Dashboard
+
   gsap.to(".term-title", {
     scrollTrigger: { trigger: ".term-title", start: "top 85%", once: true },
     opacity: 1,
@@ -436,7 +428,7 @@ import Footer from "../../components/Footer.astro";
     ease: "power3.out",
   });
 
-  // Steps
+
   gsap.utils.toArray(".cm-step").forEach((step, i) => {
     gsap.to(step as HTMLElement, {
       scrollTrigger: {

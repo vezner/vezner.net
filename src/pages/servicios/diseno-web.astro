@@ -12,9 +12,7 @@ import Footer from '../../components/Footer.astro';
   
   <main class="bg-blanco min-h-screen overflow-hidden">
     
-    <!-- =========================================
-         § HERO SECTION
-    ========================================= -->
+    
     <section class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20">
       <div class="absolute inset-0 pointer-events-none z-0 opacity-10"
            style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 50px 50px;">
@@ -61,9 +59,7 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
 
-    <!-- =========================================
-         § PROBLEMA VS SOLUCIÓN
-    ========================================= -->
+    
     <section class="py-32 bg-negro text-blanco relative overflow-hidden">
       <div class="container mx-auto px-6 md:px-16 max-w-7xl relative z-10">
         
@@ -94,9 +90,7 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
 
-    <!-- =========================================
-         § CARACTERÍSTICAS TÉCNICAS
-    ========================================= -->
+    
     <section class="py-32 px-6 md:px-16 bg-blanco">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-20">
@@ -121,9 +115,7 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
 
-    <!-- =========================================
-         § CTA FINAL
-    ========================================= -->
+    
     <section class="py-32 bg-negro text-blanco text-center relative overflow-hidden">
       <div class="absolute inset-0 z-0">
         <div class="absolute inset-0 bg-gradient-to-b from-negro to-[#111]"></div>
@@ -164,7 +156,7 @@ import Footer from '../../components/Footer.astro';
   
   gsap.registerPlugin(ScrollTrigger);
   
-  // Hero Anim
+
   const tl = gsap.timeline();
   tl.to('.hero-reveal', { opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 });
   tl.to('.title-line', { y: '0%', duration: 1.2, stagger: 0.15, ease: 'power4.out' }, '-=0.6');
@@ -172,7 +164,7 @@ import Footer from '../../components/Footer.astro';
   tl.to('.hero-stats', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.8');
   tl.to('.scroll-prompt', { opacity: 1, duration: 1 }, '-=0.5');
 
-  // VS Cards
+
   gsap.utils.toArray('.vs-card').forEach((card, i) => {
     gsap.to(card as HTMLElement, {
       scrollTrigger: { trigger: card as HTMLElement, start: 'top 85%', once: true },
@@ -180,15 +172,15 @@ import Footer from '../../components/Footer.astro';
     });
   });
 
-  // Section titles
+
   gsap.to('.section-title', {
     scrollTrigger: { trigger: '.section-title', start: 'top 85%', once: true },
     opacity: 1, y: 0, duration: 1, ease: 'power4.out'
   });
 
-  // Features
+
   gsap.utils.toArray('.feat-card').forEach((feat, i) => {
-    // Start from y: 50 in GSAP directly to avoid conflict with CSS classes
+
     gsap.fromTo(feat as HTMLElement, 
       { opacity: 0, y: 50 },
       {

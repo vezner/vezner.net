@@ -86,7 +86,7 @@ import Footer from "../components/Footer.astro";
         >
           <a
             href="/contacto"
-            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden rounded-md hover:rounded-none transition-all duration-300 border border-transparent"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden"
           >
             <span class="relative z-10">Iniciar Proyecto</span>
             <span
@@ -99,7 +99,7 @@ import Footer from "../components/Footer.astro";
           </a>
           <a
             href="#servicios"
-            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro rounded-md hover:rounded-none transition-all duration-300"
+            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro transition-colors duration-300"
           >
             <span
               class="relative z-10 group-hover:text-blanco transition-colors duration-300"
@@ -218,9 +218,9 @@ import Footer from "../components/Footer.astro";
         </div>
 
         <div
-          class="relative flex items-center justify-center md:justify-start min-h-[60vh]"
+          class="grid md:grid-cols-[1fr_1.6fr] gap-16 md:gap-24 items-center"
         >
-          <div class="space-y-0 relative z-10 w-full md:pl-24 lg:pl-32">
+          <div class="space-y-0 pl-12 md:pl-24">
             {
               [
                 { text: "No construimos", faded: false },
@@ -240,7 +240,7 @@ import Footer from "../components/Footer.astro";
                   <div class="overflow-hidden">
                     <p
                       class={`manifesto-reveal font-display leading-[0.88] ${line.faded ? "text-negro/20" : line.color ? `${line.color} selection:bg-negro selection:text-blanco` : "text-negro"}`}
-                      style={`font-size: clamp(56px, 7.5vw, 125px); transform: translateY(110%); ${line.glow ? `text-shadow: 0 0 40px rgba(${line.glow},0.2);` : ""}`}
+                      style={`font-size: clamp(56px, 6.5vw, 125px); transform: translateY(110%); ${line.glow ? `text-shadow: 0 0 40px rgba(${line.glow},0.2);` : ""}`}
                     >
                       {line.text}
                     </p>
@@ -251,14 +251,14 @@ import Footer from "../components/Footer.astro";
           </div>
 
           <div
-            class="manifesto-lottie hidden md:flex absolute top-1/2 right-[5%] -translate-y-1/2 z-5 opacity-0 pointer-events-none"
+            class="manifesto-lottie hidden md:flex items-center justify-center opacity-0"
+            style="transform: scale(0.92);"
           >
-            <img
-              src="/assets/insfraestructure-animation.svg"
-              alt="Infraestructura"
-              class="w-[650px] lg:w-[750px]"
-              style="height: auto;"
-            />
+            <canvas
+              id="manifesto-lottie-canvas"
+              width="800"
+              height="800"
+              style="width: 100%; height: auto; max-width: 600px;"></canvas>
           </div>
         </div>
 
@@ -535,42 +535,37 @@ import Footer from "../components/Footer.astro";
                 titulo: "Diagnóstico",
                 desc: "Analizamos tu negocio, tu competencia y tus objetivos. Definimos el alcance real del proyecto sin adornos.",
                 duracion: "1–2 días",
-                color: "#ff005c",
               },
               {
                 num: "02",
                 titulo: "Propuesta técnica",
                 desc: "Entregamos un plan detallado: tecnologías, cronograma, hitos de entrega y precio cerrado. Sin sorpresas.",
                 duracion: "2–3 días",
-                color: "#0057ff",
               },
               {
                 num: "03",
                 titulo: "Desarrollo",
                 desc: "Construimos en sprints cortos con revisiones frecuentes. Acceso en tiempo real al estado del proyecto.",
                 duracion: "Según scope",
-                color: "#00c851",
               },
               {
                 num: "04",
                 titulo: "QA y entrega",
                 desc: "Pruebas exhaustivas, correcciones, documentación y capacitación. Entregamos cuando está perfecto, no antes.",
                 duracion: "3–5 días",
-                color: "#ffd700",
               },
               {
                 num: "05",
                 titulo: "Soporte continuo",
                 desc: "Mantenimiento activo, monitoreo y mejoras iterativas. La relación no termina con la entrega.",
                 duracion: "Ongoing",
-                color: "#ff3c00",
               },
             ].map((paso, i) => (
               <div
                 class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-negro/8 hover:bg-negro/1.5 transition-colors duration-300"
-                style={`opacity:0; transform:translateY(24px); --hover-c: ${paso.color};`}
+                style={`opacity:0; transform:translateY(24px);`}
               >
-                <span class="proceso-num font-display text-5xl text-negro/10 leading-none transition-colors duration-300">
+                <span class="font-display text-5xl text-negro/10 leading-none group-hover:text-negro/20 transition-colors duration-300">
                   {paso.num}
                 </span>
                 <div>
@@ -662,7 +657,7 @@ import Footer from "../components/Footer.astro";
           >
             <a
               href="/contacto"
-              class="cta-btn group relative inline-flex items-center gap-4 border border-blanco/20 text-blanco px-12 py-5 font-mono text-sm tracking-widest uppercase overflow-hidden hover:border-blanco rounded-md hover:rounded-none transition-all duration-300"
+              class="cta-btn group relative inline-flex items-center gap-4 border border-blanco/20 text-blanco px-12 py-5 font-mono text-sm tracking-widest uppercase overflow-hidden hover:border-blanco transition-colors duration-300"
             >
               <span
                 class="relative z-10 group-hover:text-negro transition-colors duration-400"
@@ -915,57 +910,76 @@ import Footer from "../components/Footer.astro";
       );
       camera.position.set(0, 0, 10);
 
-      // Luces Difuminadas (Halos suaves)
-      const lights: any[] = [];
-      const colors = [
-        { hex: 0x00ff73, css: "rgba(0, 255, 115, 1)" },
-        { hex: 0xff005c, css: "rgba(255, 0, 92, 1)" },
-        { hex: 0xffcc00, css: "rgba(255, 204, 0, 1)" },
-        { hex: 0x00aaff, css: "rgba(0, 170, 255, 1)" },
-      ];
+      const geometry = new THREE.PlaneGeometry(40, 40, 20, 20);
+      const posAttribute = geometry.attributes.position;
 
-      // Función para crear textura de halo difuminado
-      function createGlowTexture(colorStr: string) {
-        const canvas = document.createElement("canvas");
-        canvas.width = 256;
-        canvas.height = 256;
-        const ctx = canvas.getContext("2d")!;
-        const gradient = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
-        gradient.addColorStop(0, colorStr);
-        gradient.addColorStop(0.5, colorStr.replace("1)", "0.5)"));
-        gradient.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 256, 256);
-        return new THREE.CanvasTexture(canvas);
+      for (let i = 0; i < posAttribute.count; i++) {
+        const z = (Math.random() - 0.5) * 1.5;
+        posAttribute.setZ(i, z);
       }
+      geometry.computeVertexNormals();
 
-      colors.forEach((col) => {
-        const spriteMat = new THREE.SpriteMaterial({
-          map: createGlowTexture(col.css),
-          color: 0xffffff,
-          transparent: true,
-          blending: THREE.AdditiveBlending,
-          depthWrite: false,
-        });
-        const sprite = new THREE.Sprite(spriteMat);
+      const material = new THREE.MeshPhysicalMaterial({
+        color: 0xffffff,
+        metalness: 0.1,
+        roughness: 0.1,
+        transmission: 1.0,
+        ior: 1.5,
+        thickness: 2.0,
+        transparent: true,
+        flatShading: true,
+      });
 
-        sprite.scale.set(40, 40, 1);
+      const plane = new THREE.Mesh(geometry, material);
+      plane.position.z = 2;
+      scene.add(plane);
 
-        sprite.position.set(
-          (Math.random() - 0.5) * 30,
-          (Math.random() - 0.5) * 30,
-          -20,
+      const lights: any[] = [];
+      const colors = [0x00ff73, 0xff005c, 0xffcc00, 0x00aaff];
+      const sphereGeo = new THREE.SphereGeometry(3, 32, 32);
+
+      colors.forEach((col, i) => {
+        // Create a glowing physical sphere so the glass has something to refract
+        const sphereMat = new THREE.MeshBasicMaterial({ color: col });
+        const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+
+        const light = new THREE.PointLight(col, 100, 30);
+        sphere.add(light); // Attach light to the sphere
+
+        sphere.position.set(
+          (Math.random() - 0.5) * 20,
+          (Math.random() - 0.5) * 20,
+          -4, // Further behind the plane
         );
-        scene.add(sprite);
+        scene.add(sphere);
 
         lights.push({
-          mesh: sprite,
+          mesh: sphere,
           angX: Math.random() * Math.PI * 2,
           angY: Math.random() * Math.PI * 2,
-          speed: 0.1 + Math.random() * 0.1,
-          radius: 10 + Math.random() * 10,
+          speed: 0.2 + Math.random() * 0.3,
+          radius: 5 + Math.random() * 8,
         });
       });
+
+      scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1.0);
+      dirLight.position.set(5, 5, 10);
+      scene.add(dirLight);
+
+      let mX = 0,
+        mY = 0;
+      let targetX = 0,
+        targetY = 0;
+
+      document.addEventListener(
+        "mousemove",
+        (e) => {
+          targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+          targetY = -(e.clientY / window.innerHeight - 0.5) * 2;
+        },
+        { passive: true },
+      );
 
       window.addEventListener("resize", () => {
         camera.aspect = window.innerWidth / window.innerHeight;
@@ -979,12 +993,25 @@ import Footer from "../components/Footer.astro";
         requestAnimationFrame(animarThree);
         const t = reloj.getElapsedTime();
 
-        // Mover las luces en órbitas caóticas de forma autónoma y fluida
+        mX += (targetX - mX) * 0.05;
+        mY += (targetY - mY) * 0.05;
+
+        const posiciones = plane.geometry.attributes.position;
+        for (let i = 0; i < posiciones.count; i++) {
+          const uX = posiciones.getX(i);
+          const uY = posiciones.getY(i);
+          const baseZ =
+            (Math.sin(uX * 2 + t * 0.5) + Math.cos(uY * 2 + t * 0.5)) * 0.15;
+        }
+
+        plane.rotation.x = mY * 0.1;
+        plane.rotation.y = mX * 0.1;
+
         lights.forEach((l, i) => {
-          l.angX += l.speed * 0.005;
-          l.angY += l.speed * 0.007;
-          l.mesh.position.x = Math.cos(l.angX) * l.radius;
-          l.mesh.position.y = Math.sin(l.angY) * l.radius;
+          l.angX += l.speed * 0.01;
+          l.angY += l.speed * 0.015;
+          l.mesh.position.x = Math.cos(l.angX) * l.radius + mX * 5;
+          l.mesh.position.y = Math.sin(l.angY) * l.radius + mY * 5;
         });
 
         renderer.render(scene, camera);
@@ -1079,8 +1106,19 @@ import Footer from "../components/Footer.astro";
       },
     });
 
-    const manifestoAsset = document.querySelector(".manifesto-lottie");
-    if (manifestoAsset) {
+    const manifestoCanvas = document.getElementById(
+      "manifesto-lottie-canvas",
+    ) as HTMLCanvasElement;
+    if (manifestoCanvas) {
+      new DotLottie({
+        canvas: manifestoCanvas,
+        src: "/assets/logo.lottie",
+        loop: true,
+        autoplay: true,
+        speed: 0.7,
+        useFrameInterpolation: true,
+      });
+
       ScrollTrigger.create({
         trigger: "#manifiesto",
         start: "top 70%",
@@ -1180,10 +1218,4 @@ import Footer from "../components/Footer.astro";
       });
     });
   </script>
-
-  <style is:global>
-    .proceso-step:hover .proceso-num {
-      color: var(--hover-c);
-    }
-  </style>
 </Layout>

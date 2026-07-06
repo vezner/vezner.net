@@ -1,0 +1,28 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="404 — Página no encontrada — VEZNER" description="La página que buscás no existe. VEZNER, Córdoba.">
+  <Header />
+  <main class="bg-blanco min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <p class="font-mono text-xs tracking-[0.4em] uppercase text-negro/30 mb-6">Error 404</p>
+    <h1 class="font-display text-[clamp(120px,25vw,300px)] leading-none text-negro/5 select-none mb-8">404</h1>
+    <p class="font-display text-[clamp(32px,5vw,64px)] text-negro leading-none mb-6 -mt-16 md:-mt-24 relative z-10">
+      Página no encontrada.
+    </p>
+    <p class="font-mono text-sm text-negro/50 max-w-md mb-10 leading-relaxed">
+      La URL que ingresaste no existe o fue movida. Podés volver al inicio o contactarnos directamente.
+    </p>
+    <div class="flex gap-4">
+      <a href="/" class="bg-negro text-blanco px-8 py-4 font-mono text-xs tracking-widest uppercase hover:bg-negro/80 transition-colors duration-300">
+        Volver al inicio
+      </a>
+      <a href="/contacto" class="border border-negro text-negro px-8 py-4 font-mono text-xs tracking-widest uppercase hover:bg-negro hover:text-blanco transition-all duration-300">
+        Contacto
+      </a>
+    </div>
+  </main>
+  <Footer />
+</Layout>

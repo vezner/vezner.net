@@ -86,7 +86,7 @@ import Footer from "../components/Footer.astro";
         >
           <a
             href="/contacto"
-            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden rounded-md hover:rounded-none transition-all duration-300 border border-transparent"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden"
           >
             <span class="relative z-10">Iniciar Proyecto</span>
             <span
@@ -99,7 +99,7 @@ import Footer from "../components/Footer.astro";
           </a>
           <a
             href="#servicios"
-            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro rounded-md hover:rounded-none transition-all duration-300"
+            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro transition-colors duration-300"
           >
             <span
               class="relative z-10 group-hover:text-blanco transition-colors duration-300"
@@ -256,7 +256,7 @@ import Footer from "../components/Footer.astro";
             <img
               src="/assets/insfraestructure-animation.svg"
               alt="Infraestructura"
-              class="w-[650px] lg:w-[750px]"
+              class="w-[650px] lg:w-[750px] opacity-80"
               style="height: auto;"
             />
           </div>
@@ -535,42 +535,37 @@ import Footer from "../components/Footer.astro";
                 titulo: "Diagnóstico",
                 desc: "Analizamos tu negocio, tu competencia y tus objetivos. Definimos el alcance real del proyecto sin adornos.",
                 duracion: "1–2 días",
-                color: "#ff005c",
               },
               {
                 num: "02",
                 titulo: "Propuesta técnica",
                 desc: "Entregamos un plan detallado: tecnologías, cronograma, hitos de entrega y precio cerrado. Sin sorpresas.",
                 duracion: "2–3 días",
-                color: "#0057ff",
               },
               {
                 num: "03",
                 titulo: "Desarrollo",
                 desc: "Construimos en sprints cortos con revisiones frecuentes. Acceso en tiempo real al estado del proyecto.",
                 duracion: "Según scope",
-                color: "#00c851",
               },
               {
                 num: "04",
                 titulo: "QA y entrega",
                 desc: "Pruebas exhaustivas, correcciones, documentación y capacitación. Entregamos cuando está perfecto, no antes.",
                 duracion: "3–5 días",
-                color: "#ffd700",
               },
               {
                 num: "05",
                 titulo: "Soporte continuo",
                 desc: "Mantenimiento activo, monitoreo y mejoras iterativas. La relación no termina con la entrega.",
                 duracion: "Ongoing",
-                color: "#ff3c00",
               },
             ].map((paso, i) => (
               <div
                 class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-negro/8 hover:bg-negro/1.5 transition-colors duration-300"
-                style={`opacity:0; transform:translateY(24px); --hover-c: ${paso.color};`}
+                style={`opacity:0; transform:translateY(24px);`}
               >
-                <span class="proceso-num font-display text-5xl text-negro/10 leading-none transition-colors duration-300">
+                <span class="font-display text-5xl text-negro/10 leading-none group-hover:text-negro/20 transition-colors duration-300">
                   {paso.num}
                 </span>
                 <div>
@@ -662,7 +657,7 @@ import Footer from "../components/Footer.astro";
           >
             <a
               href="/contacto"
-              class="cta-btn group relative inline-flex items-center gap-4 border border-blanco/20 text-blanco px-12 py-5 font-mono text-sm tracking-widest uppercase overflow-hidden hover:border-blanco rounded-md hover:rounded-none transition-all duration-300"
+              class="cta-btn group relative inline-flex items-center gap-4 border border-blanco/20 text-blanco px-12 py-5 font-mono text-sm tracking-widest uppercase overflow-hidden hover:border-blanco transition-colors duration-300"
             >
               <span
                 class="relative z-10 group-hover:text-negro transition-colors duration-400"
@@ -1180,10 +1175,4 @@ import Footer from "../components/Footer.astro";
       });
     });
   </script>
-
-  <style is:global>
-    .proceso-step:hover .proceso-num {
-      color: var(--hover-c);
-    }
-  </style>
 </Layout>

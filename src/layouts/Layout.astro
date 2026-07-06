@@ -147,6 +147,9 @@ const schemaOrg = {
         margin: 0;
         padding: 0;
       }
+      .font-mono {
+        font-family: "Outfit", "Inter", system-ui, sans-serif !important;
+      }
       html {
         background: #ffffff;
         color: #0a0a0a;
@@ -164,6 +167,41 @@ const schemaOrg = {
       html.lenis body {
         height: auto;
       }
+
+      /* Global Border Radius & Animations para Tarjetas (Sin romper GSAP) */
+      .servicio-card, .servicio-card-simple,
+      .use-case, .vs-card, .term-mockup {
+        border-radius: 0.375rem !important;
+        transition-property: border-radius, background-color, border-color, color !important;
+        transition-duration: 400ms !important;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      .servicio-card:hover, .servicio-card-simple:hover,
+      .use-case:hover, .vs-card:hover, .term-mockup:hover {
+        border-radius: 0 !important;
+      }
+
+      /* Global Border Radius & Animations para TODOS los Botones */
+      button, 
+      a.btn-primary, 
+      a.btn-secondary, 
+      a.cta-btn, 
+      a.social-icon-btn, 
+      a[id$="-cta"] {
+        border-radius: 0.375rem !important;
+        transition-property: all !important;
+        transition-duration: 300ms !important;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      button:hover, 
+      a.btn-primary:hover, 
+      a.btn-secondary:hover, 
+      a.cta-btn:hover, 
+      a.social-icon-btn:hover, 
+      a[id$="-cta"]:hover {
+        border-radius: 0 !important;
+      }
+
       .lenis.lenis-smooth {
         scroll-behavior: auto !important;
       }

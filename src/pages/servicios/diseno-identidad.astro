@@ -1,0 +1,242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Diseño de Identidad — VEZNER"
+  description="Branding y diseño de identidad visual. Creamos marcas brutalistas, minimalistas y de altísima gama. Córdoba, Argentina."
+>
+  <Header theme="dark" />
+  
+  <main class="bg-negro text-blanco min-h-screen overflow-hidden">
+    
+    <!-- =========================================
+         § HERO SECTION
+    ========================================= -->
+    <section class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20">
+      
+      <!-- Background Abstract Geometry -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <svg class="absolute top-1/2 left-[60%] -translate-y-1/2 w-[800px] h-[800px] opacity-[0.03] animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="48" fill="none" stroke="#ffd700" stroke-width="0.5"/>
+          <rect x="15" y="15" width="70" height="70" fill="none" stroke="#ffd700" stroke-width="0.5" transform="rotate(45 50 50)"/>
+          <polygon points="50,2 98,75 2,75" fill="none" stroke="#ffd700" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div class="w-12 h-px bg-yellow-400/40"></div>
+          <span class="font-mono text-xs tracking-[0.4em] uppercase text-yellow-400/50">Servicios / 05</span>
+        </div>
+        
+        <h1 class="font-display text-[clamp(60px,12vw,180px)] leading-none text-blanco uppercase mb-12">
+          <span class="block overflow-hidden pt-12 -mt-12"><span class="title-line block translate-y-full">Diseño &</span></span>
+          <span class="block overflow-hidden pt-12 -mt-12"><span class="title-line block translate-y-full text-yellow-400">Identidad</span></span>
+        </h1>
+        
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
+          <p class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg">
+            Alejados de lo genérico. Diseñamos marcas con presencia absoluta. Brutalismo, minimalismo extremo y precisión matemática en cada trazado de tu nueva identidad visual.
+          </p>
+          
+          <div class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8">
+            <div class="border-l border-yellow-400/30 pl-4">
+              <p class="font-display text-4xl text-blanco">1:1.618</p>
+              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Proporción</p>
+            </div>
+            <div class="border-l border-yellow-400/30 pl-4">
+              <p class="font-display text-4xl text-blanco">SVG</p>
+              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Vectores</p>
+            </div>
+            <div class="border-l border-yellow-400/30 pl-4">
+              <p class="font-display text-4xl text-blanco">RGB/CMYK</p>
+              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Color Profiles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scroll prompt -->
+      <div class="scroll-prompt absolute bottom-10 left-16 flex items-center gap-4 opacity-0">
+        <div class="w-px h-12 bg-blanco/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1/2 bg-yellow-400 animate-[scrollPulse_2s_ease-in-out_infinite]"></div>
+        </div>
+        <span class="font-mono text-xs tracking-widest uppercase text-blanco/30">Explorar</span>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § MOODBOARD / BRANDING UI
+    ========================================= -->
+    <section class="py-32 px-6 md:px-16 bg-[#0a0a0a] border-y border-blanco/5 overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <h2 class="font-display text-6xl md:text-8xl text-blanco mb-6 term-title opacity-0 translate-y-10">ANATOMÍA<br/>DE UNA MARCA</h2>
+          <p class="font-mono text-sm text-blanco/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10">Un logo no es una marca. Un manual de marca establece las leyes visuales que harán que tu empresa sea reconocida instantáneamente en cualquier medio.</p>
+        </div>
+        
+        <!-- Branding Mockup -->
+        <div class="term-mockup opacity-0 translate-y-20 bg-[#111] rounded-xl shadow-2xl overflow-hidden border border-blanco/10 max-w-5xl mx-auto p-2">
+          
+          <div class="border border-blanco/5 h-[500px] flex">
+            <!-- Izquierda: Paleta y Tipografía -->
+            <div class="w-1/3 border-r border-blanco/5 p-8 flex flex-col justify-between">
+              <div>
+                <h4 class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-6">Color System</h4>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-[#0a0a0a] border border-blanco/10"></div>
+                    <div>
+                      <div class="font-mono text-sm">#0A0A0A</div>
+                      <div class="font-mono text-[10px] text-blanco/40">Primary Dark</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blanco border border-blanco/10"></div>
+                    <div>
+                      <div class="font-mono text-sm text-blanco">#FFFFFF</div>
+                      <div class="font-mono text-[10px] text-blanco/40">Pure White</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-yellow-400 border border-blanco/10"></div>
+                    <div>
+                      <div class="font-mono text-sm text-yellow-400">#FFD700</div>
+                      <div class="font-mono text-[10px] text-blanco/40">Accent Gold</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="pt-8 border-t border-blanco/5">
+                <h4 class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-6">Typography</h4>
+                <div class="font-display text-4xl mb-2">BEBAS NEUE</div>
+                <div class="font-mono text-xs text-blanco/40 mb-6">Headings / Display</div>
+                
+                <div class="font-sans text-xl mb-1">Inter Medium</div>
+                <div class="font-mono text-xs text-blanco/40">Body / UI Text</div>
+              </div>
+            </div>
+            
+            <!-- Derecha: Logo Geometry -->
+            <div class="w-2/3 bg-[#050505] relative flex items-center justify-center p-8 overflow-hidden group">
+              <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+              
+              <!-- Golden Ratio Guides -->
+              <svg viewBox="0 0 400 400" class="w-full h-full max-w-sm absolute opacity-20 group-hover:opacity-100 transition-opacity duration-1000">
+                <circle cx="200" cy="200" r="160" fill="none" stroke="#ffd700" stroke-width="1" stroke-dasharray="4 4" />
+                <circle cx="200" cy="200" r="100" fill="none" stroke="#ffd700" stroke-width="1" stroke-dasharray="4 4" />
+                <circle cx="200" cy="200" r="61.8" fill="none" stroke="#ffd700" stroke-width="1" stroke-dasharray="4 4" />
+                <line x1="200" y1="0" x2="200" y2="400" stroke="#ffd700" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="0" y1="200" x2="400" y2="200" stroke="#ffd700" stroke-width="1" stroke-dasharray="4 4"/>
+              </svg>
+              
+              <div class="relative z-10 font-display text-[120px] tracking-tight leading-none text-blanco">
+                VEZNER
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § ENTREGABLES
+    ========================================= -->
+    <section class="py-32 px-6 md:px-16 bg-negro">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-display text-4xl md:text-6xl text-blanco mb-16 text-center">NUESTRO ENFOQUE</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { n: '01', t: 'Investigación', d: 'Auditoría de marca actual, análisis de competidores directos y posicionamiento deseado en el mercado.' },
+            { n: '02', t: 'Conceptualización', d: 'Bocetos y diseño del isotipo/logotipo basados en geometrías perfectas y grillas matemáticas.' },
+            { n: '03', t: 'Desarrollo de UI', d: 'Elección de paletas de color con perfiles RGB/CMYK y jerarquías tipográficas completas.' },
+            { n: '04', t: 'Manual de Marca', d: 'Entrega del Brandbook PDF con reglas de uso, restricciones, mockups y assets vectoriales (SVG, EPS).' },
+          ].map((item, i) => (
+            <div class="id-step opacity-0 translate-y-12">
+              <div class="font-display text-6xl text-yellow-400/20 mb-4">{item.n}</div>
+              <h4 class="font-mono text-lg font-bold mb-3">{item.t}</h4>
+              <p class="font-mono text-xs text-blanco/50 leading-relaxed">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § CTA FINAL
+    ========================================= -->
+    <section class="py-32 bg-yellow-400 text-negro text-center relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-negro/10 to-transparent"></div>
+      </div>
+      
+      <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-6xl md:text-8xl mb-8 cta-title">Destacá entre<br/>el ruido</h2>
+        <p class="font-mono text-sm text-negro/80 mb-12 uppercase tracking-widest cta-desc">Diseño brutalista y premium.</p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns">
+          <a href="/contacto" class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden">
+            <span class="relative z-10">Renovar mi marca</span>
+            <span class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+            <span class="absolute inset-0 bg-blanco translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out"></span>
+          </a>
+          <a href="/#servicios" class="group relative inline-flex items-center gap-3 border border-negro/30 text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-negro/10 transition-colors duration-300">
+            Ver otros servicios
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .btn-primary:hover span:first-child,
+  .btn-primary:hover span:nth-child(2) {
+    color: #0a0a0a;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Hero
+  const tl = gsap.timeline();
+  tl.to('.hero-reveal', { opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 });
+  tl.to('.title-line', { y: '0%', duration: 1.2, stagger: 0.15, ease: 'power4.out' }, '-=0.6');
+  tl.to('.hero-desc', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.8');
+  tl.to('.hero-stats', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.8');
+  tl.to('.scroll-prompt', { opacity: 1, duration: 1 }, '-=0.5');
+
+  // Mockup Dashboard
+  gsap.to('.term-title', {
+    scrollTrigger: { trigger: '.term-title', start: 'top 85%', once: true },
+    opacity: 1, y: 0, duration: 1, ease: 'power4.out'
+  });
+  gsap.to('.term-desc', {
+    scrollTrigger: { trigger: '.term-title', start: 'top 85%', once: true },
+    opacity: 1, y: 0, duration: 1, delay: 0.2, ease: 'power3.out'
+  });
+  gsap.to('.term-mockup', {
+    scrollTrigger: { trigger: '.term-mockup', start: 'top 75%', once: true },
+    opacity: 1, y: 0, duration: 1.2, ease: 'power3.out'
+  });
+
+  // Steps
+  gsap.utils.toArray('.id-step').forEach((step, i) => {
+    gsap.to(step as HTMLElement, {
+      scrollTrigger: { trigger: (step as HTMLElement).parentElement, start: 'top 85%', once: true },
+      opacity: 1, y: 0, duration: 0.8, delay: i * 0.15, ease: 'power3.out'
+    });
+  });
+</script>

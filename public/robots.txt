@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Bloquear páginas internas sin valor SEO
+Disallow: /api/
+Disallow: /_astro/
+
+# Sitemap
+Sitemap: https://vezner.net/sitemap.xml
+
+# Crawl-delay recomendado para bots pesados
+Crawl-delay: 2

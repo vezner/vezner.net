@@ -1,0 +1,762 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  pageType?: "website" | "article" | "service";
+  noindex?: boolean;
+}
+
+const {
+  title = "VEZNER — Ingeniería Digital de Alta Gama | Córdoba, Argentina",
+  description = "VEZNER: Agencia de ingeniería digital en Córdoba, Argentina. Diseño web a medida, software Python, community management y diseño de identidad visual. Más de 50 proyectos entregados desde 2024.",
+  keywords = "desarrollo web Córdoba, agencia digital Argentina, software Python a medida, community management Argentina, diseño identidad visual, diseño web, VEZNER, ingeniería digital",
+  ogImage = "/og-image.webp",
+  canonicalUrl,
+  pageType = "website",
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = "https://vezner.net";
+const fullCanonical = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
+const fullOgImage = `${siteUrl}${ogImage}`;
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "VEZNER",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/assets/vezner-text.webp`,
+        width: 200,
+        height: 50,
+      },
+      description:
+        "Agencia de ingeniería digital de alta gama en Córdoba, Argentina.",
+      foundingDate: "2024",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Córdoba",
+        addressCountry: "AR",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: "hola@vezner.net",
+        availableLanguage: ["Spanish"],
+      },
+      sameAs: [
+        "https://x.com/veznerarg",
+        "https://github.com/vezner",
+        "https://youtube.com/@veznerarg",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "VEZNER",
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "es-AR",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${fullCanonical}#webpage`,
+      url: fullCanonical,
+      name: title,
+      description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "es-AR",
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es-AR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="VEZNER" />
+    <meta
+      name="robots"
+      content={noindex
+        ? "noindex,nofollow"
+        : "index,follow,max-image-preview:large,max-snippet:-1"}
+    />
+    <link rel="canonical" href={fullCanonical} />
+    <link rel="alternate" hreflang="es-AR" href={fullCanonical} />
+    <link rel="alternate" hreflang="x-default" href={fullCanonical} />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:site_name" content="VEZNER" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={fullCanonical} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VEZNER — Ingeniería Digital" />
+    <meta property="og:locale" content="es_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@veznerarg" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+    <meta name="twitter:creator" content="@veznerarg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="geo.region" content="AR-X" />
+    <meta name="geo.placename" content="Córdoba, Argentina" />
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+    <style is:global>
+      /* ===== RESET ===== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        background: #ffffff;
+        color: #0a0a0a;
+        font-family: "Outfit", "Inter", system-ui, sans-serif;
+        overflow-x: hidden;
+        height: auto;
+      }
+      body {
+        background: #ffffff;
+        color: #0a0a0a;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Bebas Neue", sans-serif;
+        line-height: 0.9;
+      }
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #0a0a0a;
+      }
+      ::selection {
+        background: #0a0a0a;
+        color: #ffffff;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* ===== CURSOR — SIEMPRE PERSONALIZADO, NUNCA EL DE WINDOWS ===== */
+      /* Ocultar cursor nativo solo si JS cargó con éxito y no es touch */
+      .js-cursor-active,
+      .js-cursor-active * {
+        cursor: none !important;
+      }
+
+      /* El cursor personalizado */
+      #vz-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999;
+        /* Centrado en la punta de la flecha */
+        transform-origin: 4px 2px;
+        will-change: transform;
+        /* Inicialmente invisible hasta primer movimiento */
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      #vz-cursor.visible {
+        opacity: 1;
+      }
+
+      #vz-cursor svg {
+        width: 22px;
+        height: 28px;
+        filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.25));
+        transition: transform 0.15s ease;
+      }
+
+      /* Estado clicked */
+      #vz-cursor.clicking svg {
+        transform: scale(0.85);
+      }
+
+      /* ===== CONTEXT MENU PERSONALIZADO ===== */
+      #vz-context-menu {
+        position: fixed;
+        z-index: 99990;
+        min-width: 220px;
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 6px;
+        transform-origin: top left;
+        transform: scale(0.92);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.15s ease;
+        box-shadow:
+          0 8px 40px rgba(0, 0, 0, 0.35),
+          0 2px 8px rgba(0, 0, 0, 0.2);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      #vz-context-menu.open {
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .ctx-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        cursor: none !important;
+        border-radius: 0;
+        transition:
+          background 0.12s ease,
+          color 0.12s ease;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+
+      .ctx-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 1);
+      }
+
+      .ctx-item i {
+        width: 14px;
+        text-align: center;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.35);
+        flex-shrink: 0;
+      }
+
+      .ctx-item:hover i {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .ctx-sep {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.07);
+        margin: 5px 6px;
+      }
+
+      .ctx-label {
+        padding: 6px 14px 3px;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+      }
+
+      .ctx-item.danger:hover {
+        background: rgba(255, 60, 0, 0.15);
+        color: #ff3c00;
+      }
+      .ctx-item.danger:hover i {
+        color: #ff3c00;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== CURSOR FLECHA PERSONALIZADO ===== -->
+    <div id="vz-cursor" aria-hidden="true" style="transform-origin: 2px 2px;">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.2));"
+      >
+        <path
+          d="M2 2 L22 8 L8 22 Z"
+          fill="#0a0a0a"
+          stroke="#ffffff"
+          stroke-width="1.5"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+
+    <!-- ===== MENÚ CONTEXTUAL ===== -->
+    <div id="vz-context-menu" role="menu" aria-label="Menú contextual"></div>
+
+    <slot />
+
+    <script>
+      import Lenis from "lenis";
+
+      // ===== LENIS =====
+      const lenis = new Lenis({
+        duration: 1.15,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.8,
+      });
+      (window as any).lenisInstance = lenis;
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // ===== CURSOR FLECHA =====
+      const cursor = document.getElementById("vz-cursor") as HTMLElement;
+      let isTouch =
+        window.matchMedia("(hover: none)").matches ||
+        window.matchMedia("(pointer: coarse)").matches;
+
+      if (cursor) {
+        if (isTouch) {
+          cursor.style.display = "none";
+        } else {
+          document.documentElement.classList.add("js-cursor-active");
+        }
+
+        // Failsafe: Si ocurre un toque real en la pantalla, forzar desactivación del cursor
+        window.addEventListener(
+          "touchstart",
+          () => {
+            isTouch = true;
+            cursor.style.display = "none";
+            document.documentElement.classList.remove("js-cursor-active");
+          },
+          { once: true, passive: true },
+        );
+
+        document.addEventListener(
+          "mousemove",
+          (e) => {
+            if (isTouch) return;
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            if (!cursor.classList.contains("visible")) {
+              cursor.classList.add("visible");
+            }
+          },
+          { passive: true },
+        );
+
+        document.addEventListener("mouseleave", () => {
+          if (!isTouch) cursor.classList.remove("visible");
+        });
+        document.addEventListener("mouseenter", () => {
+          if (!isTouch) cursor.classList.add("visible");
+        });
+        document.addEventListener("mousedown", () => {
+          if (!isTouch) cursor.classList.add("clicking");
+        });
+        document.addEventListener("mouseup", () => {
+          if (!isTouch) cursor.classList.remove("clicking");
+        });
+      }
+
+      // ===== MENÚ CONTEXTUAL AVANZADO =====
+      const ctxMenu = document.getElementById("vz-context-menu") as HTMLElement;
+      let ctxOpen = false;
+
+      function buildMenuHTML(
+        items: Array<{
+          type: string;
+          icon?: string;
+          label?: string;
+          href?: string;
+          action?: string;
+          danger?: boolean;
+        }>,
+      ): string {
+        return items
+          .map((item) => {
+            if (item.type === "sep") return `<div class="ctx-sep"></div>`;
+            if (item.type === "label")
+              return `<div class="ctx-label">${item.label}</div>`;
+            const href = item.href ? `href="${item.href}"` : "";
+            const tag = item.href ? "a" : "button";
+            const dangerCls = item.danger ? " danger" : "";
+            const datAction = item.action ? `data-action="${item.action}"` : "";
+            return `<${tag} class="ctx-item${dangerCls}" ${href} ${datAction} role="menuitem">
+            <i class="${item.icon || "fa-regular fa-circle"}"></i>
+            <span>${item.label}</span>
+          </${tag}>`;
+          })
+          .join("");
+      }
+
+      function getContextItems(target: Element): Array<any> {
+        const link = target.closest("a") as HTMLAnchorElement | null;
+        const img = target.closest("img") as HTMLImageElement | null;
+        const isInput = target.closest("input, textarea, select");
+        const isService = target.closest("[data-servicio]");
+        const isSection = target.closest("section");
+
+        // Menú sobre un LINK
+        if (link) {
+          const href = link.href;
+          const isExternal =
+            href &&
+            !href.includes("vezner.net") &&
+            !href.startsWith("/") &&
+            !href.startsWith("#");
+          return [
+            { type: "label", label: "Enlace" },
+            {
+              type: "item",
+              icon: "fa-solid fa-arrow-up-right-from-square",
+              label: isExternal ? "Abrir en nueva pestaña" : "Abrir enlace",
+              href,
+              action: "open-new",
+            },
+            {
+              type: "item",
+              icon: "fa-regular fa-copy",
+              label: "Copiar URL",
+              action: "copy-url",
+              href,
+            },
+            { type: "sep" },
+            { type: "label", label: "VEZNER" },
+            {
+              type: "item",
+              icon: "fa-solid fa-house",
+              label: "Volver al inicio",
+              href: "/",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-envelope",
+              label: "Contactarnos",
+              href: "/contacto",
+            },
+          ];
+        }
+
+        // Menú sobre una IMAGEN
+        if (img) {
+          return [
+            { type: "label", label: "Imagen" },
+            {
+              type: "item",
+              icon: "fa-regular fa-image",
+              label: "Ver imagen",
+              action: "view-img",
+              href: img.src,
+            },
+            {
+              type: "item",
+              icon: "fa-regular fa-copy",
+              label: "Copiar URL de imagen",
+              action: "copy-img-url",
+              href: img.src,
+            },
+            { type: "sep" },
+            { type: "label", label: "VEZNER" },
+            {
+              type: "item",
+              icon: "fa-solid fa-house",
+              label: "Inicio",
+              href: "/",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-envelope",
+              label: "Contacto",
+              href: "/contacto",
+            },
+          ];
+        }
+
+        // Menú sobre INPUT
+        if (isInput) {
+          return [
+            { type: "label", label: "Campo de texto" },
+            {
+              type: "item",
+              icon: "fa-regular fa-paste",
+              label: "Pegar",
+              action: "paste",
+            },
+            {
+              type: "item",
+              icon: "fa-regular fa-copy",
+              label: "Copiar selección",
+              action: "copy-sel",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-xmark",
+              label: "Limpiar campo",
+              action: "clear-input",
+              danger: true,
+            },
+            { type: "sep" },
+            { type: "label", label: "VEZNER" },
+            {
+              type: "item",
+              icon: "fa-solid fa-envelope",
+              label: "Contacto directo",
+              href: "/contacto",
+            },
+          ];
+        }
+
+        // Menú sobre SERVICIO
+        if (isService) {
+          const servEl = isService as HTMLElement;
+          return [
+            {
+              type: "label",
+              label: servEl.dataset.servicio?.toUpperCase() || "SERVICIO",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-arrow-right",
+              label: "Ver servicio",
+              href: servEl.dataset.href || "/#servicios",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-envelope",
+              label: "Solicitar presupuesto",
+              href: "/contacto",
+            },
+            { type: "sep" },
+            { type: "label", label: "Sitio" },
+            {
+              type: "item",
+              icon: "fa-solid fa-house",
+              label: "Inicio",
+              href: "/",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-list",
+              label: "Todos los servicios",
+              href: "/#servicios",
+            },
+          ];
+        }
+
+        // Menú GLOBAL (fondo genérico)
+        return [
+          { type: "label", label: "VEZNER.NET" },
+          {
+            type: "item",
+            icon: "fa-solid fa-house",
+            label: "Inicio",
+            href: "/",
+          },
+          {
+            type: "item",
+            icon: "fa-solid fa-list",
+            label: "Servicios",
+            href: "/#servicios",
+          },
+          {
+            type: "item",
+            icon: "fa-solid fa-envelope",
+            label: "Contacto",
+            href: "/contacto",
+          },
+          { type: "sep" },
+          { type: "label", label: "Herramientas" },
+          {
+            type: "item",
+            icon: "fa-regular fa-copy",
+            label: "Copiar URL actual",
+            action: "copy-url-current",
+          },
+          {
+            type: "item",
+            icon: "fa-solid fa-arrow-up",
+            label: "Ir al inicio de la página",
+            action: "scroll-top",
+          },
+          { type: "sep" },
+          { type: "label", label: "Redes" },
+          {
+            type: "item",
+            icon: "fa-brands fa-instagram",
+            label: "Instagram",
+            href: "https://instagram.com/vezner",
+          },
+          {
+            type: "item",
+            icon: "fa-brands fa-x-twitter",
+            label: "X / Twitter",
+            href: "https://twitter.com/vezner",
+          },
+          {
+            type: "item",
+            icon: "fa-brands fa-github",
+            label: "GitHub",
+            href: "https://github.com/vezner",
+          },
+        ];
+      }
+
+      function openMenu(x: number, y: number, items: Array<any>) {
+        ctxMenu.innerHTML = buildMenuHTML(items);
+
+        // Posición con detección de bordes y offset dinámico
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
+        // Forzar cálculo de dimensiones reales del menú
+        ctxMenu.style.visibility = "hidden";
+        ctxMenu.style.display = "block";
+        const menuW = ctxMenu.offsetWidth || 230;
+        const menuH = ctxMenu.offsetHeight || items.length * 34 + 40;
+        ctxMenu.style.visibility = "visible";
+        ctxMenu.style.display = "";
+
+        // Offset desde la punta del cursor
+        const offset = 2;
+
+        const left = x + offset + menuW > vw ? x - menuW - offset : x + offset;
+        const top = y + offset + menuH > vh ? y - menuH - offset : y + offset;
+
+        ctxMenu.style.left = `${Math.max(2, left)}px`;
+        ctxMenu.style.top = `${Math.max(2, top)}px`;
+        ctxMenu.classList.add("open");
+        ctxOpen = true;
+
+        // Handlers de items del menú
+        ctxMenu.querySelectorAll(".ctx-item").forEach((item) => {
+          item.addEventListener("click", (e) => {
+            const action = (item as HTMLElement).dataset.action;
+            const href = (item as HTMLAnchorElement).href;
+
+            if (action === "copy-url" || action === "copy-img-url") {
+              const url =
+                (item as HTMLElement).dataset.action === "copy-url"
+                  ? href
+                  : (item as HTMLElement).getAttribute("href") || "";
+              navigator.clipboard?.writeText(url).catch(() => {});
+            } else if (action === "copy-url-current") {
+              navigator.clipboard
+                ?.writeText(window.location.href)
+                .catch(() => {});
+            } else if (action === "scroll-top") {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else if (action === "paste") {
+              const active = document.activeElement as HTMLInputElement;
+              if (
+                (active && active.tagName === "INPUT") ||
+                (active as HTMLElement)?.tagName === "TEXTAREA"
+              ) {
+                navigator.clipboard
+                  ?.readText()
+                  .then((t) => {
+                    (active as HTMLInputElement).value += t;
+                  })
+                  .catch(() => {});
+              }
+            } else if (action === "copy-sel") {
+              const sel = window.getSelection()?.toString();
+              if (sel) navigator.clipboard?.writeText(sel).catch(() => {});
+            } else if (action === "clear-input") {
+              const active = document.activeElement as HTMLInputElement;
+              if (active) active.value = "";
+            } else if (action === "open-new" && href) {
+              window.open(href, "_blank", "noopener,noreferrer");
+              e.preventDefault();
+            } else if (action === "view-img") {
+              window.open(href, "_blank");
+              e.preventDefault();
+            }
+
+            closeMenu();
+          });
+        });
+      }
+
+      function closeMenu() {
+        ctxMenu.classList.remove("open");
+        ctxOpen = false;
+      }
+
+      document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        const items = getContextItems(e.target as Element);
+        openMenu(e.clientX, e.clientY, items);
+      });
+
+      document.addEventListener("click", (e) => {
+        if (ctxOpen && !ctxMenu.contains(e.target as Node)) closeMenu();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && ctxOpen) closeMenu();
+      });
+
+      // Scroll también cierra el menú
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (ctxOpen) closeMenu();
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
+</html>

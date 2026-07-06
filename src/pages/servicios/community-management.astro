@@ -1,0 +1,454 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout
+  title="Community Management — VEZNER"
+  description="Gestión de redes sociales y pauta digital. Estrategia de contenidos, diseño de feed y campañas orientadas a conversión. Córdoba, Argentina."
+>
+  <Header />
+
+  <main class="bg-[#fafafa] text-negro min-h-screen overflow-hidden">
+    <!-- =========================================
+         § HERO SECTION
+    ========================================= -->
+    <section
+      class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20"
+    >
+      <!-- Background Abstract Shapes (CSS) -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div
+          class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-rosa/10 rounded-full blur-[80px] animate-pulse"
+        >
+        </div>
+        <div
+          class="absolute bottom-[10%] left-[-10%] w-[50vw] h-[50vw] bg-yellow-400/10 rounded-full blur-[100px] animate-pulse"
+          style="animation-delay: 2s;"
+        >
+        </div>
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div class="w-12 h-px bg-rosa/50"></div>
+          <span class="font-mono text-xs tracking-[0.4em] uppercase text-rosa"
+            >Servicios / 04</span
+          >
+        </div>
+
+        <h1
+          class="font-display text-[clamp(60px,12vw,180px)] leading-[0.85] text-negro uppercase overflow-hidden mb-12"
+        >
+          <span class="block overflow-hidden"
+            ><span class="title-line block translate-y-full">Community</span
+            ></span
+          >
+          <span class="block overflow-hidden"
+            ><span class="title-line block translate-y-full text-rosa"
+              >Management</span
+            ></span
+          >
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
+          <p
+            class="hero-desc font-mono text-base md:text-lg text-negro/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg"
+          >
+            No vendemos likes, vendemos resultados. Construimos ecosistemas
+            digitales que convierten seguidores en clientes. Estrategia, diseño
+            y pauta agresiva.
+          </p>
+
+          <div
+            class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
+          >
+            <div class="border-l border-rosa/30 pl-4">
+              <p class="font-display text-4xl text-negro">ROAS</p>
+              <p
+                class="font-mono text-xs text-negro/40 tracking-widest uppercase"
+              >
+                Optimizado
+              </p>
+            </div>
+            <div class="border-l border-rosa/30 pl-4">
+              <p class="font-display text-4xl text-negro">Meta</p>
+              <p
+                class="font-mono text-xs text-negro/40 tracking-widest uppercase"
+              >
+                Ads API
+              </p>
+            </div>
+            <div class="border-l border-rosa/30 pl-4">
+              <p class="font-display text-4xl text-negro">A/B</p>
+              <p
+                class="font-mono text-xs text-negro/40 tracking-widest uppercase"
+              >
+                Testing
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll prompt -->
+      <div
+        class="scroll-prompt absolute bottom-10 left-16 flex items-center gap-4 opacity-0"
+      >
+        <div class="w-px h-12 bg-negro/20 relative overflow-hidden">
+          <div
+            class="absolute top-0 left-0 w-full h-1/2 bg-rosa animate-[scrollPulse_2s_ease-in-out_infinite]"
+          >
+          </div>
+        </div>
+        <span class="font-mono text-xs tracking-widest uppercase text-negro/30"
+          >Explorar</span
+        >
+      </div>
+    </section>
+
+    <!-- =========================================
+         § DASHBOARD SOCIAL (INTERACTIVO)
+    ========================================= -->
+    <section
+      class="py-32 px-6 md:px-16 bg-blanco border-y border-negro/5 overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <h2
+            class="font-display text-6xl md:text-8xl text-negro mb-6 term-title opacity-0 translate-y-10"
+          >
+            MÉTRICAS QUE<br />IMPORTAN
+          </h2>
+          <p
+            class="font-mono text-sm text-negro/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10"
+          >
+            Ignoramos las métricas vanidosas. Nuestro objetivo es el CAC, el LTV
+            y la tasa de conversión pura. Mirá cómo estructuramos un panel de
+            pauta.
+          </p>
+        </div>
+
+        <!-- Social Dashboard Mockup -->
+        <div
+          class="term-mockup opacity-0 translate-y-20 bg-blanco rounded-xl shadow-[0_30px_100px_rgba(255,0,92,0.1)] border border-negro/5 overflow-hidden max-w-5xl mx-auto"
+        >
+          <!-- Top -->
+          <div
+            class="flex items-center justify-between p-6 border-b border-negro/5 bg-[#fafafa]"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-rosa flex items-center justify-center text-blanco font-display text-xl"
+              >
+                V
+              </div>
+              <div>
+                <div class="font-display text-xl leading-none">
+                  VEZNER Ads Manager
+                </div>
+                <div
+                  class="font-mono text-[10px] uppercase tracking-widest text-negro/40 mt-1"
+                >
+                  ID: 884729110
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <div
+                class="px-4 py-2 border border-negro/10 rounded-full font-mono text-[10px] uppercase tracking-widest"
+              >
+                Últimos 7 días
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8">
+            <div class="grid grid-cols-4 gap-4 mb-8">
+              {
+                [
+                  {
+                    v: "$14,500",
+                    l: "Inversión",
+                    p: "+12%",
+                    c: "text-negro/40",
+                  },
+                  { v: "184", l: "Leads", p: "+45%", c: "text-verde" },
+                  {
+                    v: "$78.80",
+                    l: "Costo por Lead",
+                    p: "-15%",
+                    c: "text-verde",
+                  },
+                  { v: "6.4x", l: "ROAS", p: "+2.1x", c: "text-verde" },
+                ].map((s) => (
+                  <div class="border border-negro/5 p-4 rounded-lg bg-[#fafafa]">
+                    <div class="font-mono text-[10px] uppercase tracking-widest text-negro/40 mb-2">
+                      {s.l}
+                    </div>
+                    <div class="font-display text-3xl mb-1">{s.v}</div>
+                    <div class={`font-mono text-[10px] ${s.c}`}>
+                      {s.p} vs semana ant.
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+
+            <!-- Campaign List -->
+            <div class="border border-negro/5 rounded-lg overflow-hidden">
+              <div
+                class="grid grid-cols-12 gap-4 p-4 border-b border-negro/5 bg-[#fafafa] font-mono text-[10px] uppercase tracking-widest text-negro/40"
+              >
+                <div class="col-span-1">Estado</div>
+                <div class="col-span-4">Campaña</div>
+                <div class="col-span-2 text-right">Inversión</div>
+                <div class="col-span-2 text-right">Resultados</div>
+                <div class="col-span-2 text-right">Costo</div>
+                <div class="col-span-1 text-center">ROAS</div>
+              </div>
+
+              {
+                [
+                  {
+                    n: "Conversiones - Retargeting Q3",
+                    i: "$5,200",
+                    r: "82 leads",
+                    c: "$63.41",
+                    roas: "8.2x",
+                    act: true,
+                  },
+                  {
+                    n: "Tráfico Frío - Lookalike 1%",
+                    i: "$8,100",
+                    r: "95 leads",
+                    c: "$85.26",
+                    roas: "4.5x",
+                    act: true,
+                  },
+                  {
+                    n: "Brand Awareness - Reels",
+                    i: "$1,200",
+                    r: "14,200 impr",
+                    c: "$0.08",
+                    roas: "N/A",
+                    act: false,
+                  },
+                ].map((c) => (
+                  <div class="grid grid-cols-12 gap-4 p-4 border-b border-negro/5 items-center hover:bg-negro/[0.02] transition-colors">
+                    <div class="col-span-1">
+                      <div
+                        class={`w-8 h-4 rounded-full p-0.5 transition-colors ${c.act ? "bg-verde" : "bg-negro/10"}`}
+                      >
+                        <div
+                          class={`w-3 h-3 bg-blanco rounded-full shadow-sm transform transition-transform ${c.act ? "translate-x-4" : "translate-x-0"}`}
+                        />
+                      </div>
+                    </div>
+                    <div class="col-span-4 font-mono text-xs font-semibold">
+                      {c.n}
+                    </div>
+                    <div class="col-span-2 text-right font-mono text-xs text-negro/70">
+                      {c.i}
+                    </div>
+                    <div class="col-span-2 text-right font-mono text-xs text-negro/70">
+                      {c.r}
+                    </div>
+                    <div class="col-span-2 text-right font-mono text-xs text-negro/70">
+                      {c.c}
+                    </div>
+                    <div class="col-span-1 text-center font-mono text-xs font-bold text-verde">
+                      {c.roas}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § PROCESO CM
+    ========================================= -->
+    <section class="py-32 px-6 md:px-16 bg-[#fafafa]">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="font-display text-4xl md:text-6xl text-negro mb-16 text-center"
+        >
+          NUESTRO ENFOQUE
+        </h2>
+
+        <div class="grid md:grid-cols-4 gap-8">
+          {
+            [
+              {
+                n: "01",
+                t: "Estrategia Pura",
+                d: "Análisis de competencia, buyer persona y embudos de conversión antes de subir un solo post.",
+              },
+              {
+                n: "02",
+                t: "Identidad Visual",
+                d: "Diseño de feed brutalista o premium. Grillas perfectas, tipografías consistentes y fotografía tratada.",
+              },
+              {
+                n: "03",
+                t: "Media Buying",
+                d: "Gestión agresiva del Business Manager. Píxeles de conversión, retargeting y segmentación láser.",
+              },
+              {
+                n: "04",
+                t: "Optimización",
+                d: "Reportes semanales reales. Apagamos lo que no funciona, escalamos lo que convierte y volvemos a iterar.",
+              },
+            ].map((item, i) => (
+              <div class="cm-step opacity-0 translate-y-12">
+                <div class="font-display text-6xl text-rosa/20 mb-4">
+                  {item.n}
+                </div>
+                <h4 class="font-mono text-lg font-bold mb-3">{item.t}</h4>
+                <p class="font-mono text-xs text-negro/60 leading-relaxed">
+                  {item.d}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § CTA FINAL
+    ========================================= -->
+    <section
+      class="py-32 bg-rosa text-blanco text-center relative overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-negro/80 to-transparent"
+        >
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-6xl md:text-8xl mb-8 cta-title">
+          Hagamos que<br />tu marca venda
+        </h2>
+        <p
+          class="font-mono text-sm text-blanco/80 mb-12 uppercase tracking-widest cta-desc"
+        >
+          Planes mensuales a medida.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns"
+        >
+          <a
+            href="/contacto"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-blanco text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden"
+          >
+            <span class="relative z-10">Agendar Llamada</span>
+            <span
+              class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5"
+              >→</span
+            >
+            <span
+              class="absolute inset-0 bg-negro translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out"
+            ></span>
+          </a>
+          <a
+            href="/#servicios"
+            class="group relative inline-flex items-center gap-3 border border-blanco/30 text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-blanco/10 transition-colors duration-300"
+          >
+            Ver otros servicios
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .btn-primary:hover span:first-child,
+  .btn-primary:hover span:nth-child(2) {
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero
+  const tl = gsap.timeline();
+  tl.to(".hero-reveal", {
+    opacity: 1,
+    duration: 1,
+    ease: "power3.out",
+    delay: 0.2,
+  });
+  tl.to(
+    ".title-line",
+    { y: "0%", duration: 1.2, stagger: 0.15, ease: "power4.out" },
+    "-=0.6",
+  );
+  tl.to(
+    ".hero-desc",
+    { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+    "-=0.8",
+  );
+  tl.to(
+    ".hero-stats",
+    { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+    "-=0.8",
+  );
+  tl.to(".scroll-prompt", { opacity: 1, duration: 1 }, "-=0.5");
+
+  // Mockup Dashboard
+  gsap.to(".term-title", {
+    scrollTrigger: { trigger: ".term-title", start: "top 85%", once: true },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power4.out",
+  });
+  gsap.to(".term-desc", {
+    scrollTrigger: { trigger: ".term-title", start: "top 85%", once: true },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.2,
+    ease: "power3.out",
+  });
+  gsap.to(".term-mockup", {
+    scrollTrigger: { trigger: ".term-mockup", start: "top 75%", once: true },
+    opacity: 1,
+    y: 0,
+    duration: 1.2,
+    ease: "power3.out",
+  });
+
+  // Steps
+  gsap.utils.toArray(".cm-step").forEach((step, i) => {
+    gsap.to(step as HTMLElement, {
+      scrollTrigger: {
+        trigger: step as HTMLElement,
+        start: "top 85%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: i * 0.15,
+      ease: "power3.out",
+    });
+  });
+</script>

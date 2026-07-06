@@ -1,0 +1,78 @@
+---
+// Logo.astro — Versión premium compacta: más grandes y más pegados
+---
+
+<div
+  class="logo-wrapper flex items-center select-none group cursor-pointer pointer-events-auto"
+>
+  <!-- Subimos a 76px y metemos un margen negativo a la derecha (-mr-1) para pegar el texto -->
+  <div
+    class="w-[76px] h-[76px] flex items-center justify-center shrink-0 -mr-1 pointer-events-none"
+  >
+    <canvas class="logo-canvas w-full h-full block"></canvas>
+  </div>
+
+  <!-- Texto VEZNER subido a 30px de alto -->
+  <div class="flex items-center shrink-0 pointer-events-none">
+    <img
+      src="/assets/vezner-text.webp"
+      alt="VEZNER"
+      class="h-[30px] w-auto object-contain block"
+      draggable="false"
+    />
+  </div>
+</div>
+
+<script>
+  import { DotLottie } from "@lottiefiles/dotlottie-web";
+
+  function initLogo() {
+    const wrappers = document.querySelectorAll(".logo-wrapper");
+
+    wrappers.forEach((wrapper) => {
+      if (wrapper.getAttribute("data-lottie-initialized")) return;
+
+      const canvas = wrapper.querySelector(".logo-canvas") as HTMLCanvasElement;
+
+      if (canvas) {
+        const dotLottie = new DotLottie({
+          canvas,
+          src: "/assets/logo.lottie",
+          loop: true,
+          autoplay: false,
+          speed: 1,
+        });
+
+        let shouldStopAtEnd = false;
+
+        dotLottie.addEventListener("ready", () => {
+          dotLottie.setFrame(0);
+          dotLottie.pause();
+          wrapper.setAttribute("data-lottie-initialized", "true");
+        });
+
+        dotLottie.addEventListener("loop", () => {
+          if (shouldStopAtEnd) {
+            shouldStopAtEnd = false;
+            dotLottie.setFrame(0);
+            dotLottie.pause();
+          }
+        });
+
+        // Eventos limpios directo a la caja contenedora
+        wrapper.addEventListener("mouseenter", () => {
+          shouldStopAtEnd = false;
+          dotLottie.play();
+        });
+
+        wrapper.addEventListener("mouseleave", () => {
+          shouldStopAtEnd = true;
+        });
+      }
+    });
+  }
+
+  // Ejecución segura en el ciclo de vida de Astro
+  initLogo();
+  document.addEventListener("astro:page-load", initLogo);
+</script>

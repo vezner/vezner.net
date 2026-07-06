@@ -1,0 +1,41 @@
+---
+// CardServicio.astro — Componente reutilizable de tarjeta de servicio
+export interface Props {
+  numero: string;
+  titulo: string;
+  descripcion: string;
+  href: string;
+}
+
+const { numero, titulo, descripcion, href } = Astro.props;
+---
+
+<article class="grupo-tarjeta group relative border border-negro/10 p-8 hover:border-negro/30 transition-colors duration-300 bg-blanco">
+  <!-- Número del servicio -->
+  <span class="font-mono text-xs tracking-[0.3em] text-negro/20 block mb-6">{numero}</span>
+
+  <!-- Título -->
+  <h3 class="font-display text-4xl md:text-5xl text-negro leading-none mb-4 group-hover:translate-x-1 transition-transform duration-300">
+    {titulo}
+  </h3>
+
+  <!-- Descripción -->
+  <p class="font-mono text-sm text-negro/50 leading-relaxed mb-8 max-w-xs">
+    {descripcion}
+  </p>
+
+  <!-- Slot para contenido adicional (previews, etc.) -->
+  <slot />
+
+  <!-- Link al servicio -->
+  <a
+    href={href}
+    class="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-negro border-b border-negro/20 pb-1 hover:border-negro transition-colors duration-300 group/link"
+  >
+    <span>Ver servicio</span>
+    <span class="group-hover/link:translate-x-1 transition-transform duration-300">→</span>
+  </a>
+
+  <!-- Hover overlay decorativo -->
+  <div class="absolute bottom-0 left-0 w-full h-0.5 bg-negro scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+</article>

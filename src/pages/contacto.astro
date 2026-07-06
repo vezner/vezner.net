@@ -1,0 +1,499 @@
+---
+// contacto.astro — Página de contacto de VEZNER
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Contacto — VEZNER"
+  description="Contactate con VEZNER. Respondemos en menos de 4 horas hábiles. Córdoba, Argentina."
+>
+  <Header />
+
+  <main class="bg-blanco min-h-screen pt-32 pb-0">
+    <section class="px-6 md:px-12 py-20">
+      <div class="container mx-auto max-w-6xl">
+        <!-- Header de la página -->
+        <div class="mb-20">
+          <div class="flex items-center gap-4 mb-8 opacity-0 contact-label">
+            <div class="w-8 h-px bg-negro/30"></div>
+            <span
+              class="font-mono font-medium text-xs tracking-[0.35em] uppercase text-negro/60"
+              >§ Contacto</span
+            >
+          </div>
+          <h1
+            class="font-display text-[clamp(72px,14vw,180px)] leading-none text-negro overflow-hidden"
+          >
+            <span class="block overflow-hidden"
+              ><span class="contact-title-word inline-block translate-y-full"
+                >Hablemos.</span
+              ></span
+            >
+          </h1>
+          <p
+            class="contact-sub font-mono font-medium text-sm text-negro/70 max-w-lg mt-8 leading-relaxed opacity-0"
+          >
+            No hay formularios complicados. Contanos brevemente qué necesitás y
+            te respondemos en menos de 24 horas hábiles, con información
+            concreta y sin vueltas.
+          </p>
+        </div>
+
+        <!-- Grid: Formulario + Info -->
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+          <!-- Formulario -->
+          <form id="contact-form" class="space-y-6 contact-form opacity-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="form-group">
+                <label
+                  for="nombre"
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                  placeholder="Tu nombre completo"
+                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                />
+              </div>
+
+              <div class="form-group">
+                <label
+                  for="empresa"
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                  >Empresa / Marca</label
+                >
+                <input
+                  type="text"
+                  id="empresa"
+                  name="empresa"
+                  placeholder="Opcional"
+                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="form-group">
+                <label
+                  for="email"
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="tu@empresa.com"
+                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                />
+              </div>
+
+              <div class="form-group">
+                <label
+                  for="telefono"
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                  >Teléfono / WhatsApp</label
+                >
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="Opcional"
+                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Dropdown Servicio -->
+              <div class="form-group relative custom-dropdown-container">
+                <label
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                  >Servicio de interés</label
+                >
+                <input type="hidden" id="servicio" name="servicio" value="" required />
+                <button
+                  type="button"
+                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
+                >
+                  <span class="dropdown-text">Seleccioná un servicio</span>
+                  <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                </button>
+                <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 z-50 opacity-0 invisible translate-y-2 transition-all duration-300">
+                  <div class="flex flex-col py-2 font-mono text-sm">
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño Web">Diseño Web</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Software Python">Software Python</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Community Management">Community Management</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño de Identidad">Diseño de Identidad</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Otro">Otro / Consulta general</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dropdown Presupuesto -->
+              <div class="form-group relative custom-dropdown-container">
+                <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Presupuesto estimado (USD)</label>
+                <input type="hidden" id="presupuesto" name="presupuesto" value="" />
+                <button
+                  type="button"
+                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
+                >
+                  <span class="dropdown-text">Opcional</span>
+                  <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                </button>
+                <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 z-50 opacity-0 invisible translate-y-2 transition-all duration-300">
+                  <div class="flex flex-col py-2 font-mono text-sm">
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Menos de $500">Menos de $500</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$500 - $1.500">$500 - $1.500</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$1.500 - $5.000">$1.500 - $5.000</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Más de $5.000">Más de $5.000</button>
+                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="No lo sé">No lo sé aún</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Campo oculto para "Otro" -->
+            <div id="otro-servicio-container" class="form-group hidden opacity-0 transition-opacity duration-300">
+              <label
+                for="otro_servicio"
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                >Especificar servicio / proyecto</label
+              >
+              <input
+                type="text"
+                id="otro_servicio"
+                name="otro_servicio"
+                placeholder="¿Qué necesitás?"
+                class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+              />
+            </div>
+
+            <div class="form-group">
+              <label
+                for="mensaje"
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                >Tu proyecto en detalle</label
+              >
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="4"
+                required
+                placeholder="Contanos brevemente sobre tu empresa y qué objetivos tenés en mente..."
+                class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              id="submit-btn"
+              class="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-negro text-blanco px-10 py-4 font-mono font-medium text-xs tracking-widest uppercase relative overflow-hidden"
+            >
+              <span
+                class="relative z-10 group-hover:text-negro transition-colors duration-300"
+                >Enviar consulta</span
+              >
+              <span
+                class="relative z-10 group-hover:translate-x-1 group-hover:text-negro transition-all duration-300"
+                >→</span
+              >
+              <div
+                class="absolute inset-0 bg-blanco border border-negro translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
+              >
+              </div>
+            </button>
+
+            <!-- Estado de éxito -->
+            <div
+              id="form-success"
+              class="hidden font-mono font-medium text-xs text-verde bg-verde/5 border border-verde/20 px-4 py-3"
+            >
+              ✓ Mensaje enviado. Te respondemos en menos de 24 horas hábiles.
+            </div>
+          </form>
+
+          <!-- Información de contacto -->
+          <div class="contact-info opacity-0 space-y-12">
+            <div>
+              <p
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/50 mb-4"
+              >
+                Email directo
+              </p>
+              <a
+                href="mailto:hola@vezner.net"
+                class="font-mono text-lg text-negro hover:text-negro/60 transition-colors duration-300"
+              >
+                hola@vezner.net
+              </a>
+            </div>
+            <div>
+              <p
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/50 mb-4"
+              >
+                WhatsApp
+              </p>
+              <a
+                href="https://wa.me/5493513323272"
+                target="_blank"
+                class="font-mono text-lg text-negro hover:text-negro/60 transition-colors duration-300"
+              >
+                +54 9 351 332-3272
+              </a>
+            </div>
+            <div>
+              <p
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/50 mb-4"
+              >
+                Horario de atención
+              </p>
+              <p class="font-mono font-medium text-sm text-negro/70">
+                Lun — Vie, 09:00 — 18:00 ART
+              </p>
+              <p class="font-mono font-medium text-xs text-negro/60 mt-1">
+                Respuesta garantizada en ≤ 24 horas hábiles
+              </p>
+            </div>
+            <div>
+              <p
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/50 mb-4"
+              >
+                Ubicación
+              </p>
+              <p class="font-mono font-medium text-sm text-negro/70">
+                Córdoba, Argentina
+              </p>
+            </div>
+            <div class="pt-8 border-t border-negro/10">
+              <p
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/50 mb-4"
+              >
+                Redes
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <a
+                  href="https://twitter.com/veznerarg"
+                  target="_blank"
+                  aria-label="X"
+                  class="w-10 h-10 border border-negro/10 flex items-center justify-center group hover:border-negro hover:bg-negro/5 transition-all duration-300"
+                >
+                  <i
+                    class="fa-brands fa-x-twitter text-negro/60 group-hover:text-negro transition-colors"
+                  ></i>
+                </a>
+                <a
+                  href="https://github.com/vezner"
+                  target="_blank"
+                  aria-label="GitHub"
+                  class="w-10 h-10 border border-negro/10 flex items-center justify-center group hover:border-[#00c851] hover:bg-[#00c851]/5 transition-all duration-300"
+                >
+                  <i
+                    class="fa-brands fa-github text-negro/60 group-hover:text-[#00c851] transition-colors"
+                  ></i>
+                </a>
+                <a
+                  href="https://youtube.com/@veznerarg"
+                  target="_blank"
+                  aria-label="YouTube"
+                  class="w-10 h-10 border border-negro/10 flex items-center justify-center group hover:border-[#ff3c00] hover:bg-[#ff3c00]/5 transition-all duration-300"
+                >
+                  <i
+                    class="fa-brands fa-youtube text-negro/60 group-hover:text-[#ff3c00] transition-colors"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animaciones de entrada
+  const tl = gsap.timeline({ delay: 0.3 });
+
+  tl.to(".contact-label", { opacity: 1, duration: 0.7, ease: "power3.out" });
+  tl.to(
+    ".contact-title-word",
+    { y: "0%", duration: 1.1, ease: "power4.out" },
+    "-=0.4",
+  );
+  tl.to(
+    ".contact-sub",
+    { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+    "-=0.5",
+  );
+  tl.to(
+    ".contact-form",
+    { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+    "-=0.4",
+  );
+  tl.to(
+    ".contact-info",
+    { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+    "-=0.6",
+  );
+
+  // =============================================
+  // Custom Dropdowns Genéricos
+  // =============================================
+  const dropdownContainers = document.querySelectorAll(".custom-dropdown-container");
+  const otroContainer = document.getElementById("otro-servicio-container");
+  const otroInput = document.getElementById("otro_servicio") as HTMLInputElement;
+
+  dropdownContainers.forEach((container) => {
+    const btn = container.querySelector(".dropdown-btn") as HTMLButtonElement;
+    const optionsDiv = container.querySelector(".dropdown-options") as HTMLDivElement;
+    const textSpan = container.querySelector(".dropdown-text") as HTMLSpanElement;
+    const iconSpan = container.querySelector(".dropdown-icon") as HTMLSpanElement;
+    const hiddenInput = container.querySelector("input[type='hidden']") as HTMLInputElement;
+    const optionBtns = container.querySelectorAll(".dropdown-option");
+
+    // Toggle dropdown
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = !optionsDiv.classList.contains("invisible");
+
+      // Cerrar todos los demás
+      closeAllDropdowns();
+
+      if (!isOpen) {
+        optionsDiv.classList.remove("invisible", "opacity-0", "translate-y-2");
+        optionsDiv.classList.add("opacity-100", "translate-y-0");
+        btn.classList.add("border-negro");
+        iconSpan.style.transform = "rotate(180deg)";
+      }
+    });
+
+    // Option select
+    optionBtns.forEach((opt) => {
+      opt.addEventListener("click", (e) => {
+        const value = (e.currentTarget as HTMLButtonElement).getAttribute("data-value") || "";
+        const text = (e.currentTarget as HTMLButtonElement).textContent || "";
+
+        hiddenInput.value = value;
+        textSpan.textContent = text;
+        textSpan.classList.remove("text-negro/70");
+        textSpan.classList.add("text-negro");
+
+        // Lógica condicional para el campo "Otro" si es el dropdown de servicio
+        if (hiddenInput.id === "servicio") {
+          if (value === "Otro") {
+            otroContainer?.classList.remove("hidden");
+            // Delay para la transición
+            setTimeout(() => otroContainer?.classList.remove("opacity-0"), 10);
+            otroInput.setAttribute("required", "true");
+          } else {
+            otroContainer?.classList.add("opacity-0");
+            setTimeout(() => otroContainer?.classList.add("hidden"), 300);
+            otroInput.removeAttribute("required");
+            otroInput.value = "";
+          }
+        }
+
+        closeAllDropdowns();
+      });
+    });
+  });
+
+  // Cerrar al clickear afuera
+  document.addEventListener("click", () => {
+    closeAllDropdowns();
+  });
+
+  function closeAllDropdowns() {
+    dropdownContainers.forEach((container) => {
+      const optionsDiv = container.querySelector(".dropdown-options") as HTMLDivElement;
+      const btn = container.querySelector(".dropdown-btn") as HTMLButtonElement;
+      const iconSpan = container.querySelector(".dropdown-icon") as HTMLSpanElement;
+
+      optionsDiv.classList.add("invisible", "opacity-0", "translate-y-2");
+      optionsDiv.classList.remove("opacity-100", "translate-y-0");
+      btn.classList.remove("border-negro");
+      iconSpan.style.transform = "rotate(0deg)";
+    });
+  }
+
+  // Manejo del formulario (Formspree AJAX)
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const success = document.getElementById("form-success");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+    // Buscamos el primer span que contiene el texto del botón
+    const btnText = btn?.querySelector("span.relative") as HTMLSpanElement;
+
+    if (btn && btnText) {
+      btnText.textContent = "Enviando...";
+      btn.disabled = true;
+    }
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch("https://formspree.io/f/mdarbbdy", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        form.reset();
+
+        // Resetear los custom dropdowns visualmente
+        dropdownContainers.forEach((container) => {
+          const textSpan = container.querySelector(".dropdown-text") as HTMLSpanElement;
+          const defaultText = container.querySelector("input")?.id === "presupuesto" ? "Opcional" : "Seleccioná un servicio";
+          if (textSpan) {
+            textSpan.textContent = defaultText;
+            textSpan.classList.remove("text-negro");
+            textSpan.classList.add("text-negro/70");
+          }
+        });
+        
+        otroContainer?.classList.add("hidden", "opacity-0");
+        otroInput.removeAttribute("required");
+
+        if (btn && btnText) {
+          btnText.textContent = "✓ Enviado";
+        }
+
+        success?.classList.remove("hidden");
+        gsap.fromTo(
+          success,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.5 },
+        );
+      } else {
+        throw new Error("Formspree devolvió error.");
+      }
+    } catch (error) {
+      if (btn && btnText) {
+        btnText.textContent = "Enviar consulta"; // Reset text
+        btn.disabled = false; // Re-enable
+      }
+      alert(
+        "Hubo un error al enviar tu consulta. Por favor, intentá nuevamente más tarde.",
+      );
+    }
+  });
+</script>

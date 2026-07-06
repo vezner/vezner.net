@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const año = new Date().getFullYear();
+---
+
+<Layout
+  title="Política de Privacidad — VEZNER"
+  description="Política de privacidad y protección de datos personales de VEZNER. Córdoba, Argentina."
+>
+  <Header />
+  <main class="bg-blanco min-h-screen pt-32 pb-0">
+    <section class="px-6 md:px-12 py-20">
+      <div class="container mx-auto max-w-3xl">
+        <div class="mb-4">
+          <span
+            class="font-mono text-xs tracking-[0.35em] uppercase text-negro/30"
+            >Legal</span
+          >
+        </div>
+        <h1
+          class="font-display text-[clamp(48px,10vw,120px)] leading-none text-negro mb-12"
+        >
+          POLÍTICA DE<br />PRIVACIDAD
+        </h1>
+
+        <div
+          class="font-mono text-sm text-negro/60 leading-relaxed space-y-8 max-w-2xl"
+        >
+          <p class="text-negro/30 text-xs">Última actualización: Mayo 2026</p>
+
+          <div>
+            <h2 class="font-display text-2xl text-negro mb-4">
+              1. Datos que recopilamos
+            </h2>
+            <p>
+              Recopilamos únicamente los datos necesarios para prestar nuestros
+              servicios: nombre, correo electrónico, número de teléfono y la
+              información que el cliente comparte voluntariamente a través del
+              formulario de contacto o comunicaciones directas.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-display text-2xl text-negro mb-4">
+              2. Uso de los datos
+            </h2>
+            <p>
+              Los datos recopilados se utilizan exclusivamente para responder
+              consultas, gestionar proyectos activos y mantener comunicación
+              comercial pertinente. No vendemos, alquilamos ni cedemos datos
+              personales a terceros bajo ninguna circunstancia.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-display text-2xl text-negro mb-4">3. Cookies</h2>
+            <p>
+              Este sitio puede utilizar cookies técnicas necesarias para el
+              funcionamiento de la plataforma y cookies de análisis anónimo
+              (Google Analytics) para mejorar la experiencia de usuario. No
+              utilizamos cookies de seguimiento con fines publicitarios.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-display text-2xl text-negro mb-4">
+              4. Derechos del usuario
+            </h2>
+            <p>
+              El usuario tiene derecho a acceder, rectificar, eliminar y
+              oponerse al tratamiento de sus datos personales en cualquier
+              momento. Para ejercer estos derechos, puede escribirnos a <a
+                href="mailto:hola@vezner.net"
+                class="text-negro underline">hola@vezner.net</a
+              >.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-display text-2xl text-negro mb-4">5. Seguridad</h2>
+            <p>
+              Implementamos medidas técnicas y organizativas adecuadas para
+              proteger los datos personales contra acceso no autorizado, pérdida
+              o destrucción. Toda la información sensible se transmite bajo
+              protocolo HTTPS.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-display text-2xl text-negro mb-4">
+              6. Marco legal
+            </h2>
+            <p>
+              Esta política se rige por la Ley N° 25.326 de Protección de Datos
+              Personales de la República Argentina y sus normas reglamentarias.
+            </p>
+          </div>
+
+          <div class="pt-8 border-t border-negro/10">
+            <p class="text-negro/40 text-xs">
+              © 2024–{año} VEZNER. Todos los derechos reservados. hola@vezner.net
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

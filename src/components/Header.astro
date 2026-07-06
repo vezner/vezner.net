@@ -1,0 +1,317 @@
+---
+// Header.astro — Navegación principal de VEZNER (Compacto, Estilizado y Corregido)
+import Logo from "./Logo.astro";
+
+export interface Props {
+  theme?: "light" | "dark";
+}
+
+const { theme = "light" } = Astro.props;
+---
+
+<header
+  id="header"
+  class={`fixed top-0 left-0 right-0 z-50 ${theme === "dark" ? "theme-dark" : "theme-light"}`}
+>
+  <nav class="flex items-center justify-between px-6 md:px-12 h-20 py-0">
+    <a
+      href="/"
+      class="group flex items-center h-full logo-container transition-all duration-300"
+      aria-label="Ir a inicio"
+    >
+      <Logo />
+    </a>
+
+    <ul class="hidden md:flex items-center gap-10 list-none m-0 p-0">
+      <li>
+        <a
+          href="/"
+          class="nav-link font-mono text-xs tracking-widest uppercase"
+        >
+          <span class="nav-link-text">Inicio</span>
+          <span class="nav-link-clone" aria-hidden="true">Inicio</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/#servicios"
+          class="nav-link font-mono text-xs tracking-widest uppercase"
+        >
+          <span class="nav-link-text">Servicios</span>
+          <span class="nav-link-clone" aria-hidden="true">Servicios</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/contacto"
+          class="nav-link font-mono text-xs tracking-widest uppercase"
+        >
+          <span class="nav-link-text">Contacto</span>
+          <span class="nav-link-clone" aria-hidden="true">Contacto</span>
+        </a>
+      </li>
+    </ul>
+
+    <a
+      href="/contacto"
+      id="header-cta"
+      class="hidden md:flex items-center gap-2 border border-negro px-5 py-2.5 font-mono text-xs tracking-widest uppercase overflow-hidden relative group transition-colors duration-300"
+    >
+      <span
+        class="relative z-10 group-hover:text-blanco transition-colors duration-300 cta-text"
+      >
+        Trabajemos juntos
+      </span>
+      <div
+        class="absolute inset-0 bg-negro scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out cta-bg"
+      >
+      </div>
+    </a>
+
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span
+        class="menu-bar block w-6 h-0.5 bg-negro transition-all duration-400"
+      ></span>
+      <span
+        class="menu-bar block w-6 h-0.5 bg-negro transition-all duration-400"
+      ></span>
+      <span
+        class="menu-bar block w-4 h-0.5 bg-negro transition-all duration-400"
+      ></span>
+    </button>
+  </nav>
+
+  <div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 bg-negro/60 z-40 opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-sm"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    id="mobile-menu"
+    class="fixed top-0 right-0 h-screen w-full md:w-[320px] bg-[#0a0a0a] border-l border-blanco/10 z-50 flex flex-col translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-2xl"
+    aria-hidden="true"
+  >
+    <!-- Top: Logo + Close -->
+    <div class="flex items-center justify-between px-6 h-20 border-b border-blanco/10">
+      <a href="/" class="invert opacity-90 w-20">
+        <Logo />
+      </a>
+      <button
+        id="menu-close"
+        class="text-blanco/50 hover:text-blanco p-2 -mr-2 transition-colors"
+        aria-label="Cerrar menú"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <!-- Middle: Links -->
+    <ul class="flex flex-col flex-1 px-8 justify-center list-none m-0 gap-8">
+      <li class="mobile-item overflow-hidden">
+        <a href="/" class="text-blanco font-display text-5xl mobile-menu-link block translate-y-full hover:text-blanco/70 transition-colors">Inicio</a>
+      </li>
+      <li class="mobile-item overflow-hidden">
+        <a href="/#servicios" class="text-blanco font-display text-5xl mobile-menu-link block translate-y-full hover:text-blanco/70 transition-colors">Servicios</a>
+      </li>
+      <li class="mobile-item overflow-hidden">
+        <a href="/contacto" class="text-blanco font-display text-5xl mobile-menu-link block translate-y-full hover:text-blanco/70 transition-colors">Contacto</a>
+      </li>
+    </ul>
+
+    <!-- Bottom: CTA -->
+    <div class="p-6 border-t border-blanco/10 bg-negro">
+      <a
+        href="/contacto"
+        class="flex items-center justify-center gap-2 border border-blanco/20 bg-blanco/5 text-blanco px-5 py-4 font-mono text-xs tracking-widest uppercase hover:bg-blanco hover:text-negro transition-colors duration-300 w-full"
+      >
+        Trabajemos juntos
+      </a>
+      <div class="mt-6 font-mono text-[10px] text-blanco/20 tracking-[0.2em] uppercase text-center">
+        VEZNER © vezner.net
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  #header {
+    background: transparent;
+    transition:
+      background 0.5s ease,
+      backdrop-filter 0.5s ease,
+      border-color 0.5s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  #header.scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-color: rgba(10, 10, 10, 0.06);
+  }
+
+  /* En tema oscuro scrolled: header negro con blur */
+  :global(#header.theme-dark.scrolled) {
+    background: rgba(10, 10, 10, 0.92);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* ===== TEMA OSCURO: LOGO siempre blanco ===== */
+  /* :global() es necesario porque img y canvas pertenecen al scope de Logo.astro */
+  :global(#header.theme-dark .logo-container img) {
+    filter: invert(1);
+  }
+  :global(#header.theme-dark .logo-container .logo-canvas) {
+    filter: invert(1);
+  }
+
+  /* Nav links, CTA y hamburguesa blancos siempre en dark */
+  :global(#header.theme-dark .nav-link),
+  :global(#header.theme-dark .cta-text) {
+    color: #ffffff;
+  }
+  :global(#header.theme-dark #header-cta) {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  :global(#header.theme-dark .cta-bg) {
+    background-color: #ffffff;
+  }
+  :global(#header.theme-dark #header-cta:hover .cta-text) {
+    color: #000000;
+  }
+  :global(#header.theme-dark .menu-bar) {
+    background-color: #ffffff;
+  }
+
+  /* Nav link con slide vertical */
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    line-height: 1.4;
+    height: 1.4em;
+  }
+
+  .nav-link-text,
+  .nav-link-clone {
+    display: block;
+    transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .nav-link-clone {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  .nav-link:hover .nav-link-text {
+    transform: translateY(-100%);
+  }
+
+  .nav-link:hover .nav-link-clone {
+    transform: translateY(-100%);
+  }
+
+  /* Mobile menu items animación stagger */
+  .mobile-menu-link {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  #mobile-menu.open .mobile-menu-link {
+    transform: translateY(0);
+  }
+
+  #mobile-menu.open .mobile-item:nth-child(1) .mobile-menu-link {
+    transition-delay: 0.2s;
+  }
+  #mobile-menu.open .mobile-item:nth-child(2) .mobile-menu-link {
+    transition-delay: 0.3s;
+  }
+  #mobile-menu.open .mobile-item:nth-child(3) .mobile-menu-link {
+    transition-delay: 0.4s;
+  }
+
+  /* Hamburger → X */
+  .menu-toggle-open .menu-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle-open .menu-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .menu-toggle-open .menu-bar:nth-child(3) {
+    width: 24px;
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  #mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  #mobile-menu.open {
+    transform: translateX(0);
+    pointer-events: all;
+  }
+</style>
+
+<script>
+  const header = document.getElementById("header");
+
+  const onScroll = () => {
+    if (window.scrollY > 40) {
+      header?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  const toggle = document.getElementById("menu-toggle");
+  const closeBtn = document.getElementById("menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  let menuOpen = false;
+
+  const openMenu = () => {
+    menuOpen = true;
+    toggle?.classList.add("menu-toggle-open");
+    toggle?.setAttribute("aria-expanded", "true");
+    mobileMenu?.classList.add("open");
+    overlay?.classList.add("open");
+    mobileMenu?.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    menuOpen = false;
+    toggle?.classList.remove("menu-toggle-open");
+    toggle?.setAttribute("aria-expanded", "false");
+    mobileMenu?.classList.remove("open");
+    overlay?.classList.remove("open");
+    mobileMenu?.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  toggle?.addEventListener("click", () =>
+    menuOpen ? closeMenu() : openMenu(),
+  );
+  closeBtn?.addEventListener("click", closeMenu);
+  document.querySelectorAll(".mobile-menu-link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuOpen) closeMenu();
+  });
+</script>

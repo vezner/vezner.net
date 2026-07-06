@@ -1,0 +1,496 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout
+  title="Software Python — VEZNER"
+  description="Automatizaciones, APIs, bots y procesamiento de datos con Python. Código eficiente y escalable para empresas. VEZNER, Córdoba."
+>
+  <Header theme="dark" />
+
+  <main class="bg-[#0a0a0a] text-blanco min-h-screen overflow-hidden">
+    <!-- =========================================
+         § HERO SECTION
+    ========================================= -->
+    <section
+      class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20"
+    >
+      <!-- Background Matrix Style -->
+      <div
+        class="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
+        style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #00c851 2px, #00c851 4px); background-size: 100% 4px;"
+      >
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div class="w-12 h-px bg-verde/40"></div>
+          <span
+            class="font-mono text-xs tracking-[0.4em] uppercase text-verde/50"
+            >Servicios / 02</span
+          >
+        </div>
+
+        <h1
+          class="font-display text-[clamp(60px,12vw,180px)] leading-[0.85] text-blanco uppercase overflow-hidden mb-12"
+        >
+          <span class="block overflow-hidden"
+            ><span class="title-line block translate-y-full">Software</span
+            ></span
+          >
+          <span class="block overflow-hidden"
+            ><span class="title-line block translate-y-full text-verde"
+              >Python</span
+            ></span
+          >
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
+          <p
+            class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg"
+          >
+            Si tiene lógica, lo programamos. Si tiene datos, los procesamos.
+            Desarrollamos automatizaciones, APIs REST, pipelines ETL y bots que
+            resuelven problemas de negocio reales en tiempo récord.
+          </p>
+
+          <div
+            class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
+          >
+            <div class="border-l border-verde/20 pl-4">
+              <p class="font-display text-4xl text-blanco">3.13+</p>
+              <p
+                class="font-mono text-xs text-verde/60 tracking-widest uppercase"
+              >
+                Versión
+              </p>
+            </div>
+            <div class="border-l border-verde/20 pl-4">
+              <p class="font-display text-4xl text-blanco">∞</p>
+              <p
+                class="font-mono text-xs text-verde/60 tracking-widest uppercase"
+              >
+                Escalabilidad
+              </p>
+            </div>
+            <div class="border-l border-verde/20 pl-4">
+              <p class="font-display text-4xl text-blanco">O(1)</p>
+              <p
+                class="font-mono text-xs text-verde/60 tracking-widest uppercase"
+              >
+                Eficiencia
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll prompt -->
+      <div
+        class="scroll-prompt absolute bottom-10 left-16 flex items-center gap-4 opacity-0"
+      >
+        <div class="w-px h-12 bg-blanco/20 relative overflow-hidden">
+          <div
+            class="absolute top-0 left-0 w-full h-1/2 bg-verde animate-[scrollPulse_2s_ease-in-out_infinite]"
+          >
+          </div>
+        </div>
+        <span class="font-mono text-xs tracking-widest uppercase text-blanco/30"
+          >Explorar</span
+        >
+      </div>
+    </section>
+
+    <!-- =========================================
+         § CASOS DE USO
+    ========================================= -->
+    <section class="py-32 bg-[#050505] relative overflow-hidden">
+      <div class="container mx-auto px-6 md:px-16 max-w-7xl">
+        <h2
+          class="font-display text-6xl md:text-8xl text-blanco mb-20 section-title opacity-0 translate-y-10 border-l-4 border-verde pl-8"
+        >
+          ¿QUÉ PODEMOS<br />CONSTRUIR?
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {
+            [
+              {
+                t: "APIs REST & GraphQL",
+                d: "Conectamos tus sistemas. Arquitecturas backend robustas con FastAPI o Flask listas para producción.",
+                c: "bg-[#111] hover:bg-verde/10 hover:border-verde/30",
+              },
+              {
+                t: "Pipelines ETL",
+                d: "Extracción, limpieza y carga de datos masivos. Pandas, Polars y Celery procesando millones de rows.",
+                c: "bg-[#111] hover:bg-azul/10 hover:border-azul/30",
+              },
+              {
+                t: "Automatizaciones",
+                d: "Scraping web avanzado, Selenium, Puppeteer y bots que hacen el trabajo manual de 10 personas.",
+                c: "bg-[#111] hover:bg-rosa/10 hover:border-rosa/30",
+              },
+              {
+                t: "Bots Discord / Telegram",
+                d: "Asistentes virtuales, moderación automática y comandos a medida con la API oficial asíncrona.",
+                c: "bg-[#111] hover:bg-yellow-400/10 hover:border-yellow-400/30",
+              },
+            ].map((item, i) => (
+              <div
+                class={`use-case opacity-0 translate-y-12 border border-blanco/5 p-8 transition-all duration-300 ${item.c}`}
+              >
+                <div class="font-mono text-xs text-blanco/30 mb-6">
+                  0{i + 1}
+                </div>
+                <h3 class="font-display text-3xl mb-4 text-blanco">{item.t}</h3>
+                <p class="font-mono text-xs text-blanco/50 leading-relaxed">
+                  {item.d}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § INTERFAZ DEMO INTERACTIVA (TERMINAL)
+    ========================================= -->
+    <section
+      class="py-32 px-6 md:px-16 bg-[#0a0a0a] border-y border-blanco/5 overflow-hidden"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-20">
+          <h2
+            class="font-display text-6xl md:text-8xl text-blanco mb-6 term-title opacity-0 translate-y-10"
+          >
+            CÓDIGO QUE<br />NO FALLA
+          </h2>
+          <p
+            class="font-mono text-sm text-blanco/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10"
+          >
+            Desarrollo con tipado estricto, tests unitarios y CI/CD. Mirá cómo
+            corre nuestro processor ETL en tiempo real.
+          </p>
+        </div>
+
+        <!-- Terminal Mockup -->
+        <div
+          class="term-mockup opacity-0 translate-y-20 bg-[#0d1117] rounded-lg shadow-2xl overflow-hidden border border-verde/20"
+        >
+          <div
+            class="flex items-center gap-3 px-6 py-4 bg-[#161b22] border-b border-verde/20"
+          >
+            <span class="w-3 h-3 rounded-full bg-rosa"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-verde"></span>
+            <span class="ml-4 font-mono text-xs text-blanco/40"
+              >user@vezner-server: ~/projects/etl_pipeline</span
+            >
+            <span
+              class="ml-auto font-mono text-xs text-verde px-2 py-1 bg-verde/10 rounded"
+              >PYTHON 3.12</span
+            >
+          </div>
+          <div
+            class="p-6 font-mono text-sm leading-relaxed relative min-h-[400px]"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0d1117] pointer-events-none z-10 top-1/2"
+            >
+            </div>
+            <div class="code-lines space-y-1 text-blanco/70 relative z-0">
+              <div class="text-verde">
+                $ python run_pipeline.py --workers=8 --mode=prod
+              </div>
+              {
+                [
+                  {
+                    t: "[INFO] Initializing distributed workers (8)...",
+                    c: "text-blanco/40",
+                    d: 0.5,
+                  },
+                  {
+                    t: "[OK] Connection to PostgreSQL established (12ms latency).",
+                    c: "text-verde",
+                    d: 1.2,
+                  },
+                  { t: "[OK] Redis cache ready.", c: "text-verde", d: 1.5 },
+                  {
+                    t: "[INFO] Fetching records from external API...",
+                    c: "text-blanco/40",
+                    d: 2.5,
+                  },
+                  {
+                    t: "[INFO] Rate limit 1000req/s respected.",
+                    c: "text-azul",
+                    d: 3.0,
+                  },
+                  {
+                    t: "████████████████░░░░░░░░░░ 64% ETA: 2s",
+                    c: "text-blanco/20 animate-pulse",
+                    d: 4.5,
+                  },
+                  {
+                    t: "[OK] Cleaned and transformed 45,281 records.",
+                    c: "text-verde",
+                    d: 6.0,
+                  },
+                  {
+                    t: "[INFO] Performing bulk insert into warehouse...",
+                    c: "text-blanco/40",
+                    d: 7.0,
+                  },
+                  {
+                    t: "[OK] Insert successful. Commit done.",
+                    c: "text-verde",
+                    d: 8.5,
+                  },
+                  {
+                    t: "---------------------------------------------------",
+                    c: "text-blanco/20",
+                    d: 9.0,
+                  },
+                  {
+                    t: "PIPELINE FINISHED IN 4.28s. ERRORS: 0",
+                    c: "text-verde font-bold",
+                    d: 9.5,
+                  },
+                ].map((line) => (
+                  <div
+                    class={`opacity-0 animate-[fadeIn_0s_forwards] ${line.c}`}
+                    style={`animation-delay: ${line.d}s;`}
+                  >
+                    {line.t}
+                  </div>
+                ))
+              }
+              <div class="animate-pulse text-verde mt-2">_</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § CARACTERÍSTICAS TÉCNICAS
+    ========================================= -->
+    <section class="py-32 px-6 md:px-16 bg-[#0a0a0a]">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-x-12 gap-y-20">
+          {
+            [
+              {
+                t: "Tipado Estricto",
+                d: "Mypy y TypeHints en el 100% del código. Prevenimos bugs en tiempo de escritura antes de que lleguen a producción.",
+                i: "fa-solid fa-shield-halved",
+              },
+              {
+                t: "Arquitectura Limpia",
+                d: "Principios SOLID, inyección de dependencias y patrones de diseño (Repository, Factory) para mantener el código sano.",
+                i: "fa-solid fa-sitemap",
+              },
+              {
+                t: "Rendimiento Extremo",
+                d: "Uso de asyncio, uvloop y multiprocesamiento cuando un solo hilo no es suficiente para la carga.",
+                i: "fa-solid fa-gauge-high",
+              },
+              {
+                t: "Dockerización",
+                d: "Entornos reproducibles. Si corre en nuestra máquina, va a correr igual en tu servidor VPS o en AWS.",
+                i: "fa-brands fa-docker",
+              },
+              {
+                t: "CI / CD Pipeline",
+                d: "Testing automático con Pytest y despliegue sin downtime a través de GitHub Actions.",
+                i: "fa-solid fa-rotate",
+              },
+              {
+                t: "Monitoreo 24/7",
+                d: "Integración con Sentry y Prometheus para capturar cualquier excepción milisegundos después de que ocurra.",
+                i: "fa-solid fa-heart-pulse",
+              },
+            ].map((f, i) => (
+              <div class="feat-card opacity-0 translate-y-12 border-t border-blanco/10 pt-8 hover:-translate-y-2 transition-transform duration-300">
+                <i class={`${f.i} text-3xl text-verde/50 mb-6 block`} />
+                <h4 class="font-display text-3xl text-blanco mb-4">{f.t}</h4>
+                <p class="font-mono text-xs text-blanco/60 leading-relaxed">
+                  {f.d}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         § CTA FINAL
+    ========================================= -->
+    <section
+      class="py-32 bg-verde text-negro text-center relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 z-0 opacity-20"
+        style="background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%); background-size: 10px 10px;"
+      >
+      </div>
+
+      <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-6xl md:text-8xl mb-8 cta-title">
+          Automatizá lo<br />aburrido
+        </h2>
+        <p
+          class="font-mono text-sm text-negro/70 mb-12 uppercase tracking-widest cta-desc"
+        >
+          Consultoría y desarrollo a medida
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns"
+        >
+          <a
+            href="/contacto"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden"
+          >
+            <span class="relative z-10">Iniciar Proyecto</span>
+            <span
+              class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5"
+              >→</span
+            >
+            <span
+              class="absolute inset-0 bg-blanco translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out"
+            ></span>
+          </a>
+          <a
+            href="/#servicios"
+            class="group relative inline-flex items-center gap-3 border border-negro/30 text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-negro/10 transition-colors duration-300"
+          >
+            Ver otros servicios
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .btn-primary:hover span:first-child,
+  .btn-primary:hover span:nth-child(2) {
+    color: #0a0a0a;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero
+  const tl = gsap.timeline();
+  tl.to(".hero-reveal", {
+    opacity: 1,
+    duration: 1,
+    ease: "power3.out",
+    delay: 0.2,
+  });
+  tl.to(
+    ".title-line",
+    { y: "0%", duration: 1.2, stagger: 0.15, ease: "power4.out" },
+    "-=0.6",
+  );
+  tl.to(
+    ".hero-desc",
+    { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+    "-=0.8",
+  );
+  tl.to(
+    ".hero-stats",
+    { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+    "-=0.8",
+  );
+  tl.to(".scroll-prompt", { opacity: 1, duration: 1 }, "-=0.5");
+
+  // Use Cases
+  gsap.to(".section-title", {
+    scrollTrigger: { trigger: ".section-title", start: "top 85%", once: true },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power4.out",
+  });
+  gsap.utils.toArray(".use-case").forEach((card, i) => {
+    gsap.to(card as HTMLElement, {
+      scrollTrigger: {
+        trigger: card as HTMLElement,
+        start: "top 85%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: i * 0.15,
+      ease: "power3.out",
+    });
+  });
+
+  // Terminal
+  gsap.to(".term-title", {
+    scrollTrigger: { trigger: ".term-title", start: "top 85%", once: true },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power4.out",
+  });
+  gsap.to(".term-desc", {
+    scrollTrigger: { trigger: ".term-title", start: "top 85%", once: true },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.2,
+    ease: "power3.out",
+  });
+
+  // Reset animations when scrolled into view so the terminal plays from 0
+  ScrollTrigger.create({
+    trigger: ".term-mockup",
+    start: "top 70%",
+    once: true,
+    onEnter: () => {
+      gsap.to(".term-mockup", {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+      // Remove animation-delay via a hack class if needed, but CSS handles it
+    },
+  });
+
+  // Features
+  gsap.utils.toArray(".feat-card").forEach((feat, i) => {
+    gsap.to(feat as HTMLElement, {
+      scrollTrigger: {
+        trigger: feat as HTMLElement,
+        start: "top 90%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      delay: (i % 3) * 0.15,
+      ease: "power3.out",
+    });
+  });
+</script>

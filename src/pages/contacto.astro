@@ -44,174 +44,223 @@ import Footer from "../components/Footer.astro";
         
         <div class="grid md:grid-cols-2 gap-16 items-start">
           
-          <form id="contact-form" class="space-y-6 contact-form opacity-0">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="form-group">
-                <label
-                  for="nombre"
-                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                  >Nombre</label
-                >
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  required
-                  placeholder="Tu nombre completo"
-                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                />
-              </div>
-
-              <div class="form-group">
-                <label
-                  for="empresa"
-                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                  >Empresa / Marca</label
-                >
-                <input
-                  type="text"
-                  id="empresa"
-                  name="empresa"
-                  placeholder="Opcional"
-                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                />
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="form-group">
-                <label
-                  for="email"
-                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="tu@empresa.com"
-                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                />
-              </div>
-
-              <div class="form-group">
-                <label
-                  for="telefono"
-                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                  >Teléfono / WhatsApp</label
-                >
-                <input
-                  type="tel"
-                  id="telefono"
-                  name="telefono"
-                  placeholder="Opcional"
-                  class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                />
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              <div class="form-group relative custom-dropdown-container">
-                <label
-                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                  >Servicio de interés</label
-                >
-                <input type="hidden" id="servicio" name="servicio" value="" required />
-                <button
-                  type="button"
-                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
-                >
-                  <span class="dropdown-text">Seleccioná un servicio</span>
-                  <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
-                </button>
-                <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 z-50 opacity-0 invisible translate-y-2 transition-all duration-300">
-                  <div class="flex flex-col py-2 font-mono text-sm">
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño Web">Diseño Web</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Software Python">Software Python</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Community Management">Community Management</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño de Identidad">Diseño de Identidad</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Otro">Otro / Consulta general</button>
-                  </div>
-                </div>
-              </div>
-
-              
-              <div class="form-group relative custom-dropdown-container">
-                <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Presupuesto estimado (USD)</label>
-                <input type="hidden" id="presupuesto" name="presupuesto" value="" />
-                <button
-                  type="button"
-                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
-                >
-                  <span class="dropdown-text">Opcional</span>
-                  <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
-                </button>
-                <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 z-50 opacity-0 invisible translate-y-2 transition-all duration-300">
-                  <div class="flex flex-col py-2 font-mono text-sm">
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Menos de $500">Menos de $500</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$500 - $1.500">$500 - $1.500</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$1.500 - $5.000">$1.500 - $5.000</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Más de $5.000">Más de $5.000</button>
-                    <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="No lo sé">No lo sé aún</button>
-                  </div>
+          <form id="contact-form" class="space-y-8 contact-form opacity-0">
+            <!-- PASO 1: SERVICIO -->
+            <div class="form-group relative custom-dropdown-container z-50">
+              <label
+                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                >¿En qué te podemos ayudar?</label
+              >
+              <input type="hidden" id="servicio" name="servicio" value="" required />
+              <button
+                type="button"
+                class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
+              >
+                <span class="dropdown-text">Seleccioná un servicio para continuar</span>
+                <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+              </button>
+              <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
+                <div class="flex flex-col py-2 font-mono text-sm">
+                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño Web">Diseño Web</button>
+                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Software Python">Software Python</button>
+                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Community Management">Community Management</button>
+                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño de Identidad">Diseño de Identidad</button>
+                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Otro">Otro / Consulta general</button>
                 </div>
               </div>
             </div>
 
-            
-            <div id="otro-servicio-container" class="form-group hidden opacity-0 transition-opacity duration-300">
-              <label
-                for="otro_servicio"
-                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                >Especificar servicio / proyecto</label
-              >
-              <input
-                type="text"
-                id="otro_servicio"
-                name="otro_servicio"
-                placeholder="¿Qué necesitás?"
-                class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-              />
-            </div>
-
-            <div class="form-group">
-              <label
-                for="mensaje"
-                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                >Tu proyecto en detalle</label
-              >
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="4"
-                required
-                placeholder="Contanos brevemente sobre tu empresa y qué objetivos tenés en mente..."
-                class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              id="submit-btn"
-              class="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-negro text-blanco px-10 py-4 font-mono font-medium text-xs tracking-widest uppercase relative overflow-hidden"
-            >
-              <span
-                class="relative z-10 group-hover:text-negro transition-colors duration-300"
-                >Enviar consulta</span
-              >
-              <span
-                class="relative z-10 group-hover:translate-x-1 group-hover:text-negro transition-all duration-300"
-                >→</span
-              >
-              <div
-                class="absolute inset-0 bg-blanco border border-negro translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
-              >
+            <!-- PASO 2: PREGUNTAS DINÁMICAS -->
+            <div id="dynamic-fields-container" class="space-y-6">
+              <!-- Web -->
+              <div id="fields-Diseño Web" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                <div class="form-group">
+                  <label for="web_actual" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés una web actual?</label>
+                  <input type="text" id="web_actual" name="web_actual" placeholder="Ej: No, arranco de cero / Sí, miweb.com" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="web_objetivo" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Objetivo principal de la web</label>
+                  <input type="text" id="web_objetivo" name="web_objetivo" placeholder="Ej: Captar leads, Vender online, Portfolio..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="web_contenido" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés textos e imágenes listas?</label>
+                  <input type="text" id="web_contenido" name="web_contenido" placeholder="Ej: Sí, tengo todo / No, necesito ayuda con eso" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
               </div>
-            </button>
 
-            
+              <!-- Python -->
+              <div id="fields-Software Python" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                <div class="form-group">
+                  <label for="py_area" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Área o proceso a mejorar</label>
+                  <input type="text" id="py_area" name="py_area" placeholder="Ej: Facturación, Scraping de datos, Backend..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="py_integracion" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Con qué sistemas debe integrarse?</label>
+                  <input type="text" id="py_integracion" name="py_integracion" placeholder="Ej: API de Mercadopago, Excel, SAP..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="py_problema" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Describí el problema principal</label>
+                  <textarea id="py_problema" name="py_problema" rows="3" placeholder="Contanos qué dolor buscás resolver..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none" disabled></textarea>
+                </div>
+              </div>
+
+              <!-- CM -->
+              <div id="fields-Community Management" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                <div class="form-group">
+                  <label for="cm_redes" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Redes sociales actuales</label>
+                  <input type="text" id="cm_redes" name="cm_redes" placeholder="Dejá los links o usuarios (@...)" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="cm_objetivo" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Objetivo principal en redes</label>
+                  <input type="text" id="cm_objetivo" name="cm_objetivo" placeholder="Ej: Más alcance, Interacción, Ventas..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="cm_material" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés material visual?</label>
+                  <input type="text" id="cm_material" name="cm_material" placeholder="Ej: Tengo fotos profesionales / Necesito que filmen" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+              </div>
+
+              <!-- Identidad -->
+              <div id="fields-Diseño de Identidad" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                <div class="form-group">
+                  <label for="id_estado" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Estado de la marca</label>
+                  <input type="text" id="id_estado" name="id_estado" placeholder="Ej: Arrancamos de cero / Es un rediseño" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="id_vibra" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">3 palabras que definan tu marca</label>
+                  <input type="text" id="id_vibra" name="id_vibra" placeholder="Ej: Moderna, Confiable, Disruptiva" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="id_entregables" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Entregables necesarios</label>
+                  <input type="text" id="id_entregables" name="id_entregables" placeholder="Ej: Logo, Manual de marca, Papelería..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+              </div>
+
+              <!-- Otro -->
+              <div id="fields-Otro" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                <div class="form-group">
+                  <label for="otro_servicio" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Especificar servicio o necesidad</label>
+                  <input type="text" id="otro_servicio" name="otro_servicio" placeholder="¿Qué necesitás?" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                </div>
+                <div class="form-group">
+                  <label for="mensaje_otro" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Tu proyecto en detalle</label>
+                  <textarea id="mensaje_otro" name="mensaje_otro" rows="4" placeholder="Contanos brevemente sobre tu empresa y qué objetivos tenés en mente..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none" disabled></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- PASO 3: DATOS DE CONTACTO -->
+            <div id="contact-info-container" class="space-y-8 hidden opacity-0 transition-opacity duration-500 pt-8 border-t border-negro/10">
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                  <label
+                    for="nombre"
+                    class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                    >Nombre</label
+                  >
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    placeholder="Tu nombre completo"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label
+                    for="empresa"
+                    class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                    >Empresa / Marca</label
+                  >
+                  <input
+                    type="text"
+                    id="empresa"
+                    name="empresa"
+                    placeholder="Opcional"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                  <label
+                    for="email"
+                    class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="tu@empresa.com"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label
+                    for="telefono"
+                    class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                    >Teléfono / WhatsApp</label
+                  >
+                  <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="Opcional"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group relative custom-dropdown-container z-40">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Presupuesto estimado (USD)</label>
+                  <input type="hidden" id="presupuesto" name="presupuesto" value="" />
+                  <button
+                    type="button"
+                    class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
+                  >
+                    <span class="dropdown-text">Opcional</span>
+                    <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                  </button>
+                  <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
+                    <div class="flex flex-col py-2 font-mono text-sm">
+                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Menos de $500">Menos de $500</button>
+                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$500 - $1.500">$500 - $1.500</button>
+                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$1.500 - $5.000">$1.500 - $5.000</button>
+                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Más de $5.000">Más de $5.000</button>
+                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="No lo sé">No lo sé aún</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                id="submit-btn"
+                class="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-negro text-blanco px-10 py-4 font-mono font-medium text-xs tracking-widest uppercase relative overflow-hidden mt-4"
+              >
+                <span
+                  class="relative z-10 group-hover:text-negro transition-colors duration-300"
+                  >Enviar consulta</span
+                >
+                <span
+                  class="relative z-10 group-hover:translate-x-1 group-hover:text-negro transition-all duration-300"
+                  >→</span
+                >
+                <div
+                  class="absolute inset-0 bg-blanco border border-negro translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
+                >
+                </div>
+              </button>
+            </div>
+
             <div
               id="form-success"
               class="hidden font-mono font-medium text-xs text-verde bg-verde/5 border border-verde/20 px-4 py-3"
@@ -355,8 +404,8 @@ import Footer from "../components/Footer.astro";
 
 
   const dropdownContainers = document.querySelectorAll(".custom-dropdown-container");
-  const otroContainer = document.getElementById("otro-servicio-container");
-  const otroInput = document.getElementById("otro_servicio") as HTMLInputElement;
+  const contactInfoContainer = document.getElementById("contact-info-container");
+  const dynamicGroups = document.querySelectorAll(".dynamic-group");
 
   dropdownContainers.forEach((container) => {
     const btn = container.querySelector(".dropdown-btn") as HTMLButtonElement;
@@ -371,7 +420,6 @@ import Footer from "../components/Footer.astro";
       e.stopPropagation();
       const isOpen = !optionsDiv.classList.contains("invisible");
 
-
       closeAllDropdowns();
 
       if (!isOpen) {
@@ -381,7 +429,6 @@ import Footer from "../components/Footer.astro";
         iconSpan.style.transform = "rotate(180deg)";
       }
     });
-
 
     optionBtns.forEach((opt) => {
       opt.addEventListener("click", (e) => {
@@ -393,18 +440,46 @@ import Footer from "../components/Footer.astro";
         textSpan.classList.remove("text-negro/70");
         textSpan.classList.add("text-negro");
 
-
         if (hiddenInput.id === "servicio") {
-          if (value === "Otro") {
-            otroContainer?.classList.remove("hidden");
+          // Ocultar todos los grupos
+          dynamicGroups.forEach((group) => {
+            group.classList.add("opacity-0");
+            setTimeout(() => {
+              group.classList.add("hidden");
+              // Desactivar required y disable
+              const inputs = group.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+              inputs.forEach(input => {
+                input.disabled = true;
+                input.required = false;
+              });
+            }, 300);
+          });
 
-            setTimeout(() => otroContainer?.classList.remove("opacity-0"), 10);
-            otroInput.setAttribute("required", "true");
-          } else {
-            otroContainer?.classList.add("opacity-0");
-            setTimeout(() => otroContainer?.classList.add("hidden"), 300);
-            otroInput.removeAttribute("required");
-            otroInput.value = "";
+          // Mostrar el grupo correspondiente
+          const targetGroup = document.getElementById(`fields-${value}`);
+          if (targetGroup) {
+            setTimeout(() => {
+              targetGroup.classList.remove("hidden");
+              // Habilitar y required
+              const inputs = targetGroup.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+              inputs.forEach(input => {
+                input.disabled = false;
+                input.required = true; // Hacemos requeridos todos los de la sección, excepto los que decidas opcionales
+              });
+              
+              // Pequeño delay para que aplique el display block antes de la opacidad
+              setTimeout(() => {
+                targetGroup.classList.remove("opacity-0");
+                
+                // Mostrar datos de contacto si estaban ocultos
+                if (contactInfoContainer?.classList.contains("hidden")) {
+                  contactInfoContainer.classList.remove("hidden");
+                  setTimeout(() => {
+                    contactInfoContainer.classList.remove("opacity-0");
+                  }, 50);
+                }
+              }, 50);
+            }, 300); // Esperamos a que los otros se oculten
           }
         }
 
@@ -412,7 +487,6 @@ import Footer from "../components/Footer.astro";
       });
     });
   });
-
 
   document.addEventListener("click", () => {
     closeAllDropdowns();
@@ -462,7 +536,8 @@ import Footer from "../components/Footer.astro";
 
         dropdownContainers.forEach((container) => {
           const textSpan = container.querySelector(".dropdown-text") as HTMLSpanElement;
-          const defaultText = container.querySelector("input")?.id === "presupuesto" ? "Opcional" : "Seleccioná un servicio";
+          const isPresupuesto = container.querySelector("input")?.id === "presupuesto";
+          const defaultText = isPresupuesto ? "Opcional" : "Seleccioná un servicio para continuar";
           if (textSpan) {
             textSpan.textContent = defaultText;
             textSpan.classList.remove("text-negro");
@@ -470,8 +545,16 @@ import Footer from "../components/Footer.astro";
           }
         });
         
-        otroContainer?.classList.add("hidden", "opacity-0");
-        otroInput.removeAttribute("required");
+        dynamicGroups.forEach((group) => {
+          group.classList.add("opacity-0", "hidden");
+          const inputs = group.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+          inputs.forEach(input => {
+            input.disabled = true;
+            input.required = false;
+          });
+        });
+        
+        contactInfoContainer?.classList.add("hidden", "opacity-0");
 
         if (btn && btnText) {
           btnText.textContent = "✓ Enviado";

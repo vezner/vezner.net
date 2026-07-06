@@ -17,6 +17,10 @@ import Footer from "../components/Footer.astro";
       id="hero"
       class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-blanco"
     >
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-negro/5 rounded-full blur-[80px] animate-pulse"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-[50vw] h-[50vw] bg-negro/5 rounded-full blur-[100px] animate-pulse" style="animation-delay: 2s;"></div>
+      </div>
       <canvas
         id="hero-canvas"
         class="hidden md:block absolute inset-0 w-full h-full pointer-events-none"
@@ -252,7 +256,7 @@ import Footer from "../components/Footer.astro";
         </div>
 
         <div
-          class="manifesto-body grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-20 pt-16 border-t border-negro/8 items-start"
+          class="manifesto-body grid md:grid-cols-2 gap-8 md:gap-12 mt-20 pt-16 border-t border-negro/8 items-start"
           style="opacity:0; transform: translateY(24px);"
         >
           <div>
@@ -280,22 +284,7 @@ import Footer from "../components/Footer.astro";
               >
             </p>
           </div>
-          <div>
-            <div
-              class="p-5 bg-negro/[0.02] border-l-2 border-negro/20 max-w-sm"
-            >
-              <p
-                class="font-mono text-[10px] text-negro/40 tracking-[0.2em] uppercase mb-2"
-              >
-                Archivo
-              </p>
-              <p class="font-mono text-xs text-negro/60 leading-relaxed">
-                VEZNER operó como un círculo de desarrollo estrictamente privado
-                desde sus inicios. El <strong>05 jul. 2026</strong>, decidimos
-                abrir nuestras puertas y lanzar la agencia públicamente.
-              </p>
-            </div>
-          </div>
+
 
           <div
             class="manifesto-stats grid grid-cols-2 md:grid-cols-4 gap-0 mt-16 border border-negro/8"
@@ -333,12 +322,18 @@ import Footer from "../components/Footer.astro";
           </div>
         </div>
       </div>
+    </section>
 
-      <section
-        id="servicios"
-        class="relative bg-negro py-32 md:py-44 px-6 md:px-16 overflow-hidden"
-      >
-        <div class="container mx-auto max-w-[1400px]">
+    <section
+      id="servicios"
+      class="relative bg-negro py-32 md:py-44 px-6 md:px-16 overflow-hidden"
+    >
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-verde/5 rounded-full blur-[100px] animate-pulse"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[45vw] h-[45vw] bg-rosa/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[40%] right-[10%] w-[30vw] h-[30vw] bg-yellow-400/5 rounded-full blur-[90px] animate-pulse" style="animation-delay: 1s;"></div>
+      </div>
+        <div class="container mx-auto max-w-[1400px] relative z-10">
           <div
             class="flex items-center gap-4 mb-16 opacity-0 translate-y-4"
             id="servicios-label"
@@ -477,7 +472,7 @@ import Footer from "../components/Footer.astro";
           </div>
         </div>
       </section>
-      \n\n \n
+
       <section
         id="proceso"
         class="relative py-32 md:py-44 px-6 md:px-16 bg-blanco overflow-hidden"
@@ -688,7 +683,7 @@ import Footer from "../components/Footer.astro";
           </div>
         </div>
       </section>
-    </section>
+
 
     <Footer />
   </main>

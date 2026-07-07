@@ -1,7 +1,8 @@
 ---
-title: "El peligro de gestionar tu PyME con Excel: Por qué tu negocio necesita un sistema a medida"
+title: "El peligro de gestionar tu pyme con Excel: Por qué tu negocio necesita un sistema a medida"
 description: "Usar planillas de cálculo para controlar el stock y las ventas funciona al principio, pero tarde o temprano se vuelve una bomba de tiempo. Descubrí el poder de un software personalizado."
-pubDate: 2026-07-07T19:37:47
+pubDate: 2026-07-07T19:43:00
+heroImage: "/blog/el-peligro-de-gestionar-tu-pyme-con-excel-por-que-tu-negocio-necesita-un-sistema-a-medida.webp"
 tags:
   - 'software a medida'
   - 'gestion empresarial'

@@ -305,7 +305,7 @@ import Footer from "../components/Footer.astro";
                 },
                 { valor: "100%", label: "A medida", color: "text-acento" },
                 {
-                  valor: `+5`,
+                  valor: `+12`,
                   label: "Años de experiencia",
                   color: "text-negro",
                 },
@@ -1197,4 +1197,84 @@ import Footer from "../components/Footer.astro";
       color: var(--hover-c);
     }
   </style>
+
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const empresa = urlParams.get("e") || urlParams.get("empresa");
+      
+      if (empresa && !sessionStorage.getItem(`vz_trk_full_${empresa}`)) {
+        sessionStorage.setItem(`vz_trk_full_${empresa}`, "true");
+        
+        const startTime = Date.now();
+        let maxScroll = 0;
+        let geoData: any = { ip: "Calculando...", country: "Desconocido", city: "Desconocida", organization: "Desconocido" };
+
+        // Forzar IPv4 usando el subdominio ipv4 de geojs
+        fetch("https://ipv4.geojs.io/v1/ip/geo.json")
+          .then(res => res.json())
+          .then(geo => { geoData = geo; })
+          .catch(() => {});
+
+        window.addEventListener("scroll", () => {
+           maxScroll = Math.max(maxScroll, window.scrollY);
+        }, { passive: true });
+
+        const sendData = async () => {
+          if (document.visibilityState !== 'hidden') return;
+          
+          document.removeEventListener('visibilitychange', sendData);
+          
+          const timeSpentSeconds = Math.round((Date.now() - startTime) / 1000);
+          const scrollableHeight = Math.max(1, document.body.scrollHeight - window.innerHeight);
+          const scrollPercent = Math.min(100, Math.round((maxScroll / scrollableHeight) * 100));
+          
+          let batteryStr = "No disponible";
+          try {
+             if ((navigator as any).getBattery) {
+                const bat = await (navigator as any).getBattery();
+                batteryStr = `${Math.round(bat.level * 100)}% ${bat.charging ? '(Cargando)' : '(Desenchufado)'}`;
+             }
+          } catch(e) {}
+
+          const connection = (navigator as any).connection;
+          const network = connection ? connection.effectiveType : "Desconocida";
+          
+          const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "Sí" : "No";
+          const referrer = document.referrer || "Directo / Desconocido";
+
+          const payload = {
+              Empresa: empresa,
+              Fecha: new Date().toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" }),
+              IP: geoData.ip,
+              Proveedor_Internet: geoData.organization_name || geoData.organization || "Desconocido",
+              Ubicacion: `${geoData.city}, ${geoData.country}`,
+              Tiempo_En_Sitio: `${Math.floor(timeSpentSeconds / 60)}m ${timeSpentSeconds % 60}s`,
+              Profundidad_Scroll: `${scrollPercent}%`,
+              Origen_Visita: referrer,
+              Pantalla: `${window.screen.width}x${window.screen.height}`,
+              Sistema_Operativo: navigator.platform,
+              Idioma: navigator.language,
+              Modo_Oscuro: darkMode,
+              Red: network,
+              Bateria: batteryStr,
+              URL_Visitada: window.location.href,
+              UserAgent: navigator.userAgent
+          };
+
+          fetch("https://formspree.io/f/mwvdjvaz", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              },
+              body: JSON.stringify(payload),
+              keepalive: true
+          }).catch(() => {});
+        };
+
+        document.addEventListener('visibilitychange', sendData);
+      }
+    });
+  </script>
 </Layout>

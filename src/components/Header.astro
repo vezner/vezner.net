@@ -60,22 +60,22 @@ const { theme = "light" } = Astro.props;
       </li>
 
       <!-- Morphing Background -->
-      <div id="morphing-dropdown" class="absolute top-[calc(100%-10px)] left-0 opacity-0 pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-2xl rounded-2xl border border-negro/5 bg-blanco/95 backdrop-blur-2xl overflow-hidden z-50 origin-top-left" style="will-change: width, height, transform, opacity;">
+      <div id="morphing-dropdown" class="dropdown-theme-sync absolute top-[calc(100%-10px)] left-0 opacity-0 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-2xl rounded-2xl border backdrop-blur-2xl overflow-hidden z-50 origin-top-left" style="will-change: width, height, transform, opacity;">
         <div id="morphing-content" class="relative w-full h-full">
           <!-- Panel Inicio -->
-          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="inicio">
+          <div class="morph-panel absolute top-0 left-0 opacity-0 pointer-events-none" data-panel="inicio">
             <div class="p-8 w-[350px]">
-              <p class="font-mono text-[10px] tracking-widest uppercase opacity-40 mb-6">Secciones</p>
-              <div class="flex flex-col gap-4">
-                <a href="/#manifiesto" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+              <p class="font-mono text-[10px] tracking-widest uppercase opacity-40 mb-4">Secciones</p>
+              <div class="flex flex-col gap-1">
+                <a href="/#manifiesto" class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2">
                   <span class="font-mono text-xs opacity-50">01</span>
                   <span class="font-display text-xl">Manifiesto</span>
                 </a>
-                <a href="/#servicios" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                <a href="/#servicios" class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2">
                   <span class="font-mono text-xs opacity-50">02</span>
                   <span class="font-display text-xl">Servicios</span>
                 </a>
-                <a href="/#proceso" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                <a href="/#proceso" class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2">
                   <span class="font-mono text-xs opacity-50">03</span>
                   <span class="font-display text-xl">Proceso</span>
                 </a>
@@ -84,43 +84,43 @@ const { theme = "light" } = Astro.props;
           </div>
 
           <!-- Panel Servicios -->
-          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="servicios">
+          <div class="morph-panel absolute top-0 left-0 opacity-0 pointer-events-none" data-panel="servicios">
             <div class="p-10 w-[850px]">
               <div class="grid grid-cols-4 gap-8">
                 <div>
-                  <a href="/servicios/diseno-web" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Diseño Web</a>
-                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
-                    <a href="/servicios/diseno-web#hero" class="hover:text-current hover:opacity-100 transition-colors">Landing Pages</a>
-                    <a href="/servicios/diseno-web#estandar" class="hover:text-current hover:opacity-100 transition-colors">Estándar VEZNER</a>
-                    <a href="/servicios/diseno-web#enfoque" class="hover:text-current hover:opacity-100 transition-colors">Nuestro Enfoque</a>
-                    <a href="/servicios/diseno-web#cta" class="hover:text-current hover:opacity-100 transition-colors">Agendar Llamada</a>
+                  <a href="/servicios/diseno-web" class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300">Diseño Web</a>
+                  <div class="flex flex-col font-mono text-xs opacity-70">
+                    <a href="/servicios/diseno-web#hero" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Landing Pages</a>
+                    <a href="/servicios/diseno-web#estandar" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Estándar VEZNER</a>
+                    <a href="/servicios/diseno-web#enfoque" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Nuestro Enfoque</a>
+                    <a href="/servicios/diseno-web#cta" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Agendar Llamada</a>
                   </div>
                 </div>
                 <div>
-                  <a href="/servicios/software-python" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Software</a>
-                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
-                    <a href="/servicios/software-python#soluciones" class="hover:text-current hover:opacity-100 transition-colors">Casos de Uso</a>
-                    <a href="/servicios/software-python#calidad" class="hover:text-current hover:opacity-100 transition-colors">Código de Calidad</a>
-                    <a href="/servicios/software-python#stack" class="hover:text-current hover:opacity-100 transition-colors">Nuestro Stack</a>
-                    <a href="/servicios/software-python#cta" class="hover:text-current hover:opacity-100 transition-colors">Consultar Proyecto</a>
+                  <a href="/servicios/software-python" class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300">Software</a>
+                  <div class="flex flex-col font-mono text-xs opacity-70">
+                    <a href="/servicios/software-python#soluciones" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Casos de Uso</a>
+                    <a href="/servicios/software-python#calidad" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Código de Calidad</a>
+                    <a href="/servicios/software-python#stack" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Nuestro Stack</a>
+                    <a href="/servicios/software-python#cta" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Consultar Proyecto</a>
                   </div>
                 </div>
                 <div>
-                  <a href="/servicios/community-management" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Marketing</a>
-                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
-                    <a href="/servicios/community-management#hero" class="hover:text-current hover:opacity-100 transition-colors">Gestión de Redes</a>
-                    <a href="/servicios/community-management#metodologia" class="hover:text-current hover:opacity-100 transition-colors">Contenido Visual</a>
-                    <a href="/servicios/community-management#servicios" class="hover:text-current hover:opacity-100 transition-colors">Servicios CM</a>
-                    <a href="/servicios/community-management#cta" class="hover:text-current hover:opacity-100 transition-colors">Escalar Cuenta</a>
+                  <a href="/servicios/community-management" class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300">Marketing</a>
+                  <div class="flex flex-col font-mono text-xs opacity-70">
+                    <a href="/servicios/community-management#hero" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Gestión de Redes</a>
+                    <a href="/servicios/community-management#metodologia" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Contenido Visual</a>
+                    <a href="/servicios/community-management#servicios" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Servicios CM</a>
+                    <a href="/servicios/community-management#cta" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Escalar Cuenta</a>
                   </div>
                 </div>
                 <div>
-                  <a href="/servicios/diseno-identidad" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Branding</a>
-                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
-                    <a href="/servicios/diseno-identidad#hero" class="hover:text-current hover:opacity-100 transition-colors">Logotipos</a>
-                    <a href="/servicios/diseno-identidad#galeria" class="hover:text-current hover:opacity-100 transition-colors">Identidad Visual</a>
-                    <a href="/servicios/diseno-identidad#entregables" class="hover:text-current hover:opacity-100 transition-colors">Entregables</a>
-                    <a href="/servicios/diseno-identidad#cta" class="hover:text-current hover:opacity-100 transition-colors">Cotizar Marca</a>
+                  <a href="/servicios/diseno-identidad" class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300">Branding</a>
+                  <div class="flex flex-col font-mono text-xs opacity-70">
+                    <a href="/servicios/diseno-identidad#hero" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Logotipos</a>
+                    <a href="/servicios/diseno-identidad#galeria" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Identidad Visual</a>
+                    <a href="/servicios/diseno-identidad#entregables" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Entregables</a>
+                    <a href="/servicios/diseno-identidad#cta" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Cotizar Marca</a>
                   </div>
                 </div>
               </div>
@@ -128,36 +128,35 @@ const { theme = "light" } = Astro.props;
           </div>
 
           <!-- Panel Nosotros -->
-          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="nosotros">
+          <div class="morph-panel absolute top-0 left-0 opacity-0 pointer-events-none" data-panel="nosotros">
             <div class="p-8 w-[250px]">
-              <div class="flex flex-col gap-4">
-                <a href="/nosotros#agencia" class="mega-link hover:opacity-70 transition-opacity">
+              <div class="flex flex-col gap-1">
+                <a href="/nosotros#agencia" class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2">
                   <span class="font-display text-2xl block mb-1">La Agencia</span>
                   <span class="font-mono text-[10px] opacity-50 block uppercase tracking-wider">Nuestra Esencia</span>
                 </a>
-                <a href="/nosotros#manifiesto" class="mega-link hover:opacity-70 transition-opacity">
+                <a href="/nosotros#manifiesto" class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2">
                   <span class="font-display text-2xl block mb-1">Manifiesto</span>
                   <span class="font-mono text-[10px] opacity-50 block uppercase tracking-wider">Nuestra Verdad</span>
                 </a>
-                <a href="/nosotros#pilares" class="mega-link hover:opacity-70 transition-opacity">
+                <a href="/nosotros#pilares" class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2">
                   <span class="font-display text-2xl block mb-1">Los 3 Pilares</span>
                   <span class="font-mono text-[10px] opacity-50 block uppercase tracking-wider">Nuestro Enfoque</span>
                 </a>
-
               </div>
             </div>
           </div>
 
           <!-- Panel Contacto -->
-          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="contacto">
+          <div class="morph-panel absolute top-0 left-0 opacity-0 pointer-events-none" data-panel="contacto">
             <div class="p-8 w-[350px]">
-              <p class="font-mono text-[10px] tracking-widest uppercase opacity-40 mb-6">Contactar</p>
-              <div class="flex flex-col gap-4">
-                <a href="/contacto" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+              <p class="font-mono text-[10px] tracking-widest uppercase opacity-40 mb-4">Contactar</p>
+              <div class="flex flex-col gap-1">
+                <a href="/contacto" class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-3">
                   <span class="font-display text-xl flex-1">Formulario Directo</span>
                   <span class="font-mono text-[10px] opacity-50 uppercase tracking-wider border border-current/20 px-2 py-1 rounded-sm">24hs</span>
                 </a>
-                <a href="mailto:hola@vezner.net" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                <a href="mailto:hola@vezner.net" class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-3">
                   <span class="font-display text-xl flex-1">Email Directo</span>
                   <span class="font-mono text-[10px] opacity-50 uppercase tracking-wider border border-current/20 px-2 py-1 rounded-sm">Mail</span>
                 </a>
@@ -308,19 +307,17 @@ const { theme = "light" } = Astro.props;
     background-color: #ffffff;
   }
 
-  
-  .mega-menu {
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    color: #000;
+  .dropdown-theme-sync {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.05);
+    color: #000000;
   }
   
-  :global(#header.theme-dark) .mega-menu {
-    background: rgba(10, 10, 10, 0.97);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    color: #fff;
+  :global(#header.theme-dark) .dropdown-theme-sync {
+    background-color: rgba(10, 10, 10, 0.95);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 
   /* When the header is scrolled but theme is not dark, ensure mega menu links match */
@@ -467,15 +464,19 @@ const { theme = "light" } = Astro.props;
 
     let hideTimeout: ReturnType<typeof setTimeout> | undefined;
     let isDropdownOpen = false;
+    let currentPanelIndex = -1;
+    const panelOrder = ["inicio", "servicios", "nosotros", "contacto"];
 
     const hideDropdown = () => {
       isDropdownOpen = false;
+      currentPanelIndex = -1;
       if (morphingDropdown instanceof HTMLElement) {
         morphingDropdown.style.opacity = "0";
         morphingDropdown.style.pointerEvents = "none";
       }
       panels.forEach(p => {
         if (p instanceof HTMLElement) {
+          p.style.transition = "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)";
           p.style.opacity = "0";
           p.style.pointerEvents = "none";
         }
@@ -491,15 +492,37 @@ const { theme = "light" } = Astro.props;
         const targetPanel = document.querySelector(`.morph-panel[data-panel="${dropdownName}"]`);
         if (!(targetPanel instanceof HTMLElement)) return;
 
-        panels.forEach(p => {
-          if (p instanceof HTMLElement) {
+        const newIndex = panelOrder.indexOf(dropdownName);
+        const isMovingRight = currentPanelIndex !== -1 ? newIndex > currentPanelIndex : null;
+
+        panels.forEach((p, idx) => {
+          if (idx !== newIndex && p instanceof HTMLElement) {
+            p.style.transition = "opacity 0.2s ease";
             p.style.opacity = "0";
             p.style.pointerEvents = "none";
+            p.style.transform = "none";
           }
         });
 
-        targetPanel.style.opacity = "1";
-        targetPanel.style.pointerEvents = "auto";
+        if (currentPanelIndex !== newIndex) {
+          targetPanel.style.transition = "none";
+          if (!isDropdownOpen) {
+            targetPanel.style.transform = "translateY(10px)";
+          } else {
+            targetPanel.style.transform = "none";
+          }
+          
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              targetPanel.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+              targetPanel.style.opacity = "1";
+              targetPanel.style.transform = "translate(0, 0)";
+              targetPanel.style.pointerEvents = "auto";
+            });
+          });
+        }
+        
+        currentPanelIndex = newIndex;
 
         const panelContent = targetPanel.firstElementChild;
         if (panelContent) {
@@ -509,19 +532,16 @@ const { theme = "light" } = Astro.props;
           const itemRect = item.getBoundingClientRect();
           const navRect = desktopNavList?.getBoundingClientRect();
 
-          if (navRect) {
+          if (navRect && morphingDropdown instanceof HTMLElement) {
             const left = itemRect.left - navRect.left + (itemRect.width / 2) - (contentWidth / 2);
+            morphingDropdown.style.width = `${contentWidth}px`;
+            morphingDropdown.style.height = `${contentHeight}px`;
+            morphingDropdown.style.transform = `translateX(${left}px)`;
             
-            if (morphingDropdown instanceof HTMLElement) {
-              morphingDropdown.style.width = `${contentWidth}px`;
-              morphingDropdown.style.height = `${contentHeight}px`;
-              morphingDropdown.style.transform = `translateX(${left}px)`;
-              
-              if (!isDropdownOpen) {
-                morphingDropdown.style.opacity = "1";
-                morphingDropdown.style.pointerEvents = "auto";
-                isDropdownOpen = true;
-              }
+            if (!isDropdownOpen) {
+              morphingDropdown.style.opacity = "1";
+              morphingDropdown.style.pointerEvents = "auto";
+              isDropdownOpen = true;
             }
           }
         }

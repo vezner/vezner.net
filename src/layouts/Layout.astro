@@ -263,41 +263,47 @@ const schemaOrg = {
       
       #vz-cursor {
         position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 99999;
-        
-        transform-origin: 4px 2px;
-        will-change: transform;
-        
-        opacity: 0;
-        transition: opacity 0.2s ease;
+        top: 0; left: 0; pointer-events: none; z-index: 99999;
+        will-change: transform; opacity: 0; transition: opacity 0.2s ease;
+        transform-origin: 3px 3px;
       }
-
-      #vz-cursor.visible {
-        opacity: 1;
+      .airplane-svg {
+        transition: transform 0.15s ease, filter 0.2s ease;
+        filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.3));
       }
-
-      #vz-cursor svg {
-        width: 22px;
-        height: 28px;
-        filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.25));
-        transition: transform 0.15s ease;
-      }
-
-      
-      #vz-cursor.clicking svg {
+      #vz-cursor.visible { opacity: 1; }
+      #vz-cursor.clicking .airplane-svg {
         transform: scale(0.85);
       }
+      #vz-cursor.hovering .airplane-svg {
+        transform: scale(1.05);
+        filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.4));
+      }
+      #vz-cursor-trail {
+        position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99998;
+        will-change: transform; opacity: 0; transition: opacity 0.3s ease;
+      }
+      .cursor-trail-ring {
+        width: 32px; height: 32px; border: 1px solid rgba(10, 10, 10, 0.3); border-radius: 50%;
+        margin-top: -16px; margin-left: -16px;
+        transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), background-color 0.3s ease, border-color 0.3s ease;
+      }
+      #vz-cursor.visible, #vz-cursor-trail.visible { opacity: 1; }
+      #vz-cursor.clicking .cursor-dot { transform: scale(0.5); }
+      #vz-cursor-trail.clicking .cursor-trail-ring { transform: scale(0.8); background-color: rgba(10, 10, 10, 0.05); }
+      #vz-cursor.hovering .cursor-dot { transform: scale(0); }
+      #vz-cursor-trail.hovering .cursor-trail-ring { transform: scale(1.5); background-color: rgba(10, 10, 10, 0.05); border-color: rgba(10, 10, 10, 0.1); }
 
       
       #vz-context-menu {
         position: fixed;
         z-index: 99990;
         min-width: 220px;
-        background: #0a0a0a;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 10, 10, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
         padding: 6px;
         transform-origin: top left;
         transform: scale(0.92);
@@ -309,7 +315,6 @@ const schemaOrg = {
         box-shadow:
           0 8px 40px rgba(0, 0, 0, 0.35),
           0 2px 8px rgba(0, 0, 0, 0.2);
-        font-family: "JetBrains Mono", monospace;
       }
 
       #vz-context-menu.open {
@@ -322,12 +327,12 @@ const schemaOrg = {
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 9px 14px;
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 11px;
-        letter-spacing: 0.05em;
+        padding: 8px 12px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 13px;
+        letter-spacing: 0.02em;
         cursor: none !important;
-        border-radius: 0;
+        border-radius: 8px;
         transition:
           background 0.12s ease,
           color 0.12s ease;
@@ -341,10 +346,10 @@ const schemaOrg = {
       }
 
       .ctx-item i {
-        width: 14px;
+        width: 16px;
         text-align: center;
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.35);
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.4);
         flex-shrink: 0;
       }
 
@@ -359,11 +364,12 @@ const schemaOrg = {
       }
 
       .ctx-label {
-        padding: 6px 14px 3px;
-        font-size: 9px;
-        letter-spacing: 0.2em;
+        padding: 8px 12px 4px;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.3);
       }
 
       .ctx-item.danger:hover {
@@ -377,21 +383,22 @@ const schemaOrg = {
   </head>
   <body>
     
-    <div id="vz-cursor" aria-hidden="true" style="transform-origin: 2px 2px;">
+    <div id="vz-cursor" aria-hidden="true">
       <svg
         width="24"
         height="24"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style="filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.2));"
+        class="airplane-svg"
       >
         <path
-          d="M2 2 L22 8 L8 22 Z"
+          d="M3 3 L3 20 L8.5 15 L16 15 Z"
           fill="#0a0a0a"
           stroke="#ffffff"
           stroke-width="1.5"
-          stroke-linejoin="round"></path>
+          stroke-linejoin="round"
+        />
       </svg>
     </div>
 
@@ -427,6 +434,8 @@ const schemaOrg = {
         touchMultiplier: 1.8,
       });
       (window as any).lenisInstance = lenis;
+      let mouseX = -100, mouseY = -100;
+
       function raf(time: number) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -434,57 +443,82 @@ const schemaOrg = {
       requestAnimationFrame(raf);
 
 
-      const cursor = document.getElementById("vz-cursor") as HTMLElement;
       let isTouch =
         window.matchMedia("(hover: none)").matches ||
         window.matchMedia("(pointer: coarse)").matches;
 
-      if (cursor) {
-        if (isTouch) {
-          cursor.style.display = "none";
-        } else {
-          document.documentElement.classList.add("js-cursor-active");
-        }
-
-
-        window.addEventListener(
-          "touchstart",
-          () => {
-            isTouch = true;
+      document.addEventListener("astro:page-load", () => {
+        const cursor = document.getElementById("vz-cursor");
+        if (cursor) {
+          if (isTouch) {
             cursor.style.display = "none";
-            document.documentElement.classList.remove("js-cursor-active");
-          },
-          { once: true, passive: true },
-        );
+          } else {
+            document.documentElement.classList.add("js-cursor-active");
+          }
+        }
+        
+        const interactives = document.querySelectorAll("a, button, input, textarea, [data-servicio]");
+        interactives.forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+             if (!isTouch && cursor) cursor.classList.add("hovering");
+          });
+          el.addEventListener("mouseleave", () => {
+             if (!isTouch && cursor) cursor.classList.remove("hovering");
+          });
+        });
+      });
 
-        document.addEventListener(
-          "mousemove",
-          (e) => {
-            if (isTouch) return;
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      window.addEventListener(
+        "touchstart",
+        () => {
+          isTouch = true;
+          const cursor = document.getElementById("vz-cursor");
+          if (cursor) cursor.style.display = "none";
+          document.documentElement.classList.remove("js-cursor-active");
+        },
+        { once: true, passive: true },
+      );
+
+      document.addEventListener(
+        "mousemove",
+        (e) => {
+          if (isTouch) return;
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          const cursor = document.getElementById("vz-cursor");
+          
+          if (cursor) {
+            cursor.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
             if (!cursor.classList.contains("visible")) {
               cursor.classList.add("visible");
             }
-          },
-          { passive: true },
-        );
+          }
+        },
+        { passive: true },
+      );
 
-        document.addEventListener("mouseleave", () => {
-          if (!isTouch) cursor.classList.remove("visible");
-        });
-        document.addEventListener("mouseenter", () => {
-          if (!isTouch) cursor.classList.add("visible");
-        });
-        document.addEventListener("mousedown", () => {
-          if (!isTouch) cursor.classList.add("clicking");
-        });
-        document.addEventListener("mouseup", () => {
-          if (!isTouch) cursor.classList.remove("clicking");
-        });
-      }
+      document.addEventListener("mouseleave", () => {
+        if (isTouch) return;
+        const cursor = document.getElementById("vz-cursor");
+        if (cursor) cursor.classList.remove("visible");
+      });
+      document.addEventListener("mouseenter", () => {
+        if (isTouch) return;
+        const cursor = document.getElementById("vz-cursor");
+        if (cursor) cursor.classList.add("visible");
+      });
+      document.addEventListener("mousedown", () => {
+        if (isTouch) return;
+        const cursor = document.getElementById("vz-cursor");
+        if (cursor) cursor.classList.add("clicking");
+      });
+      document.addEventListener("mouseup", () => {
+        if (isTouch) return;
+        const cursor = document.getElementById("vz-cursor");
+        if (cursor) cursor.classList.remove("clicking");
+      });
 
 
-      const ctxMenu = document.getElementById("vz-context-menu") as HTMLElement;
       let ctxOpen = false;
 
       function buildMenuHTML(
@@ -515,11 +549,40 @@ const schemaOrg = {
       }
 
       function getContextItems(target: Element): Array<any> {
+        const selText = window.getSelection()?.toString().trim();
+        const hasSelection = selText && selText.length > 0;
+
         const link = target.closest("a") as HTMLAnchorElement | null;
         const img = target.closest("img") as HTMLImageElement | null;
         const isInput = target.closest("input, textarea, select");
         const isService = target.closest("[data-servicio]");
         const isSection = target.closest("section");
+
+        if (hasSelection && !isInput) {
+          const shortText = selText.length > 15 ? selText.substring(0, 15) + '...' : selText;
+          return [
+            { type: "label", label: "Texto seleccionado" },
+            {
+              type: "item",
+              icon: "fa-regular fa-copy",
+              label: "Copiar texto",
+              action: "copy-sel",
+            },
+            {
+              type: "item",
+              icon: "fa-brands fa-google",
+              label: `Buscar "${shortText}"`,
+              action: "search-web",
+            },
+            { type: "sep" },
+            {
+              type: "item",
+              icon: "fa-solid fa-arrow-right",
+              label: "Ir al inicio",
+              href: "/",
+            }
+          ];
+        }
 
 
         if (link) {
@@ -550,13 +613,25 @@ const schemaOrg = {
             {
               type: "item",
               icon: "fa-solid fa-house",
-              label: "Volver al inicio",
+              label: "Inicio",
               href: "/",
             },
             {
               type: "item",
+              icon: "fa-solid fa-list",
+              label: "Servicios",
+              href: "/#servicios",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-users",
+              label: "Nosotros",
+              href: "/nosotros",
+            },
+            {
+              type: "item",
               icon: "fa-solid fa-envelope",
-              label: "Contactarnos",
+              label: "Contacto",
               href: "/contacto",
             },
           ];
@@ -587,6 +662,18 @@ const schemaOrg = {
               icon: "fa-solid fa-house",
               label: "Inicio",
               href: "/",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-list",
+              label: "Servicios",
+              href: "/#servicios",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-users",
+              label: "Nosotros",
+              href: "/nosotros",
             },
             {
               type: "item",
@@ -624,8 +711,26 @@ const schemaOrg = {
             { type: "label", label: "VEZNER" },
             {
               type: "item",
+              icon: "fa-solid fa-house",
+              label: "Inicio",
+              href: "/",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-list",
+              label: "Servicios",
+              href: "/#servicios",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-users",
+              label: "Nosotros",
+              href: "/nosotros",
+            },
+            {
+              type: "item",
               icon: "fa-solid fa-envelope",
-              label: "Contacto directo",
+              label: "Contacto",
               href: "/contacto",
             },
           ];
@@ -662,8 +767,20 @@ const schemaOrg = {
             {
               type: "item",
               icon: "fa-solid fa-list",
-              label: "Todos los servicios",
+              label: "Servicios",
               href: "/#servicios",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-users",
+              label: "Nosotros",
+              href: "/nosotros",
+            },
+            {
+              type: "item",
+              icon: "fa-solid fa-envelope",
+              label: "Contacto",
+              href: "/contacto",
             },
           ];
         }
@@ -682,6 +799,12 @@ const schemaOrg = {
             icon: "fa-solid fa-list",
             label: "Servicios",
             href: "/#servicios",
+          },
+          {
+            type: "item",
+            icon: "fa-solid fa-users",
+            label: "Nosotros",
+            href: "/nosotros",
           },
           {
             type: "item",
@@ -707,15 +830,9 @@ const schemaOrg = {
           { type: "label", label: "Redes" },
           {
             type: "item",
-            icon: "fa-brands fa-instagram",
-            label: "Instagram",
-            href: "https://instagram.com/vezner",
-          },
-          {
-            type: "item",
             icon: "fa-brands fa-x-twitter",
             label: "X / Twitter",
-            href: "https://twitter.com/vezner",
+            href: "https://twitter.com/veznerarg",
           },
           {
             type: "item",
@@ -723,10 +840,18 @@ const schemaOrg = {
             label: "GitHub",
             href: "https://github.com/vezner",
           },
+          {
+            type: "item",
+            icon: "fa-brands fa-youtube",
+            label: "YouTube",
+            href: "https://youtube.com/@veznerarg",
+          },
         ];
       }
 
       function openMenu(x: number, y: number, items: Array<any>) {
+        const ctxMenu = document.getElementById("vz-context-menu") as HTMLElement;
+        if (!ctxMenu) return;
         ctxMenu.innerHTML = buildMenuHTML(items);
 
 
@@ -786,6 +911,9 @@ const schemaOrg = {
             } else if (action === "copy-sel") {
               const sel = window.getSelection()?.toString();
               if (sel) navigator.clipboard?.writeText(sel).catch(() => {});
+            } else if (action === "search-web") {
+              const sel = window.getSelection()?.toString();
+              if (sel) window.open(`https://www.google.com/search?q=${encodeURIComponent(sel)}`, "_blank");
             } else if (action === "clear-input") {
               const active = document.activeElement as HTMLInputElement;
               if (active) active.value = "";
@@ -803,7 +931,8 @@ const schemaOrg = {
       }
 
       function closeMenu() {
-        ctxMenu.classList.remove("open");
+        const ctxMenu = document.getElementById("vz-context-menu");
+        if (ctxMenu) ctxMenu.classList.remove("open");
         ctxOpen = false;
       }
 
@@ -814,7 +943,8 @@ const schemaOrg = {
       });
 
       document.addEventListener("click", (e) => {
-        if (ctxOpen && !ctxMenu.contains(e.target as Node)) closeMenu();
+        const ctxMenu = document.getElementById("vz-context-menu");
+        if (ctxOpen && ctxMenu && !ctxMenu.contains(e.target as Node)) closeMenu();
       });
 
       document.addEventListener("keydown", (e) => {

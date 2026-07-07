@@ -762,16 +762,50 @@ import Footer from "../components/Footer.astro";
               </div>
 
               <div class="mt-8 mb-6">
-                <label class="group flex items-center gap-4 cursor-pointer relative">
-                  <input type="checkbox" id="acepta_legales" name="acepta_legales" required class="peer sr-only" />
-                  <div class="w-5 h-5 rounded border border-negro/30 bg-transparent flex items-center justify-center transition-colors duration-300 peer-checked:border-verde group-hover:border-verde shrink-0 relative overflow-hidden peer-checked:[&>div]:scale-100 peer-checked:[&>div]:opacity-100 peer-checked:[&>svg]:scale-100 peer-checked:[&>svg]:opacity-100">
-                    <div class="absolute inset-0 bg-verde scale-0 opacity-0 transition-all duration-300 ease-out rounded-sm"></div>
-                    <svg class="relative z-10 w-3 h-3 text-negro opacity-0 scale-50 transition-all duration-300 delay-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
-                      <path stroke-linecap="square" stroke-linejoin="miter" d="M4 12l4 4L19 6" />
+                <label
+                  class="group flex items-center gap-4 cursor-pointer relative"
+                >
+                  <input
+                    type="checkbox"
+                    id="acepta_legales"
+                    name="acepta_legales"
+                    required
+                    class="peer sr-only"
+                  />
+                  <div
+                    class="w-5 h-5 rounded border border-negro/30 bg-transparent flex items-center justify-center transition-colors duration-300 peer-checked:border-verde group-hover:border-verde shrink-0 relative overflow-hidden"
+                  >
+                    <div
+                      class="absolute inset-0 bg-verde scale-0 opacity-0 transition-all duration-300 ease-out peer-checked:scale-100 peer-checked:opacity-100 rounded-sm"
+                    >
+                    </div>
+                    <svg
+                      class="relative z-10 w-3 h-3 text-negro opacity-0 scale-50 transition-all duration-300 delay-75 peer-checked:opacity-100 peer-checked:scale-100"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    >
+                      <path
+                        stroke-linecap="square"
+                        stroke-linejoin="miter"
+                        d="M4 12l4 4L19 6"></path>
                     </svg>
                   </div>
-                  <span class="font-mono text-sm text-negro/70 leading-snug select-none">
-                    He leído y acepto los <a href="/legal/terminos-y-condiciones" target="_blank" class="text-negro underline decoration-negro/30 underline-offset-4 hover:decoration-negro transition-colors">Términos y Condiciones</a> y la <a href="/legal/politica-de-privacidad" target="_blank" class="text-negro underline decoration-negro/30 underline-offset-4 hover:decoration-negro transition-colors">Política de Privacidad</a>.
+                  <span
+                    class="font-mono text-sm text-negro/70 leading-snug select-none"
+                  >
+                    He leído y acepto los <a
+                      href="/legales"
+                      target="_blank"
+                      class="text-negro underline decoration-negro/30 underline-offset-4 hover:decoration-negro transition-colors"
+                      >Términos y Condiciones</a
+                    > y la <a
+                      href="/legal/terminos-y-condiciones"
+                      target="_blank"
+                      class="text-negro underline decoration-negro/30 underline-offset-4 hover:decoration-negro transition-colors"
+                      >Política de Privacidad</a
+                    >.
                   </span>
                 </label>
               </div>

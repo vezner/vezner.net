@@ -468,18 +468,20 @@ const { theme = "light" } = Astro.props;
     const navItems = document.querySelectorAll(".desktop-nav-item");
     const panels = document.querySelectorAll(".morph-panel");
 
-    let hideTimeout;
+    let hideTimeout: ReturnType<typeof setTimeout> | undefined;
     let isDropdownOpen = false;
 
     const hideDropdown = () => {
       isDropdownOpen = false;
-      if (morphingDropdown) {
+      if (morphingDropdown instanceof HTMLElement) {
         morphingDropdown.style.opacity = "0";
         morphingDropdown.style.pointerEvents = "none";
       }
       panels.forEach(p => {
-        p.style.opacity = "0";
-        p.style.pointerEvents = "none";
+        if (p instanceof HTMLElement) {
+          p.style.opacity = "0";
+          p.style.pointerEvents = "none";
+        }
       });
     };
 
@@ -490,11 +492,13 @@ const { theme = "light" } = Astro.props;
         if (!dropdownName || !morphingDropdown) return;
 
         const targetPanel = document.querySelector(`.morph-panel[data-panel="${dropdownName}"]`);
-        if (!targetPanel) return;
+        if (!(targetPanel instanceof HTMLElement)) return;
 
         panels.forEach(p => {
-          p.style.opacity = "0";
-          p.style.pointerEvents = "none";
+          if (p instanceof HTMLElement) {
+            p.style.opacity = "0";
+            p.style.pointerEvents = "none";
+          }
         });
 
         targetPanel.style.opacity = "1";
@@ -511,14 +515,16 @@ const { theme = "light" } = Astro.props;
           if (navRect) {
             const left = itemRect.left - navRect.left + (itemRect.width / 2) - (contentWidth / 2);
             
-            morphingDropdown.style.width = `${contentWidth}px`;
-            morphingDropdown.style.height = `${contentHeight}px`;
-            morphingDropdown.style.transform = `translateX(${left}px)`;
-            
-            if (!isDropdownOpen) {
-              morphingDropdown.style.opacity = "1";
-              morphingDropdown.style.pointerEvents = "auto";
-              isDropdownOpen = true;
+            if (morphingDropdown instanceof HTMLElement) {
+              morphingDropdown.style.width = `${contentWidth}px`;
+              morphingDropdown.style.height = `${contentHeight}px`;
+              morphingDropdown.style.transform = `translateX(${left}px)`;
+              
+              if (!isDropdownOpen) {
+                morphingDropdown.style.opacity = "1";
+                morphingDropdown.style.pointerEvents = "auto";
+                isDropdownOpen = true;
+              }
             }
           }
         }

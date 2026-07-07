@@ -1088,7 +1088,24 @@ import Footer from "../components/Footer.astro";
 
       for (let i = 0; i < visibleInputs.length; i++) {
         if (!visibleInputs[i].checkValidity()) {
-          visibleInputs[i].reportValidity();
+          try {
+            visibleInputs[i].reportValidity();
+          } catch (e) {
+            const container = visibleInputs[i].closest('.form-group');
+            if (container) {
+              const btn = container.querySelector('.dropdown-btn');
+              if (btn) {
+                btn.classList.remove('border-negro/40', 'border-negro');
+                btn.classList.add('border-red-500', 'text-red-500');
+                const text = container.querySelector('.dropdown-text');
+                if (text) {
+                  text.textContent = "⚠ Seleccioná una opción";
+                  text.classList.remove('text-negro/70', 'text-negro');
+                  text.classList.add('text-red-500');
+                }
+              }
+            }
+          }
           allValid = false;
           break;
         }

@@ -121,209 +121,157 @@ import Footer from "../components/Footer.astro";
               <!-- PASO 2: PREGUNTAS DINÁMICAS -->
               <div id="dynamic-fields-container" class="space-y-6">
                 <!-- Web -->
-                <div
-                  id="fields-Diseño Web"
-                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
-                >
+                <div id="fields-Diseño Web" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
                   <div class="form-group">
-                    <label
-                      for="web_actual"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >¿Tenés una web actual?</label
-                    >
-                    <input
-                      type="text"
-                      id="web_actual"
-                      name="web_actual"
-                      placeholder="Ej: No, arranco de cero / Sí, miweb.com"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                    <label for="web_actual" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés una web actual?</label>
+                    <input type="text" id="web_actual" name="web_actual" placeholder="Ej: No, arranco de cero / Sí, miweb.com" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
                   </div>
-                  <div class="form-group">
-                    <label
-                      for="web_objetivo"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Objetivo principal de la web</label
-                    >
-                    <input
-                      type="text"
-                      id="web_objetivo"
-                      name="web_objetivo"
-                      placeholder="Ej: Captar leads, Vender online, Portfolio..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                      <label for="web_objetivo" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Objetivo principal</label>
+                      <input type="text" id="web_objetivo" name="web_objetivo" placeholder="Ej: Vender online, Captar leads..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                    <div class="form-group relative custom-dropdown-container z-40">
+                      <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Presupuesto Estimado</label>
+                      <input type="text" id="web_presupuesto" name="web_presupuesto" value="" class="absolute opacity-0 pointer-events-none h-0 w-0 dynamic-input" disabled />
+                      <button type="button" class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left">
+                        <span class="dropdown-text">Seleccioná un rango...</span>
+                        <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                      </button>
+                      <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
+                        <div class="flex flex-col py-2 font-mono text-sm">
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Menos de USD 500">Menos de USD 500</button>
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="USD 500 - USD 1000">USD 500 - USD 1,000</button>
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Más de USD 1000">Más de USD 1,000</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label
-                      for="web_contenido"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >¿Tenés textos e imágenes listas?</label
-                    >
-                    <input
-                      type="text"
-                      id="web_contenido"
-                      name="web_contenido"
-                      placeholder="Ej: Sí, tengo todo / No, necesito ayuda con eso"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                      <label for="web_contenido" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Textos e Imágenes</label>
+                      <input type="text" id="web_contenido" name="web_contenido" placeholder="Ej: Sí, tengo todo / Necesito redacción" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                    <div class="form-group">
+                      <label for="web_referencias" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Webs de Referencia (Links)</label>
+                      <input type="text" id="web_referencias" name="web_referencias" placeholder="Ej: apple.com, stripe.com..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
                   </div>
                 </div>
 
                 <!-- Python -->
-                <div
-                  id="fields-Software Python"
-                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
-                >
-                  <div class="form-group">
-                    <label
-                      for="py_area"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Área o proceso a mejorar</label
-                    >
-                    <input
-                      type="text"
-                      id="py_area"
-                      name="py_area"
-                      placeholder="Ej: Facturación, Scraping de datos, Backend..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                <div id="fields-Software Python" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                      <label for="py_area" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Área a sistematizar</label>
+                      <input type="text" id="py_area" name="py_area" placeholder="Ej: Facturación, Ventas, Red Local..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                    <div class="form-group">
+                      <label for="py_usuarios" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Cantidad de Usuarios/PCs</label>
+                      <input type="number" id="py_usuarios" name="py_usuarios" placeholder="Ej: 5 PCs conectadas en red" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
                   </div>
                   <div class="form-group">
-                    <label
-                      for="py_integracion"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >¿Con qué sistemas debe integrarse?</label
-                    >
-                    <input
-                      type="text"
-                      id="py_integracion"
-                      name="py_integracion"
-                      placeholder="Ej: API de Mercadopago, Excel, SAP..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                    <label for="py_integracion" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Con qué sistemas debe integrarse?</label>
+                    <input type="text" id="py_integracion" name="py_integracion" placeholder="Ej: API de Mercadopago, Excel, Lector de código de barras..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
                   </div>
                   <div class="form-group">
-                    <label
-                      for="py_problema"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Describí el problema principal</label
-                    >
-                    <textarea
-                      id="py_problema"
-                      name="py_problema"
-                      rows="3"
-                      placeholder="Contanos qué dolor buscás resolver..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none"
-                      disabled></textarea>
+                    <label for="py_problema" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Describí el flujo exacto que buscás resolver</label>
+                    <textarea id="py_problema" name="py_problema" rows="3" placeholder="Paso 1: Entra un pedido, Paso 2: El sistema imprime ticket..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none" disabled></textarea>
+                  </div>
+                  <div class="form-group relative custom-dropdown-container z-40">
+                    <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Presupuesto de Inversión</label>
+                    <input type="text" id="py_presupuesto" name="py_presupuesto" value="" class="absolute opacity-0 pointer-events-none h-0 w-0 dynamic-input" disabled />
+                    <button type="button" class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left">
+                      <span class="dropdown-text">Seleccioná un rango...</span>
+                      <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                    </button>
+                    <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
+                      <div class="flex flex-col py-2 font-mono text-sm">
+                        <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="USD 800 - USD 1500">USD 800 - USD 1,500</button>
+                        <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="USD 1500 - USD 3000">USD 1,500 - USD 3,000</button>
+                        <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Más de USD 3000">Más de USD 3,000</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <!-- CM -->
-                <div
-                  id="fields-Community Management"
-                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
-                >
-                  <div class="form-group">
-                    <label
-                      for="cm_redes"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Redes sociales actuales</label
-                    >
-                    <input
-                      type="text"
-                      id="cm_redes"
-                      name="cm_redes"
-                      placeholder="Dejá los links o usuarios (@...)"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                <div id="fields-Community Management" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                      <label for="cm_redes" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Redes sociales actuales</label>
+                      <input type="text" id="cm_redes" name="cm_redes" placeholder="Links o usuarios (@...)" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                    <div class="form-group relative custom-dropdown-container z-50">
+                      <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Plan Deseado</label>
+                      <input type="text" id="cm_frecuencia" name="cm_frecuencia" value="" class="absolute opacity-0 pointer-events-none h-0 w-0 dynamic-input" disabled />
+                      <button type="button" class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left">
+                        <span class="dropdown-text">Seleccioná una opción...</span>
+                        <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                      </button>
+                      <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
+                        <div class="flex flex-col py-2 font-mono text-sm">
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Básico (2-3 posts semanales)">Básico (2-3 posts semanales)</button>
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Escalado (4-5 posts + Ads)">Escalado (4-5 posts + Ads)</button>
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Agresivo (Todos los días + Ads)">Agresivo (Diario + Ads Fuerte)</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                      <label for="cm_objetivo" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Objetivo principal en redes</label>
+                      <input type="text" id="cm_objetivo" name="cm_objetivo" placeholder="Ej: Captar mensajes de venta..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                    <div class="form-group relative custom-dropdown-container z-40">
+                      <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Inversión Ads (Mensual)</label>
+                      <input type="text" id="cm_pauta" name="cm_pauta" value="" class="absolute opacity-0 pointer-events-none h-0 w-0 dynamic-input" disabled />
+                      <button type="button" class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left">
+                        <span class="dropdown-text">Seleccioná presupuesto Ads...</span>
+                        <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                      </button>
+                      <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
+                        <div class="flex flex-col py-2 font-mono text-sm">
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Sólo orgánico (Sin Ads)">Sólo orgánico (Sin Ads)</button>
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Menos de USD 100 / mes">Menos de USD 100 / mes</button>
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="USD 100 - USD 300 / mes">USD 100 - USD 300 / mes</button>
+                          <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Más de USD 300 / mes">Más de USD 300 / mes</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <label
-                      for="cm_objetivo"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Objetivo principal en redes</label
-                    >
-                    <input
-                      type="text"
-                      id="cm_objetivo"
-                      name="cm_objetivo"
-                      placeholder="Ej: Más alcance, Interacción, Ventas..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label
-                      for="cm_material"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >¿Tenés material visual?</label
-                    >
-                    <input
-                      type="text"
-                      id="cm_material"
-                      name="cm_material"
-                      placeholder="Ej: Tengo fotos profesionales / Necesito que filmen"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                    <label for="cm_material" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Disponibilidad de Material Visual</label>
+                    <input type="text" id="cm_material" name="cm_material" placeholder="¿Nos enviás material crudo para editar todas las semanas?" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
                   </div>
                 </div>
 
                 <!-- Identidad -->
-                <div
-                  id="fields-Diseño de Identidad"
-                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
-                >
-                  <div class="form-group">
-                    <label
-                      for="id_estado"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Estado de la marca</label
-                    >
-                    <input
-                      type="text"
-                      id="id_estado"
-                      name="id_estado"
-                      placeholder="Ej: Arrancamos de cero / Es un rediseño"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                <div id="fields-Diseño de Identidad" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                      <label for="id_estado" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Estado de la marca</label>
+                      <input type="text" id="id_estado" name="id_estado" placeholder="Ej: Arrancamos de cero / Es un rediseño" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                    <div class="form-group">
+                      <label for="id_nombre" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Nombre de la Marca</label>
+                      <input type="text" id="id_nombre" name="id_nombre" placeholder="Nombre definido o al menos 5 opciones" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                      <label for="id_vibra" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">3 palabras que la definan</label>
+                      <input type="text" id="id_vibra" name="id_vibra" placeholder="Ej: Exclusiva, Moderna, Tecnológica" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
+                    <div class="form-group">
+                      <label for="id_entregables" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Aplicaciones Necesarias</label>
+                      <input type="text" id="id_entregables" name="id_entregables" placeholder="Ej: Menú, Tarjetas (Sin indumentaria/packaging)" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
+                    </div>
                   </div>
                   <div class="form-group">
-                    <label
-                      for="id_vibra"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >3 palabras que definan tu marca</label
-                    >
-                    <input
-                      type="text"
-                      id="id_vibra"
-                      name="id_vibra"
-                      placeholder="Ej: Moderna, Confiable, Disruptiva"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label
-                      for="id_entregables"
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Entregables necesarios</label
-                    >
-                    <input
-                      type="text"
-                      id="id_entregables"
-                      name="id_entregables"
-                      placeholder="Ej: Logo, Manual de marca, Papelería..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
-                      disabled
-                    />
+                    <label for="id_referencias" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Marcas de Referencia (Inspiración)</label>
+                    <textarea id="id_referencias" name="id_referencias" rows="2" placeholder="Dejá los links/IGs de marcas cuya estética te gustaría alcanzar..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none" disabled></textarea>
                   </div>
                 </div>
 

@@ -87,6 +87,11 @@ import Footer from "../components/Footer.astro";
             Si un producto es bueno, tiene que cargar rápido, verse increíble y
             funcionar perfecto. Punto.
           </p>
+          <p
+            class="font-mono text-xl md:text-3xl leading-tight text-blanco/60 n-manifesto-text opacity-0"
+          >
+            Aunque VEZNER nació oficialmente en 2026, el equipo lleva más de 5 años operando en la industria. No somos novatos, conocemos el juego de memoria y sabemos cómo escalar proyectos reales.
+          </p>
         </div>
       </div>
     </section>
@@ -133,47 +138,7 @@ import Footer from "../components/Footer.astro";
       </div>
     </section>
 
-    <section id="fundadores" class="py-32 px-6 md:px-16 bg-negro text-blanco">
-      <div class="max-w-7xl mx-auto">
-        <h2
-          class="font-display text-5xl md:text-7xl text-blanco mb-20 text-center n-team-title opacity-0"
-        >
-          LOS FUNDADORES
-        </h2>
 
-        <div class="grid md:grid-cols-3 gap-12 border-t border-blanco/20 pt-12">
-          {
-            [
-              {
-                name: "FABRIZIO",
-                role: "Fundador / Software Eng.",
-                desc: "Ingeniería de software, programación de aplicaciones web de alto rendimiento y mantenimiento de infraestructura.",
-              },
-              {
-                name: "GUSTAVO",
-                role: "Fundador / QA & Soporte",
-                desc: "Testing riguroso, aseguramiento de calidad (QA) y asistencia integral en los despliegues técnicos.",
-              },
-              {
-                name: "NOELIA",
-                role: "Fundadora / Dir. de Arte",
-                desc: "Diseño de identidad visual, creación de logotipos, teoría del color y composiciones estéticas de interfaz.",
-              },
-            ].map((member) => (
-              <div class="n-team-card opacity-0 translate-y-12">
-                <h3 class="font-display text-4xl mb-2">{member.name}</h3>
-                <div class="font-mono text-xs tracking-widest uppercase text-blanco/40 mb-6 pb-6 border-b border-blanco/10">
-                  {member.role}
-                </div>
-                <p class="font-mono text-sm text-blanco/60 leading-relaxed">
-                  {member.desc}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
 
     <section
       class="py-32 bg-[#111] text-blanco text-center relative overflow-hidden"
@@ -309,31 +274,6 @@ import Footer from "../components/Footer.astro";
       });
     });
 
-    gsap.to(".n-team-title", {
-      scrollTrigger: {
-        trigger: ".n-team-title",
-        start: "top 85%",
-        once: true,
-      },
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power3.out",
-    });
 
-    gsap.utils.toArray(".n-team-card").forEach((card, i) => {
-      gsap.to(card as HTMLElement, {
-        scrollTrigger: {
-          trigger: card as HTMLElement,
-          start: "top 85%",
-          once: true,
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: i * 0.15,
-        ease: "power3.out",
-      });
-    });
   });
 </script>

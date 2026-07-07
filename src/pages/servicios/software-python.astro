@@ -59,36 +59,34 @@ import Footer from "../../components/Footer.astro";
           <p
             class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg"
           >
-            Si tiene lógica, lo programamos. Si tiene datos, los procesamos.
-            Desarrollamos automatizaciones, APIs REST, pipelines ETL y bots que
-            resuelven problemas de negocio reales en tiempo récord.
+            Desarrollamos software de escritorio a medida para Windows/PC usando Python y PySide6. Construimos interfaces premium, bases de datos locales (MySQL) interconectadas en red y automatizaciones que resuelven problemas reales de tu negocio.
           </p>
 
           <div
             class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
           >
             <div class="border-l border-verde/20 pl-4">
-              <p class="font-display text-4xl text-blanco">3.13+</p>
+              <p class="font-display text-4xl text-blanco">PySide6</p>
               <p
                 class="font-mono text-xs text-verde/60 tracking-widest uppercase"
               >
-                Versión
+                UI Premium
               </p>
             </div>
             <div class="border-l border-verde/20 pl-4">
-              <p class="font-display text-4xl text-blanco">∞</p>
+              <p class="font-display text-4xl text-blanco">MySQL</p>
               <p
                 class="font-mono text-xs text-verde/60 tracking-widest uppercase"
               >
-                Escalabilidad
+                Bases de Datos
               </p>
             </div>
             <div class="border-l border-verde/20 pl-4">
-              <p class="font-display text-4xl text-blanco">O(1)</p>
+              <p class="font-display text-4xl text-blanco">LAN</p>
               <p
                 class="font-mono text-xs text-verde/60 tracking-widest uppercase"
               >
-                Eficiencia
+                Red Local
               </p>
             </div>
           </div>
@@ -122,23 +120,23 @@ import Footer from "../../components/Footer.astro";
           {
             [
               {
-                t: "APIs REST & GraphQL",
-                d: "Conectamos tus sistemas. Arquitecturas backend robustas con FastAPI o Flask listas para producción.",
+                t: "Sistemas de Gestión Local",
+                d: "Software de escritorio con interfaces premium (PySide6) preparadas para correr de forma nativa y rápida en cualquier PC con Windows.",
                 c: "bg-[#111] hover:bg-verde/10 hover:border-verde/30",
               },
               {
-                t: "Pipelines ETL",
-                d: "Extracción, limpieza y carga de datos masivos. Pandas, Polars y Celery procesando millones de rows.",
+                t: "Bases de Datos MySQL",
+                d: "Arquitectura de datos centralizada en red local. Todas las computadoras de tu empresa trabajando sobre la misma información en tiempo real.",
                 c: "bg-[#111] hover:bg-azul/10 hover:border-azul/30",
               },
               {
                 t: "Automatizaciones",
-                d: "Scraping web avanzado, Selenium, Puppeteer y bots que hacen el trabajo manual de 10 personas.",
+                d: "Scraping web avanzado, Selenium, manipulación de archivos y scripts que hacen el trabajo manual de 10 personas en segundos.",
                 c: "bg-[#111] hover:bg-rosa/10 hover:border-rosa/30",
               },
               {
-                t: "Bots Discord / Telegram",
-                d: "Asistentes virtuales, moderación automática y comandos a medida con la API oficial asíncrona.",
+                t: "Integraciones API",
+                d: "Conectamos tu software local con el mundo exterior: WhatsApp, Inteligencia Artificial, pasarelas de pago y sistemas web externos.",
                 c: "bg-[#111] hover:bg-yellow-400/10 hover:border-yellow-400/30",
               },
             ].map((item, i) => (
@@ -172,8 +170,7 @@ import Footer from "../../components/Footer.astro";
           <p
             class="font-mono text-sm text-blanco/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10"
           >
-            Desarrollo con tipado estricto, tests unitarios y CI/CD. Mirá cómo
-            corre nuestro processor ETL en tiempo real.
+            Desarrollo nativo, interfaces asíncronas y conectividad absoluta. Mirá cómo nuestro software inicializa una conexión MySQL en red local.
           </p>
         </div>
 
@@ -203,48 +200,48 @@ import Footer from "../../components/Footer.astro";
             </div>
             <div class="code-lines space-y-1 text-blanco/70 relative z-0">
               <div class="text-verde">
-                $ python run_pipeline.py --workers=8 --mode=prod
+                C:\Projects\software_gestion> python main.py
               </div>
               {
                 [
                   {
-                    t: "[INFO] Initializing distributed workers (8)...",
+                    t: "[INFO] Initializing PySide6 Application...",
                     c: "text-blanco/40",
                     d: 0.5,
                   },
                   {
-                    t: "[OK] Connection to PostgreSQL established (12ms latency).",
+                    t: "[OK] UI Assets loaded successfully (42ms).",
                     c: "text-verde",
                     d: 1.2,
                   },
-                  { t: "[OK] Redis cache ready.", c: "text-verde", d: 1.5 },
+                  { t: "[INFO] Searching for local MySQL node at 192.168.1.10...", c: "text-yellow-400", d: 1.5 },
                   {
-                    t: "[INFO] Fetching records from external API...",
-                    c: "text-blanco/40",
+                    t: "[OK] Connection to MySQL established. Ping: 2ms.",
+                    c: "text-verde",
                     d: 2.5,
                   },
                   {
-                    t: "[INFO] Rate limit 1000req/s respected.",
+                    t: "[INFO] Authenticating user from Active Directory...",
                     c: "text-azul",
                     d: 3.0,
                   },
                   {
-                    t: "████████████████░░░░░░░░░░ 64% ETA: 2s",
+                    t: "██████████████████████░░░░ 85% Syncing local state",
                     c: "text-blanco/20 animate-pulse",
                     d: 4.5,
                   },
                   {
-                    t: "[OK] Cleaned and transformed 45,281 records.",
+                    t: "[OK] State synchronized. 1,429 records updated.",
                     c: "text-verde",
                     d: 6.0,
                   },
                   {
-                    t: "[INFO] Performing bulk insert into warehouse...",
+                    t: "[INFO] Starting async background workers...",
                     c: "text-blanco/40",
                     d: 7.0,
                   },
                   {
-                    t: "[OK] Insert successful. Commit done.",
+                    t: "[OK] Software ready and running. MainWindow displayed.",
                     c: "text-verde",
                     d: 8.5,
                   },

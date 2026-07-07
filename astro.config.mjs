@@ -1,8 +1,10 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  integrations: [tailwind()],
+  site: 'https://vezner.net',
+  integrations: [tailwind(), sitemap()],
   vite: {
     optimizeDeps: {
       include: ['gsap', 'gsap/ScrollTrigger', 'lenis', 'three']

@@ -1,0 +1,145 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout
+  title="Blog — VEZNER"
+  description="Artículos, tutoriales y reflexiones sobre ingeniería digital, marketing y tecnología."
+>
+  <Header theme="light" />
+
+  <main class="bg-blanco text-negro min-h-screen overflow-hidden pt-32 pb-20">
+    <section class="relative px-6 md:px-16">
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="mb-16">
+          <h1 class="font-display text-[clamp(48px,8vw,100px)] leading-none text-negro uppercase">
+            El Blog
+          </h1>
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mt-6">
+            <p class="font-mono text-sm text-negro/60 max-w-lg">
+              Insights, tecnología y estrategias de crecimiento digital.
+            </p>
+            <div class="relative w-full md:w-72">
+              <input 
+                type="text" 
+                id="blog-search" 
+                placeholder="Buscar artículos..." 
+                class="w-full bg-transparent border-b border-negro/20 py-2 pl-8 font-mono text-xs text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors"
+              />
+              <svg class="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-negro/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+          {
+            posts.map((post: any) => {
+              const searchContent = `${post.data.title} ${post.data.description}`;
+              return (
+              <a href={`/blog/${post.slug}`} class="blog-card group block border border-negro/10 bg-blanco hover:border-negro transition-colors duration-500 overflow-hidden relative" data-search={searchContent}>
+                <div class="aspect-[4/3] w-full overflow-hidden border-b border-negro/10">
+                  <img
+                    src={post.data.heroImage || '/og-image.webp'}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  />
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-negro/40 mb-4">
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {
+                        post.data.pubDate.toLocaleDateString('es-AR', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })
+                      }
+                    </time>
+                  </div>
+                  <h3 class="font-display text-2xl text-negro mb-3 leading-tight transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="font-mono text-xs text-negro/60 line-clamp-3">
+                    {post.data.description}
+                  </p>
+                </div>
+                <!-- Linea animada abajo -->
+                <div class="absolute bottom-0 left-0 h-0.5 bg-negro w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
+              </a>
+              );
+            })
+          }
+        </div>
+        
+        {posts.length === 0 && (
+          <div class="py-20 border-t border-negro/10">
+             <p class="font-mono text-sm text-negro/40">Próximamente nuevos artículos...</p>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const searchInput = document.getElementById('blog-search') as HTMLInputElement;
+    const blogCards = document.querySelectorAll('.blog-card');
+    const grid = document.getElementById('blog-grid');
+    
+    if (!searchInput || !grid) return;
+    
+    // Normaliza el texto: saca tildes, lo pasa a minusculas y borra signos de puntuación
+    const normalizeText = (text: string) => {
+      return text
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    };
+
+    searchInput.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      const query = normalizeText(target.value);
+      
+      let visibleCount = 0;
+      
+      blogCards.forEach((card) => {
+        const el = card as HTMLElement;
+        const content = el.getAttribute('data-search') || '';
+        const normalizedContent = normalizeText(content);
+        
+        if (normalizedContent.includes(query)) {
+          el.style.display = 'block';
+          visibleCount++;
+        } else {
+          el.style.display = 'none';
+        }
+      });
+      
+      let noResultsEl = document.getElementById('no-results-msg');
+      if (visibleCount === 0) {
+        if (!noResultsEl) {
+          noResultsEl = document.createElement('div');
+          noResultsEl.id = 'no-results-msg';
+          noResultsEl.className = 'col-span-full py-20 text-center font-mono text-sm text-negro/40 border-t border-negro/10 mt-8';
+          noResultsEl.textContent = 'No se encontraron artículos con esa búsqueda.';
+          grid.appendChild(noResultsEl);
+        }
+        noResultsEl.style.display = 'block';
+      } else if (noResultsEl) {
+        noResultsEl.style.display = 'none';
+      }
+    });
+  });
+</script>

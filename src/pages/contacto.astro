@@ -140,12 +140,12 @@ import Footer from "../components/Footer.astro";
                       disabled
                     />
                   </div>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="grid grid-cols-1 gap-6">
                     <div class="form-group">
                       <label
                         for="web_objetivo"
                         class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                        >Objetivo principal</label
+                        >Describí brevemente tu proyecto ideal</label
                       >
                       <input
                         type="text"
@@ -155,57 +155,6 @@ import Footer from "../components/Footer.astro";
                         class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
                         disabled
                       />
-                    </div>
-                    <div
-                      class="form-group relative custom-dropdown-container z-40"
-                    >
-                      <label
-                        class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                        >Presupuesto Estimado</label
-                      >
-                      <input
-                        type="text"
-                        id="web_presupuesto"
-                        name="web_presupuesto"
-                        value=""
-                        class="absolute opacity-0 pointer-events-none h-0 w-0 dynamic-input"
-                        disabled
-                      />
-                      <button
-                        type="button"
-                        class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
-                      >
-                        <span class="dropdown-text">Seleccioná un rango...</span
-                        >
-                        <span
-                          class="dropdown-icon text-xs transition-transform duration-300"
-                          >▼</span
-                        >
-                      </button>
-                      <div
-                        class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300"
-                      >
-                        <div class="flex flex-col py-2 font-mono text-sm">
-                          <button
-                            type="button"
-                            class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                            data-value="Menos de USD 500"
-                            >Menos de USD 500</button
-                          >
-                          <button
-                            type="button"
-                            class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                            data-value="USD 500 - USD 1000"
-                            >USD 500 - USD 1,000</button
-                          >
-                          <button
-                            type="button"
-                            class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                            data-value="Más de USD 1000"
-                            >Más de USD 1,000</button
-                          >
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -308,55 +257,6 @@ import Footer from "../components/Footer.astro";
                       class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none"
                       disabled></textarea>
                   </div>
-                  <div
-                    class="form-group relative custom-dropdown-container z-40"
-                  >
-                    <label
-                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                      >Presupuesto de Inversión</label
-                    >
-                    <input
-                      type="text"
-                      id="py_presupuesto"
-                      name="py_presupuesto"
-                      value=""
-                      class="absolute opacity-0 pointer-events-none h-0 w-0 dynamic-input"
-                      disabled
-                    />
-                    <button
-                      type="button"
-                      class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
-                    >
-                      <span class="dropdown-text">Seleccioná un rango...</span>
-                      <span
-                        class="dropdown-icon text-xs transition-transform duration-300"
-                        >▼</span
-                      >
-                    </button>
-                    <div
-                      class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300"
-                    >
-                      <div class="flex flex-col py-2 font-mono text-sm">
-                        <button
-                          type="button"
-                          class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                          data-value="USD 800 - USD 1500"
-                          >USD 800 - USD 1,500</button
-                        >
-                        <button
-                          type="button"
-                          class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                          data-value="USD 1500 - USD 3000"
-                          >USD 1,500 - USD 3,000</button
-                        >
-                        <button
-                          type="button"
-                          class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                          data-value="Más de USD 3000">Más de USD 3,000</button
-                        >
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <!-- CM -->
@@ -433,7 +333,7 @@ import Footer from "../components/Footer.astro";
                       </div>
                     </div>
                   </div>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="grid grid-cols-1 gap-6">
                     <div class="form-group">
                       <label
                         for="cm_objetivo"
@@ -448,64 +348,6 @@ import Footer from "../components/Footer.astro";
                         class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
                         disabled
                       />
-                    </div>
-                    <div
-                      class="form-group relative custom-dropdown-container z-40"
-                    >
-                      <label
-                        class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                        >Inversión Ads (Mensual)</label
-                      >
-                      <input
-                        type="text"
-                        id="cm_pauta"
-                        name="cm_pauta"
-                        value=""
-                        class="absolute opacity-0 pointer-events-none h-0 w-0 dynamic-input"
-                        disabled
-                      />
-                      <button
-                        type="button"
-                        class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
-                      >
-                        <span class="dropdown-text"
-                          >Seleccioná presupuesto Ads...</span
-                        >
-                        <span
-                          class="dropdown-icon text-xs transition-transform duration-300"
-                          >▼</span
-                        >
-                      </button>
-                      <div
-                        class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300"
-                      >
-                        <div class="flex flex-col py-2 font-mono text-sm">
-                          <button
-                            type="button"
-                            class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                            data-value="Sólo orgánico (Sin Ads)"
-                            >Sólo orgánico (Sin Ads)</button
-                          >
-                          <button
-                            type="button"
-                            class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                            data-value="Menos de USD 100 / mes"
-                            >Menos de USD 100 / mes</button
-                          >
-                          <button
-                            type="button"
-                            class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                            data-value="USD 100 - USD 300 / mes"
-                            >USD 100 - USD 300 / mes</button
-                          >
-                          <button
-                            type="button"
-                            class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                            data-value="Más de USD 300 / mes"
-                            >Más de USD 300 / mes</button
-                          >
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -811,9 +653,9 @@ import Footer from "../components/Footer.astro";
 
             <div
               id="form-success"
-              class="hidden font-mono font-medium text-xs text-verde bg-verde/5 border border-verde/20 px-4 py-3"
+              class="hidden font-mono font-medium text-sm text-[#00c851] bg-[#00c851]/10 border border-[#00c851]/30 px-6 py-4 rounded-xl shadow-lg mt-8 text-center"
             >
-              ✓ Mensaje enviado. Te respondemos en menos de 24 horas hábiles.
+              ✓ Mensaje enviado con éxito. En breve será contactado de regreso.
             </div>
           </form>
 

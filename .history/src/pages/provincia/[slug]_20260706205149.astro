@@ -1,0 +1,320 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'buenos-aires' }, props: { nombre: 'Buenos Aires', foco: 'manufactura, retail y servicios corporativos', dolor: 'sistemas anticuados y falta de digitalización escalable', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'capital-federal' }, props: { nombre: 'Capital Federal', foco: 'startups, fintech y servicios B2B', dolor: 'alta competencia, necesidad de diferenciación visual y rendimiento técnico', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'catamarca' }, props: { nombre: 'Catamarca', foco: 'minería, turismo y agroindustria', dolor: 'aislamiento digital y falta de automatización de procesos', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'chaco' }, props: { nombre: 'Chaco', foco: 'sector agropecuario, forestal y textiles', dolor: 'procesos logísticos manuales y poca presencia digital', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'chubut' }, props: { nombre: 'Chubut', foco: 'petróleo, pesca, turismo y energías', dolor: 'sistemas heredados y falta de control operativo en tiempo real', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'cordoba' }, props: { nombre: 'Córdoba', foco: 'agro-tech, manufactura, logística y automotriz', dolor: 'cuellos de botella operativos y plataformas e-commerce lentas', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'corrientes' }, props: { nombre: 'Corrientes', foco: 'sector forestal, ganadería y turismo', dolor: 'digitalización básica y necesidad de optimizar procesos agroindustriales', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'entre-rios' }, props: { nombre: 'Entre Ríos', foco: 'industria avícola, agro y turismo termal', dolor: 'falta de sistemas de gestión integrados y reservas directas', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'formosa' }, props: { nombre: 'Formosa', foco: 'agricultura, ganadería y comercio', dolor: 'baja visibilidad online y procesos comerciales rudimentarios', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'jujuy' }, props: { nombre: 'Jujuy', foco: 'minería de litio, turismo y energías renovables', dolor: 'infraestructura digital obsoleta y desconexión B2B', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'la-pampa' }, props: { nombre: 'La Pampa', foco: 'ganadería, agricultura e industria láctea', dolor: 'necesidad de software a medida para trazabilidad y gestión', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'la-rioja' }, props: { nombre: 'La Rioja', foco: 'vitivinicultura, olivicultura y turismo', dolor: 'dependencia de intermediarios y plataformas B2C poco optimizadas', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'mendoza' }, props: { nombre: 'Mendoza', foco: 'bodegas, turismo enológico y exportación', dolor: 'falta de canales directos de reserva y e-commerce anticuados', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'misiones' }, props: { nombre: 'Misiones', foco: 'producción de yerba mate, turismo y sector forestal', dolor: 'falta de canales directos de venta online y procesos logísticos descentralizados', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'neuquen' }, props: { nombre: 'Neuquén', foco: 'petróleo, gas (Vaca Muerta) y servicios B2B', dolor: 'ineficiencia operativa y software de gestión sin integración', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'rio-negro' }, props: { nombre: 'Río Negro', foco: 'fruticultura, turismo y polo tecnológico', dolor: 'falta de plataformas web escalables para exportación y reservas', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'salta' }, props: { nombre: 'Salta', foco: 'turismo, minería, agricultura y vitivinicultura', dolor: 'mala experiencia de usuario (UX) en webs locales y pérdida de leads', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'san-juan' }, props: { nombre: 'San Juan', foco: 'minería, vitivinicultura y energías renovables', dolor: 'visibilidad corporativa débil y sistemas de datos fragmentados', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'san-luis' }, props: { nombre: 'San Luis', foco: 'industria tecnológica, logística y agro', dolor: 'necesidad de modernizar interfaces web y automatizar embudos de venta', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'santa-cruz' }, props: { nombre: 'Santa Cruz', foco: 'minería, petróleo, pesca y turismo', dolor: 'operaciones descentralizadas y falta de plataformas unificadas', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'santa-fe' }, props: { nombre: 'Santa Fe', foco: 'agroexportación, puertos e industria metalmecánica', dolor: 'sistemas logísticos anticuados y webs B2B demasiado genéricas', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'santiago-del-estero' }, props: { nombre: 'Santiago del Estero', foco: 'agricultura, ganadería y turismo', dolor: 'baja madurez digital y oportunidades de venta perdidas online', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'tierra-del-fuego' }, props: { nombre: 'Tierra del Fuego', foco: 'industria electrónica, turismo austral y logística', dolor: 'altos costos operativos por falta de automatización digital', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'tucuman' }, props: { nombre: 'Tucumán', foco: 'industria azucarera, citrícola, tecnología y comercio', dolor: 'falta de ecosistemas digitales integrados para exportación y B2B', color: '#00c851', bg: 'bg-verde' } },
+  ];
+}
+
+const { nombre, foco, dolor, color, bg } = Astro.props;
+---
+
+<Layout
+  title={`Agencia de Desarrollo Web y Software en ${nombre} | VEZNER`}
+  description={`Digitalizamos empresas en ${nombre} con desarrollo web premium y software a medida. Especialistas en ${foco}.`}
+>
+  <Header theme="dark" />
+
+  <main class="bg-negro text-blanco min-h-screen overflow-hidden">
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-16 pt-32 pb-20"
+    >
+      <!-- Background Ambient -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class={`absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] ${bg}/10 rounded-full blur-[80px] animate-pulse`}></div>
+        <div class={`absolute bottom-[10%] left-[-10%] w-[50vw] h-[50vw] ${bg}/5 rounded-full blur-[100px] animate-pulse`} style="animation-delay: 2s;"></div>
+
+        <svg class="absolute top-1/2 left-[60%] -translate-y-1/2 w-[800px] h-[800px] opacity-[0.03] animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100">
+          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+          </pattern>
+          <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div class={`w-12 h-px ${bg}/40`}></div>
+          <span class={`font-mono text-xs tracking-[0.4em] uppercase text-blanco/50`} style={`color: ${color};`}>
+            Operando en {nombre}
+          </span>
+        </div>
+
+        <h1 class="font-display text-[clamp(40px,8vw,120px)] leading-[0.9] text-blanco uppercase mb-12 max-w-5xl">
+          <span class="block overflow-hidden pt-4">
+            <span class="title-line block translate-y-full">Soluciones Digitales</span>
+          </span>
+          <span class="block overflow-hidden pt-4">
+            <span class="title-line block translate-y-full">Para Empresas en</span>
+          </span>
+          <span class="block overflow-hidden pt-4">
+            <span class="title-line block translate-y-full" style={`color: ${color};`}>{nombre}</span>
+          </span>
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-start">
+          <p class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg">
+            Empresas vinculadas a <strong class="text-blanco">{foco}</strong> están perdiendo terreno por {dolor}. Construimos ecosistemas digitales de alto rendimiento que resuelven problemas reales y escalan operaciones.
+          </p>
+
+          <div class="hero-stats opacity-0 transform translate-y-8">
+             <a
+              href="/contacto"
+              class="btn-primary group relative inline-flex items-center gap-3 bg-blanco text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden border border-transparent w-full md:w-auto justify-center"
+            >
+              <span class="relative z-10">Agendar Auditoría</span>
+              <span class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              <span class="absolute inset-0 bg-blanco/70 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out"></span>
+            </a>
+            <p class="font-mono text-[10px] text-blanco/30 tracking-widest uppercase mt-4 text-center md:text-left">Análisis técnico sin cargo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Factor WOW Mockup -->
+    <section class="py-20 md:py-32 px-6 bg-[#050505] relative overflow-hidden border-y border-blanco/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="font-display text-5xl md:text-7xl text-blanco mb-6 term-title opacity-0 translate-y-10">
+              No vendemos humo.<br/>Escribimos código.
+            </h2>
+            <p class="font-mono text-sm text-blanco/50 max-w-xl term-desc opacity-0 translate-y-10 leading-relaxed">
+              No te vamos a mostrar un carrusel de logos genéricos. Nuestra capacidad técnica está a la vista en la velocidad, rendimiento y arquitectura de cada producto que desarrollamos. Hacemos que la tecnología pesada parezca simple.
+            </p>
+          </div>
+
+          <div class="term-mockup opacity-0 translate-y-20 bg-[#0d1117] rounded-lg shadow-2xl overflow-hidden border border-blanco/10 relative">
+            <div class="flex items-center gap-3 px-6 py-4 bg-[#161b22] border-b border-blanco/10">
+              <span class="w-3 h-3 rounded-full bg-rosa"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+              <span class="w-3 h-3 rounded-full bg-verde"></span>
+              <span class="ml-4 font-mono text-xs text-blanco/40">core_engine.py — VEZNER</span>
+            </div>
+            <div class="p-6 md:p-8 overflow-x-auto text-sm md:text-base whitespace-pre font-mono text-blanco/80 leading-relaxed">
+              <span class="text-rosa">import</span> asyncio
+<span class="text-rosa">from</span> vezner.core <span class="text-rosa">import</span> PerformanceScale
+
+<span class="text-rosa">async def</span> <span class="text-azul">optimize_operations</span>(client_id: <span class="text-yellow-400">str</span>):
+    <span class="text-verde"># Identificando cuellos de botella en {nombre}</span>
+    engine = PerformanceScale(region=<span class="text-yellow-400">"{nombre}"</span>)
+
+    <span class="text-rosa">await</span> engine.audit_legacy_systems()
+    <span class="text-rosa">await</span> engine.deploy_modern_stack()
+
+    <span class="text-rosa">return</span> {
+        <span class="text-yellow-400">"status"</span>: <span class="text-yellow-400">"Operational"</span>,
+        <span class="text-yellow-400">"latency"</span>: <span class="text-yellow-400">"2ms"</span>,
+        <span class="text-yellow-400">"growth"</span>: <span class="text-yellow-400">"unlimited"</span>
+    }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asi Trabajamos (Proceso) -->
+    <section class="py-32 px-6 md:px-16 bg-[#0a0a0a]">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-[1fr_1.5fr] gap-20">
+          <div>
+            <div class="proceso-label flex items-center gap-4 mb-16 opacity-0">
+              <div class="w-8 h-px bg-blanco/20"></div>
+              <span class="font-mono text-xs tracking-[0.4em] uppercase text-blanco/50">
+                § Metodología
+              </span>
+            </div>
+            <h2 class="proceso-title font-display text-6xl md:text-8xl leading-none text-blanco opacity-0 translate-y-12">
+              Proceso<br />Transparente
+            </h2>
+            <p class="proceso-desc mt-8 font-mono text-sm text-blanco/50 leading-relaxed max-w-md opacity-0 translate-y-12">
+              Trabajar a distancia requiere confianza absoluta. Te damos acceso en tiempo real al desarrollo de tu producto. Sin cajas negras.
+            </p>
+          </div>
+
+          <div class="mt-16 lg:mt-0 space-y-0">
+            {
+              [
+                {
+                  num: "01",
+                  titulo: "Diagnóstico",
+                  desc: `Analizamos tu infraestructura en ${nombre}. Definimos el alcance real del proyecto sin adornos.`,
+                  duracion: "1–2 días",
+                  color: "#ff005c", // rosa
+                },
+                {
+                  num: "02",
+                  titulo: "Propuesta técnica",
+                  desc: "Entregamos un plan detallado: tecnologías, cronograma, hitos de entrega y precio cerrado. Sin sorpresas.",
+                  duracion: "2–3 días",
+                  color: "#0057ff", // azul
+                },
+                {
+                  num: "03",
+                  titulo: "Desarrollo",
+                  desc: "Construimos en sprints cortos con revisiones frecuentes. Acceso en tiempo real al estado del proyecto.",
+                  duracion: "Según scope",
+                  color: "#00c851", // verde
+                },
+                {
+                  num: "04",
+                  titulo: "QA y entrega",
+                  desc: "Pruebas exhaustivas, correcciones, documentación y capacitación. Entregamos cuando está perfecto, no antes.",
+                  duracion: "3–5 días",
+                  color: "#ffd700", // amarillo
+                },
+              ].map((paso, i) => (
+                <div
+                  class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-blanco/10 hover:bg-blanco/5 transition-colors duration-300"
+                  style={`opacity:0; transform:translateY(24px); --hover-c: ${paso.color};`}
+                >
+                  <span class="proceso-num font-display text-5xl text-blanco/10 leading-none transition-colors duration-300">
+                    {paso.num}
+                  </span>
+                  <div>
+                    <h3 class="font-display text-3xl text-blanco leading-none mb-2">
+                      {paso.titulo}
+                    </h3>
+                    <p class="font-mono text-sm text-blanco/45 max-w-2xl leading-relaxed">
+                      {paso.desc}
+                    </p>
+                  </div>
+                  <span class="font-mono text-xs text-blanco/25 uppercase tracking-widest mt-1 whitespace-nowrap">
+                    {paso.duracion}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+
+  <style is:global>
+    .proceso-step:hover .proceso-num {
+      color: var(--hover-c);
+    }
+  </style>
+
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Animations
+    gsap.to(".hero-reveal", { opacity: 1, duration: 1, delay: 0.2 });
+
+    gsap.to(".title-line", {
+      y: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power4.out",
+      delay: 0.3
+    });
+
+    gsap.to(".hero-desc, .hero-stats", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      delay: 0.8
+    });
+
+    // Mockup Animations
+    gsap.to(".term-title, .term-desc", {
+      scrollTrigger: {
+        trigger: ".term-title",
+        start: "top 80%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+    });
+
+    gsap.to(".term-mockup", {
+      scrollTrigger: {
+        trigger: ".term-mockup",
+        start: "top 75%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power4.out",
+    });
+
+    // Proceso Animations
+    gsap.to(".proceso-label", {
+      opacity: 1,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: { trigger: ".proceso-label", start: "top 80%", once: true },
+    });
+
+    gsap.to(".proceso-title", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".proceso-title", start: "top 80%", once: true },
+    });
+
+    gsap.to(".proceso-desc", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".proceso-desc", start: "top 85%", once: true },
+    });
+
+    document.querySelectorAll(".proceso-step").forEach((step, i) => {
+      gsap.to(step, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: step,
+          start: "top 90%",
+          once: true,
+        },
+      });
+    });
+  </script>
+</Layout>

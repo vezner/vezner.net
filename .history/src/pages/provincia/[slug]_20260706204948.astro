@@ -1,0 +1,348 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'buenos-aires' }, props: { nombre: 'Buenos Aires', foco: 'manufactura, retail y logística', dolor: 'sistemas anticuados y embudos de venta rotos', frase: '¿Las ventas en tus sucursales se estancaron mientras tu competencia domina internet y vende a todo el país con procesos automáticos?', solucion: 'Desarrollamos ecosistemas e-commerce de alto rendimiento y sistemas de gestión a medida que unifican tu inventario, automatizan tus ventas B2B/B2C y digitalizan toda tu operación sin dolores de cabeza.', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'capital-federal' }, props: { nombre: 'Capital Federal', foco: 'startups, fintech y corporativo', dolor: 'alta competencia y necesidad de diferenciación visual', frase: '¿Tu marca compite contra empresas que tienen una imagen digital y experiencia de usuario que parece de Silicon Valley, y tu web se ve de 2015?', solucion: 'Diseñamos interfaces Brutalistas y minimalistas, respaldadas por arquitecturas de software modernas (Next.js, Astro, Python). Hacemos que tu marca transpire autoridad y le pase por encima a la competencia local.', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'catamarca' }, props: { nombre: 'Catamarca', foco: 'minería, turismo y agroindustria', dolor: 'aislamiento digital y falta de automatización', frase: '¿Todavía dependés de excels interminables y procesos manuales que generan cuellos de botella en la operación diaria de tu negocio?', solucion: 'Implementamos plataformas de gestión interna (ERP/CRM customizados) y canales digitales que conectan tu producción directamente con clientes, inversores o proveedores en cualquier parte del mundo.', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'chaco' }, props: { nombre: 'Chaco', foco: 'sector agropecuario y textiles', dolor: 'procesos logísticos manuales y poca autoridad online', frase: '¿Tus clientes potenciales buscan soluciones en tu rubro, pero al no tener una presencia digital sólida, terminan cerrando con empresas de otras provincias?', solucion: 'Construimos sitios web corporativos de alta conversión y sistemas de trazabilidad que le dan a tu empresa la imagen y eficiencia que necesita para competir a nivel nacional.', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'chubut' }, props: { nombre: 'Chubut', foco: 'petróleo, turismo y energías', dolor: 'sistemas heredados y falta de control en tiempo real', frase: '¿Tus equipos operativos están desconectados y la toma de decisiones se retrasa por culpa de software viejo que no se integra entre sí?', solucion: 'Desarrollamos dashboards interactivos y software en Python para monitoreo en tiempo real, integrando todos los datos de tu empresa en un solo ecosistema digital ágil y seguro.', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'cordoba' }, props: { nombre: 'Córdoba', foco: 'agro-tech, manufactura y automotriz', dolor: 'cuellos de botella operativos y plataformas lentas', frase: '¿Tu plataforma actual se cae cuando hay picos de tráfico o tus distribuidores B2B se quejan de lo difícil que es hacer un pedido online?', solucion: 'Creamos portales B2B personalizados y arquitecturas web súper rápidas que eliminan la fricción de compra y automatizan el flujo logístico de tu empresa desde el clic hasta la entrega.', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'corrientes' }, props: { nombre: 'Corrientes', foco: 'sector forestal, ganadería y turismo', dolor: 'digitalización básica y desconexión con el cliente final', frase: '¿Estás pagando comisiones altísimas a plataformas de terceros porque tu propia web no genera ventas ni confianza?', solucion: 'Diseñamos canales de venta directa (E-commerce y sistemas de reserva) donde vos sos dueño de la plataforma, reteniendo el 100% del margen de ganancia y brindando una experiencia premium.', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'entre-rios' }, props: { nombre: 'Entre Ríos', foco: 'industria avícola, agro y turismo termal', dolor: 'falta de sistemas integrados y reservas directas', frase: '¿Tu empresa creció rápido pero tu infraestructura tecnológica se quedó atrás, frenando tu capacidad de expansión?', solucion: 'Auditemos tus procesos y construyamos un software a medida que escale junto a tu negocio, eliminando tareas repetitivas y digitalizando cada etapa de tu cadena de valor.', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'formosa' }, props: { nombre: 'Formosa', foco: 'agricultura, ganadería y comercio', dolor: 'baja visibilidad online y procesos rudimentarios', frase: '¿Tus competidores están captando clientes por internet mientras vos seguís dependiendo exclusivamente del boca a boca tradicional?', solucion: 'Te posicionamos como líder en tu sector con una plataforma web institucional imponente, optimizada para SEO local y diseñada para captar leads de alta calidad las 24 horas.', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'jujuy' }, props: { nombre: 'Jujuy', foco: 'minería de litio y turismo internacional', dolor: 'infraestructura digital obsoleta y desconexión B2B', frase: '¿Estás perdiendo oportunidades de inversión o contratos grandes porque la cara digital de tu empresa no refleja el nivel real de tus operaciones?', solucion: 'Desarrollamos presencias corporativas B2B de estándar internacional. Interfaces bilingües, catálogos digitales interactivos y portales para inversores con máxima seguridad.', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'la-pampa' }, props: { nombre: 'La Pampa', foco: 'ganadería, agricultura e industria', dolor: 'falta de trazabilidad y software de gestión a medida', frase: '¿Ningún enlatado de software del mercado se adapta realmente a cómo funciona tu empresa agroindustrial o logística?', solucion: 'Nos especializamos en desarrollo custom. Construimos el sistema exactamente a la medida de tu flujo de trabajo, garantizando trazabilidad total y métricas claras en un dashboard personalizado.', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'la-rioja' }, props: { nombre: 'La Rioja', foco: 'vitivinicultura, olivicultura y turismo', dolor: 'dependencia de intermediarios y webs poco optimizadas', frase: '¿Producís bienes de altísima calidad pero tu canal de venta online es un desastre y terminás cediendo tus productos a distribuidores?', solucion: 'Implementamos ecosistemas de venta D2C (Direct to Consumer). Tu propia tienda premium, ultrarrápida y conectada directamente a tus redes, para que el cliente final te compre a vos sin fricciones.', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'mendoza' }, props: { nombre: 'Mendoza', foco: 'bodegas, turismo enológico y exportación', dolor: 'falta de reservas directas y e-commerce anticuados', frase: '¿Los turistas internacionales intentan reservar en tu bodega pero abandonan la web porque es confusa, lenta o no funciona bien en el celular?', solucion: 'Revolucionamos tu experiencia de usuario (UX). Desarrollamos motores de reserva directos e interfaces e-commerce premium que transmiten la misma elegancia que tu vino, maximizando la conversión.', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'misiones' }, props: { nombre: 'Misiones', foco: 'yerba mate, turismo y forestal', dolor: 'procesos logísticos descentralizados', frase: '¿Tenés distintas sucursales, depósitos o puntos turísticos operando como islas desconectadas, generando un caos administrativo?', solucion: 'Unificamos tus operaciones. Diseñamos plataformas web integradas donde tu equipo puede controlar inventario, despachos o reservas desde un único panel centralizado en la nube.', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'neuquen' }, props: { nombre: 'Neuquén', foco: 'petróleo, gas (Vaca Muerta) y servicios B2B', dolor: 'ineficiencia operativa y software sin integración', frase: '¿Tu empresa de servicios petroleros maneja presupuestos millonarios pero sigue operando con planillas sueltas y software de los años 90?', solucion: 'Digitalizamos tus procesos B2B pesados. Construimos software escalable y seguro que automatiza certificaciones, licitaciones y operaciones en campo, respaldado por tecnologías de punta.', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'rio-negro' }, props: { nombre: 'Río Negro', foco: 'fruticultura, turismo y tecnología', dolor: 'falta de plataformas web para exportación', frase: '¿Querés abrir tu mercado hacia afuera pero tu ecosistema digital actual grita "empresa chica" y no genera confianza internacional?', solucion: 'Te dotamos de una arquitectura digital de nivel global. Webs ultra-optimizadas, catálogos de exportación y plataformas que se cargan en milisegundos en cualquier parte del mundo.', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'salta' }, props: { nombre: 'Salta', foco: 'turismo, minería y agroindustria', dolor: 'mala UX en webs locales y pérdida de leads', frase: '¿Invertís miles de dólares en anuncios o redes sociales, pero cuando la gente entra a tu web simplemente se va sin contactarte?', solucion: 'Arreglamos tu embudo. Creamos Landing Pages de alta conversión y rediseñamos tu UI para que cada visitante se transforme en un lead calificado, aumentando drásticamente tu ROI.', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'san-juan' }, props: { nombre: 'San Juan', foco: 'minería, vitivinicultura y energías', dolor: 'visibilidad débil y sistemas de datos fragmentados', frase: '¿Tus directivos tardan días en recolectar datos de distintas áreas para tomar una decisión porque nada está conectado?', solucion: 'Diseñamos e implementamos arquitecturas de datos y paneles interactivos. Toda la información crítica de tu operación, disponible en tiempo real, en una interfaz limpia y moderna.', color: '#00c851', bg: 'bg-verde' } },
+    { params: { slug: 'san-luis' }, props: { nombre: 'San Luis', foco: 'tecnología, logística y agro', dolor: 'necesidad de modernizar interfaces web', frase: '¿Tu competencia se actualizó, tiene una plataforma web moderna e interactiva, y vos te sentís quedándote atrás en la carrera digital?', solucion: 'Le damos una lavada de cara extrema a tu negocio. Aplicamos "Liquid Glassmorphism", brutalismo y animaciones premium para que tu empresa sea percibida instantáneamente como líder del mercado.', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'santa-cruz' }, props: { nombre: 'Santa Cruz', foco: 'minería, petróleo, pesca y turismo', dolor: 'operaciones descentralizadas y baja automatización', frase: '¿Las distancias enormes de la región hacen que la gestión de tus recursos, flotas o clientes sea un dolor de cabeza administrativo?', solucion: 'Acortamos distancias con tecnología. Software web a medida que te permite gestionar, monitorear y vender desde cualquier dispositivo, unificando toda la Patagonia en un clic.', color: '#ff005c', bg: 'bg-rosa' } },
+    { params: { slug: 'santa-fe' }, props: { nombre: 'Santa Fe', foco: 'agroexportación, puertos e industria', dolor: 'sistemas logísticos anticuados y webs B2B genéricas', frase: '¿Sos una industria fuerte en el polo exportador, pero tu sitio web corporativo parece una plantilla de blog gratuita?', solucion: 'Creamos presencias digitales "Enterprise". Webs corporativas blindadas, portales de clientes robustos e integraciones complejas que reflejan el verdadero peso pesado de tu industria.', color: '#ff3c00', bg: 'bg-acento' } },
+    { params: { slug: 'santiago-del-estero' }, props: { nombre: 'Santiago del Estero', foco: 'agricultura, ganadería y turismo', dolor: 'baja madurez digital y oportunidades de venta perdidas', frase: '¿Sabés que hay un mercado inmenso ahí afuera pero no tenés los canales digitales correctos para captarlo y fidelizarlo?', solucion: 'Estructuramos tu estrategia web desde cero. Desde el diseño de marca institucional hasta la plataforma de ventas online, preparándote para competir y ganar a escala nacional.', color: '#ffd700', bg: 'bg-yellow-400' } },
+    { params: { slug: 'tierra-del-fuego' }, props: { nombre: 'Tierra del Fuego', foco: 'industria electrónica, turismo y logística', dolor: 'altos costos operativos por falta de automatización', frase: '¿Tus costos internos suben porque estás pagándole a personas para hacer tareas digitales manuales que una máquina podría hacer en segundos?', solucion: 'Automatizamos el núcleo de tu negocio. Desarrollamos scripts, integraciones API y aplicaciones web internas que destruyen la ineficiencia y bajan tus costos operativos radicalmente.', color: '#0057ff', bg: 'bg-azul' } },
+    { params: { slug: 'tucuman' }, props: { nombre: 'Tucumán', foco: 'industria azucarera, cítricos y comercio', dolor: 'falta de ecosistemas digitales integrados para exportación', frase: '¿Tenés la capacidad productiva para abastecer grandes mercados, pero tus canales B2B digitales no están preparados para transacciones de alto volumen?', solucion: 'Desarrollamos soluciones B2B a prueba de balas. Sistemas de pedidos mayoristas, catálogos digitales privados y pasarelas de pago robustas para escalar tus ventas sin límite tecnológico.', color: '#00c851', bg: 'bg-verde' } },
+  ];
+}
+
+const { nombre, foco, dolor, frase, solucion, color, bg } = Astro.props;
+---
+
+<Layout
+  title={`Agencia de Desarrollo Web y Software en ${nombre} | VEZNER`}
+  description={`Digitalizamos empresas en ${nombre} con desarrollo web premium y software a medida. Soluciones para ${foco}.`}
+>
+  <Header theme="dark" />
+
+  <main class="bg-negro text-blanco min-h-screen overflow-hidden selection:bg-blanco selection:text-negro">
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div class={`absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] ${bg}/10 rounded-full blur-[120px] animate-pulse`}></div>
+        
+        <svg class="absolute top-1/2 left-[50%] -translate-y-1/2 -translate-x-1/2 w-full h-full opacity-[0.02]" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <pattern id="grid-hero" width="4" height="4" patternUnits="userSpaceOnUse">
+            <path d="M 4 0 L 0 0 0 4" fill="none" stroke="currentColor" stroke-width="0.1"/>
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#grid-hero)" />
+        </svg>
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex flex-wrap items-center gap-4 mb-8 opacity-0">
+          <div class={`w-12 h-px ${bg}/50`}></div>
+          <span class={`font-mono text-xs tracking-[0.4em] uppercase`} style={`color: ${color};`}>
+            Operaciones Digitales en {nombre}
+          </span>
+          <div class="hidden md:block w-px h-3 bg-blanco/20"></div>
+          <span class="font-mono text-xs tracking-widest uppercase text-blanco/40">Sector: {foco}</span>
+        </div>
+
+        <h1 class="font-display text-[clamp(45px,9vw,130px)] leading-[0.85] text-blanco uppercase mb-12 max-w-5xl">
+          <span class="block overflow-hidden pb-2">
+            <span class="title-line block translate-y-full">Domina tu</span>
+          </span>
+          <span class="block overflow-hidden pb-2">
+            <span class="title-line block translate-y-full">Industria en</span>
+          </span>
+          <span class="block overflow-hidden pt-2">
+            <span class="title-line block translate-y-full" style={`color: ${color};`}>{nombre}</span>
+          </span>
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-start">
+          <p class="hero-desc font-mono text-base md:text-xl text-blanco/50 leading-relaxed opacity-0 transform translate-y-8 max-w-lg">
+            Las empresas están perdiendo ventas masivas por <strong class="text-blanco font-medium">{dolor}</strong>. Construimos ecosistemas digitales inyectados de esteroides que destruyen a tu competencia.
+          </p>
+
+          <div class="hero-stats opacity-0 transform translate-y-8">
+             <a
+              href="/contacto"
+              class="group relative inline-flex items-center gap-3 bg-blanco text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden w-full md:w-auto justify-center rounded-sm hover:rounded-none transition-all duration-300"
+            >
+              <span class="relative z-10 font-bold">Escalar mi empresa</span>
+              <span class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+              <span class="absolute inset-0 bg-negro/10 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out"></span>
+            </a>
+            <p class="font-mono text-[10px] text-blanco/30 tracking-[0.2em] uppercase mt-6 text-center md:text-left">Análisis técnico de infraestructura sin cargo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Empatía (El Dolor) -->
+    <section class="py-32 md:py-48 px-6 bg-[#050505] relative overflow-hidden border-y border-blanco/5">
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        <span class="font-mono text-xs tracking-[0.3em] uppercase text-blanco/30 mb-8 block reveal-text">LA CRUDA REALIDAD</span>
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl text-blanco leading-[1.1] reveal-text">
+          <span style={`color: ${color};`}>¿Te sentís identificado</span> con esto?
+        </h2>
+        
+        <div class="mt-16 md:mt-24 max-w-4xl mx-auto">
+          <blockquote class="font-display text-3xl md:text-5xl text-blanco/80 leading-[1.3] relative reveal-text">
+            <span class={`absolute -top-10 -left-10 text-9xl opacity-20 font-sans`} style={`color: ${color};`}>"</span>
+            {frase}
+            <span class={`absolute -bottom-10 -right-10 text-9xl opacity-20 font-sans rotate-180`} style={`color: ${color};`}>"</span>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- La Solución (El Antídoto) -->
+    <section class="py-32 px-6 bg-negro relative overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
+          <div class="order-2 lg:order-1 relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#111] to-[#0a0a0a] rounded-2xl border border-blanco/10 transform -rotate-2 scale-105 opacity-50"></div>
+            <div class="relative bg-[#0d0d0d] rounded-2xl border border-blanco/10 p-8 md:p-12 shadow-2xl overflow-hidden group hover:border-blanco/30 transition-colors duration-500">
+              <div class={`absolute top-0 right-0 w-32 h-32 ${bg}/20 blur-3xl rounded-full`}></div>
+              <h3 class="font-mono text-xs tracking-[0.3em] uppercase text-blanco/40 mb-6">El Antídoto Técnico</h3>
+              <p class="font-mono text-lg md:text-xl text-blanco/90 leading-relaxed mb-8">
+                {solucion}
+              </p>
+              <ul class="space-y-4 font-mono text-sm text-blanco/60">
+                <li class="flex items-center gap-3">
+                  <span class={`w-1.5 h-1.5 rounded-full ${bg}`}></span>
+                  Diseño UX/UI Brutalista que destruye estándares.
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class={`w-1.5 h-1.5 rounded-full ${bg}`}></span>
+                  Arquitecturas web escalables y ultra rápidas.
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class={`w-1.5 h-1.5 rounded-full ${bg}`}></span>
+                  Sistemas customizados para tu flujo operativo.
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="order-1 lg:order-2">
+            <h2 class="font-display text-5xl md:text-7xl text-blanco mb-8 reveal-text">
+              No vendemos plantillas.<br/>Construimos armas comerciales.
+            </h2>
+            <p class="font-mono text-base text-blanco/50 max-w-xl reveal-text leading-relaxed">
+              No tercerices tu imagen digital a agencias que te hacen una web igual a la de tu competencia. En VEZNER diseñamos plataformas a medida que te dan una ventaja desleal en el mercado de {nombre}. Invertí en software que realmente mueva la aguja de tu facturación.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asi Trabajamos (Proceso) -->
+    <section class="py-32 px-6 md:px-16 bg-[#050505] border-t border-blanco/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-[1fr_1.5fr] gap-20">
+          <div>
+            <div class="proceso-label flex items-center gap-4 mb-16 opacity-0">
+              <div class="w-8 h-px bg-blanco/20"></div>
+              <span class="font-mono text-xs tracking-[0.4em] uppercase text-blanco/50">
+                § Metodología
+              </span>
+            </div>
+            <h2 class="proceso-title font-display text-6xl md:text-8xl leading-none text-blanco opacity-0 translate-y-12">
+              Proceso<br />Transparente
+            </h2>
+            <p class="proceso-desc mt-8 font-mono text-sm text-blanco/50 leading-relaxed max-w-md opacity-0 translate-y-12">
+              Trabajar a distancia requiere confianza absoluta. Te damos acceso en tiempo real al desarrollo de tu producto. Sin cajas negras.
+            </p>
+          </div>
+
+          <div class="mt-16 lg:mt-0 space-y-0">
+            {
+              [
+                {
+                  num: "01",
+                  titulo: "Diagnóstico",
+                  desc: `Analizamos tu infraestructura en ${nombre}. Definimos el alcance real del proyecto sin adornos ni promesas falsas.`,
+                  duracion: "1–2 días",
+                  color: "#ff005c",
+                },
+                {
+                  num: "02",
+                  titulo: "Propuesta Técnica",
+                  desc: "Entregamos un plan detallado: tecnologías, cronograma, hitos de entrega y precio cerrado. Sin sorpresas.",
+                  duracion: "2–3 días",
+                  color: "#0057ff",
+                },
+                {
+                  num: "03",
+                  titulo: "Desarrollo",
+                  desc: "Construimos en sprints cortos con revisiones frecuentes. Acceso en tiempo real al estado de tu proyecto.",
+                  duracion: "Según scope",
+                  color: "#00c851",
+                },
+                {
+                  num: "04",
+                  titulo: "QA y Entrega",
+                  desc: "Pruebas exhaustivas, correcciones, documentación y capacitación de tu equipo. Entregamos cuando está perfecto.",
+                  duracion: "3–5 días",
+                  color: "#ffd700",
+                },
+              ].map((paso) => (
+                <div
+                  class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-blanco/10 hover:bg-blanco/5 transition-colors duration-300"
+                  style={`opacity:0; transform:translateY(24px); --hover-c: ${paso.color};`}
+                >
+                  <span class="proceso-num font-display text-5xl text-blanco/10 leading-none transition-colors duration-300">
+                    {paso.num}
+                  </span>
+                  <div>
+                    <h3 class="font-display text-3xl text-blanco leading-none mb-2">
+                      {paso.titulo}
+                    </h3>
+                    <p class="font-mono text-sm text-blanco/45 max-w-2xl leading-relaxed">
+                      {paso.desc}
+                    </p>
+                  </div>
+                  <span class="font-mono text-xs text-blanco/25 uppercase tracking-widest mt-1 whitespace-nowrap">
+                    {paso.duracion}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="py-32 px-6 bg-negro text-center relative overflow-hidden">
+      <div class={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] ${bg}/5 blur-[150px] rounded-full pointer-events-none`}></div>
+      <div class="max-w-4xl mx-auto relative z-10">
+        <h2 class="font-display text-6xl md:text-8xl text-blanco mb-8 uppercase reveal-text">
+          Es Hora de <span style={`color: ${color};`}>Dominar</span>
+        </h2>
+        <p class="font-mono text-lg text-blanco/60 mb-12 max-w-2xl mx-auto reveal-text">
+          No dejes que tu competencia en {nombre} se siga llevando a tus clientes. Agendá una llamada hoy mismo y empecemos a construir la infraestructura digital que tu empresa merece.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-flex items-center gap-4 bg-blanco text-negro px-12 py-6 font-mono text-sm tracking-widest uppercase hover:bg-blanco/90 transition-colors duration-300 rounded-md hover:rounded-none reveal-text"
+        >
+          <span class="font-bold">Comenzar Proyecto</span>
+          <span>→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+
+  <style is:global>
+    .proceso-step:hover .proceso-num {
+      color: var(--hover-c);
+    }
+  </style>
+
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Animations
+    gsap.to(".hero-reveal", { opacity: 1, duration: 1, delay: 0.2 });
+    
+    gsap.to(".title-line", {
+      y: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power4.out",
+      delay: 0.3
+    });
+
+    gsap.to(".hero-desc, .hero-stats", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      delay: 0.8
+    });
+
+    // Scroll text reveals
+    gsap.utils.toArray(".reveal-text").forEach((el) => {
+      gsap.fromTo(el as HTMLElement, 
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: {
+            trigger: el as HTMLElement,
+            start: "top 85%",
+            once: true,
+          },
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+        }
+      );
+    });
+
+    // Proceso Animations
+    gsap.to(".proceso-label", {
+      opacity: 1,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: { trigger: ".proceso-label", start: "top 80%", once: true },
+    });
+
+    gsap.to(".proceso-title", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".proceso-title", start: "top 80%", once: true },
+    });
+
+    gsap.to(".proceso-desc", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".proceso-desc", start: "top 85%", once: true },
+    });
+
+    document.querySelectorAll(".proceso-step").forEach((step, i) => {
+      gsap.to(step, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: step,
+          start: "top 90%",
+          once: true,
+        },
+      });
+    });
+  </script>
+</Layout>

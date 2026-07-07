@@ -217,10 +217,8 @@ import Footer from "../components/Footer.astro";
           <div class="flex-1 max-w-16 h-px bg-negro/15"></div>
         </div>
 
-        <div
-          class="relative flex items-center justify-center md:justify-start min-h-[60vh]"
-        >
-          <div class="space-y-0 relative z-10 w-full md:pl-24 lg:pl-32">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-8 min-h-[60vh] mt-8 lg:mt-0">
+          <div class="space-y-0 relative z-10 w-full lg:pl-20 xl:pl-32">
             {
               [
                 { text: "No construimos", faded: false },
@@ -240,7 +238,7 @@ import Footer from "../components/Footer.astro";
                   <div class="overflow-hidden">
                     <p
                       class={`manifesto-reveal font-display leading-[0.88] ${line.faded ? "text-negro/20" : line.color ? `${line.color} selection:bg-negro selection:text-blanco` : "text-negro"}`}
-                      style={`font-size: clamp(56px, 7.5vw, 125px); transform: translateY(110%); ${line.glow ? `text-shadow: 0 0 40px rgba(${line.glow},0.2);` : ""}`}
+                      style={`font-size: clamp(48px, 6vw, 110px); transform: translateY(110%); ${line.glow ? `text-shadow: 0 0 40px rgba(${line.glow},0.2);` : ""}`}
                     >
                       {line.text}
                     </p>
@@ -250,13 +248,11 @@ import Footer from "../components/Footer.astro";
             }
           </div>
 
-          <div
-            class="manifesto-lottie hidden md:flex absolute top-1/2 right-[5%] -translate-y-1/2 z-5 opacity-0 pointer-events-none"
-          >
+          <div class="manifesto-lottie hidden md:flex justify-center lg:justify-start lg:pl-12 w-full opacity-0 pointer-events-none">
             <img
               src="/assets/insfraestructure-animation.svg"
               alt="Infraestructura"
-              class="w-[650px] lg:w-[750px]"
+              class="w-full max-w-[500px] lg:max-w-[700px]"
               style="height: auto;"
             />
           </div>
@@ -567,10 +563,10 @@ import Footer from "../components/Footer.astro";
               },
             ].map((paso, i) => (
               <div
-                class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-negro/8 hover:bg-negro/1.5 transition-colors duration-300"
+                class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-negro/8 transition-colors duration-300"
                 style={`opacity:0; transform:translateY(24px); --hover-c: ${paso.color};`}
               >
-                <span class="proceso-num font-display text-5xl text-negro/10 leading-none transition-colors duration-300">
+                <span class="proceso-num font-display text-5xl text-negro/25 leading-none transition-colors duration-300">
                   {paso.num}
                 </span>
                 <div>
@@ -881,7 +877,8 @@ import Footer from "../components/Footer.astro";
     import * as THREE from "three";
     import { DotLottie } from "@lottiefiles/dotlottie-web";
 
-    gsap.registerPlugin(ScrollTrigger);
+    document.addEventListener("astro:page-load", () => {
+      gsap.registerPlugin(ScrollTrigger);
 
     const lenis = (window as any).lenisInstance;
     if (lenis) {
@@ -976,6 +973,7 @@ import Footer from "../components/Footer.astro";
       const reloj = new THREE.Clock();
 
       function animarThree() {
+        if (!document.body.contains(heroCanvas)) return; // Stop loop on page leave
         requestAnimationFrame(animarThree);
         const t = reloj.getElapsedTime();
 
@@ -1178,6 +1176,7 @@ import Footer from "../components/Footer.astro";
         delay: i * 0.1,
         scrollTrigger: { trigger: "#servicios", start: "top 70%", once: true },
       });
+    });
     });
   </script>
 

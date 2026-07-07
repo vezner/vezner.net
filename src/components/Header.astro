@@ -22,40 +22,159 @@ const { theme = "light" } = Astro.props;
       <Logo />
     </a>
 
-    <ul class="hidden md:flex items-center gap-10 list-none m-0 p-0">
-      <li>
-        <a
-          href="/"
-          class="nav-link font-mono text-xs tracking-widest uppercase"
-        >
-          <span class="nav-link-text">Inicio</span>
-          <span class="nav-link-clone" aria-hidden="true">Inicio</span>
+    <ul class="hidden lg:flex items-stretch gap-8 list-none m-0 p-0 h-full relative" id="desktop-nav-list">
+      <li class="h-full desktop-nav-item" data-dropdown="inicio">
+        <a href="/" class="flex items-center h-full px-2 group/navlink font-mono text-xs tracking-widest uppercase">
+          <span class="nav-link block">
+            <span class="nav-link-text">Inicio</span>
+            <span class="nav-link-clone" aria-hidden="true">Inicio</span>
+          </span>
         </a>
       </li>
-      <li>
-        <a
-          href="/#servicios"
-          class="nav-link font-mono text-xs tracking-widest uppercase"
-        >
-          <span class="nav-link-text">Servicios</span>
-          <span class="nav-link-clone" aria-hidden="true">Servicios</span>
+
+      <li class="h-full desktop-nav-item" data-dropdown="servicios">
+        <a href="/#servicios" class="flex items-center h-full px-2 group/navlink font-mono text-xs tracking-widest uppercase">
+          <span class="nav-link block">
+            <span class="nav-link-text">Servicios</span>
+            <span class="nav-link-clone" aria-hidden="true">Servicios</span>
+          </span>
         </a>
       </li>
-      <li>
-        <a
-          href="/contacto"
-          class="nav-link font-mono text-xs tracking-widest uppercase"
-        >
-          <span class="nav-link-text">Contacto</span>
-          <span class="nav-link-clone" aria-hidden="true">Contacto</span>
+
+      <li class="h-full desktop-nav-item" data-dropdown="nosotros">
+        <a href="/nosotros" class="flex items-center h-full px-2 group/navlink font-mono text-xs tracking-widest uppercase">
+          <span class="nav-link block">
+            <span class="nav-link-text">Nosotros</span>
+            <span class="nav-link-clone" aria-hidden="true">Nosotros</span>
+          </span>
         </a>
       </li>
+
+      <li class="h-full desktop-nav-item" data-dropdown="contacto">
+        <a href="/contacto" class="flex items-center h-full px-2 group/navlink font-mono text-xs tracking-widest uppercase">
+          <span class="nav-link block">
+            <span class="nav-link-text">Contacto</span>
+            <span class="nav-link-clone" aria-hidden="true">Contacto</span>
+          </span>
+        </a>
+      </li>
+
+      <!-- Morphing Background -->
+      <div id="morphing-dropdown" class="absolute top-[calc(100%-10px)] left-0 opacity-0 pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-2xl rounded-2xl border border-negro/5 bg-blanco/95 backdrop-blur-2xl overflow-hidden z-50 origin-top-left" style="will-change: width, height, transform, opacity;">
+        <div id="morphing-content" class="relative w-full h-full">
+          <!-- Panel Inicio -->
+          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="inicio">
+            <div class="p-8 w-[350px]">
+              <p class="font-mono text-[10px] tracking-widest uppercase opacity-40 mb-6">Secciones</p>
+              <div class="flex flex-col gap-4">
+                <a href="/#manifiesto" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                  <span class="font-mono text-xs opacity-50">01</span>
+                  <span class="font-display text-xl">Manifiesto</span>
+                </a>
+                <a href="/#servicios" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                  <span class="font-mono text-xs opacity-50">02</span>
+                  <span class="font-display text-xl">Servicios</span>
+                </a>
+                <a href="/#proceso" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                  <span class="font-mono text-xs opacity-50">03</span>
+                  <span class="font-display text-xl">Proceso</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel Servicios -->
+          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="servicios">
+            <div class="p-10 w-[850px]">
+              <div class="grid grid-cols-4 gap-8">
+                <div>
+                  <a href="/servicios/diseno-web" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Diseño Web</a>
+                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
+                    <a href="/servicios/diseno-web#hero" class="hover:text-current hover:opacity-100 transition-colors">Landing Pages</a>
+                    <a href="/servicios/diseno-web#estandar" class="hover:text-current hover:opacity-100 transition-colors">Estándar VEZNER</a>
+                    <a href="/servicios/diseno-web#enfoque" class="hover:text-current hover:opacity-100 transition-colors">Nuestro Enfoque</a>
+                    <a href="/servicios/diseno-web#cta" class="hover:text-current hover:opacity-100 transition-colors">Agendar Llamada</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="/servicios/software-python" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Software</a>
+                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
+                    <a href="/servicios/software-python#soluciones" class="hover:text-current hover:opacity-100 transition-colors">Casos de Uso</a>
+                    <a href="/servicios/software-python#calidad" class="hover:text-current hover:opacity-100 transition-colors">Código de Calidad</a>
+                    <a href="/servicios/software-python#stack" class="hover:text-current hover:opacity-100 transition-colors">Nuestro Stack</a>
+                    <a href="/servicios/software-python#cta" class="hover:text-current hover:opacity-100 transition-colors">Consultar Proyecto</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="/servicios/community-management" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Marketing</a>
+                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
+                    <a href="/servicios/community-management#hero" class="hover:text-current hover:opacity-100 transition-colors">Gestión de Redes</a>
+                    <a href="/servicios/community-management#metodologia" class="hover:text-current hover:opacity-100 transition-colors">Contenido Visual</a>
+                    <a href="/servicios/community-management#servicios" class="hover:text-current hover:opacity-100 transition-colors">Servicios CM</a>
+                    <a href="/servicios/community-management#cta" class="hover:text-current hover:opacity-100 transition-colors">Escalar Cuenta</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="/servicios/diseno-identidad" class="font-display text-2xl mb-4 block hover:opacity-70 transition-opacity">Branding</a>
+                  <div class="flex flex-col gap-3 font-mono text-[11px] opacity-60">
+                    <a href="/servicios/diseno-identidad#hero" class="hover:text-current hover:opacity-100 transition-colors">Logotipos</a>
+                    <a href="/servicios/diseno-identidad#galeria" class="hover:text-current hover:opacity-100 transition-colors">Identidad Visual</a>
+                    <a href="/servicios/diseno-identidad#entregables" class="hover:text-current hover:opacity-100 transition-colors">Entregables</a>
+                    <a href="/servicios/diseno-identidad#cta" class="hover:text-current hover:opacity-100 transition-colors">Cotizar Marca</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel Nosotros -->
+          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="nosotros">
+            <div class="p-8 w-[250px]">
+              <div class="flex flex-col gap-4">
+                <a href="/nosotros#agencia" class="mega-link hover:opacity-70 transition-opacity">
+                  <span class="font-display text-2xl block mb-1">La Agencia</span>
+                  <span class="font-mono text-[10px] opacity-50 block uppercase tracking-wider">Nuestra Esencia</span>
+                </a>
+                <a href="/nosotros#manifiesto" class="mega-link hover:opacity-70 transition-opacity">
+                  <span class="font-display text-2xl block mb-1">Manifiesto</span>
+                  <span class="font-mono text-[10px] opacity-50 block uppercase tracking-wider">Nuestra Verdad</span>
+                </a>
+                <a href="/nosotros#pilares" class="mega-link hover:opacity-70 transition-opacity">
+                  <span class="font-display text-2xl block mb-1">Los 3 Pilares</span>
+                  <span class="font-mono text-[10px] opacity-50 block uppercase tracking-wider">Nuestro Enfoque</span>
+                </a>
+                <a href="/nosotros#fundadores" class="mega-link hover:opacity-70 transition-opacity">
+                  <span class="font-display text-2xl block mb-1">Fundadores</span>
+                  <span class="font-mono text-[10px] opacity-50 block uppercase tracking-wider">El Equipo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel Contacto -->
+          <div class="morph-panel absolute top-0 left-0 transition-opacity duration-200 opacity-0 pointer-events-none" data-panel="contacto">
+            <div class="p-8 w-[350px]">
+              <p class="font-mono text-[10px] tracking-widest uppercase opacity-40 mb-6">Contactar</p>
+              <div class="flex flex-col gap-4">
+                <a href="/contacto" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                  <span class="font-display text-xl flex-1">Formulario Directo</span>
+                  <span class="font-mono text-[10px] opacity-50 uppercase tracking-wider border border-current/20 px-2 py-1 rounded-sm">24hs</span>
+                </a>
+                <a href="mailto:hola@vezner.net" class="mega-link flex items-center gap-4 hover:opacity-70 transition-opacity">
+                  <span class="font-display text-xl flex-1">Email Directo</span>
+                  <span class="font-mono text-[10px] opacity-50 uppercase tracking-wider border border-current/20 px-2 py-1 rounded-sm">Mail</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </ul>
 
     <a
       href="/contacto"
       id="header-cta"
-      class="hidden md:flex items-center gap-2 border border-negro px-5 py-2.5 font-mono text-xs tracking-widest uppercase overflow-hidden relative group transition-all duration-300 rounded-md hover:rounded-none"
+      class="hidden lg:flex items-center gap-2 border border-negro px-5 py-2.5 font-mono text-xs tracking-widest uppercase overflow-hidden relative group transition-all duration-300 rounded-md hover:rounded-none"
     >
       <span
         class="relative z-10 group-hover:text-blanco transition-colors duration-300 cta-text"
@@ -70,7 +189,7 @@ const { theme = "light" } = Astro.props;
 
     <button
       id="menu-toggle"
-      class="md:hidden flex flex-col gap-1.5 p-2"
+      class="lg:hidden flex flex-col gap-1.5 p-2"
       aria-label="Abrir menú"
       aria-expanded="false"
     >
@@ -118,6 +237,9 @@ const { theme = "light" } = Astro.props;
       </li>
       <li class="mobile-item overflow-hidden">
         <a href="/#servicios" class="text-blanco font-display text-5xl mobile-menu-link block translate-y-full hover:text-blanco/70 transition-colors">Servicios</a>
+      </li>
+      <li class="mobile-item overflow-hidden">
+        <a href="/nosotros" class="text-blanco font-display text-5xl mobile-menu-link block translate-y-full hover:text-blanco/70 transition-colors">Nosotros</a>
       </li>
       <li class="mobile-item overflow-hidden">
         <a href="/contacto" class="text-blanco font-display text-5xl mobile-menu-link block translate-y-full hover:text-blanco/70 transition-colors">Contacto</a>
@@ -190,6 +312,25 @@ const { theme = "light" } = Astro.props;
   }
 
   
+  .mega-menu {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    color: #000;
+  }
+  
+  :global(#header.theme-dark) .mega-menu {
+    background: rgba(10, 10, 10, 0.97);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+
+  /* When the header is scrolled but theme is not dark, ensure mega menu links match */
+  :global(#header.theme-dark) .mega-link {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
   .nav-link {
     position: relative;
     display: inline-block;
@@ -212,11 +353,13 @@ const { theme = "light" } = Astro.props;
     left: 0;
   }
 
-  .nav-link:hover .nav-link-text {
+  .group\/navlink:hover .nav-link-text,
+  .desktop-nav-item:hover .nav-link-text {
     transform: translateY(-100%);
   }
 
-  .nav-link:hover .nav-link-clone {
+  .group\/navlink:hover .nav-link-clone,
+  .desktop-nav-item:hover .nav-link-clone {
     transform: translateY(-100%);
   }
 
@@ -237,6 +380,9 @@ const { theme = "light" } = Astro.props;
   }
   #mobile-menu.open .mobile-item:nth-child(3) .mobile-menu-link {
     transition-delay: 0.4s;
+  }
+  #mobile-menu.open .mobile-item:nth-child(4) .mobile-menu-link {
+    transition-delay: 0.5s;
   }
 
   
@@ -264,54 +410,130 @@ const { theme = "light" } = Astro.props;
 </style>
 
 <script>
-  const header = document.getElementById("header");
+  document.addEventListener("astro:page-load", () => {
+    const header = document.getElementById("header");
 
-  const onScroll = () => {
-    if (window.scrollY > 40) {
-      header?.classList.add("scrolled");
-    } else {
-      header?.classList.remove("scrolled");
+    const onScroll = () => {
+      if (window.scrollY > 40) {
+        header?.classList.add("scrolled");
+      } else {
+        header?.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    const toggle = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("menu-close");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("mobile-menu-overlay");
+    let menuOpen = false;
+
+    const openMenu = () => {
+      menuOpen = true;
+      toggle?.classList.add("menu-toggle-open");
+      toggle?.setAttribute("aria-expanded", "true");
+      mobileMenu?.classList.add("open");
+      overlay?.classList.add("open");
+      mobileMenu?.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeMenu = () => {
+      menuOpen = false;
+      toggle?.classList.remove("menu-toggle-open");
+      toggle?.setAttribute("aria-expanded", "false");
+      mobileMenu?.classList.remove("open");
+      overlay?.classList.remove("open");
+      mobileMenu?.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    toggle?.addEventListener("click", () =>
+      menuOpen ? closeMenu() : openMenu(),
+    );
+    closeBtn?.addEventListener("click", closeMenu);
+    document.querySelectorAll(".mobile-menu-link").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menuOpen) closeMenu();
+    });
+
+    // --- Lógica del Morphing Dropdown ---
+    const desktopNavList = document.getElementById("desktop-nav-list");
+    const morphingDropdown = document.getElementById("morphing-dropdown");
+    const navItems = document.querySelectorAll(".desktop-nav-item");
+    const panels = document.querySelectorAll(".morph-panel");
+
+    let hideTimeout;
+    let isDropdownOpen = false;
+
+    const hideDropdown = () => {
+      isDropdownOpen = false;
+      if (morphingDropdown) {
+        morphingDropdown.style.opacity = "0";
+        morphingDropdown.style.pointerEvents = "none";
+      }
+      panels.forEach(p => {
+        p.style.opacity = "0";
+        p.style.pointerEvents = "none";
+      });
+    };
+
+    navItems.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        clearTimeout(hideTimeout);
+        const dropdownName = item.getAttribute("data-dropdown");
+        if (!dropdownName || !morphingDropdown) return;
+
+        const targetPanel = document.querySelector(`.morph-panel[data-panel="${dropdownName}"]`);
+        if (!targetPanel) return;
+
+        panels.forEach(p => {
+          p.style.opacity = "0";
+          p.style.pointerEvents = "none";
+        });
+
+        targetPanel.style.opacity = "1";
+        targetPanel.style.pointerEvents = "auto";
+
+        const panelContent = targetPanel.firstElementChild;
+        if (panelContent) {
+          const contentWidth = panelContent.getBoundingClientRect().width;
+          const contentHeight = panelContent.getBoundingClientRect().height;
+          
+          const itemRect = item.getBoundingClientRect();
+          const navRect = desktopNavList?.getBoundingClientRect();
+
+          if (navRect) {
+            const left = itemRect.left - navRect.left + (itemRect.width / 2) - (contentWidth / 2);
+            
+            morphingDropdown.style.width = `${contentWidth}px`;
+            morphingDropdown.style.height = `${contentHeight}px`;
+            morphingDropdown.style.transform = `translateX(${left}px)`;
+            
+            if (!isDropdownOpen) {
+              morphingDropdown.style.opacity = "1";
+              morphingDropdown.style.pointerEvents = "auto";
+              isDropdownOpen = true;
+            }
+          }
+        }
+      });
+
+      item.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(hideDropdown, 150);
+      });
+    });
+
+    if (morphingDropdown) {
+      morphingDropdown.addEventListener("mouseenter", () => clearTimeout(hideTimeout));
+      morphingDropdown.addEventListener("mouseleave", () => {
+        hideTimeout = setTimeout(hideDropdown, 150);
+      });
     }
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  const toggle = document.getElementById("menu-toggle");
-  const closeBtn = document.getElementById("menu-close");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const overlay = document.getElementById("mobile-menu-overlay");
-  let menuOpen = false;
-
-  const openMenu = () => {
-    menuOpen = true;
-    toggle?.classList.add("menu-toggle-open");
-    toggle?.setAttribute("aria-expanded", "true");
-    mobileMenu?.classList.add("open");
-    overlay?.classList.add("open");
-    mobileMenu?.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeMenu = () => {
-    menuOpen = false;
-    toggle?.classList.remove("menu-toggle-open");
-    toggle?.setAttribute("aria-expanded", "false");
-    mobileMenu?.classList.remove("open");
-    overlay?.classList.remove("open");
-    mobileMenu?.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  };
-
-  toggle?.addEventListener("click", () =>
-    menuOpen ? closeMenu() : openMenu(),
-  );
-  closeBtn?.addEventListener("click", closeMenu);
-  document.querySelectorAll(".mobile-menu-link").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && menuOpen) closeMenu();
   });
 </script>

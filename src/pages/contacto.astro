@@ -1,5 +1,4 @@
 ---
-
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -13,12 +12,18 @@ import Footer from "../components/Footer.astro";
 
   <main class="bg-blanco min-h-screen pt-32 pb-0 relative">
     <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      <div class="absolute top-[-10%] right-[10%] w-[40vw] h-[40vw] bg-yellow-400/5 rounded-full blur-[100px] animate-pulse"></div>
-      <div class="absolute bottom-[20%] left-[-10%] w-[50vw] h-[50vw] bg-rosa/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+      <div
+        class="absolute top-[-10%] right-[10%] w-[40vw] h-[40vw] bg-yellow-400/5 rounded-full blur-[100px] animate-pulse"
+      >
+      </div>
+      <div
+        class="absolute bottom-[20%] left-[-10%] w-[50vw] h-[50vw] bg-rosa/5 rounded-full blur-[120px] animate-pulse"
+        style="animation-delay: 2s;"
+      >
+      </div>
     </div>
     <section class="px-6 md:px-12 py-20 relative z-10">
       <div class="container mx-auto max-w-6xl">
-        
         <div class="mb-20">
           <div class="flex items-center gap-4 mb-8 opacity-0 contact-label">
             <div class="w-8 h-px bg-negro/30"></div>
@@ -45,137 +50,362 @@ import Footer from "../components/Footer.astro";
           </p>
         </div>
 
-        
         <div class="grid md:grid-cols-2 gap-16 items-start">
-          
-          <form id="contact-form" class="contact-form opacity-0 relative z-10" autocomplete="off">
-            
+          <form
+            id="contact-form"
+            class="contact-form opacity-0 relative z-10"
+            autocomplete="off"
+          >
             <!-- CONTENEDOR PASO 1 -->
             <div id="step-1" class="space-y-8 transition-opacity duration-500">
               <!-- PASO 1: SERVICIO -->
-            <div class="form-group relative custom-dropdown-container z-50">
-              <label
-                class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                >¿En qué te podemos ayudar?</label
-              >
-              <input type="hidden" id="servicio" name="servicio" value="" required />
-              <button
-                type="button"
-                class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
-              >
-                <span class="dropdown-text">Seleccioná un servicio para continuar</span>
-                <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
-              </button>
-              <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
-                <div class="flex flex-col py-2 font-mono text-sm">
-                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño Web">Diseño Web</button>
-                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Software Python">Software Python</button>
-                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Community Management">Community Management</button>
-                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Diseño de Identidad">Diseño de Identidad</button>
-                  <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Otro">Otro / Consulta general</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- PASO 2: PREGUNTAS DINÁMICAS -->
-            <div id="dynamic-fields-container" class="space-y-6">
-              <!-- Web -->
-              <div id="fields-Diseño Web" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
-                <div class="form-group">
-                  <label for="web_actual" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés una web actual?</label>
-                  <input type="text" id="web_actual" name="web_actual" placeholder="Ej: No, arranco de cero / Sí, miweb.com" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="web_objetivo" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Objetivo principal de la web</label>
-                  <input type="text" id="web_objetivo" name="web_objetivo" placeholder="Ej: Captar leads, Vender online, Portfolio..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="web_contenido" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés textos e imágenes listas?</label>
-                  <input type="text" id="web_contenido" name="web_contenido" placeholder="Ej: Sí, tengo todo / No, necesito ayuda con eso" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-              </div>
-
-              <!-- Python -->
-              <div id="fields-Software Python" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
-                <div class="form-group">
-                  <label for="py_area" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Área o proceso a mejorar</label>
-                  <input type="text" id="py_area" name="py_area" placeholder="Ej: Facturación, Scraping de datos, Backend..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="py_integracion" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Con qué sistemas debe integrarse?</label>
-                  <input type="text" id="py_integracion" name="py_integracion" placeholder="Ej: API de Mercadopago, Excel, SAP..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="py_problema" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Describí el problema principal</label>
-                  <textarea id="py_problema" name="py_problema" rows="3" placeholder="Contanos qué dolor buscás resolver..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none" disabled></textarea>
-                </div>
-              </div>
-
-              <!-- CM -->
-              <div id="fields-Community Management" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
-                <div class="form-group">
-                  <label for="cm_redes" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Redes sociales actuales</label>
-                  <input type="text" id="cm_redes" name="cm_redes" placeholder="Dejá los links o usuarios (@...)" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="cm_objetivo" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Objetivo principal en redes</label>
-                  <input type="text" id="cm_objetivo" name="cm_objetivo" placeholder="Ej: Más alcance, Interacción, Ventas..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="cm_material" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés material visual?</label>
-                  <input type="text" id="cm_material" name="cm_material" placeholder="Ej: Tengo fotos profesionales / Necesito que filmen" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-              </div>
-
-              <!-- Identidad -->
-              <div id="fields-Diseño de Identidad" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
-                <div class="form-group">
-                  <label for="id_estado" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Estado de la marca</label>
-                  <input type="text" id="id_estado" name="id_estado" placeholder="Ej: Arrancamos de cero / Es un rediseño" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="id_vibra" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">3 palabras que definan tu marca</label>
-                  <input type="text" id="id_vibra" name="id_vibra" placeholder="Ej: Moderna, Confiable, Disruptiva" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-                <div class="form-group">
-                  <label for="id_entregables" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Entregables necesarios</label>
-                  <input type="text" id="id_entregables" name="id_entregables" placeholder="Ej: Logo, Manual de marca, Papelería..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled />
-                </div>
-              </div>
-
-              <!-- Otro -->
-              <div id="fields-Otro" class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6">
-                <div class="form-group">
-                  <label for="otro_servicio" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Especificar servicio o necesidad</label>
-                  <input type="text" id="otro_servicio" name="otro_servicio" placeholder="¿Qué necesitás?" class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300" disabled autocomplete="off" />
-                </div>
-                <div class="form-group">
-                  <label for="mensaje_otro" class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Tu proyecto en detalle</label>
-                  <textarea id="mensaje_otro" name="mensaje_otro" rows="4" placeholder="Contanos brevemente sobre tu empresa y qué objetivos tenés en mente..." class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none" disabled></textarea>
-                </div>
-              </div>
-
-              <!-- Botón Continuar -->
-              <div id="continue-btn-container" class="hidden opacity-0 transition-opacity duration-500 pt-4">
+              <div class="form-group relative custom-dropdown-container z-50">
+                <label
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                  >¿En qué te podemos ayudar?</label
+                >
+                <input
+                  type="hidden"
+                  id="servicio"
+                  name="servicio"
+                  value=""
+                  required
+                />
                 <button
                   type="button"
-                  id="continue-btn"
-                  class="group inline-flex items-center justify-center gap-3 bg-blanco border border-negro text-negro px-8 py-4 font-mono font-medium text-xs tracking-widest uppercase relative overflow-hidden"
+                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
                 >
-                  <span class="relative z-10 group-hover:text-blanco transition-colors duration-300">Siguiente paso</span>
-                  <span class="relative z-10 group-hover:translate-x-1 group-hover:text-blanco transition-all duration-300">→</span>
-                  <div class="absolute inset-0 bg-negro border border-negro -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
+                  <span class="dropdown-text"
+                    >Seleccioná un servicio para continuar</span
+                  >
+                  <span
+                    class="dropdown-icon text-xs transition-transform duration-300"
+                    >▼</span
+                  >
                 </button>
+                <div
+                  class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300"
+                >
+                  <div class="flex flex-col py-2 font-mono text-sm">
+                    <button
+                      type="button"
+                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                      data-value="Diseño Web">Diseño Web</button
+                    >
+                    <button
+                      type="button"
+                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                      data-value="Software Python">Software Python</button
+                    >
+                    <button
+                      type="button"
+                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                      data-value="Community Management"
+                      >Community Management</button
+                    >
+                    <button
+                      type="button"
+                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                      data-value="Diseño de Identidad"
+                      >Diseño de Identidad</button
+                    >
+                    <button
+                      type="button"
+                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                      data-value="Otro">Otro / Consulta general</button
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- PASO 2: PREGUNTAS DINÁMICAS -->
+              <div id="dynamic-fields-container" class="space-y-6">
+                <!-- Web -->
+                <div
+                  id="fields-Diseño Web"
+                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
+                >
+                  <div class="form-group">
+                    <label
+                      for="web_actual"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >¿Tenés una web actual?</label
+                    >
+                    <input
+                      type="text"
+                      id="web_actual"
+                      name="web_actual"
+                      placeholder="Ej: No, arranco de cero / Sí, miweb.com"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="web_objetivo"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Objetivo principal de la web</label
+                    >
+                    <input
+                      type="text"
+                      id="web_objetivo"
+                      name="web_objetivo"
+                      placeholder="Ej: Captar leads, Vender online, Portfolio..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="web_contenido"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >¿Tenés textos e imágenes listas?</label
+                    >
+                    <input
+                      type="text"
+                      id="web_contenido"
+                      name="web_contenido"
+                      placeholder="Ej: Sí, tengo todo / No, necesito ayuda con eso"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <!-- Python -->
+                <div
+                  id="fields-Software Python"
+                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
+                >
+                  <div class="form-group">
+                    <label
+                      for="py_area"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Área o proceso a mejorar</label
+                    >
+                    <input
+                      type="text"
+                      id="py_area"
+                      name="py_area"
+                      placeholder="Ej: Facturación, Scraping de datos, Backend..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="py_integracion"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >¿Con qué sistemas debe integrarse?</label
+                    >
+                    <input
+                      type="text"
+                      id="py_integracion"
+                      name="py_integracion"
+                      placeholder="Ej: API de Mercadopago, Excel, SAP..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="py_problema"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Describí el problema principal</label
+                    >
+                    <textarea
+                      id="py_problema"
+                      name="py_problema"
+                      rows="3"
+                      placeholder="Contanos qué dolor buscás resolver..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none"
+                      disabled></textarea>
+                  </div>
+                </div>
+
+                <!-- CM -->
+                <div
+                  id="fields-Community Management"
+                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
+                >
+                  <div class="form-group">
+                    <label
+                      for="cm_redes"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Redes sociales actuales</label
+                    >
+                    <input
+                      type="text"
+                      id="cm_redes"
+                      name="cm_redes"
+                      placeholder="Dejá los links o usuarios (@...)"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="cm_objetivo"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Objetivo principal en redes</label
+                    >
+                    <input
+                      type="text"
+                      id="cm_objetivo"
+                      name="cm_objetivo"
+                      placeholder="Ej: Más alcance, Interacción, Ventas..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="cm_material"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >¿Tenés material visual?</label
+                    >
+                    <input
+                      type="text"
+                      id="cm_material"
+                      name="cm_material"
+                      placeholder="Ej: Tengo fotos profesionales / Necesito que filmen"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <!-- Identidad -->
+                <div
+                  id="fields-Diseño de Identidad"
+                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
+                >
+                  <div class="form-group">
+                    <label
+                      for="id_estado"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Estado de la marca</label
+                    >
+                    <input
+                      type="text"
+                      id="id_estado"
+                      name="id_estado"
+                      placeholder="Ej: Arrancamos de cero / Es un rediseño"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="id_vibra"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >3 palabras que definan tu marca</label
+                    >
+                    <input
+                      type="text"
+                      id="id_vibra"
+                      name="id_vibra"
+                      placeholder="Ej: Moderna, Confiable, Disruptiva"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="id_entregables"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Entregables necesarios</label
+                    >
+                    <input
+                      type="text"
+                      id="id_entregables"
+                      name="id_entregables"
+                      placeholder="Ej: Logo, Manual de marca, Papelería..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <!-- Otro -->
+                <div
+                  id="fields-Otro"
+                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
+                >
+                  <div class="form-group">
+                    <label
+                      for="otro_servicio"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Especificar servicio o necesidad</label
+                    >
+                    <input
+                      type="text"
+                      id="otro_servicio"
+                      name="otro_servicio"
+                      placeholder="¿Qué necesitás?"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300"
+                      disabled
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="mensaje_otro"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >Tu proyecto en detalle</label
+                    >
+                    <textarea
+                      id="mensaje_otro"
+                      name="mensaje_otro"
+                      rows="4"
+                      placeholder="Contanos brevemente sobre tu empresa y qué objetivos tenés en mente..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-colors duration-300 resize-none"
+                      disabled></textarea>
+                  </div>
+                </div>
+
+                <!-- Botón Continuar -->
+                <div
+                  id="continue-btn-container"
+                  class="hidden opacity-0 transition-opacity duration-500 pt-4"
+                >
+                  <button
+                    type="button"
+                    id="continue-btn"
+                    class="group inline-flex items-center justify-center gap-3 bg-blanco border border-negro text-negro px-8 py-4 font-mono font-medium text-xs tracking-widest uppercase relative overflow-hidden"
+                  >
+                    <span
+                      class="relative z-10 group-hover:text-blanco transition-colors duration-300"
+                      >Siguiente paso</span
+                    >
+                    <span
+                      class="relative z-10 group-hover:translate-x-1 group-hover:text-blanco transition-all duration-300"
+                      >→</span
+                    >
+                    <div
+                      class="absolute inset-0 bg-negro border border-negro -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"
+                    >
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
-            </div> <!-- FIN PASO 1 -->
+            <!-- FIN PASO 1 -->
 
             <!-- CONTENEDOR PASO 2: DATOS DE CONTACTO -->
-            <div id="step-2" class="space-y-8 hidden opacity-0 transition-opacity duration-500">
-              
+            <div
+              id="step-2"
+              class="space-y-8 hidden opacity-0 transition-opacity duration-500"
+            >
               <div class="mb-8">
-                <h3 class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 mb-2">Último paso</h3>
-                <p class="font-mono text-sm text-negro">Dejanos tus datos para enviarte la propuesta.</p>
+                <h3
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 mb-2"
+                >
+                  Último paso
+                </h3>
+                <p class="font-mono text-sm text-negro">
+                  Dejanos tus datos para enviarte la propuesta.
+                </p>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -249,23 +479,57 @@ import Footer from "../components/Footer.astro";
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Presupuesto Dropdown -->
                 <div class="form-group relative custom-dropdown-container z-40">
-                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Presupuesto estimado (USD)</label>
-                  <input type="hidden" id="presupuesto" name="presupuesto" value="" />
+                  <label
+                    class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                    >Presupuesto estimado (USD)</label
+                  >
+                  <input
+                    type="hidden"
+                    id="presupuesto"
+                    name="presupuesto"
+                    value=""
+                  />
                   <button
                     type="button"
                     class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-all duration-300 text-left"
                   >
                     <span class="dropdown-text">Opcional</span>
-                    <span class="dropdown-icon text-xs transition-transform duration-300">▼</span>
+                    <span
+                      class="dropdown-icon text-xs transition-transform duration-300"
+                      >▼</span
+                    >
                   </button>
-                  <div class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300">
+                  <div
+                    class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300"
+                  >
                     <div class="flex flex-col py-2 font-mono text-sm">
-                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Menos de $500">Menos de $500</button>
-                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$500 - $1.500">$500 - $1.500</button>
-                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="$1.500 - $5.000">$1.500 - $5.000</button>
-                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="Más de $5.000">Más de $5.000</button>
-                      <button type="button" class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value="No lo sé">No lo sé aún</button>
+                      <button
+                        type="button"
+                        class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                        data-value="Menos de $500">Menos de $500</button
+                      >
+                      <button
+                        type="button"
+                        class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                        data-value="$500 - $1.500">$500 - $1.500</button
+                      >
+                      <button
+                        type="button"
+                        class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                        data-value="$1.500 - $5.000">$1.500 - $5.000</button
+                      >
+                      <button
+                        type="button"
+                        class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                        data-value="Más de $5.000">Más de $5.000</button
+                      >
+                      <button
+                        type="button"
+                        class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
+                        data-value="No lo sé">No lo sé aún</button
+                      >
                     </div>
                   </div>
                 </div>
@@ -277,9 +541,11 @@ import Footer from "../components/Footer.astro";
                   id="back-btn"
                   class="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-transparent border border-negro/20 text-negro px-8 py-4 font-mono font-medium text-xs tracking-widest uppercase relative overflow-hidden hover:border-negro transition-colors duration-300"
                 >
-                  <span class="relative z-10 transition-colors duration-300">Volver</span>
+                  <span class="relative z-10 transition-colors duration-300"
+                    >Volver</span
+                  >
                 </button>
-                
+
                 <button
                   type="submit"
                   id="submit-btn"
@@ -299,7 +565,8 @@ import Footer from "../components/Footer.astro";
                   </div>
                 </button>
               </div>
-            </div> <!-- FIN PASO 2 -->
+            </div>
+            <!-- FIN PASO 2 -->
 
             <div
               id="form-success"
@@ -309,7 +576,6 @@ import Footer from "../components/Footer.astro";
             </div>
           </form>
 
-          
           <div class="contact-info opacity-0 space-y-12">
             <div>
               <p
@@ -413,8 +679,8 @@ import Footer from "../components/Footer.astro";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
-
+  document.addEventListener("astro:page-load", () => {
+    gsap.registerPlugin(ScrollTrigger);
 
   const tl = gsap.timeline({ delay: 0.3 });
 
@@ -440,21 +706,29 @@ import Footer from "../components/Footer.astro";
     "-=0.6",
   );
 
-
-
-
-  const dropdownContainers = document.querySelectorAll(".custom-dropdown-container");
-  const contactInfoContainer = document.getElementById("contact-info-container");
+  const dropdownContainers = document.querySelectorAll(
+    ".custom-dropdown-container",
+  );
+  const contactInfoContainer = document.getElementById(
+    "contact-info-container",
+  );
   const dynamicGroups = document.querySelectorAll(".dynamic-group");
 
   dropdownContainers.forEach((container) => {
     const btn = container.querySelector(".dropdown-btn") as HTMLButtonElement;
-    const optionsDiv = container.querySelector(".dropdown-options") as HTMLDivElement;
-    const textSpan = container.querySelector(".dropdown-text") as HTMLSpanElement;
-    const iconSpan = container.querySelector(".dropdown-icon") as HTMLSpanElement;
-    const hiddenInput = container.querySelector("input[type='hidden']") as HTMLInputElement;
+    const optionsDiv = container.querySelector(
+      ".dropdown-options",
+    ) as HTMLDivElement;
+    const textSpan = container.querySelector(
+      ".dropdown-text",
+    ) as HTMLSpanElement;
+    const iconSpan = container.querySelector(
+      ".dropdown-icon",
+    ) as HTMLSpanElement;
+    const hiddenInput = container.querySelector(
+      "input[type='hidden']",
+    ) as HTMLInputElement;
     const optionBtns = container.querySelectorAll(".dropdown-option");
-
 
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -472,7 +746,9 @@ import Footer from "../components/Footer.astro";
 
     optionBtns.forEach((opt) => {
       opt.addEventListener("click", (e) => {
-        const value = (e.currentTarget as HTMLButtonElement).getAttribute("data-value") || "";
+        const value =
+          (e.currentTarget as HTMLButtonElement).getAttribute("data-value") ||
+          "";
         const text = (e.currentTarget as HTMLButtonElement).textContent || "";
 
         hiddenInput.value = value;
@@ -487,8 +763,10 @@ import Footer from "../components/Footer.astro";
             setTimeout(() => {
               group.classList.add("hidden");
               // Desactivar required y disable
-              const inputs = group.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-              inputs.forEach(input => {
+              const inputs = group.querySelectorAll(
+                ".dynamic-input",
+              ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+              inputs.forEach((input) => {
                 input.disabled = true;
                 input.required = false;
               });
@@ -501,18 +779,22 @@ import Footer from "../components/Footer.astro";
             setTimeout(() => {
               targetGroup.classList.remove("hidden");
               // Habilitar y required
-              const inputs = targetGroup.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-              inputs.forEach(input => {
+              const inputs = targetGroup.querySelectorAll(
+                ".dynamic-input",
+              ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+              inputs.forEach((input) => {
                 input.disabled = false;
                 input.required = true; // Hacemos requeridos todos los de la sección, excepto los que decidas opcionales
               });
-              
+
               // Pequeño delay para que aplique el display block antes de la opacidad
               setTimeout(() => {
                 targetGroup.classList.remove("opacity-0");
-                
+
                 // Mostrar botón continuar
-                const continueContainer = document.getElementById("continue-btn-container");
+                const continueContainer = document.getElementById(
+                  "continue-btn-container",
+                );
                 if (continueContainer?.classList.contains("hidden")) {
                   continueContainer.classList.remove("hidden");
                   setTimeout(() => {
@@ -536,8 +818,10 @@ import Footer from "../components/Footer.astro";
 
   continueBtn?.addEventListener("click", () => {
     let allValid = true;
-    const visibleInputs = document.querySelectorAll(".dynamic-group:not(.hidden) .dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-    
+    const visibleInputs = document.querySelectorAll(
+      ".dynamic-group:not(.hidden) .dynamic-input",
+    ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+
     for (let i = 0; i < visibleInputs.length; i++) {
       if (!visibleInputs[i].checkValidity()) {
         visibleInputs[i].reportValidity();
@@ -550,7 +834,7 @@ import Footer from "../components/Footer.astro";
       step1?.classList.add("opacity-0");
       setTimeout(() => {
         step1?.classList.add("hidden");
-        
+
         step2?.classList.remove("hidden");
         setTimeout(() => {
           step2?.classList.remove("opacity-0");
@@ -563,7 +847,7 @@ import Footer from "../components/Footer.astro";
     step2?.classList.add("opacity-0");
     setTimeout(() => {
       step2?.classList.add("hidden");
-      
+
       step1?.classList.remove("hidden");
       setTimeout(() => {
         step1?.classList.remove("opacity-0");
@@ -571,15 +855,33 @@ import Footer from "../components/Footer.astro";
     }, 300);
   });
 
-  document.addEventListener("click", () => {
+  document.addEventListener("click", (e) => {
     closeAllDropdowns();
+
+    // Autocomplete click outside
+    const target = e.target as HTMLElement;
+    const provInput = document.getElementById("provincia");
+    const provAuto = document.getElementById("provincia-autocomplete");
+    if (
+      provInput &&
+      !provInput.contains(target) &&
+      provAuto &&
+      !provAuto.contains(target)
+    ) {
+      provAuto.classList.add("invisible", "opacity-0", "translate-y-2");
+      provAuto.classList.remove("opacity-100", "translate-y-0");
+    }
   });
 
   function closeAllDropdowns() {
     dropdownContainers.forEach((container) => {
-      const optionsDiv = container.querySelector(".dropdown-options") as HTMLDivElement;
+      const optionsDiv = container.querySelector(
+        ".dropdown-options",
+      ) as HTMLDivElement;
       const btn = container.querySelector(".dropdown-btn") as HTMLButtonElement;
-      const iconSpan = container.querySelector(".dropdown-icon") as HTMLSpanElement;
+      const iconSpan = container.querySelector(
+        ".dropdown-icon",
+      ) as HTMLSpanElement;
 
       optionsDiv.classList.add("invisible", "opacity-0", "translate-y-2");
       optionsDiv.classList.remove("opacity-100", "translate-y-0");
@@ -587,7 +889,6 @@ import Footer from "../components/Footer.astro";
       iconSpan.style.transform = "rotate(0deg)";
     });
   }
-
 
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const success = document.getElementById("form-success");
@@ -616,32 +917,40 @@ import Footer from "../components/Footer.astro";
       if (response.ok) {
         form.reset();
 
-
         dropdownContainers.forEach((container) => {
-          const textSpan = container.querySelector(".dropdown-text") as HTMLSpanElement;
-          const isPresupuesto = container.querySelector("input")?.id === "presupuesto";
-          const defaultText = isPresupuesto ? "Opcional" : "Seleccioná un servicio para continuar";
+          const textSpan = container.querySelector(
+            ".dropdown-text",
+          ) as HTMLSpanElement;
+          const isPresupuesto =
+            container.querySelector("input")?.id === "presupuesto";
+          const defaultText = isPresupuesto
+            ? "Opcional"
+            : "Seleccioná un servicio para continuar";
           if (textSpan) {
             textSpan.textContent = defaultText;
             textSpan.classList.remove("text-negro");
             textSpan.classList.add("text-negro/70");
           }
         });
-        
+
         dynamicGroups.forEach((group) => {
           group.classList.add("opacity-0", "hidden");
-          const inputs = group.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-          inputs.forEach(input => {
+          const inputs = group.querySelectorAll(".dynamic-input") as NodeListOf<
+            HTMLInputElement | HTMLTextAreaElement
+          >;
+          inputs.forEach((input) => {
             input.disabled = true;
             input.required = false;
           });
         });
-        
+
         step2?.classList.add("hidden", "opacity-0");
         step1?.classList.remove("hidden");
         setTimeout(() => step1?.classList.remove("opacity-0"), 50);
-        
-        const continueContainer = document.getElementById("continue-btn-container");
+
+        const continueContainer = document.getElementById(
+          "continue-btn-container",
+        );
         continueContainer?.classList.add("hidden", "opacity-0");
 
         if (btn && btnText) {
@@ -666,5 +975,6 @@ import Footer from "../components/Footer.astro";
         "Hubo un error al enviar tu consulta. Por favor, intentá nuevamente más tarde.",
       );
     }
+  });
   });
 </script>

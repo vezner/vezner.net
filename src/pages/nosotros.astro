@@ -1,0 +1,339 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Sobre Nosotros — VEZNER"
+  description="Filosofía, ingeniería y diseño brutalista. Conoce la agencia digital que construye productos de alto rendimiento."
+>
+  <Header theme="light" />
+
+  <main class="bg-blanco text-negro min-h-screen overflow-hidden">
+    <section id="agencia"
+      class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20"
+    >
+      <div
+        class="absolute inset-0 pointer-events-none z-0 opacity-10"
+        style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 50px 50px;"
+      >
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="nosotros-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div class="w-12 h-px bg-negro/40"></div>
+          <span
+            class="font-mono text-xs tracking-[0.4em] uppercase text-negro/50"
+            >La Agencia</span
+          >
+        </div>
+
+        <h1
+          class="font-display text-[clamp(45px,9vw,130px)] leading-[0.85] text-negro uppercase mb-12"
+        >
+          <span class="block overflow-hidden pt-8 -mt-8"
+            ><span class="n-title-line block translate-y-[120%]">No somos</span
+            ></span
+          >
+          <span class="block overflow-hidden pt-8 -mt-8"
+            ><span class="n-title-line block translate-y-[120%]">una agencia</span
+            ></span
+          >
+          <span class="block overflow-hidden pt-8 -mt-8">
+            <span class="n-title-line block translate-y-[120%] text-negro relative inline-block">
+              del montón.
+              <span class="n-strike absolute top-1/2 left-0 w-0 h-1.5 md:h-2.5 bg-negro -translate-y-1/2 rotate-[1.5deg] mix-blend-multiply"></span>
+            </span>
+          </span>
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end mt-12">
+          <p
+            class="n-hero-desc font-mono text-base md:text-lg text-negro/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg"
+          >
+            Buscamos clientes que quieran escalar su facturación y dominar su
+            nicho, no que quieran usar plantillas genéricas. Hacemos ingeniería
+            digital premium.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="manifiesto"
+      class="py-32 px-6 md:px-16 bg-negro text-blanco relative overflow-hidden"
+    >
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="font-display text-4xl text-blanco/30 mb-8 n-manifesto-title opacity-0"
+        >
+          NUESTRO MANIFIESTO
+        </h2>
+
+        <div class="space-y-12">
+          <p
+            class="font-mono text-2xl md:text-4xl leading-tight n-manifesto-text opacity-0"
+          >
+            En un mercado saturado de agencias que prometen falsedades, nosotros
+            preferimos hablar con <span
+              class="text-blanco bg-blanco/10 px-2 py-1 rounded">la verdad</span
+            >, hacemos diseños que convierten negocios y automatizaciones que
+            ahorran horas de vida.
+          </p>
+          <p
+            class="font-mono text-xl md:text-3xl leading-tight text-blanco/60 n-manifesto-text opacity-0"
+          >
+            Nuestra estética es brutalista porque la verdad no necesita adornos.
+            Si un producto es bueno, tiene que cargar rápido, verse increíble y
+            funcionar perfecto. Punto.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilares" class="py-32 px-6 md:px-16 bg-blanco text-negro">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="font-display text-5xl md:text-7xl text-negro mb-20 text-center n-values-title opacity-0"
+        >
+          LOS 3 PILARES
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-12">
+          {
+            [
+              {
+                n: "01",
+                t: "Velocidad Extrema",
+                d: "Arquitecturas React, Next.js, Astro y optimización técnica para cargas en milisegundos.",
+              },
+              {
+                n: "02",
+                t: "Estética Brutalista",
+                d: "Interfaces con personalidad. Uso intensivo de tipografía, contrastes fuertes y animaciones intencionales.",
+              },
+              {
+                n: "03",
+                t: "Foco en Conversión",
+                d: "Todo diseño o desarrollo que hacemos tiene un objetivo claro: generar más ventas o contactos cualificados.",
+              },
+            ].map((item) => (
+              <div class="n-value-card opacity-0 translate-y-12 border-t border-negro/20 pt-8 hover:border-negro transition-colors duration-300">
+                <div class="font-display text-7xl text-negro/10 mb-4">
+                  {item.n}
+                </div>
+                <h3 class="font-mono text-2xl font-bold mb-4">{item.t}</h3>
+                <p class="font-mono text-sm text-negro/60 leading-relaxed">
+                  {item.d}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="fundadores" class="py-32 px-6 md:px-16 bg-negro text-blanco">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="font-display text-5xl md:text-7xl text-blanco mb-20 text-center n-team-title opacity-0"
+        >
+          LOS FUNDADORES
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-12 border-t border-blanco/20 pt-12">
+          {
+            [
+              {
+                name: "FABRIZIO",
+                role: "Fundador / Software Eng.",
+                desc: "Ingeniería de software, programación de aplicaciones web de alto rendimiento y mantenimiento de infraestructura.",
+              },
+              {
+                name: "GUSTAVO",
+                role: "Fundador / QA & Soporte",
+                desc: "Testing riguroso, aseguramiento de calidad (QA) y asistencia integral en los despliegues técnicos.",
+              },
+              {
+                name: "NOELIA",
+                role: "Fundadora / Dir. de Arte",
+                desc: "Diseño de identidad visual, creación de logotipos, teoría del color y composiciones estéticas de interfaz.",
+              },
+            ].map((member) => (
+              <div class="n-team-card opacity-0 translate-y-12">
+                <h3 class="font-display text-4xl mb-2">{member.name}</h3>
+                <div class="font-mono text-xs tracking-widest uppercase text-blanco/40 mb-6 pb-6 border-b border-blanco/10">
+                  {member.role}
+                </div>
+                <p class="font-mono text-sm text-blanco/60 leading-relaxed">
+                  {member.desc}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-32 bg-[#111] text-blanco text-center relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
+        style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 20px 20px;"
+      >
+      </div>
+      <div class="max-w-3xl mx-auto px-6 relative z-10">
+        <h2 class="font-display text-6xl md:text-8xl mb-8">
+          ¿Hacemos algo<br />Increíble?
+        </h2>
+
+        <a
+          href="/contacto"
+          class="btn-primary group relative inline-flex items-center gap-3 bg-blanco text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden border border-transparent mt-8"
+        >
+          <span class="relative z-10">Empezar Proyecto</span>
+          <span
+            class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5"
+            >→</span
+          >
+          <span
+            class="absolute inset-0 bg-negro translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out"
+          ></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .btn-primary:hover span:first-child,
+  .btn-primary:hover span:nth-child(2) {
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("astro:page-load", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Solo inicializar si estamos en la pagina correcta
+    if (!document.querySelector(".nosotros-reveal")) return;
+
+    const tl = gsap.timeline();
+    tl.to(".nosotros-reveal", {
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+    });
+    
+    // Animar líneas principales
+    tl.to(
+      ".n-title-line",
+      { y: "0%", duration: 1.2, stagger: 0.15, ease: "power4.out" },
+      "-=0.6",
+    );
+    
+    // Tachar "del monton"
+    tl.to(".n-strike", {
+      width: "105%",
+      duration: 0.35,
+      ease: "power2.inOut"
+    }, "-=0.2");
+
+    tl.to(
+      ".n-hero-desc",
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+      "-=0.6",
+    );
+
+    gsap.to(".n-manifesto-title", {
+      scrollTrigger: {
+        trigger: ".n-manifesto-title",
+        start: "top 85%",
+        once: true,
+      },
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.utils.toArray(".n-manifesto-text").forEach((text) => {
+      gsap.fromTo(
+        text as HTMLElement,
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: {
+            trigger: text as HTMLElement,
+            start: "top 85%",
+            once: true,
+          },
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        },
+      );
+    });
+
+    gsap.to(".n-values-title", {
+      scrollTrigger: {
+        trigger: ".n-values-title",
+        start: "top 85%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.utils.toArray(".n-value-card").forEach((card, i) => {
+      gsap.to(card as HTMLElement, {
+        scrollTrigger: {
+          trigger: card as HTMLElement,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power3.out",
+      });
+    });
+
+    gsap.to(".n-team-title", {
+      scrollTrigger: {
+        trigger: ".n-team-title",
+        start: "top 85%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.utils.toArray(".n-team-card").forEach((card, i) => {
+      gsap.to(card as HTMLElement, {
+        scrollTrigger: {
+          trigger: card as HTMLElement,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power3.out",
+      });
+    });
+  });
+</script>

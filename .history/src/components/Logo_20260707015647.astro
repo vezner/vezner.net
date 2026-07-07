@@ -1,0 +1,96 @@
+---
+
+---
+
+<div
+  class="logo-wrapper flex items-center select-none group cursor-pointer pointer-events-auto"
+>
+  
+  <div
+    class="w-[76px] h-[76px] flex items-center justify-center shrink-0 -mr-1 pointer-events-none"
+  >
+    <canvas class="logo-canvas w-full h-full block"></canvas>
+  </div>
+
+  
+  <div class="flex items-center shrink-0 pointer-events-none">
+    <img
+      src="/assets/vezner-text.webp"
+      alt="VEZNER"
+      class="h-[30px] w-auto object-contain block"
+      draggable="false"
+    />
+  </div>
+</div>
+
+<script>
+  import { DotLottie } from "@lottiefiles/dotlottie-web";
+
+  function initLogo() {
+    const wrappers = document.querySelectorAll(".logo-wrapper");
+
+    wrappers.forEach((wrapper) => {
+      if (wrapper.getAttribute("data-lottie-initialized")) return;
+
+      const canvas = wrapper.querySelector(".logo-canvas") as HTMLCanvasElement;
+
+      if (canvas) {
+        const dotLottie = new DotLottie({
+          canvas,
+          src: "/assets/logo.lottie",
+          loop: true,
+          autoplay: false,
+          speed: 1,
+        });
+
+        let shouldStopAtHalf = false;
+        let shouldStopAtEnd = false;
+        let currentFrame = 0;
+        let totalFrames = 0;
+
+        dotLottie.addEventListener("ready", () => {
+          totalFrames = dotLottie.totalFrames || 100;
+          dotLottie.setFrame(0);
+          dotLottie.pause();
+          wrapper.setAttribute("data-lottie-initialized", "true");
+        });
+        
+        dotLottie.addEventListener("frame", (e) => {
+          currentFrame = e.currentFrame;
+          if (shouldStopAtHalf && currentFrame >= totalFrames / 2) {
+            shouldStopAtHalf = false;
+            dotLottie.pause();
+            dotLottie.setFrame(0);
+          }
+        });
+
+        dotLottie.addEventListener("loop", () => {
+          if (shouldStopAtEnd || shouldStopAtHalf) {
+            shouldStopAtEnd = false;
+            shouldStopAtHalf = false;
+            dotLottie.pause();
+            dotLottie.setFrame(0);
+          }
+        });
+
+        wrapper.addEventListener("mouseenter", () => {
+          shouldStopAtHalf = false;
+          shouldStopAtEnd = false;
+          dotLottie.play();
+        });
+
+        wrapper.addEventListener("mouseleave", () => {
+          if (currentFrame < totalFrames / 2) {
+            shouldStopAtHalf = true;
+          } else {
+            shouldStopAtEnd = true;
+          }
+        });
+      }
+    });
+  }
+
+
+  initLogo();
+  document.addEventListener("astro:page-load", initLogo);
+</script>

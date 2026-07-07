@@ -1002,17 +1002,25 @@ import Footer from "../components/Footer.astro";
 
       optionBtns.forEach((opt) => {
         opt.addEventListener("click", (e) => {
-          const value =
-            (e.currentTarget as HTMLButtonElement).getAttribute("data-value") ||
-            "";
-          const text = (e.currentTarget as HTMLButtonElement).textContent || "";
+          e.preventDefault();
+          e.stopPropagation();
 
-          hiddenInput.value = value;
-          textSpan.textContent = text;
-          textSpan.classList.remove("text-negro/70");
-          textSpan.classList.add("text-negro");
+          const btnEl = e.currentTarget as HTMLButtonElement;
+          const value = btnEl.getAttribute("data-value") || btnEl.textContent?.trim() || "";
+          const text = btnEl.textContent?.trim() || "";
 
-          if (hiddenInput.id === "servicio") {
+          if (hiddenInput) {
+            hiddenInput.value = value;
+            hiddenInput.setAttribute("value", value);
+          }
+          
+          if (textSpan) {
+            textSpan.textContent = text;
+            textSpan.classList.remove("text-negro/70");
+            textSpan.classList.add("text-negro");
+          }
+
+          if (hiddenInput && hiddenInput.id === "servicio") {
             // Ocultar todos los grupos
             dynamicGroups.forEach((group) => {
               group.classList.add("opacity-0");

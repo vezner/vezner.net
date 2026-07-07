@@ -163,6 +163,27 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
 
+    <section id="alcance" class="py-32 px-6 md:px-16 bg-[#050505] border-t border-blanco/5">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-display text-4xl md:text-6xl text-blanco mb-16 text-center">ALCANCE DEL SERVICIO</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { t: 'Refresh de Marca', d: 'Ideal si ya tenés un logo funcional pero necesita una modernización y ajuste a proporciones matemáticas.', i: 'fa-solid fa-arrows-rotate' },
+            { t: 'Identidad Core', d: 'Logotipo principal, versiones secundarias, paleta de colores y selección tipográfica.', i: 'fa-solid fa-cube' },
+            { t: 'Manual de Marca PDF', d: 'Un documento técnico extenso que dicta todas las reglas de uso (espacios, prohibiciones, contraste).', i: 'fa-solid fa-file-pdf' },
+            { t: 'Papelería & Digital', d: 'Diseño de tarjetas de presentación, firmas de email, menús de restaurante o templates para redes.', i: 'fa-solid fa-pen-nib' },
+          ].map((item, i) => (
+            <div class="plan-card opacity-0 border border-blanco/5 p-8 bg-[#111] hover:bg-yellow-400/10 hover:border-yellow-400/30 transition-colors duration-300">
+              <i class={`${item.i} text-3xl text-yellow-400/50 mb-6 block`}></i>
+              <h4 class="font-display text-2xl mb-4 text-blanco">{item.t}</h4>
+              <p class="font-mono text-xs text-blanco/50 leading-relaxed">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     
     <section id="cta" class="py-32 bg-yellow-400 text-negro text-center relative overflow-hidden">
       <div class="absolute inset-0 z-0">
@@ -233,6 +254,17 @@ import Footer from '../../components/Footer.astro';
       scrollTrigger: { trigger: (step as HTMLElement).parentElement, start: 'top 85%', once: true },
       opacity: 1, y: 0, duration: 0.8, delay: i * 0.15, ease: 'power3.out'
     });
+  });
+
+  gsap.utils.toArray('.plan-card').forEach((card, i) => {
+    gsap.fromTo(
+      card as HTMLElement,
+      { opacity: 0, y: 50 },
+      {
+        scrollTrigger: { trigger: (card as HTMLElement).parentElement, start: 'top 85%', once: true },
+        opacity: 1, y: 0, duration: 0.8, delay: i * 0.15, ease: 'power3.out'
+      }
+    );
   });
   });
 </script>

@@ -284,6 +284,27 @@ import Footer from "../../components/Footer.astro";
       </div>
     </section>
 
+    <section id="proceso" class="py-32 px-6 md:px-16 bg-[#050505]">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-display text-4xl md:text-6xl text-blanco mb-16 text-center">NUESTRA METODOLOGÍA</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { n: '01', t: 'Auditoría Inicial', d: 'Analizamos tus flujos de trabajo actuales e identificamos los cuellos de botella exactos a sistematizar.' },
+            { n: '02', t: 'Prototipado UI', d: 'Diseñamos la interfaz gráfica en PySide6 para que veas cómo lucirá el sistema antes de escribir la lógica.' },
+            { n: '03', t: 'Desarrollo Core', d: 'Conectamos bases de datos, APIs y escribimos todo el código asíncrono y optimizado.' },
+            { n: '04', t: 'Despliegue & Capacitación', d: 'Instalamos el sistema en tu red local (LAN) y capacitamos a tu equipo para usarlo.' },
+          ].map((item, i) => (
+            <div class="process-step opacity-0 translate-y-12">
+              <div class="font-display text-6xl text-verde/20 mb-4">{item.n}</div>
+              <h4 class="font-mono text-lg font-bold mb-3">{item.t}</h4>
+              <p class="font-mono text-xs text-blanco/50 leading-relaxed">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section id="stack" class="py-32 px-6 md:px-16 bg-[#0a0a0a]">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-3 gap-x-12 gap-y-20">
@@ -455,6 +476,13 @@ import Footer from "../../components/Footer.astro";
           ease: "power3.out",
         },
       );
+    });
+
+    gsap.utils.toArray('.process-step').forEach((step, i) => {
+      gsap.to(step as HTMLElement, {
+        scrollTrigger: { trigger: (step as HTMLElement).parentElement, start: 'top 85%', once: true },
+        opacity: 1, y: 0, duration: 0.8, delay: i * 0.15, ease: 'power3.out'
+      });
     });
 
     gsap.to(".term-title", {

@@ -1,13 +1,24 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+let latestPosts: any[] = [];
+try {
+  const allPosts = await getCollection('blog');
+  if (allPosts) {
+    latestPosts = allPosts
+      .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+      .slice(0, 3);
+  }
+} catch (e) {}
 ---
 
 <Layout
   title="VEZNER — Ingeniería Digital de Alta Gama | Córdoba, Argentina"
-  description="VEZNER diseña y construye infraestructura digital de alta gama. Diseño de paginas web, software Python, community management y branding. +50 proyectos entregados a nivel global."
-  keywords="agencia digital Córdoba Argentina, desarrollo web a medida, software Python empresas, community management, diseño identidad visual, VEZNER"
+  description="VEZNER diseña y construye infraestructura digital de alta gama. Diseño de paginas web, software Python y branding. +50 proyectos entregados a nivel global."
+  keywords="agencia digital Córdoba Argentina, desarrollo web a medida, software Python empresas, diseño identidad visual, VEZNER"
   canonicalUrl="/"
 >
   <Header />
@@ -151,17 +162,12 @@ import Footer from "../components/Footer.astro";
                 {
                   label: "Diseño Web",
                   href: "/servicios/diseno-web",
-                  color: "#ffffff",
+                  color: "#ff005c",
                 },
                 {
                   label: "Software Python",
                   href: "/servicios/software-python",
                   color: "#00ff73",
-                },
-                {
-                  label: "Community Management",
-                  href: "/servicios/community-management",
-                  color: "#ff005c",
                 },
                 {
                   label: "Diseño de Identidad",
@@ -364,32 +370,20 @@ import Footer from "../components/Footer.astro";
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <a
-            href="/servicios/diseno-web"
-            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-blanco/5 hover:border-blanco/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8"
+            href="/servicios/diseno-identidad"
+            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-yellow-400/5 hover:border-yellow-400/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8"
           >
             <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
-                >01</span
-              >
-              <h3
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-blanco transition-colors duration-500"
-              >
-                Diseño Web
+              <span class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block">01</span>
+              <h3 class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-yellow-400 transition-colors duration-500">
+                Diseño de Identidad
               </h3>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
-              >
-                Landing pages ultra rápidas y de alta conversión enfocadas en
-                resultados tangibles.
+              <p class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm">
+                Marcas con presencia imponente, geometría precisa y branding premium.
               </p>
             </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:gap-5 transition-all duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
+            <div class="flex items-center gap-3 text-blanco group-hover:text-yellow-400 group-hover:gap-5 transition-all duration-300 mt-8">
+              <span class="font-mono text-xs uppercase tracking-widest">Ver más</span>
               <span class="text-xs">→</span>
             </div>
           </a>
@@ -399,90 +393,35 @@ import Footer from "../components/Footer.astro";
             class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-verde/5 hover:border-verde/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8"
           >
             <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
-                >02</span
-              >
-              <h3
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-verde transition-colors duration-500"
-              >
+              <span class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block">02</span>
+              <h3 class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-verde transition-colors duration-500">
                 Software Python
               </h3>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
-              >
-                Bots para Discord, APIs REST, y automatizaciones complejas a
-                medida.
+              <p class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm">
+                Bots para Discord, APIs REST, y automatizaciones complejas a medida.
               </p>
             </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-verde group-hover:gap-5 transition-all duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
+            <div class="flex items-center gap-3 text-blanco group-hover:text-verde group-hover:gap-5 transition-all duration-300 mt-8">
+              <span class="font-mono text-xs uppercase tracking-widest">Ver más</span>
               <span class="text-xs">→</span>
             </div>
           </a>
 
           <a
-            href="/servicios/community-management"
-            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-rosa/5 hover:border-rosa/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8"
+            href="/servicios/diseno-web"
+            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-rosa/5 hover:border-rosa/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8 md:col-span-2"
           >
             <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
-                >03</span
-              >
-              <h3
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-rosa transition-colors duration-500"
-              >
-                Community Management
+              <span class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block">03</span>
+              <h3 class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-rosa transition-colors duration-500">
+                Diseño Web
               </h3>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
-              >
-                Estrategias de contenido y pauta digital agresiva para escalar
-                tu negocio.
+              <p class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm">
+                Desarrollo web a medida con Astro, React y optimización extrema. Animaciones fluidas y SEO técnico impecable.
               </p>
             </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-rosa group-hover:gap-5 transition-all duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
-              <span class="text-xs">→</span>
-            </div>
-          </a>
-
-          <a
-            href="/servicios/diseno-identidad"
-            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-yellow-400/5 hover:border-yellow-400/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8"
-          >
-            <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
-                >04</span
-              >
-              <h3
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-yellow-400 transition-colors duration-500"
-              >
-                Diseño de Identidad
-              </h3>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
-              >
-                Marcas con presencia imponente, geometría precisa y branding
-                premium.
-              </p>
-            </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-yellow-400 group-hover:gap-5 transition-all duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
+            <div class="flex items-center gap-3 text-blanco group-hover:text-rosa group-hover:gap-5 transition-all duration-300 mt-8">
+              <span class="font-mono text-xs uppercase tracking-widest">Ver más</span>
               <span class="text-xs">→</span>
             </div>
           </a>
@@ -587,6 +526,57 @@ import Footer from "../components/Footer.astro";
               </div>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <section id="noticias" class="py-32 px-6 md:px-16 bg-blanco border-t border-negro/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <h2 class="font-display text-5xl md:text-7xl text-negro leading-none mb-4">Noticias</h2>
+            <p class="font-mono text-sm text-negro/50 max-w-md">Últimos artículos, novedades y reflexiones sobre diseño, tecnología y negocios.</p>
+          </div>
+          <a href="/blog" class="hidden md:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-negro/50 hover:text-negro transition-colors">
+            Ver todos los artículos →
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {latestPosts.length > 0 ? latestPosts.map((post: any) => {
+            return (
+              <a href={`/blog/${post.id}`} class="group block border border-negro/10 rounded-2xl bg-blanco hover:border-negro transition-colors duration-500 overflow-hidden relative">
+                <div class="aspect-[4/3] w-full overflow-hidden border-b border-negro/10">
+                  <img
+                    src={post.data.heroImage || '/og-image.webp'}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  />
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-negro/40 mb-4">
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {post.data.pubDate.toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </time>
+                  </div>
+                  <h3 class="font-display text-2xl text-negro mb-3 leading-tight transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="font-mono text-xs text-negro/60 line-clamp-3">
+                    {post.data.description}
+                  </p>
+                </div>
+              </a>
+            );
+          }) : (
+            <p class="font-mono text-sm text-negro/40 col-span-full">Aún no hay noticias publicadas.</p>
+          )}
+        </div>
+        
+        <div class="mt-12 text-center md:hidden">
+          <a href="/blog" class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-negro border border-negro/20 px-6 py-3 rounded-full hover:bg-negro hover:text-blanco transition-all">
+            Ver todos los artículos
+          </a>
         </div>
       </div>
     </section>

@@ -102,14 +102,18 @@ const { theme = "light" } = Astro.props;
                   <span class="font-mono text-xs opacity-50">03</span>
                   <span class="font-display text-xl">Proceso</span>
                 </a>
+                <a href="/#noticias" class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2">
+                  <span class="font-mono text-xs opacity-50">04</span>
+                  <span class="font-display text-xl">Noticias</span>
+                </a>
               </div>
             </div>
           </div>
 
           <!-- Panel Servicios -->
           <div class="morph-panel absolute top-0 left-0 opacity-0 pointer-events-none" data-panel="servicios">
-            <div class="p-10 w-[850px]">
-              <div class="grid grid-cols-4 gap-8">
+            <div class="p-10 w-[650px]">
+              <div class="grid grid-cols-3 gap-8">
                 <div>
                   <a href="/servicios/diseno-web" class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300">Diseño Web</a>
                   <div class="flex flex-col font-mono text-xs opacity-70">
@@ -126,15 +130,6 @@ const { theme = "light" } = Astro.props;
                     <a href="/servicios/software-python#calidad" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Código de Calidad</a>
                     <a href="/servicios/software-python#stack" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Nuestro Stack</a>
                     <a href="/servicios/software-python#cta" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Consultar Proyecto</a>
-                  </div>
-                </div>
-                <div>
-                  <a href="/servicios/community-management" class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300">Marketing</a>
-                  <div class="flex flex-col font-mono text-xs opacity-70">
-                    <a href="/servicios/community-management#hero" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Gestión de Redes</a>
-                    <a href="/servicios/community-management#metodologia" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Contenido Visual</a>
-                    <a href="/servicios/community-management#servicios" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Servicios CM</a>
-                    <a href="/servicios/community-management#cta" class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block">Escalar Cuenta</a>
                   </div>
                 </div>
                 <div>
@@ -177,7 +172,7 @@ const { theme = "light" } = Astro.props;
               <div class="flex flex-col gap-1">
                 {latestPosts.length > 0 ? (
                   latestPosts.map((post: any) => (
-                    <a href={`/blog/${post.slug}`} class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-current/10 last:border-0">
+                    <a href={`/blog/${post.id}`} class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-current/10 last:border-0">
                       <span class="font-display text-xl block mb-1 truncate" title={post.data.title}>{post.data.title}</span>
                       <span class="font-mono text-[10px] opacity-50 block tracking-wider">
                         {post.data.pubDate.toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' })}

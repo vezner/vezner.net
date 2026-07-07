@@ -71,7 +71,7 @@ const relatedPosts = allPosts
 
           {
             post.data.heroImage && (
-              <div class="w-full aspect-[16/9] md:aspect-[21/9] mb-16 overflow-hidden bg-negro/5 border border-negro/10 rounded-xl">
+              <div class="w-full aspect-[16/9] md:aspect-[21/9] mb-16 overflow-hidden bg-negro/5 border border-negro/10">
                 <img
                   src={post.data.heroImage}
                   alt={post.data.title}
@@ -136,7 +136,7 @@ const relatedPosts = allPosts
               )
             }
 
-            <div class="bg-negro text-blanco p-8 rounded-xl hover:rounded-none transition-all duration-500">
+            <div class="bg-negro text-blanco p-8 rounded-2xl">
               <h3 class="font-display text-3xl leading-none mb-4">
                 ¿Preparado para construir algo?
               </h3>
@@ -146,7 +146,7 @@ const relatedPosts = allPosts
               </p>
               <a
                 href="/contacto"
-                class="btn-primary group relative inline-flex items-center gap-3 bg-blanco text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden rounded-md hover:rounded-none transition-all duration-300 border border-transparent"
+                class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden rounded-md hover:rounded-none transition-all duration-300 border border-transparent"
               >
                 <span class="relative z-10">Comenzar</span>
                 <span
@@ -228,7 +228,6 @@ const relatedPosts = allPosts
     height: auto;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 2rem 0;
-    border-radius: 0.75rem;
   }
 
   .blog-content pre {

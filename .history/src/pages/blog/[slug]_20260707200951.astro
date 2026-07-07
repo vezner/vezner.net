@@ -1,0 +1,191 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post: any) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+type Props = any;
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+const allPosts = await getCollection('blog');
+const relatedPosts = allPosts
+  .filter((p: any) => p.id !== post.id && p.data.tags?.some((t: string) => post.data.tags?.includes(t)))
+  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+---
+
+<Layout title={`${post.data.title} — VEZNER`} description={post.data.description}>
+  <Header theme="light" />
+
+  <main class="bg-blanco text-negro min-h-screen pt-32 pb-20">
+    <article class="px-6 md:px-16 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <!-- Columna Izquierda (Contenido) -->
+        <div class="lg:col-span-8">
+          <!-- Encabezado -->
+          <header class="mb-12">
+            <div class="flex items-center gap-4 font-mono text-xs uppercase tracking-widest text-negro/40 mb-6">
+              <a href="/blog" class="hover:text-negro transition-colors">&larr; Volver al blog</a>
+              <span>/</span>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+            </div>
+            <h1 class="font-display text-[clamp(40px,6vw,80px)] leading-[0.9] text-negro mb-6">
+              {post.data.title}
+            </h1>
+            <p class="font-mono text-sm md:text-base text-negro/60 leading-relaxed max-w-2xl">
+              {post.data.description}
+            </p>
+          </header>
+
+          {post.data.heroImage && (
+            <div class="w-full aspect-[16/9] md:aspect-[21/9] mb-16 overflow-hidden bg-negro/5 border border-negro/10">
+              <img 
+                src={post.data.heroImage} 
+                alt={post.data.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+          )}
+
+          <!-- Contenido Markdown -->
+          <div class="blog-content w-full">
+            <Content />
+          </div>
+          
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="mt-16 pt-8 border-t border-negro/10 w-full flex flex-wrap gap-2">
+              {post.data.tags.map((tag: string) => (
+                <a href={`/blog?tag=${encodeURIComponent(tag.toLowerCase())}`} class="px-3 py-1 bg-negro/5 text-negro hover:bg-negro hover:text-blanco transition-colors font-mono text-[10px] uppercase tracking-widest border border-negro/10">
+                  {tag}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <!-- Columna Derecha (Sidebar) -->
+        <aside class="lg:col-span-4">
+          <div class="sticky top-32 flex flex-col gap-12">
+            
+            {relatedPosts.length > 0 && (
+              <div>
+                <h3 class="font-display text-2xl text-negro mb-6 border-b border-negro/10 pb-4">Artículos Relacionados</h3>
+                <div class="flex flex-col gap-6">
+                  {relatedPosts.map((rp: any) => (
+                    <a href={`/blog/${rp.id}`} class="group flex flex-col gap-2">
+                      <h4 class="font-display text-xl text-negro group-hover:text-negro/50 transition-colors leading-tight">{rp.data.title}</h4>
+                      <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-negro/40">
+                        <time datetime={rp.data.pubDate.toISOString()}>
+                          {rp.data.pubDate.toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        </time>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div class="bg-negro text-blanco p-8 rounded-2xl">
+              <h3 class="font-display text-3xl leading-none mb-4">¿Preparado para construir algo?</h3>
+              <p class="font-mono text-xs text-blanco/60 mb-8 leading-relaxed">
+                Diseñamos y desarrollamos infraestructura digital de alta gama para empresas que buscan escalar.
+              </p>
+              <a href="/contacto" class="inline-flex items-center justify-center w-full py-4 border border-blanco/20 font-mono text-xs tracking-widest uppercase hover:bg-blanco hover:text-negro rounded-full hover:rounded-none transition-all duration-300">
+                Comenzar &rarr;
+              </a>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4 {
+    @apply font-display;
+    color: #000;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .blog-content h2 { font-size: 2rem; }
+  .blog-content h3 { font-size: 1.5rem; }
+  
+  .blog-content p, .blog-content li {
+    @apply font-mono;
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.75;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.25rem;
+  }
+  
+  .blog-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .blog-content ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .blog-content a {
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: opacity 0.3s;
+  }
+  .blog-content a:hover {
+    opacity: 0.6;
+  }
+  
+  .blog-content blockquote {
+    border-left: 2px solid #000;
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .blog-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin: 2rem 0;
+  }
+  
+  .blog-content pre {
+    background-color: rgba(0,0,0,0.05);
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .blog-content code {
+    background-color: rgba(0,0,0,0.05);
+    padding: 0.2em 0.4em;
+    font-size: 0.8em;
+  }
+  
+  .blog-content pre code {
+    background-color: transparent;
+    padding: 0;
+  }
+</style>

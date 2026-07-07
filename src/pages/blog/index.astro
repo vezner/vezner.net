@@ -44,8 +44,8 @@ const posts = (await getCollection('blog')).sort(
             posts.map((post: any) => {
               const searchContent = `${post.data.title} ${post.data.description}`;
               return (
-              <a href={`/blog/${post.slug}`} class="blog-card group block border border-negro/10 bg-blanco hover:border-negro transition-colors duration-500 overflow-hidden relative" data-search={searchContent}>
-                <div class="aspect-[4/3] w-full overflow-hidden border-b border-negro/10">
+                <a href={`/blog/${post.id}`} class="blog-card group block border border-negro/10 rounded-2xl bg-blanco hover:border-negro transition-colors duration-500 overflow-hidden relative" data-search={searchContent} data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
+                  <div class="aspect-[4/3] w-full overflow-hidden border-b border-negro/10">
                   <img
                     src={post.data.heroImage || '/og-image.webp'}
                     alt={post.data.title}
@@ -84,6 +84,11 @@ const posts = (await getCollection('blog')).sort(
              <p class="font-mono text-sm text-negro/40">Próximamente nuevos artículos...</p>
           </div>
         )}
+
+        <!-- Contenedor de Paginación -->
+        <div id="pagination-controls" class="hidden mt-16 pt-8 border-t border-negro/10 flex items-center justify-center gap-2">
+          <!-- Se llena con JS -->
+        </div>
       </div>
     </section>
   </main>
@@ -96,10 +101,21 @@ const posts = (await getCollection('blog')).sort(
     const searchInput = document.getElementById('blog-search') as HTMLInputElement;
     const blogCards = document.querySelectorAll('.blog-card');
     const grid = document.getElementById('blog-grid');
+    const paginationContainer = document.getElementById('pagination-controls');
     
-    if (!searchInput || !grid) return;
+    if (!searchInput || !grid || !paginationContainer) return;
     
-    // Normaliza el texto: saca tildes, lo pasa a minusculas y borra signos de puntuación
+    const ITEMS_PER_PAGE = 12;
+    let currentPage = 1;
+    let activeTag = '';
+    let currentQuery = '';
+    
+    // Parse URL for ?tag= parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('tag')) {
+      activeTag = urlParams.get('tag')?.toLowerCase() || '';
+    }
+
     const normalizeText = (text: string) => {
       return text
         .normalize('NFD')
@@ -108,38 +124,135 @@ const posts = (await getCollection('blog')).sort(
         .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
     };
 
-    searchInput.addEventListener('input', (e) => {
-      const target = e.target as HTMLInputElement;
-      const query = normalizeText(target.value);
+    const updateView = () => {
+      let filteredCards: HTMLElement[] = [];
       
-      let visibleCount = 0;
-      
+      // Filter step
       blogCards.forEach((card) => {
         const el = card as HTMLElement;
-        const content = el.getAttribute('data-search') || '';
-        const normalizedContent = normalizeText(content);
+        const searchContent = el.getAttribute('data-search') || '';
+        const tagsContent = el.getAttribute('data-tags') || '';
+        const normalizedQuery = normalizeText(currentQuery);
         
-        if (normalizedContent.includes(query)) {
-          el.style.display = 'block';
-          visibleCount++;
+        const matchesSearch = normalizedQuery === '' || normalizeText(searchContent).includes(normalizedQuery);
+        const matchesTag = activeTag === '' || tagsContent.split(',').includes(activeTag);
+        
+        if (matchesSearch && matchesTag) {
+          filteredCards.push(el);
         } else {
           el.style.display = 'none';
         }
       });
       
+      // No results
       let noResultsEl = document.getElementById('no-results-msg');
-      if (visibleCount === 0) {
+      if (filteredCards.length === 0) {
         if (!noResultsEl) {
           noResultsEl = document.createElement('div');
           noResultsEl.id = 'no-results-msg';
           noResultsEl.className = 'col-span-full py-20 text-center font-mono text-sm text-negro/40 border-t border-negro/10 mt-8';
-          noResultsEl.textContent = 'No se encontraron artículos con esa búsqueda.';
           grid.appendChild(noResultsEl);
         }
+        noResultsEl.textContent = activeTag ? `No se encontraron artículos con el tag "${activeTag.toUpperCase()}" o esa búsqueda.` : 'No se encontraron artículos con esa búsqueda.';
         noResultsEl.style.display = 'block';
+        paginationContainer.classList.add('hidden');
+        return;
       } else if (noResultsEl) {
         noResultsEl.style.display = 'none';
       }
+
+      // Pagination step
+      const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE);
+      if (currentPage > totalPages) currentPage = 1;
+      
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      
+      filteredCards.forEach((el, index) => {
+        if (index >= startIndex && index < endIndex) {
+          el.style.display = 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+      
+      renderPagination(totalPages);
+    };
+
+    const renderPagination = (totalPages: number) => {
+      paginationContainer.innerHTML = '';
+      
+      if (totalPages <= 1) {
+        paginationContainer.classList.add('hidden');
+        paginationContainer.classList.remove('flex');
+        return;
+      }
+      
+      paginationContainer.classList.remove('hidden');
+      paginationContainer.classList.add('flex');
+      
+      // Prev Button
+      const prevBtn = document.createElement('button');
+      prevBtn.innerHTML = '&larr; Anterior';
+      prevBtn.className = `font-mono text-xs tracking-widest uppercase px-4 py-2 transition-colors ${currentPage === 1 ? 'text-negro/20 cursor-not-allowed' : 'text-negro hover:bg-negro/5'}`;
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => {
+        if (currentPage > 1) {
+          currentPage--;
+          updateView();
+          window.scrollTo({ top: grid.offsetTop - 100, behavior: 'smooth' });
+        }
+      };
+      paginationContainer.appendChild(prevBtn);
+      
+      // Logic to show up to 7 numbers
+      let startPage = Math.max(1, currentPage - 3);
+      let endPage = Math.min(totalPages, currentPage + 3);
+      
+      if (endPage - startPage < 6) {
+        if (startPage === 1) endPage = Math.min(totalPages, 7);
+        else if (endPage === totalPages) startPage = Math.max(1, totalPages - 6);
+      }
+      
+      for (let i = startPage; i <= endPage; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i.toString();
+        if (i === currentPage) {
+          btn.className = 'w-8 h-8 rounded-full bg-negro text-blanco font-mono text-xs flex items-center justify-center';
+        } else {
+          btn.className = 'w-8 h-8 rounded-full text-negro/50 hover:bg-negro/5 font-mono text-xs flex items-center justify-center transition-colors';
+          btn.onclick = () => {
+            currentPage = i;
+            updateView();
+            window.scrollTo({ top: grid.offsetTop - 100, behavior: 'smooth' });
+          };
+        }
+        paginationContainer.appendChild(btn);
+      }
+      
+      // Next Button
+      const nextBtn = document.createElement('button');
+      nextBtn.innerHTML = 'Siguiente &rarr;';
+      nextBtn.className = `font-mono text-xs tracking-widest uppercase px-4 py-2 transition-colors ${currentPage === totalPages ? 'text-negro/20 cursor-not-allowed' : 'text-negro hover:bg-negro/5'}`;
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          updateView();
+          window.scrollTo({ top: grid.offsetTop - 100, behavior: 'smooth' });
+        }
+      };
+      paginationContainer.appendChild(nextBtn);
+    };
+
+    searchInput.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      currentQuery = target.value;
+      currentPage = 1; // Reset to page 1 on new search
+      updateView();
     });
+    
+    // Initial render
+    updateView();
   });
 </script>

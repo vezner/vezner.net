@@ -44,12 +44,22 @@ const redes = [
           Ingeniería digital de alta gama.<br />
           Córdoba, Argentina.
         </p>
-        <a
-          href="mailto:hola@vezner.net"
-          class="footer-link font-mono text-xs text-blanco/50 hover:text-blanco transition-colors duration-300"
-        >
-          hola@vezner.net →
-        </a>
+        <div class="flex flex-col gap-2 md:items-start items-center">
+          <a
+            href="mailto:hola@vezner.net"
+            class="footer-link font-mono text-xs text-blanco/50 hover:text-blanco transition-colors duration-300"
+          >
+            hola@vezner.net →
+          </a>
+          <a
+            href="https://wa.me/5493513323272"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link font-mono text-xs text-blanco/50 hover:text-blanco transition-colors duration-300"
+          >
+            +54 9 351 332-3272 →
+          </a>
+        </div>
 
         <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
           {
@@ -123,11 +133,6 @@ const redes = [
             href="/servicios/software-python"
             class="font-mono text-xs text-blanco/60 hover:text-blanco transition-colors"
             >Software</a
-          >
-          <a
-            href="/servicios/community-management"
-            class="font-mono text-xs text-blanco/60 hover:text-blanco transition-colors"
-            >CM</a
           >
           <a
             href="/servicios/diseno-identidad"

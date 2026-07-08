@@ -571,10 +571,12 @@ const schemaOrg = {
         { passive: true },
       );
 
-      document.addEventListener("mouseleave", () => {
+      document.addEventListener("mouseout", (e) => {
         if (isTouch) return;
-        const cursor = document.getElementById("vz-cursor");
-        if (cursor) cursor.classList.remove("visible");
+        if (!e.relatedTarget && (e as any).toElement === null) {
+          const cursor = document.getElementById("vz-cursor");
+          if (cursor) cursor.classList.remove("visible");
+        }
       });
       document.addEventListener("mouseenter", () => {
         if (isTouch) return;

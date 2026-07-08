@@ -16,16 +16,28 @@
       src="/assets/vezner-text.webp"
       alt="VEZNER"
       class="h-[30px] w-auto object-contain block"
+      width="112"
+      height="30"
       draggable="false"
     />
   </div>
 </div>
 
 <script>
-  import { DotLottie } from "@lottiefiles/dotlottie-web";
+  let DotLottieClass: any = null;
 
-  function initLogo() {
+  async function initLogo() {
     const wrappers = document.querySelectorAll(".logo-wrapper");
+    if (wrappers.length === 0) return;
+
+    let hasUninitialized = false;
+    wrappers.forEach(w => { if (!w.getAttribute("data-lottie-initialized")) hasUninitialized = true; });
+    if (!hasUninitialized) return;
+
+    if (!DotLottieClass) {
+      const { DotLottie } = await import("@lottiefiles/dotlottie-web");
+      DotLottieClass = DotLottie;
+    }
 
     wrappers.forEach((wrapper) => {
       if (wrapper.getAttribute("data-lottie-initialized")) return;
@@ -33,7 +45,7 @@
       const canvas = wrapper.querySelector(".logo-canvas") as HTMLCanvasElement;
 
       if (canvas) {
-        const dotLottie = new DotLottie({
+        const dotLottie = new DotLottieClass({
           canvas,
           src: "/assets/logo.lottie",
           loop: true,

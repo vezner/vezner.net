@@ -97,7 +97,7 @@ try {
         >
           <a
             href="/contacto"
-            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:rounded-none transition-colors duration-300 border border-transparent rounded-2xl hover:rounded-none"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden rounded-md hover:rounded-none transition-all duration-300 border border-transparent"
           >
             <span class="relative z-10">Iniciar Proyecto</span>
             <span
@@ -110,7 +110,7 @@ try {
           </a>
           <a
             href="#servicios"
-            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro hover:rounded-none transition-colors duration-300 rounded-2xl hover:rounded-none"
+            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro rounded-md hover:rounded-none transition-all duration-300"
           >
             <span
               class="relative z-10 group-hover:text-blanco transition-colors duration-300"
@@ -302,59 +302,35 @@ try {
           </div>
 
           <div
-            class="manifesto-stats flex flex-col md:flex-row mt-16 gap-4 md:gap-0"
+            class="manifesto-stats grid grid-cols-2 md:grid-cols-4 gap-0 mt-16 border border-negro/8"
             style="opacity:0; transform: translateY(24px);"
           >
             {
               [
                 {
                   valor: "+10",
-                  label: "Tecnologías",
+                  label: "Tecnologias modernas",
                   color: "text-negro",
-                  z: "z-[40]",
-                  desc: "Stack ultra-optimizado con Next.js, Astro y Tailwind.",
                 },
+                { valor: "100%", label: "A medida", color: "text-acento" },
                 {
-                  valor: "100%",
-                  label: "A medida",
-                  color: "text-acento",
-                  z: "z-[30]",
-                  desc: "Código nativo diseñado sin plantillas.",
-                },
-                {
-                  valor: "+12",
-                  label: "Años exp.",
+                  valor: `+12`,
+                  label: "Años de experiencia",
                   color: "text-negro",
-                  z: "z-[20]",
-                  desc: "Construyendo software de alto impacto.",
                 },
-                {
-                  valor: "24/7",
-                  label: "Soporte",
-                  color: "text-verde",
-                  z: "z-[10]",
-                  desc: "Monitoreo y mantenimiento constante.",
-                },
+                { valor: "24/7", label: "Soporte activo", color: "text-verde" },
               ].map((stat, i) => (
                 <div
-                  class={`stat-accordion-card group relative flex flex-col md:flex-row md:items-center overflow-hidden bg-[#fafafa] border border-negro/15 md:-ml-8 first:md:ml-0 ${stat.z} rounded-2xl md:rounded-l-none md:rounded-r-3xl first:md:rounded-l-3xl w-full md:w-[240px] md:hover:w-[480px] md:shrink-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] p-6 md:py-8 md:pr-8 md:pl-16 first:md:pl-8 cursor-default`}
+                  class={`stat-block p-8 ${i < 3 ? "md:border-r border-negro/8" : ""} ${i >= 2 ? "border-t md:border-t-0 border-negro/8" : ""} group hover:bg-negro/2 transition-colors duration-300`}
                 >
-                  <div class="flex flex-col justify-center shrink-0 min-w-[130px]">
-                    <p
-                      class={`font-display text-5xl md:text-6xl ${stat.color} mb-2 leading-none transition-transform duration-500 md:group-hover:scale-105 origin-left`}
-                    >
-                      {stat.valor}
-                    </p>
-                    <p class="font-mono text-xs text-negro/40 tracking-widest uppercase whitespace-nowrap">
-                      {stat.label}
-                    </p>
-                  </div>
-
-                  <div class="opacity-0 md:-translate-x-12 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-500 delay-100 hidden md:flex items-center shrink-0 w-[190px] ml-4">
-                    <p class="font-mono text-sm text-negro/60 leading-relaxed border-l border-negro/10 pl-5">
-                      {stat.desc}
-                    </p>
-                  </div>
+                  <p
+                    class={`font-display text-5xl md:text-6xl ${stat.color} mb-3 leading-none`}
+                  >
+                    {stat.valor}
+                  </p>
+                  <p class="font-mono text-xs text-negro/35 tracking-widest uppercase">
+                    {stat.label}
+                  </p>
                 </div>
               ))
             }
@@ -397,75 +373,13 @@ try {
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <a
-            href="/servicios/software-python"
-            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-verde/5 hover:border-verde/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8 rounded-2xl hover:rounded-none"
+            href="/servicios/diseno-identidad"
+            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-yellow-400/5 hover:border-yellow-400/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8"
           >
             <div>
               <span
                 class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
                 >01</span
-              >
-              <h2
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-verde transition-colors duration-500"
-              >
-                Software Python
-              </h2>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
-              >
-                Bots para Discord, APIs REST, y automatizaciones complejas a
-                medida.
-              </p>
-            </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-verde group-hover:gap-5 transition-colors duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
-              <span class="text-xs">→</span>
-            </div>
-          </a>
-
-          <a
-            href="/servicios/diseno-web"
-            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-rosa/5 hover:border-rosa/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8 rounded-2xl hover:rounded-none"
-          >
-            <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
-                >02</span
-              >
-              <h2
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-rosa transition-colors duration-500"
-              >
-                Diseño Web
-              </h2>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
-              >
-                Desarrollo web a medida con Astro, React y optimización extrema.
-                Animaciones fluidas y SEO técnico impecable.
-              </p>
-            </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-rosa group-hover:gap-5 transition-colors duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
-              <span class="text-xs">→</span>
-            </div>
-          </a>
-
-          <a
-            href="/servicios/diseno-identidad"
-            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-yellow-400/5 hover:border-yellow-400/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8 rounded-2xl hover:rounded-none md:col-span-2"
-          >
-            <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
-                >03</span
               >
               <h2
                 class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-yellow-400 transition-colors duration-500"
@@ -480,7 +394,69 @@ try {
               </p>
             </div>
             <div
-              class="flex items-center gap-3 text-blanco group-hover:text-yellow-400 group-hover:gap-5 transition-colors duration-300 mt-8"
+              class="flex items-center gap-3 text-blanco group-hover:text-yellow-400 group-hover:gap-5 transition-all duration-300 mt-8"
+            >
+              <span class="font-mono text-xs uppercase tracking-widest"
+                >Ver más</span
+              >
+              <span class="text-xs">→</span>
+            </div>
+          </a>
+
+          <a
+            href="/servicios/software-python"
+            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-verde/5 hover:border-verde/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8"
+          >
+            <div>
+              <span
+                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
+                >02</span
+              >
+              <h2
+                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-verde transition-colors duration-500"
+              >
+                Software Python
+              </h2>
+              <p
+                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
+              >
+                Bots para Discord, APIs REST, y automatizaciones complejas a
+                medida.
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-3 text-blanco group-hover:text-verde group-hover:gap-5 transition-all duration-300 mt-8"
+            >
+              <span class="font-mono text-xs uppercase tracking-widest"
+                >Ver más</span
+              >
+              <span class="text-xs">→</span>
+            </div>
+          </a>
+
+          <a
+            href="/servicios/diseno-web"
+            class="servicio-card-simple group block relative border border-blanco/10 bg-[#0a0a0a] p-12 hover:bg-rosa/5 hover:border-rosa/30 transition-colors duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between opacity-0 translate-y-8 md:col-span-2"
+          >
+            <div>
+              <span
+                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block"
+                >03</span
+              >
+              <h2
+                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-rosa transition-colors duration-500"
+              >
+                Diseño Web
+              </h2>
+              <p
+                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm"
+              >
+                Desarrollo web a medida con Astro, React y optimización extrema.
+                Animaciones fluidas y SEO técnico impecable.
+              </p>
+            </div>
+            <div
+              class="flex items-center gap-3 text-blanco group-hover:text-rosa group-hover:gap-5 transition-all duration-300 mt-8"
             >
               <span class="font-mono text-xs uppercase tracking-widest"
                 >Ver más</span
@@ -569,7 +545,7 @@ try {
               },
             ].map((paso, i) => (
               <div
-                class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-negro/8 transition-colors duration-300 rounded-2xl hover:rounded-none"
+                class="proceso-step group grid md:grid-cols-[80px_1fr_auto] items-start gap-6 py-8 border-b border-negro/8 transition-colors duration-300"
                 style={`opacity:0; transform:translateY(24px); --hover-c: ${paso.color};`}
               >
                 <span class="proceso-num font-display text-5xl text-negro/25 leading-none transition-colors duration-300">
@@ -671,46 +647,10 @@ try {
         <div class="mt-12 text-center md:hidden">
           <a
             href="/blog"
-            class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-negro border border-negro/20 px-6 py-3 rounded-full hover:bg-negro hover:text-blanco transition-colors"
+            class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-negro border border-negro/20 px-6 py-3 rounded-full hover:bg-negro hover:text-blanco transition-all"
           >
             Ver todos los artículos
           </a>
-        </div>
-      </div>
-    </section>
-
-    
-    <section class="relative py-32 md:py-44 px-6 md:px-16 bg-[#050505] overflow-hidden border-t border-negro/10">
-      <div class="container mx-auto max-w-6xl relative z-10">
-        <div class="flex items-center gap-4 mb-16 opacity-0 translate-y-4" id="empresas-label">
-          <span class="font-mono text-xs tracking-[0.4em] uppercase text-blanco/30">§ 04 — Enfoque</span>
-          <div class="w-12 h-px bg-blanco/15"></div>
-        </div>
-        
-        <h2 class="font-display text-4xl md:text-5xl lg:text-7xl text-blanco leading-[0.9] mb-16 max-w-4xl opacity-0 translate-y-8" id="empresas-title">
-          Trabajamos con empresas que...
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="empresas-card group border border-blanco/10 p-10 bg-blanco/5 rounded-2xl hover:rounded-none transition-colors duration-300 opacity-0 translate-y-8">
-            <h3 class="font-display text-3xl md:text-4xl text-blanco group-hover:text-acento mb-6 transition-colors duration-300">Procesos Manuales</h3>
-            <p class="font-mono text-sm text-blanco/50 leading-relaxed">Tienen tareas repetitivas y cuellos de botella que limitan su capacidad de escalar y ser eficientes.</p>
-          </div>
-          
-          <div class="empresas-card group border border-blanco/10 p-10 bg-blanco/5 rounded-2xl hover:rounded-none transition-colors duration-300 opacity-0 translate-y-8">
-            <h3 class="font-display text-3xl md:text-4xl text-blanco group-hover:text-verde mb-6 transition-colors duration-300">Buscan Automatización</h3>
-            <p class="font-mono text-sm text-blanco/50 leading-relaxed">Necesitan integrar sistemas y automatizar flujos de trabajo para ganar velocidad operativa real.</p>
-          </div>
-          
-          <div class="empresas-card group border border-blanco/10 p-10 bg-blanco/5 rounded-2xl hover:rounded-none transition-colors duration-300 opacity-0 translate-y-8">
-            <h3 class="font-display text-3xl md:text-4xl text-blanco group-hover:text-yellow-400 mb-6 transition-colors duration-300">Herramientas Limitadas</h3>
-            <p class="font-mono text-sm text-blanco/50 leading-relaxed">Quieren dejar atrás planillas de Excel o software enlatado que ya no se adapta a su realidad ni ritmo.</p>
-          </div>
-          
-          <div class="empresas-card group border border-blanco/10 p-10 bg-blanco/5 rounded-2xl hover:rounded-none transition-colors duration-300 opacity-0 translate-y-8">
-            <h3 class="font-display text-3xl md:text-4xl text-blanco group-hover:text-rosa mb-6 transition-colors duration-300">Presencia Profesional</h3>
-            <p class="font-mono text-sm text-blanco/50 leading-relaxed">Buscan una presencia digital de alto nivel que refleje la verdadera calidad y jerarquía de sus servicios.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -777,7 +717,7 @@ try {
           <p
             class="font-mono text-sm md:text-base text-blanco/45 max-w-xl mx-auto leading-relaxed mb-12"
           >
-            Contanos qué problema querés resolver. Tenemos una respuesta honesta, sin
+            Contanos qué estás buscando. Tenemos una respuesta honesta, sin
             vueltas, en menos de 24 horas.
           </p>
 
@@ -786,14 +726,14 @@ try {
           >
             <a
               href="/contacto"
-              class="cta-btn group relative inline-flex items-center gap-4 border border-blanco/20 text-blanco px-12 py-5 font-mono text-sm tracking-widest uppercase overflow-hidden hover:border-blanco hover:rounded-none transition-colors duration-300 rounded-2xl hover:rounded-none"
+              class="cta-btn group relative inline-flex items-center gap-4 border border-blanco/20 text-blanco px-12 py-5 font-mono text-sm tracking-widest uppercase overflow-hidden hover:border-blanco rounded-md hover:rounded-none transition-all duration-300"
             >
               <span
                 class="relative z-10 group-hover:text-negro transition-colors duration-400"
                 >Iniciar conversación</span
               >
               <span
-                class="relative z-10 group-hover:text-negro transition-colors duration-400 group-hover:translate-x-1"
+                class="relative z-10 group-hover:text-negro transition-all duration-400 group-hover:translate-x-1"
                 >→</span
               >
               <span
@@ -1334,48 +1274,6 @@ try {
           },
         });
       });
-
-      // Empresas section animations
-      gsap.to("#empresas-label", {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: "#empresas-label",
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      gsap.to("#empresas-title", {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.1,
-        scrollTrigger: {
-          trigger: "#empresas-label",
-          start: "top 85%",
-          once: true,
-        },
-      });
-
-      gsap.utils.toArray(".empresas-card").forEach((el, i) => {
-        gsap.to(el, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          delay: i * 0.1,
-          scrollTrigger: {
-            trigger: ".empresas-card",
-            start: "top 80%",
-            once: true,
-          },
-        });
-      });
-
     });
   </script>
 

@@ -7,11 +7,11 @@ const { phone = "+5493513323272", displayPhone = "+54 9 351 332-3272" } = Astro.
   target="_blank"
   rel="noopener noreferrer"
   id="wa-float"
-  class="fixed bottom-6 left-6 z-[90] flex items-center bg-negro border border-blanco/20 text-blanco h-12 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] hover:bg-[#111] shadow-2xl hover:border-verde group w-12 hover:w-[220px] rounded-md hover:rounded-none"
+  class="fixed bottom-6 left-6 z-[90] flex items-center bg-negro border border-blanco/20 text-blanco h-12 overflow-hidden transition-safe duration-500 ease-[cubic-bezier(0.87,0,0.13,1)] hover:bg-[#111] shadow-2xl hover:border-verde group w-12 hover:w-[220px] rounded-2xl hover:rounded-none"
   aria-label="Contactar por WhatsApp"
 >
-  <div class="w-12 h-12 flex items-center justify-center shrink-0 border-r border-transparent group-hover:border-blanco/10 transition-colors duration-500">
-    <i class="fa-brands fa-whatsapp text-xl text-blanco group-hover:text-verde transition-colors duration-500"></i>
+  <div class="w-12 h-12 flex items-center justify-center shrink-0 border-r border-transparent group-hover:border-blanco/10 transition-safe duration-500">
+    <i class="fa-brands fa-whatsapp text-xl text-blanco group-hover:text-verde transition-safe duration-500"></i>
   </div>
   <div class="whitespace-nowrap px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 flex flex-col justify-center">
     <span class="font-mono text-[9px] uppercase tracking-widest text-blanco/40 mb-0.5">Asesoría directa</span>
@@ -55,3 +55,4 @@ const { phone = "+5493513323272", displayPhone = "+54 9 351 332-3272" } = Astro.
     }
   });
 </script>
+

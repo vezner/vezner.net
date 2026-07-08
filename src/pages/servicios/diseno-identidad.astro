@@ -39,21 +39,21 @@ import Footer from '../../components/Footer.astro';
         
         <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
           <p class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg">
-            Diseñamos marcas con presencia absoluta. A partir de tu idea de nombre, creamos logotipos minimalistas, papelería y manuales de marca con precisión matemática.
+            Construimos identidades visuales estratégicas. Más allá de vectores y paletas de color, diseñamos sistemas de marca que diferencian tu negocio, transmiten autoridad y te posicionan por encima de tu competencia.
           </p>
           
           <div class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8">
             <div class="border-l border-yellow-400/30 pl-4">
-              <p class="font-display text-4xl text-blanco">1:1.618</p>
-              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Proporción</p>
+              <p class="font-display text-4xl text-blanco">Confianza</p>
+              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Percepción</p>
             </div>
             <div class="border-l border-yellow-400/30 pl-4">
-              <p class="font-display text-4xl text-blanco">SVG</p>
-              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Vectores</p>
+              <p class="font-display text-4xl text-blanco">Autoridad</p>
+              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Posicionamiento</p>
             </div>
             <div class="border-l border-yellow-400/30 pl-4">
-              <p class="font-display text-4xl text-blanco">RGB/CMYK</p>
-              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Color Profiles</p>
+              <p class="font-display text-4xl text-blanco">Sistemas</p>
+              <p class="font-mono text-xs text-blanco/40 tracking-widest uppercase">Ecosistema Visual</p>
             </div>
           </div>
         </div>
@@ -72,12 +72,12 @@ import Footer from '../../components/Footer.astro';
     <section id="galeria" class="py-32 px-6 md:px-16 bg-[#0a0a0a] border-y border-blanco/5 overflow-hidden">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-20">
-          <h2 class="font-display text-6xl md:text-8xl text-blanco mb-6 term-title opacity-0 translate-y-10">ANATOMÍA<br/>DE UNA MARCA</h2>
-          <p class="font-mono text-sm text-blanco/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10">Un logo no es una marca. Un manual de marca establece las leyes visuales que harán que tu empresa sea reconocida instantáneamente en cualquier medio.</p>
+          <h2 data-gsap="fade-up" class="font-display text-6xl md:text-8xl text-blanco mb-6 term-title opacity-0 translate-y-10">ANATOMÍA<br/>DE UNA MARCA</h2>
+          <p class="font-mono text-sm text-blanco/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10">Un logo no es una marca. Construimos ecosistemas visuales integrales que alinean la percepción de tu público con la calidad real de tus servicios.</p>
         </div>
         
         
-        <div class="term-mockup opacity-0 translate-y-20 bg-[#111] rounded-xl shadow-2xl overflow-hidden border border-blanco/10 max-w-5xl mx-auto p-2">
+        <div data-gsap="fade-up" class="term-mockup opacity-0 translate-y-20 bg-[#111] rounded-2xl hover:rounded-none transition-safe duration-300 shadow-2xl overflow-hidden border border-blanco/10 max-w-5xl mx-auto p-2 transition-colors duration-300">
           
           <div class="border border-blanco/5 h-[500px] flex">
             
@@ -144,14 +144,14 @@ import Footer from '../../components/Footer.astro';
     
     <section id="entregables" class="py-32 px-6 md:px-16 bg-negro">
       <div class="max-w-7xl mx-auto">
-        <h2 class="font-display text-4xl md:text-6xl text-blanco mb-16 text-center">NUESTRO ENFOQUE</h2>
+        <h2 data-gsap="fade-up" class="font-display text-4xl md:text-6xl text-blanco mb-16 text-center">NUESTRO ENFOQUE</h2>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { n: '01', t: 'El Nombre (Tu parte)', d: 'Necesitamos que vengas con el nombre decidido o al menos 5 opciones fuertes para empezar a trabajar la investigación.' },
-            { n: '02', t: '5 Propuestas de Logo', d: 'Te presentamos 5 caminos creativos distintos basados en geometrías perfectas y grillas matemáticas para elegir la dirección.' },
-            { n: '03', t: 'Brandbook PDF', d: 'Entrega del manual de marca con reglas de uso, paletas de color (RGB/CMYK) y archivos 100% vectoriales (SVG, EPS).' },
-            { n: '04', t: 'Aplicaciones', d: 'Diseño de elementos clave para tu negocio (Ej: Tarjetas de presentación o menús de restaurante). No incluye indumentaria ni packaging.' },
+            { n: '01', t: 'Investigación & Mercado', d: 'Analizamos a tu competencia, tu público objetivo y tu posicionamiento actual para encontrar el ángulo correcto.' },
+            { n: '02', t: 'Estrategia Visual', d: 'Te presentamos diferentes caminos creativos basados en decisiones estratégicas y geométricas, no en simple estética.' },
+            { n: '03', t: 'Sistemas de Marca', d: 'Desarrollamos ecosistemas visuales completos: tipografías, colores, reglas de uso y jerarquía visual.' },
+            { n: '04', t: 'Brandbook Técnico', d: 'Entrega del manual de marca definitivo y todos los archivos vectoriales necesarios para escalar tu negocio.' },
           ].map((item, i) => (
             <div class="id-step opacity-0 translate-y-12">
               <div class="font-display text-6xl text-yellow-400/20 mb-4">{item.n}</div>
@@ -165,7 +165,7 @@ import Footer from '../../components/Footer.astro';
 
     <section id="alcance" class="py-32 px-6 md:px-16 bg-[#050505] border-t border-blanco/5">
       <div class="max-w-7xl mx-auto">
-        <h2 class="font-display text-4xl md:text-6xl text-blanco mb-16 text-center">ALCANCE DEL SERVICIO</h2>
+        <h2 data-gsap="fade-up" class="font-display text-4xl md:text-6xl text-blanco mb-16 text-center">ALCANCE DEL SERVICIO</h2>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -174,7 +174,7 @@ import Footer from '../../components/Footer.astro';
             { t: 'Manual de Marca PDF', d: 'Un documento técnico extenso que dicta todas las reglas de uso (espacios, prohibiciones, contraste).', i: 'fa-solid fa-file-pdf' },
             { t: 'Papelería & Digital', d: 'Diseño de tarjetas de presentación, firmas de email, menús de restaurante o templates para redes.', i: 'fa-solid fa-pen-nib' },
           ].map((item, i) => (
-            <div class="plan-card opacity-0 border border-blanco/5 p-8 bg-[#111] hover:bg-yellow-400/10 hover:border-yellow-400/30 transition-colors duration-300">
+            <div data-gsap="fade-up" class="plan-card opacity-0 border border-blanco/5 p-8 bg-[#111] hover:bg-yellow-400/10 hover:border-yellow-400/30 rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors duration-300">
               <i class={`${item.i} text-3xl text-yellow-400/50 mb-6 block`}></i>
               <h4 class="font-display text-2xl mb-4 text-blanco">{item.t}</h4>
               <p class="font-mono text-xs text-blanco/50 leading-relaxed">{item.d}</p>
@@ -191,16 +191,16 @@ import Footer from '../../components/Footer.astro';
       </div>
       
       <div class="relative z-10 max-w-3xl mx-auto px-6">
-        <h2 class="font-display text-6xl md:text-8xl mb-8 cta-title">Destacá entre<br/>el ruido</h2>
-        <p class="font-mono text-sm text-negro/80 mb-12 uppercase tracking-widest cta-desc">Diseño brutalista y premium.</p>
+        <h2 data-gsap="fade-up" class="font-display text-6xl md:text-8xl mb-8 cta-title rounded-2xl hover:rounded-none transition-safe duration-300">Destacá entre<br/>el ruido</h2>
+        <p class="font-mono text-sm text-negro/80 mb-12 uppercase tracking-widest cta-desc rounded-2xl hover:rounded-none transition-safe duration-300">Construí autoridad en tu industria.</p>
         
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns">
-          <a href="/contacto" class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden border border-transparent">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors duration-300">
+          <a href="/contacto" class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden border border-transparent rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors duration-300">
             <span class="relative z-10">Renovar mi marca</span>
             <span class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-            <span class="absolute inset-0 bg-blanco translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out"></span>
+            <span class="absolute inset-0 bg-blanco translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
           </a>
-          <a href="/#servicios" class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/30 text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-negro/10 transition-colors duration-300">
+          <a href="/#servicios" class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/30 text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-negro/10 transition-safe duration-300 rounded-2xl hover:rounded-none transition-colors duration-300">
             Ver otros servicios
           </a>
         </div>
@@ -268,3 +268,4 @@ import Footer from '../../components/Footer.astro';
   });
   });
 </script>
+

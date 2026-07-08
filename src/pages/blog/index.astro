@@ -44,7 +44,7 @@ const posts = (await getCollection('blog')).sort(
             posts.map((post: any) => {
               const searchContent = `${post.data.title} ${post.data.description}`;
               return (
-                <a href={`/blog/${post.id}`} class="blog-card group block border border-negro/10 rounded-2xl bg-blanco hover:border-negro transition-colors duration-500 overflow-hidden relative" data-search={searchContent} data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
+                <a href={`/blog/${post.id}`} class="blog-card group block border border-negro/10 rounded-2xl bg-blanco hover:border-negro hover:rounded-none transition-safe duration-500 overflow-hidden relative transition-colors duration-300" data-search={searchContent} data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
                   <div class="aspect-[4/3] w-full overflow-hidden border-b border-negro/10">
                   <img
                     src={post.data.heroImage || '/og-image.webp'}
@@ -72,7 +72,7 @@ const posts = (await getCollection('blog')).sort(
                   </p>
                 </div>
                 <!-- Linea animada abajo -->
-                <div class="absolute bottom-0 left-0 h-0.5 bg-negro w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
+                <div class="absolute bottom-0 left-0 h-0.5 bg-negro w-0 group-hover:w-full transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
               </a>
               );
             })
@@ -218,9 +218,9 @@ const posts = (await getCollection('blog')).sort(
         const btn = document.createElement('button');
         btn.textContent = i.toString();
         if (i === currentPage) {
-          btn.className = 'w-8 h-8 rounded-full bg-negro text-blanco font-mono text-xs flex items-center justify-center';
+          btn.className = 'w-8 h-8 rounded-2xl bg-negro text-blanco font-mono text-xs flex items-center justify-center';
         } else {
-          btn.className = 'w-8 h-8 rounded-full text-negro/50 hover:bg-negro/5 font-mono text-xs flex items-center justify-center transition-colors';
+          btn.className = 'w-8 h-8 rounded-2xl text-negro/50 hover:bg-negro/5 hover:rounded-none font-mono text-xs flex items-center justify-center transition-safe duration-300';
           btn.onclick = () => {
             currentPage = i;
             updateView();
@@ -256,3 +256,4 @@ const posts = (await getCollection('blog')).sort(
     updateView();
   });
 </script>
+

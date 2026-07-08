@@ -10,7 +10,7 @@ export interface Props {
 const { numero, titulo, descripcion, href } = Astro.props;
 ---
 
-<article class="grupo-tarjeta group relative border border-negro/10 p-8 hover:border-negro/30 transition-colors duration-300 bg-blanco">
+<article class="grupo-tarjeta group relative border border-negro/10 p-8 hover:border-negro/30 transition-safe duration-300 bg-blanco rounded-2xl hover:rounded-none transition-colors duration-300">
   
   <span class="font-mono text-xs tracking-[0.3em] text-negro/20 block mb-6">{numero}</span>
 
@@ -30,7 +30,7 @@ const { numero, titulo, descripcion, href } = Astro.props;
   
   <a
     href={href}
-    class="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-negro border-b border-negro/20 pb-1 hover:border-negro transition-colors duration-300 group/link"
+    class="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-negro border-b border-negro/20 pb-1 hover:border-negro transition-safe duration-300 group/link"
   >
     <span>Ver servicio</span>
     <span class="group-hover/link:translate-x-1 transition-transform duration-300">→</span>

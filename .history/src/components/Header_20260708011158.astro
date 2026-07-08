@@ -31,7 +31,7 @@ const { theme = "light" } = Astro.props;
   <nav class="flex items-center justify-between px-6 md:px-12 h-20 py-0">
     <a
       href="/"
-      class="group flex items-center h-full logo-container transition-colors duration-300"
+      class="group flex items-center h-full logo-container transition-all duration-300"
       aria-label="Ir a inicio"
     >
       <Logo />
@@ -104,7 +104,7 @@ const { theme = "light" } = Astro.props;
       <!-- Morphing Background -->
       <div
         id="morphing-dropdown"
-        class="dropdown-theme-sync absolute top-[calc(100%-10px)] left-0 opacity-0 pointer-events-none transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-2xl rounded-2xl border backdrop-blur-2xl overflow-hidden z-50 origin-top-left"
+        class="dropdown-theme-sync absolute top-[calc(100%-10px)] left-0 opacity-0 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-2xl rounded-2xl border backdrop-blur-2xl overflow-hidden z-50 origin-top-left"
         style="will-change: width, height, transform, opacity;"
       >
         <div id="morphing-content" class="relative w-full h-full">
@@ -122,28 +122,28 @@ const { theme = "light" } = Astro.props;
               <div class="flex flex-col gap-1">
                 <a
                   href="/#manifiesto"
-                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2"
+                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2"
                 >
                   <span class="font-mono text-xs opacity-50">01</span>
                   <span class="font-display text-xl">Manifiesto</span>
                 </a>
                 <a
                   href="/#servicios"
-                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2"
+                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2"
                 >
                   <span class="font-mono text-xs opacity-50">02</span>
                   <span class="font-display text-xl">Servicios</span>
                 </a>
                 <a
                   href="/#proceso"
-                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2"
+                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2"
                 >
                   <span class="font-mono text-xs opacity-50">03</span>
                   <span class="font-display text-xl">Proceso</span>
                 </a>
                 <a
                   href="/#noticias"
-                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2"
+                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2"
                 >
                   <span class="font-mono text-xs opacity-50">04</span>
                   <span class="font-display text-xl">Noticias</span>
@@ -162,28 +162,28 @@ const { theme = "light" } = Astro.props;
                 <div>
                   <a
                     href="/servicios/diseno-web"
-                    class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300"
+                    class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300"
                     >Diseño Web</a
                   >
                   <div class="flex flex-col font-mono text-xs opacity-70">
                     <a
                       href="/servicios/diseno-web#hero"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Landing Pages</a
                     >
                     <a
                       href="/servicios/diseno-web#estandar"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Estándar VEZNER</a
                     >
                     <a
                       href="/servicios/diseno-web#enfoque"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Nuestro Enfoque</a
                     >
                     <a
                       href="/servicios/diseno-web#cta"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Agendar Llamada</a
                     >
                   </div>
@@ -191,28 +191,28 @@ const { theme = "light" } = Astro.props;
                 <div>
                   <a
                     href="/servicios/software-python"
-                    class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300"
+                    class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300"
                     >Software</a
                   >
                   <div class="flex flex-col font-mono text-xs opacity-70">
                     <a
                       href="/servicios/software-python#soluciones"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Casos de Uso</a
                     >
                     <a
                       href="/servicios/software-python#calidad"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Código de Calidad</a
                     >
                     <a
                       href="/servicios/software-python#stack"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Nuestro Stack</a
                     >
                     <a
                       href="/servicios/software-python#cta"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Consultar Proyecto</a
                     >
                   </div>
@@ -220,28 +220,28 @@ const { theme = "light" } = Astro.props;
                 <div>
                   <a
                     href="/servicios/diseno-identidad"
-                    class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300"
+                    class="font-display text-2xl mb-4 block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300"
                     >Branding</a
                   >
                   <div class="flex flex-col font-mono text-xs opacity-70">
                     <a
                       href="/servicios/diseno-identidad#hero"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Logotipos</a
                     >
                     <a
                       href="/servicios/diseno-identidad#galeria"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Identidad Visual</a
                     >
                     <a
                       href="/servicios/diseno-identidad#entregables"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Entregables</a
                     >
                     <a
                       href="/servicios/diseno-identidad#cta"
-                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-colors duration-300 block"
+                      class="py-2 hover:text-current hover:opacity-100 hover:translate-x-1.5 transition-all duration-300 block"
                       >Cotizar Marca</a
                     >
                   </div>
@@ -259,7 +259,7 @@ const { theme = "light" } = Astro.props;
               <div class="flex flex-col gap-1">
                 <a
                   href="/nosotros#agencia"
-                  class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2"
+                  class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2"
                 >
                   <span class="font-display text-2xl block mb-1"
                     >La Agencia</span
@@ -271,7 +271,7 @@ const { theme = "light" } = Astro.props;
                 </a>
                 <a
                   href="/nosotros#manifiesto"
-                  class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2"
+                  class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2"
                 >
                   <span class="font-display text-2xl block mb-1"
                     >Manifiesto</span
@@ -283,7 +283,7 @@ const { theme = "light" } = Astro.props;
                 </a>
                 <a
                   href="/nosotros#pilares"
-                  class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2"
+                  class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2"
                 >
                   <span class="font-display text-2xl block mb-1"
                     >Los 3 Pilares</span
@@ -314,7 +314,7 @@ const { theme = "light" } = Astro.props;
                     latestPosts.map((post: any) => (
                       <a
                         href={`/blog/${post.id}`}
-                        class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-2 border-b border-current/10 last:border-0"
+                        class="mega-link block hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-current/10 last:border-0"
                       >
                         <span
                           class="font-display text-xl block mb-1 truncate"
@@ -340,7 +340,7 @@ const { theme = "light" } = Astro.props;
 
                 <a
                   href="/blog"
-                  class="mt-4 pt-4 border-t border-current/20 font-mono text-[10px] uppercase tracking-widest hover:opacity-70 hover:translate-x-1 transition-colors flex items-center gap-2"
+                  class="mt-4 pt-4 border-t border-current/20 font-mono text-[10px] uppercase tracking-widest hover:opacity-70 hover:translate-x-1 transition-all flex items-center gap-2"
                 >
                   Ver Todos los Artículos <span class="text-xs">→</span>
                 </a>
@@ -362,7 +362,7 @@ const { theme = "light" } = Astro.props;
               <div class="flex flex-col gap-1">
                 <a
                   href="/contacto"
-                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-3"
+                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-3"
                 >
                   <span class="font-display text-xl flex-1"
                     >Formulario Directo</span
@@ -374,7 +374,7 @@ const { theme = "light" } = Astro.props;
                 </a>
                 <a
                   href="mailto:hola@vezner.net"
-                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-colors duration-300 py-3"
+                  class="mega-link flex items-center gap-4 hover:opacity-70 hover:translate-x-1.5 transition-all duration-300 py-3"
                 >
                   <span class="font-display text-xl flex-1">Email Directo</span>
                   <span
@@ -392,10 +392,10 @@ const { theme = "light" } = Astro.props;
     <a
       href="/contacto"
       id="header-cta"
-      class="hidden lg:flex items-center gap-2 border border-negro px-5 py-2.5 font-mono text-xs tracking-widest uppercase overflow-hidden relative group transition-colors duration-300 !rounded-2xl hover:!rounded-none"
+      class="hidden lg:flex items-center gap-2 border border-negro px-5 py-2.5 font-mono text-xs tracking-widest uppercase overflow-hidden relative group transition-all duration-300 rounded-2xl hover:rounded-none"
     >
       <span
-        class="relative z-10 group-hover:text-blanco transition-colors duration-300 ease-out cta-text"
+        class="relative z-10 group-hover:text-blanco transition-colors duration-300 cta-text"
       >
         Trabajemos juntos
       </span>
@@ -412,13 +412,13 @@ const { theme = "light" } = Astro.props;
       aria-expanded="false"
     >
       <span
-        class="menu-bar block w-6 h-0.5 bg-negro transition-colors duration-400"
+        class="menu-bar block w-6 h-0.5 bg-negro transition-all duration-400"
       ></span>
       <span
-        class="menu-bar block w-6 h-0.5 bg-negro transition-colors duration-400"
+        class="menu-bar block w-6 h-0.5 bg-negro transition-all duration-400"
       ></span>
       <span
-        class="menu-bar block w-4 h-0.5 bg-negro transition-colors duration-400"
+        class="menu-bar block w-4 h-0.5 bg-negro transition-all duration-400"
       ></span>
     </button>
   </nav>
@@ -499,7 +499,7 @@ const { theme = "light" } = Astro.props;
     <div class="p-6 border-t border-blanco/10 bg-negro">
       <a
         href="/contacto"
-        class="flex items-center justify-center gap-2 border border-blanco/20 bg-blanco/5 text-blanco px-5 py-4 font-mono text-xs tracking-widest uppercase hover:bg-blanco hover:text-negro transition-colors duration-300 w-full rounded-md hover:rounded-none"
+        class="flex items-center justify-center gap-2 border border-blanco/20 bg-blanco/5 text-blanco px-5 py-4 font-mono text-xs tracking-widest uppercase hover:bg-blanco hover:text-negro transition-all duration-300 w-full rounded-md hover:rounded-none"
       >
         Trabajemos juntos
       </a>

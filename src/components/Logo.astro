@@ -26,59 +26,53 @@
 <script>
   let DotLottieClass: any = null;
 
-  async function initLogo() {
+  function initLogo() {
     const wrappers = document.querySelectorAll(".logo-wrapper");
     if (wrappers.length === 0) return;
 
-    let hasUninitialized = false;
-    wrappers.forEach(w => { if (!w.getAttribute("data-lottie-initialized")) hasUninitialized = true; });
-    if (!hasUninitialized) return;
-
-    if (!DotLottieClass) {
-      const { DotLottie } = await import("@lottiefiles/dotlottie-web");
-      DotLottieClass = DotLottie;
-    }
-
     wrappers.forEach((wrapper) => {
       if (wrapper.getAttribute("data-lottie-initialized")) return;
+      wrapper.setAttribute("data-lottie-initialized", "true");
 
       const canvas = wrapper.querySelector(".logo-canvas") as HTMLCanvasElement;
+      if (!canvas) return;
 
-      if (canvas) {
-        const dotLottie = new DotLottieClass({
-          canvas,
-          src: "/assets/logo.lottie",
-          loop: true,
-          autoplay: false,
-          speed: 1,
-        });
+      let dotLottie: any = null;
+      let shouldStopAtEnd = false;
 
-        let shouldStopAtEnd = false;
+      wrapper.addEventListener("mouseenter", async () => {
+        shouldStopAtEnd = false;
 
-        dotLottie.addEventListener("ready", () => {
-          dotLottie.setFrame(0);
-          dotLottie.pause();
-          wrapper.setAttribute("data-lottie-initialized", "true");
-        });
+        // Lazy load the huge DotLottie library only on first hover
+        if (!DotLottieClass) {
+          const { DotLottie } = await import("@lottiefiles/dotlottie-web");
+          DotLottieClass = DotLottie;
+        }
 
-        dotLottie.addEventListener("loop", () => {
-          if (shouldStopAtEnd) {
-            shouldStopAtEnd = false;
-            dotLottie.setFrame(0);
-            dotLottie.pause();
-          }
-        });
+        if (!dotLottie) {
+          dotLottie = new DotLottieClass({
+            canvas,
+            src: "/assets/logo.lottie",
+            loop: true,
+            autoplay: true,
+            speed: 1,
+          });
 
-
-        wrapper.addEventListener("mouseenter", () => {
-          shouldStopAtEnd = false;
+          dotLottie.addEventListener("loop", () => {
+            if (shouldStopAtEnd) {
+              shouldStopAtEnd = false;
+              dotLottie.setFrame(0);
+              dotLottie.pause();
+            }
+          });
+        } else {
           dotLottie.play();
-        });
+        }
+      });
 
-        wrapper.addEventListener("mouseleave", () => {
-          shouldStopAtEnd = true;
-        });
-      }
+      wrapper.addEventListener("mouseleave", () => {
+        shouldStopAtEnd = true;
+      });
     });
   }
 

@@ -73,11 +73,17 @@
         }
       };
 
-      if ("requestIdleCallback" in window) {
-        (window as any).requestIdleCallback(initDotLottie, { timeout: 2000 });
-      } else {
-        setTimeout(initDotLottie, 1000);
-      }
+      let lottieStarted = false;
+      const startLottie = () => {
+        if (lottieStarted) return;
+        lottieStarted = true;
+        initDotLottie();
+      };
+
+      ["scroll", "mousemove", "touchstart"].forEach((evt) => {
+        window.addEventListener(evt, startLottie, { once: true, passive: true });
+      });
+      setTimeout(startLottie, 4000);
 
       wrapper.addEventListener("mouseenter", () => {
         isHovering = true;

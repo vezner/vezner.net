@@ -39,11 +39,9 @@
 
       let dotLottie: any = null;
       let shouldStopAtEnd = false;
+      let isHovering = false;
 
-      wrapper.addEventListener("mouseenter", async () => {
-        shouldStopAtEnd = false;
-
-        // Lazy load the huge DotLottie library only on first hover
+      const initDotLottie = async () => {
         if (!DotLottieClass) {
           const { DotLottie } = await import("@lottiefiles/dotlottie-web");
           DotLottieClass = DotLottie;
@@ -54,8 +52,15 @@
             canvas,
             src: "/assets/logo.lottie",
             loop: true,
-            autoplay: true,
+            autoplay: isHovering,
             speed: 1,
+          });
+
+          dotLottie.addEventListener("ready", () => {
+            if (!isHovering) {
+              dotLottie.setFrame(0);
+              dotLottie.pause();
+            }
           });
 
           dotLottie.addEventListener("loop", () => {
@@ -65,12 +70,25 @@
               dotLottie.pause();
             }
           });
-        } else {
+        }
+      };
+
+      if ("requestIdleCallback" in window) {
+        (window as any).requestIdleCallback(initDotLottie, { timeout: 2000 });
+      } else {
+        setTimeout(initDotLottie, 1000);
+      }
+
+      wrapper.addEventListener("mouseenter", () => {
+        isHovering = true;
+        shouldStopAtEnd = false;
+        if (dotLottie) {
           dotLottie.play();
         }
       });
 
       wrapper.addEventListener("mouseleave", () => {
+        isHovering = false;
         shouldStopAtEnd = true;
       });
     });

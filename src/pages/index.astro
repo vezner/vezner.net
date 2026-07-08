@@ -1056,7 +1056,14 @@ try {
 
           renderer.render(scene, camera);
         }
-        animarThree();
+
+        // Render the first frame immediately so it's not blank
+        renderer.render(scene, camera);
+
+        // Defer the heavy WebGL animation loop until after critical page load (fixes massive TBT on mobile)
+        setTimeout(() => {
+          animarThree();
+        }, 1500);
       }
 
       const tl = gsap.timeline({ delay: 0.5 }); // CSS anim handles hero text now, JS kicks in after

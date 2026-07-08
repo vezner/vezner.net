@@ -82,7 +82,7 @@ const schemaOrg = {
 ---
 
 <!doctype html>
-<html lang="es-AR">
+<html lang="es-AR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -190,7 +190,7 @@ const schemaOrg = {
       body {
         background: #ffffff;
         color: #0a0a0a;
-        overflow-x: clip;
+        overflow-x: hidden;
         min-height: 100vh;
       }
       html.lenis,
@@ -468,42 +468,26 @@ const schemaOrg = {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       });
 
-      let lenisInstance: any = null;
-
       document.addEventListener("astro:page-load", () => {
-        // 1. Refresh ScrollTrigger
         ScrollTrigger.refresh();
-
-        // 2. Destruir instancia anterior de Lenis si existe (para evitar bugs de Astro View Transitions)
-        if (lenisInstance) {
-          lenisInstance.destroy();
-          lenisInstance = null;
-        }
-
-        // 3. Inicializar Lenis
-        lenisInstance = new Lenis({
-          duration: 1.15,
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          smoothWheel: true,
-          wheelMultiplier: 0.9,
-          touchMultiplier: 1.8,
-        });
-
-        // 4. Sincronizar Lenis con GSAP ScrollTrigger de forma irrompible
-        lenisInstance.on("scroll", ScrollTrigger.update);
-
-        gsap.ticker.add((time) => {
-          lenisInstance.raf(time * 1000);
-        });
-
-        gsap.ticker.lagSmoothing(0);
-
-        // Guardar globalmente para otros scripts si lo necesitan
-        (window as any).lenisInstance = lenisInstance;
       });
 
+      const lenis = new Lenis({
+        duration: 1.15,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.8,
+      });
+      (window as any).lenisInstance = lenis;
       let mouseX = -100,
         mouseY = -100;
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
 
       let isTouch =
         window.matchMedia("(hover: none)").matches ||
@@ -891,7 +875,7 @@ const schemaOrg = {
             type: "item",
             icon: "fa-brands fa-x-twitter",
             label: "X / Twitter",
-            href: "https://x.com/veznerarg",
+            href: "https://twitter.com/veznerarg",
           },
           {
             type: "item",

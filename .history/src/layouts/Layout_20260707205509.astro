@@ -1,6 +1,6 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import { ClientRouter } from 'astro:transitions';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 export interface Props {
   title?: string;
   description?: string;
@@ -13,7 +13,7 @@ export interface Props {
 
 const {
   title = "VEZNER — Ingeniería Digital de Alta Gama | Córdoba, Argentina",
-  description = "VEZNER: Agencia de ingeniería digital en Córdoba, Argentina. Diseño web a medida, software Python y diseño de identidad visual. Más de 10 años de experiencia.",
+  description = "VEZNER: Agencia de ingeniería digital en Córdoba, Argentina. Diseño web a medida, software Python y diseño de identidad visual. Más de 50 proyectos entregados a nivel global.",
   keywords = "desarrollo web Córdoba, agencia digital Argentina, software Python a medida, diseño identidad visual, diseño web, VEZNER, ingeniería digital",
   ogImage = "/og-image.webp",
   canonicalUrl,
@@ -82,7 +82,7 @@ const schemaOrg = {
 ---
 
 <!doctype html>
-<html lang="es-AR">
+<html lang="es-AR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -125,7 +125,7 @@ const schemaOrg = {
     <meta name="theme-color" content="#FFFFFF" />
     <meta name="geo.region" content="AR-X" />
     <meta name="geo.placename" content="Córdoba, Argentina" />
-
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -150,24 +150,12 @@ const schemaOrg = {
       }
 
       @keyframes fadeOutTop {
-        from {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-        to {
-          opacity: 0;
-          transform: translateY(-40px) scale(0.98);
-        }
+        from { opacity: 1; transform: translateY(0) scale(1); }
+        to { opacity: 0; transform: translateY(-40px) scale(0.98); }
       }
       @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
       *,
@@ -190,7 +178,7 @@ const schemaOrg = {
       body {
         background: #ffffff;
         color: #0a0a0a;
-        overflow-x: clip;
+        overflow-x: hidden;
         min-height: 100vh;
       }
       html.lenis,
@@ -199,42 +187,35 @@ const schemaOrg = {
       }
 
       /* Global Border Radius & Animations para Tarjetas (Sin romper GSAP) */
-      .servicio-card,
-      .servicio-card-simple,
-      .use-case,
-      .vs-card,
-      .term-mockup {
+      .servicio-card, .servicio-card-simple,
+      .use-case, .vs-card, .term-mockup {
         border-radius: 0.375rem !important;
-        transition-property:
-          border-radius, background-color, border-color, color !important;
+        transition-property: border-radius, background-color, border-color, color !important;
         transition-duration: 400ms !important;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
       }
-      .servicio-card:hover,
-      .servicio-card-simple:hover,
-      .use-case:hover,
-      .vs-card:hover,
-      .term-mockup:hover {
+      .servicio-card:hover, .servicio-card-simple:hover,
+      .use-case:hover, .vs-card:hover, .term-mockup:hover {
         border-radius: 0 !important;
       }
 
       /* Global Border Radius & Animations para TODOS los Botones */
-      button,
-      a.btn-primary,
-      a.btn-secondary,
-      a.cta-btn,
-      a.social-icon-btn,
+      button, 
+      a.btn-primary, 
+      a.btn-secondary, 
+      a.cta-btn, 
+      a.social-icon-btn, 
       a[id$="-cta"] {
         border-radius: 0.375rem !important;
         transition-property: all !important;
         transition-duration: 300ms !important;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
       }
-      button:hover,
-      a.btn-primary:hover,
-      a.btn-secondary:hover,
-      a.cta-btn:hover,
-      a.social-icon-btn:hover,
+      button:hover, 
+      a.btn-primary:hover, 
+      a.btn-secondary:hover, 
+      a.cta-btn:hover, 
+      a.social-icon-btn:hover, 
       a[id$="-cta"]:hover {
         border-radius: 0 !important;
       }
@@ -272,80 +253,48 @@ const schemaOrg = {
         height: auto;
       }
 
+      
+      
       .js-cursor-active,
       .js-cursor-active * {
         cursor: none !important;
       }
 
+      
       #vz-cursor {
         position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 99999;
-        will-change: transform;
-        opacity: 0;
-        transition: opacity 0.2s ease;
+        top: 0; left: 0; pointer-events: none; z-index: 99999;
+        will-change: transform; opacity: 0; transition: opacity 0.2s ease;
         transform-origin: 3px 3px;
       }
       .airplane-svg {
-        transition:
-          transform 0.15s ease,
-          filter 0.2s ease;
-        filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.3));
+        transition: transform 0.15s ease, filter 0.2s ease;
+        filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.3));
       }
-      #vz-cursor.visible {
-        opacity: 1;
-      }
+      #vz-cursor.visible { opacity: 1; }
       #vz-cursor.clicking .airplane-svg {
         transform: scale(0.85);
       }
       #vz-cursor.hovering .airplane-svg {
         transform: scale(1.05);
-        filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.4));
+        filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.4));
       }
       #vz-cursor-trail {
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 99998;
-        will-change: transform;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99998;
+        will-change: transform; opacity: 0; transition: opacity 0.3s ease;
       }
       .cursor-trail-ring {
-        width: 32px;
-        height: 32px;
-        border: 1px solid rgba(10, 10, 10, 0.3);
-        border-radius: 50%;
-        margin-top: -16px;
-        margin-left: -16px;
-        transition:
-          transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-          background-color 0.3s ease,
-          border-color 0.3s ease;
+        width: 32px; height: 32px; border: 1px solid rgba(10, 10, 10, 0.3); border-radius: 50%;
+        margin-top: -16px; margin-left: -16px;
+        transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), background-color 0.3s ease, border-color 0.3s ease;
       }
-      #vz-cursor.visible,
-      #vz-cursor-trail.visible {
-        opacity: 1;
-      }
-      #vz-cursor.clicking .cursor-dot {
-        transform: scale(0.5);
-      }
-      #vz-cursor-trail.clicking .cursor-trail-ring {
-        transform: scale(0.8);
-        background-color: rgba(10, 10, 10, 0.05);
-      }
-      #vz-cursor.hovering .cursor-dot {
-        transform: scale(0);
-      }
-      #vz-cursor-trail.hovering .cursor-trail-ring {
-        transform: scale(1.5);
-        background-color: rgba(10, 10, 10, 0.05);
-        border-color: rgba(10, 10, 10, 0.1);
-      }
+      #vz-cursor.visible, #vz-cursor-trail.visible { opacity: 1; }
+      #vz-cursor.clicking .cursor-dot { transform: scale(0.5); }
+      #vz-cursor-trail.clicking .cursor-trail-ring { transform: scale(0.8); background-color: rgba(10, 10, 10, 0.05); }
+      #vz-cursor.hovering .cursor-dot { transform: scale(0); }
+      #vz-cursor-trail.hovering .cursor-trail-ring { transform: scale(1.5); background-color: rgba(10, 10, 10, 0.05); border-color: rgba(10, 10, 10, 0.1); }
 
+      
       #vz-context-menu {
         position: fixed;
         z-index: 99990;
@@ -433,6 +382,7 @@ const schemaOrg = {
     </style>
   </head>
   <body>
+    
     <div id="vz-cursor" aria-hidden="true">
       <svg
         width="24"
@@ -447,10 +397,12 @@ const schemaOrg = {
           fill="#0a0a0a"
           stroke="#ffffff"
           stroke-width="1.5"
-          stroke-linejoin="round"></path>
+          stroke-linejoin="round"
+        />
       </svg>
     </div>
 
+    
     <div id="vz-context-menu" role="menu" aria-label="Menú contextual"></div>
 
     <WhatsAppFloat />
@@ -461,49 +413,35 @@ const schemaOrg = {
       import Lenis from "lenis";
       import { gsap } from "gsap";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+      
       gsap.registerPlugin(ScrollTrigger);
 
       document.addEventListener("astro:before-swap", () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       });
 
-      let lenisInstance: any = null;
-
       document.addEventListener("astro:page-load", () => {
-        // 1. Refresh ScrollTrigger
         ScrollTrigger.refresh();
-
-        // 2. Destruir instancia anterior de Lenis si existe (para evitar bugs de Astro View Transitions)
-        if (lenisInstance) {
-          lenisInstance.destroy();
-          lenisInstance = null;
-        }
-
-        // 3. Inicializar Lenis
-        lenisInstance = new Lenis({
-          duration: 1.15,
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          smoothWheel: true,
-          wheelMultiplier: 0.9,
-          touchMultiplier: 1.8,
-        });
-
-        // 4. Sincronizar Lenis con GSAP ScrollTrigger de forma irrompible
-        lenisInstance.on("scroll", ScrollTrigger.update);
-
-        gsap.ticker.add((time) => {
-          lenisInstance.raf(time * 1000);
-        });
-
-        gsap.ticker.lagSmoothing(0);
-
-        // Guardar globalmente para otros scripts si lo necesitan
-        (window as any).lenisInstance = lenisInstance;
       });
 
-      let mouseX = -100,
-        mouseY = -100;
+
+
+      const lenis = new Lenis({
+        duration: 1.15,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.8,
+      });
+      (window as any).lenisInstance = lenis;
+      let mouseX = -100, mouseY = -100;
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
 
       let isTouch =
         window.matchMedia("(hover: none)").matches ||
@@ -518,16 +456,14 @@ const schemaOrg = {
             document.documentElement.classList.add("js-cursor-active");
           }
         }
-
-        const interactives = document.querySelectorAll(
-          "a, button, input, textarea, [data-servicio]",
-        );
+        
+        const interactives = document.querySelectorAll("a, button, input, textarea, [data-servicio]");
         interactives.forEach((el) => {
           el.addEventListener("mouseenter", () => {
-            if (!isTouch && cursor) cursor.classList.add("hovering");
+             if (!isTouch && cursor) cursor.classList.add("hovering");
           });
           el.addEventListener("mouseleave", () => {
-            if (!isTouch && cursor) cursor.classList.remove("hovering");
+             if (!isTouch && cursor) cursor.classList.remove("hovering");
           });
         });
       });
@@ -550,7 +486,7 @@ const schemaOrg = {
           mouseX = e.clientX;
           mouseY = e.clientY;
           const cursor = document.getElementById("vz-cursor");
-
+          
           if (cursor) {
             cursor.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
             if (!cursor.classList.contains("visible")) {
@@ -581,6 +517,7 @@ const schemaOrg = {
         const cursor = document.getElementById("vz-cursor");
         if (cursor) cursor.classList.remove("clicking");
       });
+
 
       let ctxOpen = false;
 
@@ -622,8 +559,7 @@ const schemaOrg = {
         const isSection = target.closest("section");
 
         if (hasSelection && !isInput) {
-          const shortText =
-            selText.length > 15 ? selText.substring(0, 15) + "..." : selText;
+          const shortText = selText.length > 15 ? selText.substring(0, 15) + '...' : selText;
           return [
             { type: "label", label: "Texto seleccionado" },
             {
@@ -644,9 +580,10 @@ const schemaOrg = {
               icon: "fa-solid fa-arrow-right",
               label: "Ir al inicio",
               href: "/",
-            },
+            }
           ];
         }
+
 
         if (link) {
           const href = link.href;
@@ -700,6 +637,7 @@ const schemaOrg = {
           ];
         }
 
+
         if (img) {
           return [
             { type: "label", label: "Imagen" },
@@ -745,6 +683,7 @@ const schemaOrg = {
             },
           ];
         }
+
 
         if (isInput) {
           return [
@@ -797,6 +736,7 @@ const schemaOrg = {
           ];
         }
 
+
         if (isService) {
           const servEl = isService as HTMLElement;
           return [
@@ -845,6 +785,7 @@ const schemaOrg = {
           ];
         }
 
+
         return [
           { type: "label", label: "VEZNER.NET" },
           {
@@ -891,7 +832,7 @@ const schemaOrg = {
             type: "item",
             icon: "fa-brands fa-x-twitter",
             label: "X / Twitter",
-            href: "https://x.com/veznerarg",
+            href: "https://twitter.com/veznerarg",
           },
           {
             type: "item",
@@ -909,14 +850,14 @@ const schemaOrg = {
       }
 
       function openMenu(x: number, y: number, items: Array<any>) {
-        const ctxMenu = document.getElementById(
-          "vz-context-menu",
-        ) as HTMLElement;
+        const ctxMenu = document.getElementById("vz-context-menu") as HTMLElement;
         if (!ctxMenu) return;
         ctxMenu.innerHTML = buildMenuHTML(items);
 
+
         const vw = window.innerWidth;
         const vh = window.innerHeight;
+
 
         ctxMenu.style.visibility = "hidden";
         ctxMenu.style.display = "block";
@@ -924,6 +865,7 @@ const schemaOrg = {
         const menuH = ctxMenu.offsetHeight || items.length * 34 + 40;
         ctxMenu.style.visibility = "visible";
         ctxMenu.style.display = "";
+
 
         const offset = 2;
 
@@ -934,6 +876,7 @@ const schemaOrg = {
         ctxMenu.style.top = `${Math.max(2, top)}px`;
         ctxMenu.classList.add("open");
         ctxOpen = true;
+
 
         ctxMenu.querySelectorAll(".ctx-item").forEach((item) => {
           item.addEventListener("click", (e) => {
@@ -970,11 +913,7 @@ const schemaOrg = {
               if (sel) navigator.clipboard?.writeText(sel).catch(() => {});
             } else if (action === "search-web") {
               const sel = window.getSelection()?.toString();
-              if (sel)
-                window.open(
-                  `https://www.google.com/search?q=${encodeURIComponent(sel)}`,
-                  "_blank",
-                );
+              if (sel) window.open(`https://www.google.com/search?q=${encodeURIComponent(sel)}`, "_blank");
             } else if (action === "clear-input") {
               const active = document.activeElement as HTMLInputElement;
               if (active) active.value = "";
@@ -1005,13 +944,13 @@ const schemaOrg = {
 
       document.addEventListener("click", (e) => {
         const ctxMenu = document.getElementById("vz-context-menu");
-        if (ctxOpen && ctxMenu && !ctxMenu.contains(e.target as Node))
-          closeMenu();
+        if (ctxOpen && ctxMenu && !ctxMenu.contains(e.target as Node)) closeMenu();
       });
 
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && ctxOpen) closeMenu();
       });
+
 
       window.addEventListener(
         "scroll",

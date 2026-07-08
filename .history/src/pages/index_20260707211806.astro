@@ -943,7 +943,14 @@ try {
     document.addEventListener("astro:page-load", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-
+      const lenis = (window as any).lenisInstance;
+      if (lenis) {
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time: number) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+      }
 
       const heroCanvas = document.getElementById(
         "hero-canvas",

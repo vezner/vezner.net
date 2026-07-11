@@ -1,0 +1,454 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import CardServicio from "../../components/CardServicio.astro";
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { provincia: "cordoba" },
+      props: {
+        name: "Córdoba",
+        colorCls: "text-rosa",
+        accentBg: "bg-rosa",
+        glowCls: "bg-rosa/10",
+        desc: "Desarrollamos soluciones digitales de alta gama en Córdoba. Landing pages de máxima conversión, software industrial en Python y ecosistemas de marca con geometría estratégica para liderar el mercado.",
+      },
+    },
+    {
+      params: { provincia: "buenos-aires" },
+      props: {
+        name: "Buenos Aires",
+        colorCls: "text-yellow-400",
+        accentBg: "bg-yellow-400",
+        glowCls: "bg-yellow-400/5",
+        desc: "Ingeniería digital y branding premium en Buenos Aires. Creamos sitios web semánticos, automatizaciones corporativas con tipado estricto y marcas minimalistas de altísima gama.",
+      },
+    },
+    {
+      params: { provincia: "mendoza" },
+      props: {
+        name: "Mendoza",
+        colorCls: "text-verde",
+        accentBg: "bg-verde",
+        glowCls: "bg-verde/10",
+        desc: "Diseño web a medida y desarrollo de software en Mendoza. Optimizamos tus Core Web Vitals, automatizamos procesos operativos en Python y construimos identidades visuales memorables.",
+      },
+    },
+    {
+      params: { provincia: "santa-fe" },
+      props: {
+        name: "Santa Fe",
+        colorCls: "text-rosa",
+        accentBg: "bg-rosa",
+        glowCls: "bg-rosa/10",
+        desc: "Agencia de software, diseño web y branding en Santa Fe. Sitios web mobile-first integrados con pasarelas de pago, bots automáticos 24/7 y manuales de marca técnicos.",
+      },
+    },
+  ];
+}
+
+const { provincia } = Astro.params;
+const { name, colorCls, accentBg, glowCls, desc } = Astro.props;
+---
+
+<Layout
+  title={`Diseño Web, Software & Branding en ${name} — VEZNER`}
+  description={desc}
+>
+  <Header theme="dark" />
+
+  <main class="bg-negro text-blanco min-h-screen overflow-hidden">
+    <!-- SECCIÓN 1: HERO DINÁMICO -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20"
+    >
+      <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div
+          class={`absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] ${glowCls} rounded-full blur-[80px] animate-pulse`}
+        >
+        </div>
+      </div>
+      <div
+        class="absolute inset-0 pointer-events-none z-0 opacity-5"
+        style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 50px 50px;"
+      >
+      </div>
+
+      <div class="relative z-10 w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div class={`w-12 h-px ${accentBg}/50`}></div>
+          <span
+            class="font-mono text-xs tracking-[0.4em] uppercase text-blanco/60"
+            >Ingeniería Local / {name}</span
+          >
+        </div>
+
+        <h1
+          class="font-display text-[clamp(45px,10vw,140px)] leading-[0.9] text-blanco uppercase mb-12"
+        >
+          <span class="block overflow-hidden pt-6 -mt-6"
+            ><span class="title-line block translate-y-[120%]"
+              >Ingeniería Digital</span
+            ></span
+          >
+          <span class="block overflow-hidden pt-6 -mt-6"
+            ><span class="title-line block translate-y-[120%] ` + colorCls + `"
+              >en {name}</span
+            ></span
+          >
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
+          <p
+            class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg"
+          >
+            No usamos plantillas genéricas. Desarrollamos software, marcas y
+            plataformas web a medida bajo una arquitectura semántica y
+            rendimiento extremo, adaptados al mercado comercial de {name}.
+          </p>
+
+          <div
+            class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
+          >
+            <div class="border-l border-blanco/20 pl-4">
+              <p class="font-display text-4xl text-blanco">100%</p>
+              <p
+                class="font-mono text-xs text-blanco/40 tracking-widest uppercase"
+              >
+                Rendimiento
+              </p>
+            </div>
+            <div class="border-l border-blanco/20 pl-4">
+              <p class="font-display text-4xl text-blanco">Puro</p>
+              <p
+                class="font-mono text-xs text-blanco/40 tracking-widest uppercase"
+              >
+                Código a Medida
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="scroll-prompt absolute bottom-10 left-16 flex items-center gap-4 opacity-0"
+      >
+        <div class="w-px h-12 bg-blanco/20 relative overflow-hidden">
+          <div
+            class={`absolute top-0 left-0 w-full h-1/2 ${accentBg} animate-[scrollPulse_2s_ease-in-out_infinite]`}
+          >
+          </div>
+        </div>
+        <span class="font-mono text-xs tracking-widest uppercase text-blanco/30"
+          >Soluciones</span
+        >
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: NUESTROS 3 SERVICIOS CENTRALES -->
+    <section
+      id="soluciones"
+      class="py-32 bg-[#050505] relative overflow-hidden border-y border-blanco/5 text-negro"
+    >
+      <div class="container mx-auto px-6 md:px-16 max-w-7xl">
+        <div class="mb-20">
+          <h2
+            data-gsap="fade-up"
+            class="font-display text-6xl md:text-8xl text-blanco section-title opacity-0 translate-y-10 pl-0"
+          >
+            SOLUCIONES DE ALTA GAMA
+          </h2>
+          <p class="font-mono text-sm text-blanco/50 max-w-xl mt-4">
+            Ecosistema completo de desarrollo y branding para empresas de la
+            provincia de {name} que buscan desmarcarse de la competencia mediocre.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+          <CardServicio
+            numero="01"
+            titulo="DISEÑO WEB"
+            descripcion={`Landing pages y sitios corporativos optimizados para Core Web Vitals. Código limpio en Astro, integraciones con Shopify o TiendaNube y pasarelas de pago listas para operar en ${name}.`}
+            href="/servicios/diseno-web"
+          />
+          <CardServicio
+            numero="02"
+            titulo="SOFTWARE"
+            descripcion={`Automatizaciones corporativas, procesamiento de datos masivos y bots conversacionales desarrollados en Python con tipado estricto y arquitectura limpia.`}
+            href="/servicios/software-python"
+          />
+          <CardServicio
+            numero="03"
+            titulo="BRANDING"
+            descripcion={`Construcción de marcas estratégicas e identidades visuales basadas en proporciones geométricas para posicionar tu negocio como autoridad en tu sector.`}
+            href="/servicios/diseno-identidad"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: ESTÁNDAR MEDIOCRE VS ESTÁNDAR VEZNER -->
+    <section
+      id="estandar"
+      class="py-32 bg-negro text-blanco relative overflow-hidden"
+    >
+      <div class="container mx-auto px-6 md:px-16 max-w-7xl relative z-10">
+        <div class="grid md:grid-cols-2 gap-20">
+          <div
+            data-gsap="fade-up"
+            class="vs-card opacity-0 translate-y-12 border border-blanco/10 p-10 md:p-16 hover:bg-blanco/5 transition-safe duration-500 rounded-2xl hover:rounded-none transition-colors"
+          >
+            <span
+              class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-8 block"
+              >El estándar mediocre</span
+            >
+            <h3
+              data-gsap="fade-up"
+              class="font-display text-5xl mb-6 text-blanco/50"
+            >
+              Plantillas & <br />Desarrollo Genérico
+            </h3>
+            <ul class="space-y-4 font-mono text-sm text-blanco/40">
+              <li class="flex gap-4">
+                <span>×</span> Diseños genéricos que no transmiten autoridad en {
+                  name
+                }.
+              </li>
+              <li class="flex gap-4">
+                <span>×</span> Carga extremadamente lenta que mata las conversiones.
+              </li>
+              <li class="flex gap-4">
+                <span>×</span> Cero enfoque en arquitectura semántica y SEO local.
+              </li>
+              <li class="flex gap-4">
+                <span>×</span> Sistemas inestables sin soporte ni mantenimiento.
+              </li>
+            </ul>
+          </div>
+
+          <div
+            data-gsap="fade-up"
+            class="vs-card opacity-0 translate-y-12 border border-blanco/30 bg-blanco/5 p-10 md:p-16 relative rounded-2xl hover:rounded-none transition-safe duration-500 transition-colors"
+          >
+            <div
+              class="absolute top-0 right-0 w-24 h-24 bg-blanco/20 blur-[50px]"
+            >
+            </div>
+            <span
+              class="font-mono text-xs tracking-widest uppercase text-blanco mb-8 block"
+              >El estándar VEZNER</span
+            >
+            <h3
+              data-gsap="fade-up"
+              class="font-display text-5xl mb-6 text-blanco"
+            >
+              Ventas &<br />Autoridad
+            </h3>
+            <ul class="space-y-4 font-mono text-sm text-blanco/70">
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> Desarrollo 100% a medida con Astro,
+                React y Python.
+              </li>
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> E-commerce optimizado y automatización
+                de flujos.
+              </li>
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> Diseño visual de altísima gama,
+                estético y estratégico.
+              </li>
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> Posicionamiento programático estructurado
+                para {name}.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: METODOLOGÍA -->
+    <section
+      id="proceso"
+      class="py-32 px-6 md:px-16 bg-[#050505] text-blanco border-t border-blanco/10"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          data-gsap="fade-up"
+          class="font-display text-5xl md:text-7xl text-blanco mb-20 text-center section-title opacity-0"
+        >
+          PROCESO DE EJECUCIÓN
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {
+            [
+              {
+                n: "01",
+                t: "Auditoría & Mercado",
+                d: `Analizamos a tu competencia local en ${name}, definimos la arquitectura de datos y trazamos la estrategia de conversión.`,
+              },
+              {
+                n: "02",
+                t: "Diseño UX/UI & Marca",
+                d: "Creamos interfaces estéticas, sistemas de diseño coherentes y prototipos de alta fidelidad sin plantillas prefabricadas.",
+              },
+              {
+                n: "03",
+                t: "Desarrollo & Código",
+                d: "Escribimos código limpio, optimizamos Core Web Vitals y conectamos bases de datos o APIs empresariales.",
+              },
+              {
+                n: "04",
+                t: "Despliegue & Escalabilidad",
+                d: "Lanzamos en servidores de rendimiento extremo, auditamos métricas y te brindamos soporte continuo.",
+              },
+            ].map((item) => (
+              <div class="process-step opacity-0 translate-y-12 border border-blanco/5 p-8 bg-[#0a0a0a] rounded-2xl hover:rounded-none transition-all duration-300">
+                <div class="font-display text-6xl text-blanco/20 mb-4">
+                  {item.n}
+                </div>
+                <h4 class="font-mono text-lg font-bold mb-3">{item.t}</h4>
+                <p class="font-mono text-xs text-blanco/50 leading-relaxed">
+                  {item.d}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: CTA FINAL -->
+    <section
+      id="cta"
+      class="py-32 bg-blanco text-negro text-center relative overflow-hidden"
+    >
+      <div class="relative z-10 max-w-3xl mx-auto px-6">
+        <h2
+          data-gsap="fade-up"
+          class="font-display text-6xl md:text-8xl mb-8 cta-title rounded-2xl hover:rounded-none transition-safe duration-300"
+        >
+          Liderá tu sector<br />en {name}
+        </h2>
+        <p
+          class="font-mono text-sm text-negro/70 mb-12 uppercase tracking-widest cta-desc rounded-2xl hover:rounded-none transition-safe duration-300"
+        >
+          Ingeniería digital sin compromisos
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors"
+        >
+          <a
+            href="/contacto"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden border border-transparent rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors"
+          >
+            <span class="relative z-10">Iniciar Proyecto</span>
+            <span
+              class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5"
+              >→</span
+            >
+            <span
+              class="absolute inset-0 bg-blanco translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out"
+            ></span>
+          </a>
+          <a
+            href="/#servicios"
+            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/30 text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-negro/10 transition-safe duration-300 rounded-2xl hover:rounded-none transition-colors"
+          >
+            Ver todos los servicios
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .btn-primary:hover span:first-child,
+  .btn-primary:hover span:nth-child(2) {
+    color: #0a0a0a;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("astro:page-load", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline();
+    tl.to(".hero-reveal", {
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+    });
+    tl.to(
+      ".title-line",
+      { y: "0%", duration: 1.2, stagger: 0.15, ease: "power4.out" },
+      "-=0.6",
+    );
+    tl.to(
+      ".hero-desc",
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+      "-=0.8",
+    );
+    tl.to(
+      ".hero-stats",
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+      "-=0.8",
+    );
+    tl.to(".scroll-prompt", { opacity: 1, duration: 1 }, "-=0.5");
+
+    gsap.utils.toArray(".section-title").forEach((title) => {
+      gsap.to(title as HTMLElement, {
+        scrollTrigger: {
+          trigger: title as HTMLElement,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power4.out",
+      });
+    });
+
+    gsap.utils.toArray(".vs-card").forEach((card, i) => {
+      gsap.to(card as HTMLElement, {
+        scrollTrigger: {
+          trigger: card as HTMLElement,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: i * 0.2,
+        ease: "power3.out",
+      });
+    });
+
+    gsap.utils.toArray(".process-step").forEach((step, i) => {
+      gsap.to(step as HTMLElement, {
+        scrollTrigger: {
+          trigger: (step as HTMLElement).parentElement,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power3.out",
+      });
+    });
+  });
+</script>

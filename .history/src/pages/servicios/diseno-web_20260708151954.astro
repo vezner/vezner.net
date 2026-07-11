@@ -55,96 +55,41 @@ import Footer from "../../components/Footer.astro";
         </h1>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
-          <div class="max-w-lg">
-            <p
-              class="hero-desc font-mono text-base md:text-lg text-negro/70 leading-relaxed opacity-0 transform translate-y-8 mb-8"
-            >
-              Transformamos visitantes en clientes de alto valor. Diseñamos e
-              implementamos ecosistemas web ultrarrápidos, optimizados para <strong
-                >Core Web Vitals</strong
-              > y enfocados 100% en la conversión. Sin plantillas, pura ingeniería
-              estética para marcas premium.
-            </p>
-
-            <div
-              class="hero-desc opacity-0 transform translate-y-8 flex flex-col sm:flex-row gap-4 mb-6"
-            >
-              <a
-                href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20crear%20una%20p%C3%A1gina%20web%20premium"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group relative inline-flex items-center justify-center gap-3 bg-negro text-blanco px-8 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden border-2 border-negro rounded-2xl hover:rounded-none transition-[border-radius] duration-300 w-full sm:w-auto"
-              >
-                <span class="relative z-10 flex items-center gap-2"
-                  ><i class="fa-brands fa-whatsapp text-base"></i> Cotizar por WhatsApp</span
-                >
-                <span
-                  class="absolute inset-0 bg-rosa translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"
-                ></span>
-              </a>
-              <a
-                href="#soluciones"
-                class="inline-flex items-center justify-center px-8 py-4 font-mono text-xs tracking-widest uppercase border-2 border-negro/20 text-negro rounded-2xl hover:rounded-none hover:border-negro transition-all duration-300 w-full sm:w-auto"
-              >
-                Ver Soluciones
-              </a>
-            </div>
-
-            <div
-              class="hero-desc opacity-0 transform translate-y-8 flex items-center gap-4 text-xs font-mono text-negro/50"
-            >
-              <span class="flex items-center gap-1.5"
-                ><i class="fa-solid fa-check text-verde"></i> Desarrollo a medida</span
-              >
-              <span class="flex items-center gap-1.5"
-                ><i class="fa-solid fa-bolt text-yellow-500"></i> Carga &lt; 1s
-              </span>
-            </div>
-          </div>
+          <p
+            class="hero-desc font-mono text-base md:text-lg text-negro/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg"
+          >
+            Landing pages estructuradas para vender. Desarrollamos sitios web
+            optimizados para Core Web Vitals y alto rendimiento, creados 100% a
+            medida con Astro, React y Next.js. Si necesitás vender online,
+            integramos Shopify o TiendaNube. Sin plantillas genéricas, pura
+            arquitectura semántica y diseño estético profesional.
+          </p>
 
           <div
             class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
           >
-            <div
-              class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
-            >
+            <div class="border-l border-rosa/30 pl-4">
+              <p class="font-display text-4xl text-negro">UI/UX</p>
               <p
-                class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+                class="font-mono text-xs text-negro/40 tracking-widest uppercase"
               >
-                UI/UX
-              </p>
-              <p
-                class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
-              >
-                Calidad Premium
+                Premium
               </p>
             </div>
-            <div
-              class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
-            >
+            <div class="border-l border-rosa/30 pl-4">
+              <p class="font-display text-4xl text-negro">MAX</p>
               <p
-                class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+                class="font-mono text-xs text-negro/40 tracking-widest uppercase"
               >
-                MAX
-              </p>
-              <p
-                class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
-              >
-                Ingeniería de Conversión
+                Conversión
               </p>
             </div>
-            <div
-              class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
-            >
+            <div class="border-l border-rosa/30 pl-4">
+              <p class="font-display text-4xl text-negro">0</p>
               <p
-                class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+                class="font-mono text-xs text-negro/40 tracking-widest uppercase"
               >
-                0%
-              </p>
-              <p
-                class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
-              >
-                Plantillas Genéricas
+                Plantillas
               </p>
             </div>
           </div>
@@ -152,7 +97,7 @@ import Footer from "../../components/Footer.astro";
       </div>
 
       <div
-        class="scroll-prompt absolute bottom-10 left-6 md:left-16 flex items-center gap-4 opacity-0"
+        class="scroll-prompt absolute bottom-10 left-16 flex items-center gap-4 opacity-0"
       >
         <div class="w-px h-12 bg-negro/20 relative overflow-hidden">
           <div
@@ -160,9 +105,8 @@ import Footer from "../../components/Footer.astro";
           >
           </div>
         </div>
-        <span
-          class="font-mono text-[10px] tracking-[0.3em] uppercase text-negro/40"
-          >Scroll</span
+        <span class="font-mono text-xs tracking-widest uppercase text-negro/30"
+          >Explorar</span
         >
       </div>
     </section>
@@ -174,7 +118,7 @@ import Footer from "../../components/Footer.astro";
       <div class="container mx-auto px-6 md:px-16 max-w-7xl">
         <h2
           data-gsap="fade-up"
-          class="font-display text-6xl md:text-8xl text-blanco mb-20 section-title opacity-0 border-l-4 border-rosa pl-8"
+          class="font-display text-6xl md:text-8xl text-blanco mb-20 section-title opacity-0 translate-y-10 border-l-4 border-rosa pl-8"
         >
           ¿QUÉ PODEMOS<br />CONSTRUIR?
         </h2>
@@ -204,14 +148,14 @@ import Footer from "../../components/Footer.astro";
               },
             ].map((item, i) => (
               <div
-                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 p-8 transition-colors transition-[border-radius] duration-300 rounded-2xl hover:rounded-none ${item.c} group`}
+                class={`use-case opacity-0 translate-y-8 border border-blanco/5 p-8 transition-safe duration-300 rounded-2xl hover:rounded-none ${item.c}`}
               >
-                <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors duration-300">
+                <div class="font-mono text-xs text-blanco/30 mb-6">
                   0{i + 1}
                 </div>
                 <h3
                   data-gsap="fade-up"
-                  class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform duration-300"
+                  class="font-display text-3xl mb-4 text-blanco"
                 >
                   {item.t}
                 </h3>
@@ -233,7 +177,7 @@ import Footer from "../../components/Footer.astro";
         <div class="grid md:grid-cols-2 gap-20">
           <div
             data-gsap="fade-up"
-            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 p-10 md:p-16 hover:bg-blanco/5 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-500"
+            class="vs-card opacity-0 translate-y-12 border border-blanco/10 p-10 md:p-16 hover:bg-blanco/5 transition-safe duration-500 rounded-2xl hover:rounded-none transition-colors duration-300"
           >
             <span
               class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-8 block"
@@ -263,7 +207,7 @@ import Footer from "../../components/Footer.astro";
 
           <div
             data-gsap="fade-up"
-            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/30 bg-blanco/5 p-10 md:p-16 relative rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-500"
+            class="vs-card opacity-0 translate-y-12 border border-blanco/30 bg-blanco/5 p-10 md:p-16 relative rounded-2xl hover:rounded-none transition-safe duration-500 transition-colors duration-300"
           >
             <div
               class="absolute top-0 right-0 w-24 h-24 bg-blanco/20 blur-[50px]"
@@ -339,18 +283,18 @@ import Footer from "../../components/Footer.astro";
                 d: "Auditamos la web en diferentes dispositivos, verificamos tiempos de carga y desplegamos el proyecto en producción.",
               },
             ].map((paso, i) => (
-              <div class="proceso-card opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300 group">
-                <div class="absolute -left-[45px] md:-left-[77px] top-0 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-rosa group-hover:shadow-[0_0_15px_rgba(225,29,72,0.6)] border-4 border-[#050505] transform -translate-x-1/2 transition-all duration-300" />
-                <span class="font-display text-4xl text-blanco/10 group-hover:text-rosa/40 transition-colors duration-300 absolute -left-12 top-0 -translate-x-full md:-translate-x-0 md:relative md:left-0 md:-top-4">
+              <div class="proceso-card opacity-0 translate-y-8 relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-safe duration-300">
+                <div class="absolute -left-[45px] md:-left-[77px] top-0 w-3 h-3 rounded-full bg-rosa border-4 border-[#050505] transform -translate-x-1/2" />
+                <span class="font-display text-4xl text-blanco/10 absolute -left-12 top-0 -translate-x-full md:-translate-x-0 md:relative md:left-0 md:-top-4">
                   {paso.n}
                 </span>
                 <h3
                   data-gsap="fade-up"
-                  class="font-display text-3xl md:text-4xl text-blanco mb-4 mt-2 md:mt-0 group-hover:text-rosa transition-colors duration-300"
+                  class="font-display text-3xl md:text-4xl text-blanco mb-4 mt-2 md:mt-0"
                 >
                   {paso.t}
                 </h3>
-                <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed max-w-2xl">
+                <p class="font-mono text-sm text-blanco/50 leading-relaxed max-w-2xl">
                   {paso.d}
                 </p>
               </div>
@@ -365,7 +309,7 @@ import Footer from "../../components/Footer.astro";
         <div class="text-center mb-20">
           <h2
             data-gsap="fade-up"
-            class="font-display text-6xl md:text-8xl text-negro mb-6 section-title opacity-0"
+            class="font-display text-6xl md:text-8xl text-negro mb-6 section-title opacity-0 translate-y-10"
           >
             INGENIERÍA<br />DE CONVERSIÓN
           </h2>
@@ -404,13 +348,9 @@ import Footer from "../../components/Footer.astro";
                 i: "fa-solid fa-server",
               },
             ].map((f, i) => (
-              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-negro/10 pt-8 transition-colors transition-[border-radius] duration-300 rounded-2xl hover:rounded-none hover:border-rosa group hover:bg-negro/[0.02] px-4 -mx-4 pb-4">
-                <i
-                  class={`${f.i} text-3xl text-negro/20 group-hover:text-rosa group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
-                />
-                <h4 class="font-display text-3xl text-negro mb-4 group-hover:translate-x-1 transition-transform duration-300">
-                  {f.t}
-                </h4>
+              <div class="feat-card opacity-0 translate-y-8 border-t border-negro/10 pt-8 transition-safe duration-300 rounded-2xl hover:rounded-none">
+                <i class={`${f.i} text-3xl text-negro/20 mb-6 block`} />
+                <h4 class="font-display text-3xl text-negro mb-4">{f.t}</h4>
                 <p class="font-mono text-xs text-negro/60 leading-relaxed">
                   {f.d}
                 </p>
@@ -432,45 +372,42 @@ import Footer from "../../components/Footer.astro";
         </div>
       </div>
 
-      <div class="relative z-10 max-w-4xl mx-auto px-6">
+      <div class="relative z-10 max-w-3xl mx-auto px-6">
         <h2
           data-gsap="fade-up"
-          class="font-display text-6xl md:text-8xl mb-6 cta-title"
+          class="font-display text-6xl md:text-8xl mb-8 cta-title rounded-2xl hover:rounded-none transition-safe duration-300"
         >
-          ESCALÁ TUS VENTAS<br /><span class="text-negro/40">HOY MISMO</span>
+          Llevá tu negocio<br />al siguiente nivel
         </h2>
         <p
-          class="font-mono text-sm md:text-base text-blanco/70 mb-12 max-w-2xl mx-auto leading-relaxed cta-desc"
+          class="font-mono text-sm text-blanco/80 mb-12 uppercase tracking-widest cta-desc rounded-2xl hover:rounded-none transition-safe duration-300"
         >
-          No pierdas más clientes por una web lenta o genérica. Hablemos sobre
-          tu proyecto y construyamos un ecosistema digital de alta conversión.
+          Desarrollos desde USD 800
         </p>
 
         <div
-          class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns"
+          class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors duration-300"
         >
-          <a
-            href="https://wa.me/5493513323272?text=Hola,%20quiero%20crear%20una%20web%20premium%20con%20VEZNER."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary group relative inline-flex items-center gap-3 bg-[#25D366] text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden rounded-2xl hover:rounded-none transition-all duration-300 w-full sm:w-auto justify-center hover:bg-[#1DA851] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)]"
-          >
-            <i class="fa-brands fa-whatsapp text-lg relative z-10"></i>
-            <span class="relative z-10 font-bold">Contactar por WhatsApp</span>
-          </a>
           <a
             href="/contacto"
-            class="btn-secondary group relative inline-flex items-center justify-center gap-3 border border-blanco/20 text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-blanco/10 hover:border-blanco/50 transition-all duration-300 rounded-2xl hover:rounded-none w-full sm:w-auto"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-blanco text-negro px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden border border-transparent rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors duration-300"
           >
-            Completar Formulario
+            <span class="relative z-10">Solicitar Cotización</span>
+            <span
+              class="relative z-10 transition-transform duration-300 group-hover:translate-x-1.5"
+              >→</span
+            >
+            <span
+              class="absolute inset-0 bg-negro translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out"
+            ></span>
+          </a>
+          <a
+            href="/#servicios"
+            class="btn-secondary group relative inline-flex items-center gap-3 border border-blanco/30 text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-blanco/10 transition-safe duration-300 rounded-2xl hover:rounded-none transition-colors duration-300"
+          >
+            Ver otros servicios
           </a>
         </div>
-
-        <p
-          class="mt-8 font-mono text-[10px] uppercase tracking-widest text-blanco/40"
-        >
-          Respuesta inmediata • Proyectos a medida
-        </p>
       </div>
     </section>
   </main>
@@ -492,7 +429,7 @@ import Footer from "../../components/Footer.astro";
   document.addEventListener("astro:page-load", () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Animación del Hero
+    // 1. Animación del Hero (Timeline)
     const tl = gsap.timeline();
     tl.to(".hero-reveal", {
       opacity: 1,
@@ -517,103 +454,87 @@ import Footer from "../../components/Footer.astro";
     );
     tl.to(".scroll-prompt", { opacity: 1, duration: 1 }, "-=0.5");
 
-    // 2. Títulos de las secciones (Ajustado para que se animen individualmente al bajar)
+    // 2. CORRECCIÓN TÍTULOS: Animamos cada título individualmente al entrar en pantalla
     gsap.utils.toArray(".section-title").forEach((title) => {
-      gsap.fromTo(
-        title as HTMLElement,
-        { opacity: 0, y: 50 },
-        {
-          scrollTrigger: {
-            trigger: title as HTMLElement,
-            start: "top 85%",
-            once: true,
-          },
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power4.out",
+      gsap.to(title as HTMLElement, {
+        scrollTrigger: {
+          trigger: title as HTMLElement,
+          start: "top 85%",
+          once: true,
         },
-      );
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power4.out",
+      });
     });
 
-    // 3. Tarjetas: ¿QUÉ PODEMOS CONSTRUIR? (.use-case) - TU PATRÓN FAVORITO
-    gsap.utils.toArray(".use-case").forEach((card, i) => {
-      gsap.fromTo(
-        card as HTMLElement,
-        { opacity: 0, y: 50 },
-        {
-          scrollTrigger: {
-            trigger: card as HTMLElement,
-            start: "top 85%",
-            once: true,
-          },
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: i * 0.15,
-          ease: "power3.out",
-        },
-      );
-    });
-
-    // 4. Tarjetas: EL ESTÁNDAR (.vs-card) - CLONADO EXACTO DE .use-case
+    // 3. Tarjetas VS (El estándar)
     gsap.utils.toArray(".vs-card").forEach((card, i) => {
-      gsap.fromTo(
-        card as HTMLElement,
-        { opacity: 0, y: 50 },
-        {
-          scrollTrigger: {
-            trigger: card as HTMLElement,
-            start: "top 85%",
-            once: true,
-          },
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: i * 0.15,
-          ease: "power3.out",
+      gsap.to(card as HTMLElement, {
+        scrollTrigger: {
+          trigger: card as HTMLElement,
+          start: "top 85%",
+          once: true,
         },
-      );
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power3.out",
+      });
     });
 
-    // 5. Tarjetas: PROCESO DE CREACIÓN (.proceso-card) - CLONADO EXACTO DE .use-case
+    // 4. CORRECCIÓN USE-CASES (¿Qué podemos construir?): Usamos .to() limpio
+    gsap.utils.toArray(".use-case").forEach((card, i) => {
+      gsap.to(card as HTMLElement, {
+        scrollTrigger: {
+          trigger: card as HTMLElement,
+          start: "top 85%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.1, // Reducimos el delay para mayor fluidez
+        ease: "power3.out",
+      });
+    });
+
+    // 5. CORRECCIÓN PROCESO: Usamos .to() y sincronizamos con el CSS
     gsap.utils.toArray(".proceso-card").forEach((card, i) => {
-      gsap.fromTo(
-        card as HTMLElement,
-        { opacity: 0, y: 50 },
-        {
-          scrollTrigger: {
-            trigger: card as HTMLElement,
-            start: "top 85%",
-            once: true,
-          },
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: i * 0.15,
-          ease: "power3.out",
+      gsap.to(card as HTMLElement, {
+        scrollTrigger: {
+          trigger: card as HTMLElement,
+          start: "top 85%",
+          once: true,
         },
-      );
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power3.out",
+      });
     });
 
-    // 6. Tarjetas: INGENIERÍA DE CONVERSIÓN (.feat-card) - CLONADO EXACTO DE .use-case
+    // 6. CORRECCIÓN INGENIERÍA DE CONVERSIÓN (.feat-card)
+    // Reducimos el retardo para que no parezca que "tarda en cargar"
     gsap.utils.toArray(".feat-card").forEach((feat, i) => {
-      gsap.fromTo(
-        feat as HTMLElement,
-        { opacity: 0, y: 50 },
-        {
-          scrollTrigger: {
-            trigger: feat as HTMLElement,
-            start: "top 85%",
-            once: true,
-          },
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: (i % 3) * 0.15,
-          ease: "power3.out",
+      gsap.to(feat as HTMLElement, {
+        scrollTrigger: {
+          trigger: feat as HTMLElement,
+          start: "top 88%", // Se dispara un pelín antes al bajar
+          once: true,
         },
-      );
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: (i % 3) * 0.1, // Delay más sutil (0.1s en vez de 0.15s)
+        ease: "power3.out",
+      });
     });
+
+    // Forzamos un recalculo al final para que Astro ViewTransitions no desvíe las coordenadas
+    ScrollTrigger.refresh();
   });
 </script>

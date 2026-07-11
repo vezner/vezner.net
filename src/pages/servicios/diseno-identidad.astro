@@ -38,9 +38,26 @@ import Footer from '../../components/Footer.astro';
         </h1>
         
         <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
-          <p class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg">
-            Construimos identidades visuales estratégicas. Más allá de vectores y paletas de color, diseñamos sistemas de marca que diferencian tu negocio, transmiten autoridad y te posicionan por encima de tu competencia.
-          </p>
+          <div class="max-w-lg">
+            <p class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 mb-8">
+              Construimos identidades visuales estratégicas. Más allá de vectores y paletas de color, diseñamos ecosistemas de marca que diferencian tu negocio, transmiten autoridad y te posicionan por encima de tu competencia.
+            </p>
+            
+            <div class="hero-desc opacity-0 transform translate-y-8 flex flex-col sm:flex-row gap-4 mb-6">
+              <a href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20crear%20una%20identidad%20visual%20premium" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center gap-3 bg-yellow-400 text-negro px-8 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden border-2 border-yellow-400 rounded-2xl hover:rounded-none transition-[border-radius] duration-300 w-full sm:w-auto">
+                <span class="relative z-10 flex items-center gap-2"><i class="fa-brands fa-whatsapp text-base"></i> Cotizar por WhatsApp</span>
+                <span class="absolute inset-0 bg-blanco translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
+              </a>
+              <a href="#galeria" class="inline-flex items-center justify-center px-8 py-4 font-mono text-xs tracking-widest uppercase border-2 border-blanco/20 text-blanco rounded-2xl hover:rounded-none hover:border-blanco transition-all duration-300 w-full sm:w-auto">
+                Ver Galería
+              </a>
+            </div>
+            
+            <div class="hero-desc opacity-0 transform translate-y-8 flex items-center gap-4 text-xs font-mono text-blanco/50">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-yellow-400"></i> Manual de marca incluido</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-vector-square text-rosa"></i> 100% Vectorial</span>
+            </div>
+          </div>
           
           <div class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8">
             <div class="border-l border-yellow-400/30 pl-4">
@@ -153,10 +170,11 @@ import Footer from '../../components/Footer.astro';
             { n: '03', t: 'Sistemas de Marca', d: 'Desarrollamos ecosistemas visuales completos: tipografías, colores, reglas de uso y jerarquía visual.' },
             { n: '04', t: 'Brandbook Técnico', d: 'Entrega del manual de marca definitivo y todos los archivos vectoriales necesarios para escalar tu negocio.' },
           ].map((item, i) => (
-            <div class="id-step opacity-0 translate-y-12">
-              <div class="font-display text-6xl text-yellow-400/20 mb-4">{item.n}</div>
-              <h4 class="font-mono text-lg font-bold mb-3">{item.t}</h4>
-              <p class="font-mono text-xs text-blanco/50 leading-relaxed">{item.d}</p>
+            <div class="id-step opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-12 last:pb-0 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300 group">
+              <div class="absolute -left-[30px] md:-left-[40px] top-4 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-yellow-400 group-hover:shadow-[0_0_15px_rgba(253,224,71,0.6)] border-4 border-negro transform -translate-x-1/2 transition-all duration-300" />
+              <div class="font-display text-6xl text-yellow-400/20 group-hover:text-yellow-400/50 transition-colors duration-300 mb-4">{item.n}</div>
+              <h4 class="font-mono text-lg font-bold mb-3 group-hover:text-yellow-400 transition-colors duration-300">{item.t}</h4>
+              <p class="font-mono text-xs text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed">{item.d}</p>
             </div>
           ))}
         </div>
@@ -174,10 +192,10 @@ import Footer from '../../components/Footer.astro';
             { t: 'Manual de Marca PDF', d: 'Un documento técnico extenso que dicta todas las reglas de uso (espacios, prohibiciones, contraste).', i: 'fa-solid fa-file-pdf' },
             { t: 'Papelería & Digital', d: 'Diseño de tarjetas de presentación, firmas de email, menús de restaurante o templates para redes.', i: 'fa-solid fa-pen-nib' },
           ].map((item, i) => (
-            <div data-gsap="fade-up" class="plan-card opacity-0 border border-blanco/5 p-8 bg-[#111] hover:bg-yellow-400/10 hover:border-yellow-400/30 rounded-2xl hover:rounded-none transition-safe duration-300 transition-colors duration-300">
-              <i class={`${item.i} text-3xl text-yellow-400/50 mb-6 block`}></i>
-              <h4 class="font-display text-2xl mb-4 text-blanco">{item.t}</h4>
-              <p class="font-mono text-xs text-blanco/50 leading-relaxed">{item.d}</p>
+            <div data-gsap="fade-up" class="plan-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 p-8 bg-[#111] hover:bg-yellow-400/5 hover:border-yellow-400/30 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300 group">
+              <i class={`${item.i} text-3xl text-yellow-400/50 group-hover:text-yellow-400 group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}></i>
+              <h4 class="font-display text-2xl mb-4 text-blanco group-hover:translate-x-1 transition-transform duration-300">{item.t}</h4>
+              <p class="font-mono text-xs text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed">{item.d}</p>
             </div>
           ))}
         </div>

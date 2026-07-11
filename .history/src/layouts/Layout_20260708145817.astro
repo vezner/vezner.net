@@ -530,32 +530,6 @@ const schemaOrg = {
 
         // Guardar globalmente para otros scripts si lo necesitan
         (window as any).lenisInstance = lenisInstance;
-
-        // 5. Scroll suave para enlaces internos (anclas) usando Lenis
-        document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            const href = (this as HTMLAnchorElement).href;
-            if (!href) return;
-            
-            try {
-              const url = new URL(href);
-              // Si el enlace es a la misma página y tiene un hash
-              if (url.pathname === window.location.pathname && url.hash && url.hash !== "#") {
-                const target = document.querySelector(url.hash);
-                if (target) {
-                  e.preventDefault();
-                  if (lenisInstance) {
-                    lenisInstance.scrollTo(target, { offset: -80, duration: 1.2 });
-                  } else {
-                    target.scrollIntoView({ behavior: "smooth" });
-                  }
-                }
-              }
-            } catch (err) {
-              // Ignorar URLs inválidas
-            }
-          });
-        });
       });
 
       let mouseX = -100,

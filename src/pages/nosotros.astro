@@ -133,12 +133,12 @@ import Footer from "../components/Footer.astro";
                 d: "Todo diseño o desarrollo que hacemos tiene un objetivo claro: generar más ventas o contactos cualificados.",
               },
             ].map((item) => (
-              <div class="n-value-card opacity-0 translate-y-12 border-t border-negro/20 pt-8 hover:border-negro transition-colors duration-300 rounded-2xl hover:rounded-none">
-                <div class="font-display text-7xl text-negro/10 mb-4">
+              <div class="n-value-card opacity-0 transform-gpu will-change-transform will-change-[opacity] translate-y-12 border-t-2 border-negro/20 pt-8 transition-colors transition-[border-radius] duration-300 rounded-2xl hover:rounded-none hover:border-negro group hover:bg-negro/[0.02] px-4 -mx-4 pb-4">
+                <div class="font-display text-7xl text-negro/10 group-hover:text-negro/20 group-hover:-translate-y-2 transition-all duration-300 mb-4">
                   {item.n}
                 </div>
-                <h3 class="font-mono text-2xl font-bold mb-4">{item.t}</h3>
-                <p class="font-mono text-sm text-negro/60 leading-relaxed">
+                <h3 class="font-mono text-2xl font-bold mb-4 group-hover:translate-x-1 transition-transform duration-300">{item.t}</h3>
+                <p class="font-mono text-sm text-negro/60 group-hover:text-negro/80 transition-colors duration-300 leading-relaxed">
                   {item.d}
                 </p>
               </div>

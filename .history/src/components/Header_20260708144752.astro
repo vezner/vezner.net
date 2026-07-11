@@ -163,7 +163,7 @@ const { theme = "light" } = Astro.props;
                       class="mega-link flex items-center py-2"
                     >
                       <span class="mega-arrow">→</span>
-                      <span class="mega-text">Estándar VEZNER</span>
+                      <span class="mega-text">Estándo VEZNER</span>
                     </a>
                     <a
                       href="/servicios/diseno-web#enfoque"
@@ -768,7 +768,7 @@ const { theme = "light" } = Astro.props;
       if (e.key === "Escape" && menuOpen) closeMenu();
     });
 
-    // --- Lógica del Morphing Dropdown Integrada con GSAP y Transiciones Suaves ---
+    // --- Lógica del Morphing Dropdown Integrada con GSAP ---
     const desktopNavList = document.getElementById("desktop-nav-list");
     const morphingDropdown = document.getElementById("morphing-dropdown");
     const navItems = document.querySelectorAll(".desktop-nav-item");
@@ -795,7 +795,7 @@ const { theme = "light" } = Astro.props;
 
       panels.forEach((p) => {
         if (p instanceof HTMLElement) {
-          gsap.to(p, { opacity: 0, duration: 0.2, ease: "power2.inOut" });
+          p.style.opacity = "0";
           p.style.pointerEvents = "none";
         }
       });
@@ -813,45 +813,17 @@ const { theme = "light" } = Astro.props;
         if (!(targetPanel instanceof HTMLElement)) return;
 
         const newIndex = panelOrder.indexOf(dropdownName);
-        const direction =
-          currentPanelIndex !== -1 && newIndex > currentPanelIndex ? 1 : -1;
 
-        // Desvanecer y mover suavemente los paneles que NO son el actual
         panels.forEach((p, idx) => {
           if (idx !== newIndex && p instanceof HTMLElement) {
-            gsap.to(p, {
-              opacity: 0,
-              x: -direction * 15,
-              duration: 0.25,
-              ease: "power2.out",
-              overwrite: "auto",
-            });
+            p.style.opacity = "0";
             p.style.pointerEvents = "none";
           }
         });
 
-        // Entrar suavemente con el nuevo panel desde el lado opuesto al movimiento
-        if (currentPanelIndex !== newIndex) {
-          gsap.fromTo(
-            targetPanel,
-            {
-              opacity: 0,
-              x: isDropdownOpen ? direction * 20 : 0,
-              y: isDropdownOpen ? 0 : 8,
-            },
-            {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              duration: 0.4,
-              delay: isDropdownOpen ? 0.05 : 0.1,
-              ease: "power3.out",
-              overwrite: "auto",
-            },
-          );
-        }
-
+        targetPanel.style.opacity = "1";
         targetPanel.style.pointerEvents = "auto";
+
         currentPanelIndex = newIndex;
 
         const panelContent = targetPanel.firstElementChild;
@@ -893,7 +865,7 @@ const { theme = "light" } = Astro.props;
                 x: left,
                 y: 0,
                 opacity: 1,
-                duration: 0.45,
+                duration: 0.5,
                 ease: "power3.out",
                 overwrite: "auto",
               });

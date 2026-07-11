@@ -56,14 +56,31 @@ import Footer from "../../components/Footer.astro";
         </h1>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
-          <p
-            class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 max-w-lg"
-          >
-            Automatizamos tus procesos más tediosos, reducimos el margen de
-            error humano y eliminamos cientos de horas operativas mensuales.
-            Construimos sistemas a medida para que tu equipo deje de hacer
-            tareas repetitivas y se enfoque en generar ingresos.
-          </p>
+          <div class="max-w-lg">
+            <p
+              class="hero-desc font-mono text-base md:text-lg text-blanco/60 leading-relaxed opacity-0 transform translate-y-8 mb-8"
+            >
+              Automatizamos tus procesos más tediosos, reducimos el margen de
+              error humano y eliminamos cientos de horas operativas mensuales.
+              Construimos sistemas a medida para que tu equipo deje de hacer
+              tareas repetitivas y se enfoque en generar ingresos reales.
+            </p>
+            
+            <div class="hero-desc opacity-0 transform translate-y-8 flex flex-col sm:flex-row gap-4 mb-6">
+              <a href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20necesito%20automatizar%20procesos%20con%20Python" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center gap-3 bg-verde text-negro px-8 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden border-2 border-verde rounded-2xl hover:rounded-none transition-[border-radius] duration-300 w-full sm:w-auto">
+                <span class="relative z-10 flex items-center gap-2"><i class="fa-brands fa-whatsapp text-base"></i> Cotizar por WhatsApp</span>
+                <span class="absolute inset-0 bg-blanco translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
+              </a>
+              <a href="#soluciones" class="inline-flex items-center justify-center px-8 py-4 font-mono text-xs tracking-widest uppercase border-2 border-blanco/20 text-blanco rounded-2xl hover:rounded-none hover:border-blanco transition-all duration-300 w-full sm:w-auto">
+                Ver Soluciones
+              </a>
+            </div>
+            
+            <div class="hero-desc opacity-0 transform translate-y-8 flex items-center gap-4 text-xs font-mono text-blanco/50">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-verde"></i> Código 100% a medida</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-yellow-500"></i> Máximo rendimiento</span>
+            </div>
+          </div>
 
           <div
             class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
@@ -147,12 +164,12 @@ import Footer from "../../components/Footer.astro";
               },
             ].map((item, i) => (
               <div
-                class={`use-case opacity-0 border border-blanco/5 p-8 transition-safe duration-300 rounded-2xl hover:rounded-none ${item.c}`}
+                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 p-8 transition-colors transition-[border-radius] duration-300 rounded-2xl hover:rounded-none ${item.c} group`}
               >
-                <div class="font-mono text-xs text-blanco/30 mb-6">
+                <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors duration-300">
                   0{i + 1}
                 </div>
-                <h3 data-gsap="fade-up" class="font-display text-3xl mb-4 text-blanco">{item.t}</h3>
+                <h3 data-gsap="fade-up" class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform duration-300">{item.t}</h3>
                 <p class="font-mono text-xs text-blanco/50 leading-relaxed">
                   {item.d}
                 </p>
@@ -305,6 +322,11 @@ import Footer from "../../components/Footer.astro";
 
     <section id="stack" class="py-32 px-6 md:px-16 bg-[#0a0a0a]">
       <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <h2 data-gsap="fade-up" class="font-display text-5xl md:text-7xl text-blanco mb-6 stack-title opacity-0">
+            EL STACK TECNOLÓGICO
+          </h2>
+        </div>
         <div class="grid md:grid-cols-3 gap-x-12 gap-y-20">
           {
             [
@@ -339,9 +361,9 @@ import Footer from "../../components/Footer.astro";
                 i: "fa-solid fa-heart-pulse",
               },
             ].map((f, i) => (
-              <div class="feat-card opacity-0 border-t border-blanco/10 pt-8 transition-safe duration-300 rounded-2xl hover:rounded-none">
-                <i class={`${f.i} text-3xl text-verde/50 mb-6 block`} />
-                <h4 class="font-display text-3xl text-blanco mb-4">{f.t}</h4>
+              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-blanco/10 pt-8 transition-colors transition-[border-radius] duration-300 rounded-2xl hover:rounded-none hover:border-verde group hover:bg-blanco/[0.02] px-4 -mx-4 pb-4">
+                <i class={`${f.i} text-3xl text-verde/50 group-hover:text-verde group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`} />
+                <h4 class="font-display text-3xl text-blanco mb-4 group-hover:translate-x-1 transition-transform duration-300">{f.t}</h4>
                 <p class="font-mono text-xs text-blanco/60 leading-relaxed">
                   {f.d}
                 </p>
@@ -497,6 +519,14 @@ import Footer from "../../components/Footer.astro";
       duration: 1,
       delay: 0.2,
       ease: "power3.out",
+    });
+
+    gsap.to(".stack-title", {
+      scrollTrigger: { trigger: ".stack-title", start: "top 85%", once: true },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power4.out",
     });
 
     ScrollTrigger.create({

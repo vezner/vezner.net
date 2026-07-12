@@ -534,8 +534,8 @@ const schemaOrg = {
 
         // 5. Scroll suave para enlaces internos (anclas) usando Lenis
         document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            const href = (this as HTMLAnchorElement).href;
+          anchor.addEventListener("click", (e) => {
+            const href = (anchor as HTMLAnchorElement).href;
             if (!href) return;
             
             try {

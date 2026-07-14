@@ -6,7 +6,7 @@ export default {
       fontFamily: {
         sans: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
         display: ['"Bebas Neue"', 'sans-serif'],
-        mono: ['Inter', 'Outfit', 'sans-serif'], // Replaced console font with clean modern sans-serif
+        mono: ['Inter', 'Outfit', 'sans-serif'],
       },
       colors: {
         negro: '#0a0a0a',

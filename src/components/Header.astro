@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Logo from "./Logo.astro";
-
-// Evitar romper si la colección no existe aún
+import Logo from "./Logo.astro";
 let latestPosts: any[] = [];
 try {
   const allPosts = await getCollection("blog");
@@ -13,8 +11,7 @@ try {
       )
       .slice(0, 3);
   }
-} catch (e) {
-  // Colección vacía o no creada
+} catch (e) {
 }
 
 export interface Props {
@@ -126,13 +123,13 @@ const { theme = "light" } = Astro.props;
                   <span class="mega-arrow">→</span>
                   <span class="mega-text">Servicios</span>
                 </a>
-                <a href="/#proceso" class="mega-link flex items-center py-2">
+                <a href="/#crafted-with-purpose" class="mega-link flex items-center py-2">
                   <span class="mega-arrow">→</span>
-                  <span class="mega-text">Proceso</span>
+                  <span class="mega-text">Crafted With Purpose</span>
                 </a>
-                <a href="/#noticias" class="mega-link flex items-center py-2">
+                <a href="/#enfoque" class="mega-link flex items-center py-2">
                   <span class="mega-arrow">→</span>
-                  <span class="mega-text">Noticias</span>
+                  <span class="mega-text">Enfoque</span>
                 </a>
               </div>
             </div>
@@ -173,11 +170,11 @@ const { theme = "light" } = Astro.props;
                       <span class="mega-text">Nuestro Enfoque</span>
                     </a>
                     <a
-                      href="/servicios/diseno-web#cta"
+                      href="/servicios/diseno-web#contacto-servicio"
                       class="mega-link flex items-center py-2"
                     >
                       <span class="mega-arrow">→</span>
-                      <span class="mega-text">Agendar Llamada</span>
+                      <span class="mega-text">Completar Formulario</span>
                     </a>
                   </div>
                 </div>
@@ -210,11 +207,11 @@ const { theme = "light" } = Astro.props;
                       <span class="mega-text">Nuestro Stack</span>
                     </a>
                     <a
-                      href="/servicios/software-python#cta"
+                      href="/servicios/software-python#contacto-servicio"
                       class="mega-link flex items-center py-2"
                     >
                       <span class="mega-arrow">→</span>
-                      <span class="mega-text">Consultar Proyecto</span>
+                      <span class="mega-text">Completar Formulario</span>
                     </a>
                   </div>
                 </div>
@@ -247,11 +244,11 @@ const { theme = "light" } = Astro.props;
                       <span class="mega-text">Entregables</span>
                     </a>
                     <a
-                      href="/servicios/diseno-identidad#cta"
+                      href="/servicios/diseno-identidad#contacto-servicio"
                       class="mega-link flex items-center py-2"
                     >
                       <span class="mega-arrow">→</span>
-                      <span class="mega-text">Cotizar Marca</span>
+                      <span class="mega-text">Completar Formulario</span>
                     </a>
                   </div>
                 </div>
@@ -578,6 +575,20 @@ const { theme = "light" } = Astro.props;
     background-color: #ffffff;
   }
 
+  
+  :global(#header .logo-container img),
+  :global(#header .logo-container .logo-canvas) {
+    transition: filter 0.5s ease !important;
+  }
+
+  :global(#header .nav-link),
+  :global(#header .cta-text),
+  :global(#header .menu-bar),
+  :global(#header #header-cta),
+  :global(#header .cta-bg) {
+    transition: all 0.5s ease !important;
+  }
+
   .dropdown-theme-sync {
     background-color: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.05);
@@ -591,7 +602,7 @@ const { theme = "light" } = Astro.props;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 
-  /* --- Nueva Animación Fluida para Enlaces Internos (Mega Links) --- */
+  
   .mega-link {
     text-decoration: none;
     color: inherit;
@@ -718,17 +729,67 @@ const { theme = "light" } = Astro.props;
 
   document.addEventListener("astro:page-load", () => {
     const header = document.getElementById("header");
+    const sections = Array.from(document.querySelectorAll("section, footer, main > div, main > section"));
 
     const onScroll = () => {
-      if (window.scrollY > 40) {
+      const scrollY = window.scrollY;
+      if (scrollY > 40) {
         header?.classList.add("scrolled");
       } else {
         header?.classList.remove("scrolled");
+      }
+      if (header) {
+        const headerMidY = 40; 
+        let activeSection = null;
+        
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const rect = sections[i].getBoundingClientRect();
+          if (rect.top <= headerMidY && rect.bottom >= headerMidY) {
+            activeSection = sections[i];
+            break;
+          }
+        }
+
+        if (activeSection) {
+          let isDark = false; 
+          let currentEl: Element | null = activeSection;
+          
+          while (currentEl && currentEl !== document.documentElement) {
+            const className = currentEl.className || "";
+            if (className.includes("bg-negro") || 
+                className.includes("bg-[#050505]") ||
+                className.includes("bg-[#080808]") || 
+                className.includes("bg-[#0a0a0a]") ||
+                className.includes("bg-[#111]") ||
+                className.includes("bg-[#1a1a1a]") ||
+                className.includes("bg-black")) {
+              isDark = true;
+              break;
+            }
+            if (className.includes("bg-blanco") || 
+                className.includes("bg-white") ||
+                className.includes("bg-[#f5f5f5]") ||
+                className.includes("bg-[#fafafa]")) {
+              isDark = false;
+              break;
+            }
+            
+            currentEl = currentEl.parentElement;
+          }
+  
+          if (isDark) {
+            header.classList.add("theme-dark");
+            header.classList.remove("theme-light");
+          } else {
+            header.classList.add("theme-light");
+            header.classList.remove("theme-dark");
+          }
+        }
       }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    setTimeout(onScroll, 50);
 
     const toggle = document.getElementById("menu-toggle");
     const closeBtn = document.getElementById("menu-close");
@@ -766,9 +827,7 @@ const { theme = "light" } = Astro.props;
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && menuOpen) closeMenu();
-    });
-
-    // --- Lógica del Morphing Dropdown Integrada con GSAP y Transiciones Suaves ---
+    });
     const desktopNavList = document.getElementById("desktop-nav-list");
     const morphingDropdown = document.getElementById("morphing-dropdown");
     const navItems = document.querySelectorAll(".desktop-nav-item");
@@ -814,9 +873,7 @@ const { theme = "light" } = Astro.props;
 
         const newIndex = panelOrder.indexOf(dropdownName);
         const direction =
-          currentPanelIndex !== -1 && newIndex > currentPanelIndex ? 1 : -1;
-
-        // Desvanecer y mover suavemente los paneles que NO son el actual
+          currentPanelIndex !== -1 && newIndex > currentPanelIndex ? 1 : -1;
         panels.forEach((p, idx) => {
           if (idx !== newIndex && p instanceof HTMLElement) {
             gsap.to(p, {
@@ -828,9 +885,7 @@ const { theme = "light" } = Astro.props;
             });
             p.style.pointerEvents = "none";
           }
-        });
-
-        // Entrar suavemente con el nuevo panel desde el lado opuesto al movimiento
+        });
         if (currentPanelIndex !== newIndex) {
           gsap.fromTo(
             targetPanel,

@@ -56,9 +56,9 @@ import Footer from "../components/Footer.astro";
             class="contact-form opacity-0 relative z-10"
             autocomplete="off"
           >
-            <!-- CONTENEDOR PASO 1 -->
+            
             <div id="step-1" class="space-y-8 transition-opacity duration-500">
-              <!-- PASO 1: SERVICIO -->
+              
               <div class="form-group relative custom-dropdown-container z-50">
                 <label
                   class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
@@ -112,9 +112,9 @@ import Footer from "../components/Footer.astro";
                 </div>
               </div>
 
-              <!-- PASO 2: PREGUNTAS DINÁMICAS -->
+              
               <div id="dynamic-fields-container" class="space-y-6">
-                <!-- Web -->
+                
                 <div
                   id="fields-Diseño Web"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -185,7 +185,7 @@ import Footer from "../components/Footer.astro";
                   </div>
                 </div>
 
-                <!-- Python -->
+                
                 <div
                   id="fields-Software Python"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -253,7 +253,7 @@ import Footer from "../components/Footer.astro";
                   </div>
                 </div>
 
-                <!-- Identidad -->
+                
                 <div
                   id="fields-Diseño de Identidad"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -338,7 +338,7 @@ import Footer from "../components/Footer.astro";
                   </div>
                 </div>
 
-                <!-- Otro -->
+                
                 <div
                   id="fields-Otro"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -375,7 +375,7 @@ import Footer from "../components/Footer.astro";
                   </div>
                 </div>
 
-                <!-- Botón Continuar -->
+                
                 <div
                   id="continue-btn-container"
                   class="hidden opacity-0 transition-opacity duration-500 pt-4"
@@ -401,9 +401,9 @@ import Footer from "../components/Footer.astro";
                 </div>
               </div>
             </div>
-            <!-- FIN PASO 1 -->
+            
 
-            <!-- CONTENEDOR PASO 2: DATOS DE CONTACTO -->
+            
             <div
               id="step-2"
               class="space-y-8 hidden opacity-0 transition-opacity duration-500"
@@ -569,7 +569,7 @@ import Footer from "../components/Footer.astro";
                 </button>
               </div>
             </div>
-            <!-- FIN PASO 2 -->
+            
 
             <div
               id="form-success"
@@ -676,6 +676,26 @@ import Footer from "../components/Footer.astro";
                   <i
                     class="fa-brands fa-instagram text-negro/60 group-hover:text-[#E1306C] transition-colors"
                   ></i>
+                </a>
+                <a
+                  href="https://www.threads.com/@veznerarg"
+                  target="_blank"
+                  aria-label="Threads"
+                  class="social-icon-btn w-10 h-10 border border-negro/10 flex items-center justify-center group hover:border-[#000000] hover:bg-[#000000]/5 transition-safe duration-300 rounded-2xl hover:rounded-none"
+                >
+                  <i
+                    class="fa-brands fa-threads text-negro/60 group-hover:text-[#000000] transition-colors"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.pexels.com/@vezner-studio-2162906318/"
+                  target="_blank"
+                  aria-label="Pexels"
+                  class="social-icon-btn w-10 h-10 border border-negro/10 flex items-center justify-center group hover:border-[#05A081] hover:bg-[#05A081]/5 transition-safe duration-300 rounded-2xl hover:rounded-none"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px] text-negro/60 group-hover:text-[#05A081] transition-colors">
+                    <path d="M8.8 22.2V15.4H2v-2.2h6.8V9a6.4 6.4 0 1 1 6.4 6.4H11v6.8z M11 13.2h4.2a4.2 4.2 0 1 0 -4.2-4.2z"/>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -794,12 +814,12 @@ import Footer from "../components/Footer.astro";
           }
 
           if (hiddenInput && hiddenInput.id === "servicio") {
-            // Ocultar todos los grupos
+
             dynamicGroups.forEach((group) => {
               group.classList.add("opacity-0");
               setTimeout(() => {
                 group.classList.add("hidden");
-                // Desactivar required y disable
+
                 const inputs = group.querySelectorAll(
                   ".dynamic-input",
                 ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
@@ -810,25 +830,22 @@ import Footer from "../components/Footer.astro";
               }, 300);
             });
 
-            // Mostrar el grupo correspondiente
             const targetGroup = document.getElementById(`fields-${value}`);
             if (targetGroup) {
               setTimeout(() => {
                 targetGroup.classList.remove("hidden");
-                // Habilitar y required
+
                 const inputs = targetGroup.querySelectorAll(
                   ".dynamic-input",
                 ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
                 inputs.forEach((input) => {
                   input.disabled = false;
-                  input.required = true; // Hacemos requeridos todos los de la sección, excepto los que decidas opcionales
+                  input.required = true; 
                 });
 
-                // Pequeño delay para que aplique el display block antes de la opacidad
                 setTimeout(() => {
                   targetGroup.classList.remove("opacity-0");
 
-                  // Mostrar botón continuar
                   const continueContainer = document.getElementById(
                     "continue-btn-container",
                   );
@@ -839,7 +856,7 @@ import Footer from "../components/Footer.astro";
                     }, 50);
                   }
                 }, 50);
-              }, 300); // Esperamos a que los otros se oculten
+              }, 300); 
             }
           }
 
@@ -912,7 +929,6 @@ import Footer from "../components/Footer.astro";
     document.addEventListener("click", (e) => {
       closeAllDropdowns();
 
-      // Autocomplete click outside
       const target = e.target as HTMLElement;
       const provInput = document.getElementById("provincia");
       const provAuto = document.getElementById("provincia-autocomplete");

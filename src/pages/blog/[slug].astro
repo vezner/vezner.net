@@ -36,9 +36,9 @@ const relatedPosts = allPosts
   <main class="bg-blanco text-negro min-h-screen pt-32 pb-20">
     <article class="px-6 md:px-16 max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-        <!-- Columna Izquierda (Contenido) -->
+        
         <div class="lg:col-span-8">
-          <!-- Encabezado -->
+          
           <header class="mb-12">
             <div
               class="flex items-center gap-4 font-mono text-xs uppercase tracking-widest text-negro/40 mb-6"
@@ -81,7 +81,7 @@ const relatedPosts = allPosts
             )
           }
 
-          <!-- Contenido Markdown -->
+          
           <div class="blog-content w-full">
             <Content />
           </div>
@@ -102,7 +102,7 @@ const relatedPosts = allPosts
           }
         </div>
 
-        <!-- Columna Derecha (Sidebar) -->
+        
         <aside class="lg:col-span-4">
           <div class="sticky top-32 flex flex-col gap-12">
             {
@@ -187,7 +187,7 @@ const relatedPosts = allPosts
   .blog-content p,
   .blog-content li {
     @apply font-mono;
-    font-size: 0.875rem; /* text-sm */
+    font-size: 0.875rem; 
     line-height: 1.75;
     color: rgba(0, 0, 0, 0.7);
     margin-bottom: 1.25rem;

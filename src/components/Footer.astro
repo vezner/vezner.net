@@ -27,6 +27,18 @@ const redes = [
     url: "https://instagram.com/veznerarg",
     color: "#E1306C",
   },
+  {
+    icon: "fa-brands fa-threads",
+    nombre: "Threads",
+    url: "https://www.threads.com/@veznerarg",
+    color: "#FFFFFF",
+  },
+  {
+    icon: "pexels",
+    nombre: "Pexels",
+    url: "https://www.pexels.com/@vezner-studio-2162906318/",
+    color: "#05A081",
+  },
 ];
 ---
 
@@ -79,9 +91,15 @@ const redes = [
                 style={`--hover-color: ${r.color}`}
                 title={r.nombre}
               >
-                <i
-                  class={`${r.icon} text-sm text-blanco/40 group-hover:text-blanco transition-safe duration-300`}
-                />
+                {r.icon === "pexels" ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blanco/40 group-hover:text-blanco transition-safe duration-300">
+                    <path d="M8.8 22.2V15.4H2v-2.2h6.8V9a6.4 6.4 0 1 1 6.4 6.4H11v6.8z M11 13.2h4.2a4.2 4.2 0 1 0 -4.2-4.2z"/>
+                  </svg>
+                ) : (
+                  <i
+                    class={`${r.icon} text-sm text-blanco/40 group-hover:text-blanco transition-safe duration-300`}
+                  />
+                )}
               </a>
             ))
           }

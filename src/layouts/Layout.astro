@@ -58,6 +58,8 @@ const schemaOrg = {
         "https://github.com/vezner",
         "https://youtube.com/@veznerarg",
         "https://instagram.com/veznerarg",
+        "https://www.threads.com/@veznerarg",
+        "https://www.pexels.com/@vezner-studio-2162906318/",
       ],
     },
     {
@@ -86,6 +88,22 @@ const schemaOrg = {
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
+
+    
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TLHSD3HQ");
+    </script>
+    
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
@@ -152,7 +170,7 @@ const schemaOrg = {
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
 
     <style is:global>
-      /* View Transitions Animaciones Premium */
+      
       ::view-transition-old(root) {
         animation: fadeOutTop 0.4s cubic-bezier(0.87, 0, 0.13, 1) both;
       }
@@ -209,7 +227,7 @@ const schemaOrg = {
         height: auto;
       }
 
-      /* Global Border Radius & Animations para Tarjetas (Sin romper GSAP) */
+      
       .servicio-card,
       .servicio-card-simple,
       .use-case,
@@ -243,7 +261,7 @@ const schemaOrg = {
         border-radius: 0 !important;
       }
 
-      /* Global Border Radius & Animations para TODOS los Botones */
+      
       button,
       a.btn-primary,
       a.btn-secondary,
@@ -259,7 +277,7 @@ const schemaOrg = {
           0,
           0.2,
           1
-        ) !important; /* ease-out */
+        ) !important; 
       }
       button:hover,
       a.btn-primary:hover,
@@ -464,6 +482,16 @@ const schemaOrg = {
     </style>
   </head>
   <body>
+    
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TLHSD3HQ"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    
+
     <div id="vz-cursor" aria-hidden="true">
       <svg
         width="24"
@@ -502,16 +530,14 @@ const schemaOrg = {
       let lenisInstance: any = null;
 
       document.addEventListener("astro:page-load", () => {
-        // 1. Refresh ScrollTrigger
+
         ScrollTrigger.refresh();
 
-        // 2. Destruir instancia anterior de Lenis si existe (para evitar bugs de Astro View Transitions)
         if (lenisInstance) {
           lenisInstance.destroy();
           lenisInstance = null;
         }
 
-        // 3. Inicializar Lenis
         lenisInstance = new Lenis({
           duration: 1.15,
           easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -520,7 +546,6 @@ const schemaOrg = {
           touchMultiplier: 1.8,
         });
 
-        // 4. Sincronizar Lenis con GSAP ScrollTrigger de forma irrompible
         lenisInstance.on("scroll", ScrollTrigger.update);
 
         gsap.ticker.add((time) => {
@@ -529,31 +554,36 @@ const schemaOrg = {
 
         gsap.ticker.lagSmoothing(0);
 
-        // Guardar globalmente para otros scripts si lo necesitan
         (window as any).lenisInstance = lenisInstance;
 
-        // 5. Scroll suave para enlaces internos (anclas) usando Lenis
         document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
           anchor.addEventListener("click", (e) => {
             const href = (anchor as HTMLAnchorElement).href;
             if (!href) return;
-            
+
             try {
               const url = new URL(href);
-              // Si el enlace es a la misma página y tiene un hash
-              if (url.pathname === window.location.pathname && url.hash && url.hash !== "#") {
+
+              if (
+                url.pathname === window.location.pathname &&
+                url.hash &&
+                url.hash !== "#"
+              ) {
                 const target = document.querySelector(url.hash);
                 if (target) {
                   e.preventDefault();
                   if (lenisInstance) {
-                    lenisInstance.scrollTo(target, { offset: -80, duration: 1.2 });
+                    lenisInstance.scrollTo(target, {
+                      offset: -80,
+                      duration: 1.2,
+                    });
                   } else {
                     target.scrollIntoView({ behavior: "smooth" });
                   }
                 }
               }
             } catch (err) {
-              // Ignorar URLs inválidas
+
             }
           });
         });
@@ -660,8 +690,10 @@ const schemaOrg = {
             const tag = item.href ? "a" : "button";
             const dangerCls = item.danger ? " danger" : "";
             const datAction = item.action ? `data-action="${item.action}"` : "";
+            const pexelsIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-[14px] h-[14px] flex-shrink-0 text-current transition-colors mr-2 inline-block -mt-[2px]"><path d="M8.8 22.2V15.4H2v-2.2h6.8V9a6.4 6.4 0 1 1 6.4 6.4H11v6.8z M11 13.2h4.2a4.2 4.2 0 1 0 -4.2-4.2z"/></svg>`;
+            const iconHtml = item.icon === "pexels" ? pexelsIcon : `<i class="${item.icon || "fa-regular fa-circle"}"></i>`;
             return `<${tag} class="ctx-item${dangerCls}" ${href} ${datAction} role="menuitem">
-            <i class="${item.icon || "fa-regular fa-circle"}"></i>
+            ${iconHtml}
             <span>${item.label}</span>
           </${tag}>`;
           })
@@ -967,6 +999,18 @@ const schemaOrg = {
             icon: "fa-brands fa-instagram",
             label: "Instagram",
             href: "https://instagram.com/veznerarg",
+          },
+          {
+            type: "item",
+            icon: "fa-brands fa-threads",
+            label: "Threads",
+            href: "https://www.threads.com/@veznerarg",
+          },
+          {
+            type: "item",
+            icon: "pexels",
+            label: "Pexels",
+            href: "https://www.pexels.com/@vezner-studio-2162906318/",
           },
         ];
       }

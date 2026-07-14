@@ -44,7 +44,7 @@ const posts = (await getCollection('blog')).sort(
             posts.map((post: any) => {
               const searchContent = `${post.data.title} ${post.data.description}`;
               return (
-                <a href={`/blog/${post.id}`} class="blog-card group block border border-negro/10 rounded-2xl bg-blanco hover:border-negro hover:rounded-none transition-safe duration-500 overflow-hidden relative transition-colors duration-300" data-search={searchContent} data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
+                <a href={`/blog/${post.id}`} class="blog-card group block border border-negro/10 rounded-2xl bg-negro/[0.03] backdrop-blur-2xl hover:border-negro hover:rounded-none transition-safe duration-500 overflow-hidden relative transition-colors duration-300" data-search={searchContent} data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
                   <div class="aspect-[4/3] w-full overflow-hidden border-b border-negro/10">
                   <img
                     src={post.data.heroImage || '/og-image.webp'}
@@ -71,7 +71,7 @@ const posts = (await getCollection('blog')).sort(
                     {post.data.description}
                   </p>
                 </div>
-                <!-- Linea animada abajo -->
+                
                 <div class="absolute bottom-0 left-0 h-0.5 bg-negro w-0 group-hover:w-full transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
               </a>
               );
@@ -85,9 +85,9 @@ const posts = (await getCollection('blog')).sort(
           </div>
         )}
 
-        <!-- Contenedor de Paginación -->
+        
         <div id="pagination-controls" class="hidden mt-16 pt-8 border-t border-negro/10 flex items-center justify-center gap-2">
-          <!-- Se llena con JS -->
+          
         </div>
       </div>
     </section>
@@ -109,8 +109,7 @@ const posts = (await getCollection('blog')).sort(
     let currentPage = 1;
     let activeTag = '';
     let currentQuery = '';
-    
-    // Parse URL for ?tag= parameter
+
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('tag')) {
       activeTag = urlParams.get('tag')?.toLowerCase() || '';
@@ -126,8 +125,7 @@ const posts = (await getCollection('blog')).sort(
 
     const updateView = () => {
       let filteredCards: HTMLElement[] = [];
-      
-      // Filter step
+
       blogCards.forEach((card) => {
         const el = card as HTMLElement;
         const searchContent = el.getAttribute('data-search') || '';
@@ -143,8 +141,7 @@ const posts = (await getCollection('blog')).sort(
           el.style.display = 'none';
         }
       });
-      
-      // No results
+
       let noResultsEl = document.getElementById('no-results-msg');
       if (filteredCards.length === 0) {
         if (!noResultsEl) {
@@ -161,7 +158,6 @@ const posts = (await getCollection('blog')).sort(
         noResultsEl.style.display = 'none';
       }
 
-      // Pagination step
       const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE);
       if (currentPage > totalPages) currentPage = 1;
       
@@ -190,8 +186,7 @@ const posts = (await getCollection('blog')).sort(
       
       paginationContainer.classList.remove('hidden');
       paginationContainer.classList.add('flex');
-      
-      // Prev Button
+
       const prevBtn = document.createElement('button');
       prevBtn.innerHTML = '&larr; Anterior';
       prevBtn.className = `font-mono text-xs tracking-widest uppercase px-4 py-2 transition-colors ${currentPage === 1 ? 'text-negro/20 cursor-not-allowed' : 'text-negro hover:bg-negro/5'}`;
@@ -204,8 +199,7 @@ const posts = (await getCollection('blog')).sort(
         }
       };
       paginationContainer.appendChild(prevBtn);
-      
-      // Logic to show up to 7 numbers
+
       let startPage = Math.max(1, currentPage - 3);
       let endPage = Math.min(totalPages, currentPage + 3);
       
@@ -229,8 +223,7 @@ const posts = (await getCollection('blog')).sort(
         }
         paginationContainer.appendChild(btn);
       }
-      
-      // Next Button
+
       const nextBtn = document.createElement('button');
       nextBtn.innerHTML = 'Siguiente &rarr;';
       nextBtn.className = `font-mono text-xs tracking-widest uppercase px-4 py-2 transition-colors ${currentPage === totalPages ? 'text-negro/20 cursor-not-allowed' : 'text-negro hover:bg-negro/5'}`;
@@ -248,11 +241,10 @@ const posts = (await getCollection('blog')).sort(
     searchInput.addEventListener('input', (e) => {
       const target = e.target as HTMLInputElement;
       currentQuery = target.value;
-      currentPage = 1; // Reset to page 1 on new search
+      currentPage = 1; 
       updateView();
     });
-    
-    // Initial render
+
     updateView();
   });
 </script>

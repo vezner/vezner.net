@@ -73,7 +73,7 @@ import Footer from "../../components/Footer.astro";
                 href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20crear%20una%20p%C3%A1gina%20web%20premium"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="group relative inline-flex items-center justify-center gap-3 bg-negro text-blanco px-8 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden border-2 border-negro rounded-2xl hover:rounded-none transition-[border-radius] duration-300 w-full sm:w-auto"
+                class="group relative inline-flex items-center justify-center gap-3 bg-negro text-blanco px-8 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden border-2 border-negro rounded-2xl hover:rounded-none transition-all duration-300 w-full sm:w-auto"
               >
                 <span class="relative z-10 flex items-center gap-2"
                   ><i class="fa-brands fa-whatsapp text-base"></i> Cotizar por WhatsApp</span
@@ -204,7 +204,7 @@ import Footer from "../../components/Footer.astro";
               },
             ].map((item, i) => (
               <div
-                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 p-8 transition-colors transition-[border-radius] duration-300 rounded-2xl hover:rounded-none ${item.c} group`}
+                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 bg-blanco/[0.03] backdrop-blur-2xl p-8 transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 rounded-2xl hover:rounded-none ${item.c} group`}
               >
                 <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors duration-300">
                   0{i + 1}
@@ -233,7 +233,7 @@ import Footer from "../../components/Footer.astro";
         <div class="grid md:grid-cols-2 gap-20">
           <div
             data-gsap="fade-up"
-            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 p-10 md:p-16 hover:bg-blanco/5 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-500"
+            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 hover:bg-blanco/5 rounded-2xl hover:rounded-none transition-all duration-500"
           >
             <span
               class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-8 block"
@@ -263,7 +263,7 @@ import Footer from "../../components/Footer.astro";
 
           <div
             data-gsap="fade-up"
-            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/30 bg-blanco/5 p-10 md:p-16 relative rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-500"
+            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/30 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 relative rounded-2xl hover:rounded-none transition-all duration-500"
           >
             <div
               class="absolute top-0 right-0 w-24 h-24 bg-blanco/20 blur-[50px]"
@@ -339,8 +339,8 @@ import Footer from "../../components/Footer.astro";
                 d: "Auditamos la web en diferentes dispositivos, verificamos tiempos de carga y desplegamos el proyecto en producción.",
               },
             ].map((paso, i) => (
-              <div class="proceso-card opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300 group">
-                <div class="absolute -left-[45px] md:-left-[77px] top-0 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-rosa group-hover:shadow-[0_0_15px_rgba(225,29,72,0.6)] border-4 border-[#050505] transform -translate-x-1/2 transition-all duration-300" />
+              <div class="proceso-card opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 group">
+                <div class="absolute -left-8 md:-left-16 top-0 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-rosa group-hover:shadow-[0_0_15px_rgba(225,29,72,1)] transform -translate-x-1/2 transition-all duration-300" />
                 <span class="font-display text-4xl text-blanco/10 group-hover:text-rosa/40 transition-colors duration-300 absolute -left-12 top-0 -translate-x-full md:-translate-x-0 md:relative md:left-0 md:-top-4">
                   {paso.n}
                 </span>
@@ -404,7 +404,7 @@ import Footer from "../../components/Footer.astro";
                 i: "fa-solid fa-server",
               },
             ].map((f, i) => (
-              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-negro/10 pt-8 transition-colors transition-[border-radius] duration-300 rounded-2xl hover:rounded-none hover:border-rosa group hover:bg-negro/[0.02] px-4 -mx-4 pb-4">
+              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-negro/10 bg-negro/[0.03] backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 rounded-2xl hover:rounded-none hover:border-rosa group hover:bg-negro/[0.02] px-4 -mx-4 pb-4">
                 <i
                   class={`${f.i} text-3xl text-negro/20 group-hover:text-rosa group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
                 />
@@ -459,7 +459,7 @@ import Footer from "../../components/Footer.astro";
             <span class="relative z-10 font-bold">Contactar por WhatsApp</span>
           </a>
           <a
-            href="/contacto"
+            href="#contacto-servicio"
             class="btn-secondary group relative inline-flex items-center justify-center gap-3 border border-blanco/20 text-blanco px-10 py-5 font-mono text-xs tracking-widest uppercase hover:bg-blanco/10 hover:border-blanco/50 transition-all duration-300 rounded-2xl hover:rounded-none w-full sm:w-auto"
           >
             Completar Formulario
@@ -473,10 +473,161 @@ import Footer from "../../components/Footer.astro";
         </p>
       </div>
     </section>
-  </main>
+
+      
+      <section id="contacto-servicio" class="py-32 px-6 md:px-16 bg-[#fafafa] border-t border-negro/5 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-16">
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-8 h-px bg-rosa/30"></div>
+              <span class="font-mono font-medium text-xs tracking-[0.35em] uppercase text-negro/60">§ Comenzar</span>
+            </div>
+            <h2 class="font-display text-5xl md:text-7xl text-negro mb-6 uppercase">Tu proyecto.</h2>
+            <p class="font-mono text-sm text-negro/50 max-w-lg">Completá los datos y te enviamos una propuesta formal en menos de 24 horas hábiles.</p>
+          </div>
+
+          <form id="service-contact-form" class="space-y-12" autocomplete="off">
+            <input type="hidden" name="servicio" value="Diseño Web" />
+            
+            
+            <div class="space-y-6">
+              <h3 class="font-mono font-medium text-xs tracking-widest uppercase text-rosa mb-8 border-b border-negro/10 pb-4">1. Sobre el Proyecto</h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">¿Tenés una web actual?</label>
+                  <input type="text" name="web_actual" required placeholder="Ej: No, arranco de cero / Sí, miweb.com" class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Describí brevemente tu proyecto ideal</label>
+                  <input type="text" name="web_objetivo" required placeholder="Ej: Vender online, Captar leads..." class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Textos e Imágenes</label>
+                  <input type="text" name="web_contenido" required placeholder="Ej: Sí, tengo todo / Necesito redacción" class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Webs de Referencia (Links)</label>
+                  <input type="text" name="web_referencias" required placeholder="Ej: apple.com, stripe.com..." class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="space-y-6 pt-8">
+              <h3 class="font-mono font-medium text-xs tracking-widest uppercase text-rosa mb-8 border-b border-negro/10 pb-4">2. Tus Datos</h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Nombre</label>
+                  <input type="text" name="nombre" required placeholder="Tu nombre completo" class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Empresa / Marca</label>
+                  <input type="text" name="empresa" placeholder="Opcional" class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Email</label>
+                  <input type="email" name="email" required placeholder="tu@empresa.com" class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+                <div class="form-group">
+                  <label class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2">Teléfono / WhatsApp</label>
+                  <input type="tel" name="telefono" placeholder="Opcional" class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors" />
+                </div>
+              </div>
+              
+              <div class="mt-8 mb-6">
+                <label class="group flex items-center gap-4 cursor-pointer relative">
+                  <input type="checkbox" name="acepta_legales" required class="peer sr-only" />
+                  <div class="w-5 h-5 rounded border border-negro/30 bg-transparent flex items-center justify-center transition-colors peer-checked:border-rosa group-hover:border-rosa shrink-0 relative overflow-hidden peer-checked:[&>div]:scale-100 peer-checked:[&>div]:opacity-100 peer-checked:[&>svg]:scale-100 peer-checked:[&>svg]:opacity-100">
+                    <div class="absolute inset-0 bg-rosa scale-0 opacity-0 transition-transform duration-300 ease-out rounded-sm"></div>
+                    <svg class="relative z-10 w-3 h-3 text-blanco opacity-0 scale-50 transition-all duration-300 delay-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="square" stroke-linejoin="miter" d="M4 12l4 4L19 6"></path></svg>
+                  </div>
+                  <span class="font-mono text-sm text-negro/50 leading-snug select-none">
+                    He leído y acepto los <a href="/legal/terminos-y-condiciones" target="_blank" class="text-negro underline decoration-negro/30 underline-offset-4 hover:decoration-negro transition-colors">Términos y Condiciones</a> y la <a href="/legal/politica-de-privacidad" target="_blank" class="text-negro underline decoration-negro/30 underline-offset-4 hover:decoration-negro transition-colors">Política de Privacidad</a>.
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="pt-8">
+              <button type="submit" id="submit-btn" class="group inline-flex items-center justify-center gap-3 bg-negro text-blanco px-10 py-4 font-mono font-medium text-xs tracking-widest uppercase relative overflow-hidden border border-transparent rounded-2xl hover:rounded-none transition-all duration-300">
+                <span class="relative z-10 group-hover:text-blanco transition-colors duration-300">Enviar consulta</span>
+                <span class="relative z-10 group-hover:translate-x-1 group-hover:text-blanco transition-transform duration-300">→</span>
+                <div class="absolute inset-0 bg-rosa border border-rosa translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+              </button>
+            </div>
+
+            <div id="form-success" class="hidden font-mono font-medium text-sm text-[#00c851] bg-[#00c851]/10 border border-[#00c851]/30 px-6 py-4 rounded-2xl shadow-lg mt-8 text-center">
+              ✓ Mensaje enviado con éxito. En breve será contactado de regreso.
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
 
   <Footer />
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("astro:page-load", () => {
+    let geoData: any = { ip: "Calculando...", country: "Desconocido", city: "Desconocida", organization: "Desconocido" };
+    fetch("https://ipv4.geojs.io/v1/ip/geo.json").then((res) => res.json()).then((geo) => { geoData = geo; }).catch(() => {});
+
+    const form = document.getElementById("service-contact-form") as HTMLFormElement;
+    const success = document.getElementById("form-success");
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+      const btnText = btn?.querySelector("span.relative") as HTMLSpanElement;
+
+      if (btn && btnText) {
+        btnText.textContent = "Enviando...";
+        btn.disabled = true;
+      }
+
+      try {
+        const formData = new FormData(form);
+        formData.append("Origen_Visita", document.referrer || "Directo / Desconocido");
+        formData.append("IP_Cliente", geoData.ip);
+        formData.append("Ubicacion", `${geoData.city}, ${geoData.country}`);
+        formData.append("Proveedor_Internet", geoData.organization_name || geoData.organization || "Desconocido");
+        formData.append("Sistema_Operativo", navigator.platform);
+
+        const response = await fetch("https://formspree.io/f/mdarbbdy", {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          form.reset();
+          if (btn && btnText) btnText.textContent = "✓ Enviado";
+          success?.classList.remove("hidden");
+          gsap.fromTo(success, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 });
+        } else {
+          throw new Error("Error");
+        }
+      } catch (error) {
+        if (btn && btnText) {
+          btnText.textContent = "Enviar consulta";
+          btn.disabled = false;
+        }
+        alert("Hubo un error al enviar tu consulta. Por favor, intentá nuevamente más tarde.");
+      }
+    });
+  });
+</script>
 
 <style>
   .btn-primary:hover span:first-child,
@@ -492,7 +643,6 @@ import Footer from "../../components/Footer.astro";
   document.addEventListener("astro:page-load", () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Animación del Hero
     const tl = gsap.timeline();
     tl.to(".hero-reveal", {
       opacity: 1,
@@ -517,7 +667,6 @@ import Footer from "../../components/Footer.astro";
     );
     tl.to(".scroll-prompt", { opacity: 1, duration: 1 }, "-=0.5");
 
-    // 2. Títulos de las secciones (Ajustado para que se animen individualmente al bajar)
     gsap.utils.toArray(".section-title").forEach((title) => {
       gsap.fromTo(
         title as HTMLElement,
@@ -536,7 +685,6 @@ import Footer from "../../components/Footer.astro";
       );
     });
 
-    // 3. Tarjetas: ¿QUÉ PODEMOS CONSTRUIR? (.use-case) - TU PATRÓN FAVORITO
     gsap.utils.toArray(".use-case").forEach((card, i) => {
       gsap.fromTo(
         card as HTMLElement,
@@ -556,7 +704,6 @@ import Footer from "../../components/Footer.astro";
       );
     });
 
-    // 4. Tarjetas: EL ESTÁNDAR (.vs-card) - CLONADO EXACTO DE .use-case
     gsap.utils.toArray(".vs-card").forEach((card, i) => {
       gsap.fromTo(
         card as HTMLElement,
@@ -576,7 +723,6 @@ import Footer from "../../components/Footer.astro";
       );
     });
 
-    // 5. Tarjetas: PROCESO DE CREACIÓN (.proceso-card) - CLONADO EXACTO DE .use-case
     gsap.utils.toArray(".proceso-card").forEach((card, i) => {
       gsap.fromTo(
         card as HTMLElement,
@@ -596,7 +742,6 @@ import Footer from "../../components/Footer.astro";
       );
     });
 
-    // 6. Tarjetas: INGENIERÍA DE CONVERSIÓN (.feat-card) - CLONADO EXACTO DE .use-case
     gsap.utils.toArray(".feat-card").forEach((feat, i) => {
       gsap.fromTo(
         feat as HTMLElement,

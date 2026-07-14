@@ -1,6 +1,11 @@
 ---
 import Logo from "./Logo.astro";
+import { getCollection } from "astro:content";
+
 const añoActual = new Date().getFullYear();
+const posts = (await getCollection("blog"))
+  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
 
 const redes = [
   {
@@ -42,251 +47,564 @@ const redes = [
 ];
 ---
 
-<footer id="mega-footer" class="relative bg-negro text-blanco overflow-hidden">
-  <div class="w-full h-px bg-blanco/8"></div>
+<footer
+  id="site-footer"
+  class="relative w-full bg-negro text-blanco overflow-hidden flex flex-col"
+>
+  <div id="site-footer-content" class="w-full relative">
+    <div class="w-full h-px bg-blanco/8"></div>
 
-  <div class="px-8 md:px-16 pt-16 pb-10">
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-blanco/8"
-    >
+    <div class="px-8 md:px-16 pt-32 lg:pt-48 pb-16">
       <div
-        class="flex flex-col items-center md:items-start text-center md:text-left space-y-4"
+        class="flex flex-col lg:flex-row gap-16 lg:gap-20 pb-16 border-b border-blanco/8"
       >
-        <a
-          href="/"
-          class="flex items-center group invert opacity-90 hover:opacity-100 transition-safe duration-500"
+        <div
+          class="lg:w-[32%] flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 footer-col"
         >
-          <Logo />
-        </a>
-        <p class="font-mono text-xs text-blanco/50 leading-relaxed max-w-xs">
-          Ingeniería digital de alta gama.<br />
-          Córdoba, Argentina.
-        </p>
-        <div class="flex flex-col gap-2 md:items-start items-center">
-          <a
-            href="mailto:hola@vezner.net"
-            class="footer-link font-mono text-xs text-blanco/50 hover:text-blanco transition-safe duration-300"
-          >
-            hola@vezner.net →
-          </a>
-          <a
-            href="https://wa.me/5493513323272"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link font-mono text-xs text-blanco/50 hover:text-blanco transition-safe duration-300"
-          >
-            +54 9 351 332-3272 →
-          </a>
-        </div>
-
-        <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
-          {
-            redes.map((r) => (
-              <a
-                href={r.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={r.nombre}
-                class="social-icon-btn group w-9 h-9 border border-blanco/15 flex items-center justify-center transition-safe duration-300 hover:scale-110 rounded-2xl hover:rounded-none"
-                style={`--hover-color: ${r.color}`}
-                title={r.nombre}
-              >
-                {r.icon === "pexels" ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blanco/40 group-hover:text-blanco transition-safe duration-300">
-                    <path d="M8.8 22.2V15.4H2v-2.2h6.8V9a6.4 6.4 0 1 1 6.4 6.4H11v6.8z M11 13.2h4.2a4.2 4.2 0 1 0 -4.2-4.2z"/>
-                  </svg>
-                ) : (
-                  <i
-                    class={`${r.icon} text-sm text-blanco/40 group-hover:text-blanco transition-safe duration-300`}
-                  />
-                )}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-
-      <div class="flex flex-col text-center md:text-left">
-        <p
-          class="font-mono text-xs text-blanco/50 uppercase tracking-widest mb-4"
-        >
-          Sitio
-        </p>
-        <div class="flex flex-col gap-3 items-center md:items-start">
           <a
             href="/"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+            class="flex items-center group invert opacity-90 hover:opacity-100 transition-safe duration-500 mb-2 scale-125 lg:scale-150 origin-center lg:origin-left"
           >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Inicio</span
-            >
+            <Logo />
           </a>
-          <a
-            href="/#servicios"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+          <p
+            class="font-mono text-sm lg:text-base text-blanco/50 leading-relaxed max-w-[320px]"
           >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
+            Ingeniería digital de alta gama.<br />
+            Córdoba, Argentina.
+          </p>
+          <div class="flex flex-col gap-3 lg:items-start items-center">
+            <a
+              href="mailto:hola@vezner.net"
+              class="footer-link font-mono text-sm lg:text-base text-blanco/50 hover:text-blanco transition-safe duration-300"
             >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Servicios</span
+              hola@vezner.net →
+            </a>
+            <a
+              href="https://wa.me/5493513323272"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link font-mono text-sm lg:text-base text-blanco/50 hover:text-blanco transition-safe duration-300"
             >
-          </a>
-          <a
-            href="/nosotros"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+              +54 9 351 332-3272 →
+            </a>
+          </div>
+
+          <div class="mt-4 border-l-2 border-blanco/10 pl-5 text-left">
+            <p
+              class="font-mono text-xs lg:text-[13px] text-blanco/50 uppercase tracking-widest mb-3"
+            >
+              Horarios de Atención (ART)
+            </p>
+            <ul
+              class="font-mono text-xs lg:text-sm text-blanco/40 space-y-2 leading-relaxed"
+            >
+              <li>
+                <span class="text-blanco/60">Lun:</span> 14:30-17:30, 19:30-20:30
+              </li>
+              <li>
+                <span class="text-blanco/60">Mar:</span> 14:30-18:30, 20:30-21:30
+              </li>
+              <li>
+                <span class="text-blanco/60">Mié - Vie:</span> 14:30-19:30
+              </li>
+              <li><span class="text-blanco/60">Sáb:</span> 14:30-00:00</li>
+              <li><span class="text-blanco/60">Dom:</span> 12:30-22:00</li>
+            </ul>
+          </div>
+
+          <div
+            class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4"
           >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
+            {
+              redes.map((r) => (
+                <a
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={r.nombre}
+                  class="social-icon-btn group w-11 h-11 lg:w-12 lg:h-12 border border-blanco/15 flex items-center justify-center transition-safe duration-300 hover:scale-110 rounded-2xl hover:rounded-none"
+                  style={`--hover-color: ${r.color}`}
+                  title={r.nombre}
+                >
+                  {r.icon === "pexels" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-5 h-5 lg:w-6 lg:h-6 text-blanco/40 group-hover:text-blanco transition-safe duration-300"
+                    >
+                      <path d="M8.8 22.2V15.4H2v-2.2h6.8V9a6.4 6.4 0 1 1 6.4 6.4H11v6.8z M11 13.2h4.2a4.2 4.2 0 1 0 -4.2-4.2z" />
+                    </svg>
+                  ) : (
+                    <i
+                      class={`${r.icon} text-base lg:text-lg text-blanco/40 group-hover:text-blanco transition-safe duration-300`}
+                    />
+                  )}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        
+        <div class="lg:w-[68%] flex flex-col gap-16">
+          
+          <div class="grid grid-cols-2 lg:grid-cols-6 gap-8">
+            
+            <div class="flex flex-col footer-col">
+              <a
+                href="/"
+                class="font-display text-xl md:text-2xl text-blanco mb-6 block hover:opacity-70 transition-opacity duration-300"
+                >Inicio</a
+              >
+              <div class="flex flex-col gap-4 items-start">
+                <a
+                  href="/#manifiesto"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Manifiesto</span
+                  >
+                </a>
+                <a
+                  href="/#servicios"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Servicios</span
+                  >
+                </a>
+                <a
+                  href="/#crafted-with-purpose"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Metodología</span
+                  >
+                </a>
+                <a
+                  href="/#enfoque"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Enfoque</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            
+            <div class="flex flex-col footer-col">
+              <a
+                href="/servicios/software-python"
+                class="font-display text-xl md:text-2xl text-blanco mb-6 block hover:opacity-70 transition-opacity duration-300"
+                >Software</a
+              >
+              <div class="flex flex-col gap-4 items-start">
+                <a
+                  href="/servicios/software-python#soluciones"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Casos de Uso</span
+                  >
+                </a>
+                <a
+                  href="/servicios/software-python#calidad"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Código de Calidad</span
+                  >
+                </a>
+                <a
+                  href="/servicios/software-python#stack"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Nuestro Stack</span
+                  >
+                </a>
+                <a
+                  href="/servicios/software-python#contacto-servicio"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Completar Formulario</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            
+            <div class="flex flex-col footer-col">
+              <a
+                href="/servicios/diseno-web"
+                class="font-display text-xl md:text-2xl text-blanco mb-6 block hover:opacity-70 transition-opacity duration-300"
+                >Diseño Web</a
+              >
+              <div class="flex flex-col gap-4 items-start">
+                <a
+                  href="/servicios/diseno-web#hero"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Landing Pages</span
+                  >
+                </a>
+                <a
+                  href="/servicios/diseno-web#estandar"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Estándar VEZNER</span
+                  >
+                </a>
+                <a
+                  href="/servicios/diseno-web#enfoque"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Nuestro Enfoque</span
+                  >
+                </a>
+                <a
+                  href="/servicios/diseno-web#contacto-servicio"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Completar Formulario</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            
+            <div class="flex flex-col footer-col">
+              <a
+                href="/servicios/diseno-identidad"
+                class="font-display text-xl md:text-2xl text-blanco mb-6 block hover:opacity-70 transition-opacity duration-300"
+                >Branding</a
+              >
+              <div class="flex flex-col gap-4 items-start">
+                <a
+                  href="/servicios/diseno-identidad#hero"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Logotipos</span
+                  >
+                </a>
+                <a
+                  href="/servicios/diseno-identidad#galeria"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Identidad Visual</span
+                  >
+                </a>
+                <a
+                  href="/servicios/diseno-identidad#entregables"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Entregables</span
+                  >
+                </a>
+                <a
+                  href="/servicios/diseno-identidad#contacto-servicio"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Completar Formulario</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            
+            <div class="flex flex-col footer-col">
+              <a
+                href="/nosotros"
+                class="font-display text-xl md:text-2xl text-blanco mb-6 block hover:opacity-70 transition-opacity duration-300"
+                >Nosotros</a
+              >
+              <div class="flex flex-col gap-4 items-start">
+                <a
+                  href="/nosotros#agencia"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >La Agencia</span
+                  >
+                </a>
+                <a
+                  href="/nosotros#manifiesto"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Manifiesto</span
+                  >
+                </a>
+                <a
+                  href="/nosotros#pilares"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Los 3 Pilares</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            
+            <div class="flex flex-col footer-col">
+              <a
+                href="/contacto"
+                class="font-display text-xl md:text-2xl text-blanco mb-6 block hover:opacity-70 transition-opacity duration-300"
+                >Contacto</a
+              >
+              <div class="flex flex-col gap-4 items-start">
+                <a
+                  href="/contacto"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Formulario Web</span
+                  >
+                </a>
+                <a
+                  href="mailto:contacto@vezner.net"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Email Directo</span
+                  >
+                </a>
+                <a
+                  href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20me%20gustar%C3%ADa%20hacer%20una%20consulta."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >WhatsApp</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full h-px bg-blanco/5 hidden md:block my-2"></div>
+
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
+            
+            <div
+              class="md:col-span-2 flex flex-col text-center lg:text-left footer-col"
             >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Nosotros</span
-            >
-          </a>
-          <a
-            href="/blog"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Blog</span
-            >
-          </a>
-          <a
-            href="/contacto"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Contacto</span
-            >
-          </a>
+              <p
+                class="font-mono text-xs text-blanco/50 uppercase tracking-widest mb-6"
+              >
+                Blog
+              </p>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-8 text-left"
+              >
+                {
+                  posts.map((post: any) => (
+                    <a
+                      href={`/blog/${post.id}`}
+                      class="group flex flex-col gap-1.5 w-full"
+                    >
+                      <span class="font-mono text-xs text-blanco/60 group-hover:text-blanco transition-colors line-clamp-2 leading-relaxed">
+                        {post.data.title}
+                      </span>
+                      <span class="font-mono text-[9px] text-blanco/30 uppercase tracking-widest group-hover:text-blanco/50 transition-colors">
+                        {post.data.pubDate.toLocaleDateString("es-AR", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </span>
+                    </a>
+                  ))
+                }
+                {
+                  posts.length === 0 && (
+                    <span class="font-mono text-xs text-blanco/40 col-span-2">
+                      Próximamente...
+                    </span>
+                  )
+                }
+              </div>
+              <div class="flex justify-center lg:justify-start">
+                <a
+                  href="/blog"
+                  class="group font-mono text-[10px] text-blanco uppercase tracking-widest border border-blanco/20 px-5 py-2.5 rounded-2xl hover:rounded-none hover:bg-blanco hover:text-negro transition-all duration-300 flex items-center gap-2"
+                >
+                  Ver Todos Los Artículos
+                  <span
+                    class="group-hover:translate-x-1 transition-transform duration-300"
+                    >→</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            
+            <div class="flex flex-col text-center lg:text-left footer-col">
+              <p
+                class="font-mono text-xs text-blanco/50 uppercase tracking-widest mb-6"
+              >
+                Legal
+              </p>
+              <div class="flex flex-col gap-4 items-center lg:items-start">
+                <a
+                  href="/legal/politica-de-privacidad"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Políticas de Privacidad</span
+                  >
+                </a>
+                <a
+                  href="/legal/terminos-y-condiciones"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Términos y Condiciones</span
+                  >
+                </a>
+                <a
+                  href="/legal/politica-de-cookies"
+                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
+                    >→</span
+                  ><span
+                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
+                    >Políticas de Cookies</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="flex flex-col text-center md:text-left">
+      <div
+        class="pt-8 flex flex-col md:flex-row items-center justify-between gap-3 footer-col px-8 md:px-16 pb-10"
+      >
         <p
-          class="font-mono text-xs text-blanco/50 uppercase tracking-widest mb-4"
+          class="font-mono text-[10px] text-blanco/40 uppercase tracking-widest text-center md:text-left"
         >
-          Servicios
+          © {new Date().getFullYear()} VEZNER. Todos los derechos reservados.
         </p>
-        <div class="flex flex-col gap-3 items-center md:items-start">
-          <a
-            href="/servicios/diseno-web"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Diseño Web</span
-            >
-          </a>
-          <a
-            href="/servicios/software-python"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Software</span
-            >
-          </a>
-          <a
-            href="/servicios/diseno-identidad"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Branding</span
-            >
-          </a>
-        </div>
-      </div>
-
-      <div class="flex flex-col text-center md:text-left">
         <p
-          class="font-mono text-xs text-blanco/50 uppercase tracking-widest mb-4"
+          class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest text-center md:text-right"
         >
-          Legal
+          vezner.net
         </p>
-        <div class="flex flex-col gap-3 items-center md:items-start">
-          <a
-            href="/legal/politica-de-privacidad"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Privacidad</span
-            >
-          </a>
-          <a
-            href="/legal/terminos-y-condiciones"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Términos</span
-            >
-          </a>
-          <a
-            href="/legal/politica-de-cookies"
-            class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-          >
-            <span
-              class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px]"
-              >→</span
-            >
-            <span
-              class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-              >Cookies</span
-            >
-          </a>
-        </div>
       </div>
-    </div>
-
-    <div
-      class="pt-8 flex flex-col md:flex-row items-center justify-between gap-3"
-    >
-      <p class="font-mono text-xs text-blanco/40">
-        © {añoActual} VEZNER · Todos los derechos reservados
-      </p>
-      <p class="font-mono text-xs text-blanco/30">vezner.net</p>
     </div>
   </div>
 </footer>
@@ -354,6 +672,56 @@ const redes = [
         },
       );
     });
+
+    const footer = document.getElementById("site-footer");
+    const footerContent = document.getElementById("site-footer-content");
+    const header = document.getElementById("header");
+
+    if (footer && footerContent) {
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 1024px)", () => {
+        
+        gsap.fromTo(
+          footerContent,
+          { yPercent: -40 },
+          {
+            yPercent: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: footer,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: true,
+            },
+          },
+        );
+      });
+    }
+
+    if (header) {
+      ScrollTrigger.create({
+        trigger: footer,
+        start: "bottom bottom+=5px",
+        refreshPriority: -1,
+        onEnter: () => {
+          gsap.to(header, {
+            yPercent: -100,
+            duration: 0.4,
+            ease: "power2.out",
+            overwrite: true, 
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(header, {
+            yPercent: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            overwrite: true,
+          });
+        },
+      });
+    }
 
     const footerCanvas = document.getElementById(
       "footer-logo-canvas",

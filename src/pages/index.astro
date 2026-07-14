@@ -2,12 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CardServicio from "../components/CardServicio.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import { getCollection } from "astro:content";
 ---
 
 <Layout
-  title="VEZNER — Ingeniería Digital de Alta Gama | Córdoba, Argentina"
-  description="VEZNER diseña y construye infraestructura digital de alta gama. Diseño de paginas web, software Python y branding. +50 proyectos entregados a nivel global."
-  keywords="agencia digital Córdoba Argentina, desarrollo web a medida, software Python empresas, diseño identidad visual, VEZNER"
+  title="VEZNER — Diseño web en Argentina · Software Python · Automatización · Sitios y sistemas para empresas"
+  description="VEZNER diseña y construye infraestructura digital de alta gama. Desarrollo de páginas web a medida, software Python, automatización de procesos y branding corporativo en Buenos Aires, Córdoba, Rosario, Mendoza, Santa Fe y toda Argentina."
+  keywords="agencia digital Argentina, diseño web, diseño web córdoba, diseño web buenos aires, desarrollo web a medida rosario, diseño web santa fe, software python empresas mendoza, desarrollo de software a medida caba, automatización de procesos neuquén, diseño de identidad visual tucumán, VEZNER, páginas web premium, tiendas online argentina"
   canonicalUrl="/"
 >
   <Header />
@@ -82,13 +85,18 @@ import Footer from "../components/Footer.astro";
           class="mt-14 flex flex-col items-center justify-center gap-6"
           style="opacity:0; transform: translateY(20px);"
         >
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
+          >
             <a
-              href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20cotizar%20un%20proyecto%20tecnológico%20premium"
-              target="_blank" rel="noopener noreferrer"
+              href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20cotizar%20un%20proyecto."
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:rounded-none transition-[border-radius] duration-300 border border-transparent rounded-2xl w-full sm:w-auto justify-center"
             >
-              <span class="relative z-10 flex items-center gap-2"><i class="fa-brands fa-whatsapp text-base"></i> Cotizar por WhatsApp</span>
+              <span class="relative z-10 flex items-center gap-2"
+                ><i class="fa-brands fa-whatsapp text-base"></i> Cotizar por WhatsApp</span
+              >
               <span
                 class="absolute inset-0 bg-[#25D366] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out z-0"
               ></span>
@@ -97,15 +105,29 @@ import Footer from "../components/Footer.astro";
               href="#servicios"
               class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro hover:rounded-none transition-colors duration-300 rounded-2xl w-full sm:w-auto justify-center"
             >
-              <span class="relative z-10 group-hover:text-blanco transition-colors duration-300">Ver Servicios</span>
-              <span class="relative z-10 group-hover:text-blanco transition-colors duration-300">↓</span>
-              <span class="absolute inset-0 bg-negro translate-y-[101%] group-hover:translate-y-0 transition-transform duration-350 ease-out z-0"></span>
+              <span
+                class="relative z-10 group-hover:text-blanco transition-colors duration-300"
+                >Ver Servicios</span
+              >
+              <span
+                class="relative z-10 group-hover:text-blanco transition-colors duration-300"
+                >↓</span
+              >
+              <span
+                class="absolute inset-0 bg-negro translate-y-[101%] group-hover:translate-y-0 transition-transform duration-350 ease-out z-0"
+              ></span>
             </a>
           </div>
 
-          <div class="flex items-center justify-center gap-6 text-xs font-mono text-negro/50">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-[#00c851]"></i> Respuestas Rápidas</span>
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-yellow-500"></i> Calidad Premium</span>
+          <div
+            class="flex items-center justify-center gap-6 text-xs font-mono text-negro/50"
+          >
+            <span class="flex items-center gap-1.5"
+              ><i class="fa-solid fa-check text-[#00c851]"></i> Respuestas Rápidas</span
+            >
+            <span class="flex items-center gap-1.5"
+              ><i class="fa-solid fa-bolt text-yellow-500"></i> Calidad Premium</span
+            >
           </div>
         </div>
       </div>
@@ -217,7 +239,11 @@ import Footer from "../components/Footer.astro";
                 { text: "tecnología que", faded: false },
                 { text: "", gap: true },
                 { text: "vende,", color: "text-rosa", glow: "255,0,92" },
-                { text: "automatiza y", color: "text-verde", glow: "0,255,115" },
+                {
+                  text: "automatiza y",
+                  color: "text-verde",
+                  glow: "0,255,115",
+                },
                 {
                   text: "escala negocios.",
                   color: "text-yellow-400",
@@ -227,7 +253,10 @@ import Footer from "../components/Footer.astro";
                 line.gap ? (
                   <div class="h-4 md:h-6" />
                 ) : (
-                  <div class="overflow-hidden" style="padding-top: 1.5em; margin-top: -1.5em; padding-bottom: 0.5em; margin-bottom: -0.5em;">
+                  <div
+                    class="overflow-hidden"
+                    style="padding-top: 1.5em; margin-top: -1.5em; padding-bottom: 0.5em; margin-bottom: -0.5em;"
+                  >
                     <p
                       class={`manifesto-reveal font-display leading-[0.88] ${line.faded ? "text-negro/20" : line.color ? `${line.color} selection:bg-negro selection:text-blanco` : "text-negro"}`}
                       style={`font-size: clamp(48px, 6vw, 110px); transform: translateY(150%); position: relative; top: 0.15em; ${line.glow ? `text-shadow: 0 0 40px rgba(${line.glow},0.2);` : ""}`}
@@ -346,7 +375,10 @@ import Footer from "../components/Footer.astro";
       </div>
     </section>
 
-    <section id="servicios" class="relative bg-negro pt-32 md:pt-44 pb-16 px-6 md:px-16 overflow-hidden">
+    <section
+      id="servicios"
+      class="relative bg-negro pt-32 md:pt-44 pb-16 px-6 md:px-16 overflow-hidden"
+    >
       <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div
           class="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-verde/5 rounded-full blur-[100px] animate-pulse"
@@ -403,7 +435,10 @@ import Footer from "../components/Footer.astro";
               <span class="font-mono text-xs uppercase tracking-widest"
                 >Ver más</span
               >
-              <span class="text-xs group-hover:translate-x-2 transition-transform duration-300">→</span>
+              <span
+                class="text-xs group-hover:translate-x-2 transition-transform duration-300"
+                >→</span
+              >
             </div>
           </a>
 
@@ -434,7 +469,10 @@ import Footer from "../components/Footer.astro";
               <span class="font-mono text-xs uppercase tracking-widest"
                 >Ver más</span
               >
-              <span class="text-xs group-hover:translate-x-2 transition-transform duration-300">→</span>
+              <span
+                class="text-xs group-hover:translate-x-2 transition-transform duration-300"
+                >→</span
+              >
             </div>
           </a>
 
@@ -465,143 +503,388 @@ import Footer from "../components/Footer.astro";
               <span class="font-mono text-xs uppercase tracking-widest"
                 >Ver más</span
               >
-              <span class="text-xs group-hover:translate-x-2 transition-transform duration-300">→</span>
+              <span
+                class="text-xs group-hover:translate-x-2 transition-transform duration-300"
+                >→</span
+              >
             </div>
           </a>
         </div>
 
-        <div class="mt-24 md:mt-32 text-center relative z-10 border-t border-blanco/10 pt-16">
-          <p class="font-mono text-xs uppercase tracking-widest text-blanco/40">Todo construido con tecnología moderna</p>
+        <div
+          class="mt-24 md:mt-32 text-center relative z-10 border-t border-blanco/10 pt-16"
+        >
+          <p class="font-mono text-xs uppercase tracking-widest text-blanco/40">
+            Todo construido con tecnología moderna
+          </p>
         </div>
       </div>
     </section>
 
-    
-    <div id="enfoque" class="w-full bg-negro pt-8 pb-32">
-      <div class="ticker-wrap relative w-full" style="overflow-x: clip; overflow-y: visible;">
-      
-      <div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-blanco/0 via-blanco/15 to-blanco/0 -translate-y-1/2 pointer-events-none z-0"></div>
+    <div class="w-full bg-negro pt-8 pb-32 relative z-10">
+      <div
+        class="ticker-wrap relative w-full"
+        style="overflow-x: clip; overflow-y: visible;"
+      >
+        <div
+          class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-blanco/0 via-blanco/15 to-blanco/0 -translate-y-1/2 pointer-events-none z-0"
+        >
+        </div>
 
-      
-      <div id="stack-ticker-inner" class="flex gap-0 whitespace-nowrap select-none w-max relative z-10">
-        {
-          Array.from({ length: 6 }).map((_, repIdx) => (
-            <div class="flex items-center gap-12 md:gap-20 px-6 md:px-10 shrink-0" aria-hidden={repIdx > 0 ? "true" : "false"}>
-              {
-                [
-                  { name: "Astro", icon: "astro", color: "#FF5D01", desc: "Framework web optimizado para velocidad" },
-                  { name: "React", icon: "fa-brands fa-react", color: "#61DAFB", desc: "Librería para interfaces interactivas" },
-                  { name: "Next.js", icon: "nextjs", color: "#FFFFFF", desc: "Framework React para apps escalables" },
-                  { name: "Python", icon: "fa-brands fa-python", color: "#3776AB", desc: "Lenguaje para backend y automatización" },
-                  { name: "Tailwind", icon: "tailwind", color: "#06B6D4", desc: "Framework CSS de utilidad inmediata" },
-                  { name: "GSAP", icon: "gsap", color: "#88CE02", desc: "Motor de animaciones web de alto nivel" },
-                  { name: "Cloudflare", icon: "fa-brands fa-cloudflare", color: "#F38020", desc: "Red global de seguridad y rendimiento" },
-                  { name: "Git", icon: "fa-brands fa-git-alt", color: "#F05032", desc: "Sistema de control de versiones ágil" },
-                  { name: "Netlify", icon: "netlify", color: "#00C7B7", desc: "Plataforma de despliegue automatizado" },
-                  { name: "Vercel", icon: "w-0 h-0 border-l-[14px] border-r-[14px] border-b-[24px] md:border-l-[17px] md:border-r-[17px] md:border-b-[30px] border-l-transparent border-r-transparent border-b-current inline-block", color: "#FFFFFF", desc: "Infraestructura para frontend moderno" },
-                  { name: "Discord API", icon: "fa-brands fa-discord", color: "#5865F2", desc: "Integración para bots y comunidades" }
+        <div
+          id="stack-ticker-inner"
+          class="flex gap-0 whitespace-nowrap select-none w-max relative z-10"
+        >
+          {
+            Array.from({ length: 6 }).map((_, repIdx) => (
+              <div
+                class="flex items-center gap-12 md:gap-20 px-6 md:px-10 shrink-0"
+                aria-hidden={repIdx > 0 ? "true" : "false"}
+              >
+                {[
+                  {
+                    name: "Astro",
+                    icon: "astro",
+                    color: "#FF5D01",
+                    desc: "Framework web optimizado para velocidad",
+                  },
+                  {
+                    name: "React",
+                    icon: "fa-brands fa-react",
+                    color: "#61DAFB",
+                    desc: "Librería para interfaces interactivas",
+                  },
+                  {
+                    name: "Next.js",
+                    icon: "nextjs",
+                    color: "#FFFFFF",
+                    desc: "Framework React para apps escalables",
+                  },
+                  {
+                    name: "Python",
+                    icon: "fa-brands fa-python",
+                    color: "#3776AB",
+                    desc: "Lenguaje para backend y automatización",
+                  },
+                  {
+                    name: "Tailwind",
+                    icon: "tailwind",
+                    color: "#06B6D4",
+                    desc: "Framework CSS de utilidad inmediata",
+                  },
+                  {
+                    name: "GSAP",
+                    icon: "gsap",
+                    color: "#88CE02",
+                    desc: "Motor de animaciones web de alto nivel",
+                  },
+                  {
+                    name: "Cloudflare",
+                    icon: "fa-brands fa-cloudflare",
+                    color: "#F38020",
+                    desc: "Red global de seguridad y rendimiento",
+                  },
+                  {
+                    name: "Git",
+                    icon: "fa-brands fa-git-alt",
+                    color: "#F05032",
+                    desc: "Sistema de control de versiones ágil",
+                  },
+                  {
+                    name: "Netlify",
+                    icon: "netlify",
+                    color: "#00C7B7",
+                    desc: "Plataforma de despliegue automatizado",
+                  },
+                  {
+                    name: "Vercel",
+                    icon: "w-0 h-0 border-l-[14px] border-r-[14px] border-b-[24px] md:border-l-[17px] md:border-r-[17px] md:border-b-[30px] border-l-transparent border-r-transparent border-b-current inline-block",
+                    color: "#FFFFFF",
+                    desc: "Infraestructura para frontend moderno",
+                  },
+                  {
+                    name: "Discord API",
+                    icon: "fa-brands fa-discord",
+                    color: "#5865F2",
+                    desc: "Integración para bots y comunidades",
+                  },
                 ].map((tech, i) => {
                   const globalIdx = repIdx * 11 + i;
                   return (
-                  <div class="group relative flex flex-col items-center justify-center cursor-default z-10">
-                    
-                    <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-[#0a0a0a] border border-blanco/10 flex items-center justify-center text-3xl md:text-4xl text-blanco/40 group-hover:bg-[#111] group-hover:scale-110 transition-all duration-500 transform-gpu relative z-10" style={`--h-color: ${tech.color};`} onmouseenter={`this.style.color='${tech.color}'; this.style.borderColor='${tech.color}50'; this.style.boxShadow='0 0 30px ${tech.color}20';`} onmouseleave="this.style.color=''; this.style.borderColor=''; this.style.boxShadow='';">
-                      {tech.icon === 'astro' ? (
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[1em] h-[1em]"><title>Astro</title><path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.098.388-.229.608-.36.166.473.209.95.151 1.437-.14 1.185-.738 2.1-1.688 2.794-.38.277-.782.525-1.175.787-1.205.804-1.531 1.747-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.544-1.815c-.004-.32-.004-.642-.048-.958-.106-.769-.472-1.113-1.161-1.133-.707-.02-1.267.411-1.415 1.09-.012.053-.028.104-.045.165h.002zm-5.961-4.445s3.24-1.575 6.49-1.575l2.451-7.565c.092-.366.36-.614.662-.614.302 0 .57.248.662.614l2.45 7.565c3.85 0 6.491 1.575 6.491 1.575L16.088.727C15.93.285 15.663 0 15.303 0H8.697c-.36 0-.615.285-.784.727l-5.516 14.99z"/></svg>
-                      ) : tech.icon === 'gsap' ? (
-                        <svg role="img" viewBox="0 0 82 30" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[1.25em] h-[1.25em]"><title>GSAP</title><path d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z"/><path d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z"/><path d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z"/><path d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z"/></svg>
-                      ) : tech.icon === 'netlify' ? (
-                        <svg role="img" viewBox="0 0 128 113" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[1em] h-[1em]"><title>Netlify</title><path d="M34.6,94.1h-1.2l-6-6v-1.2l9.2-9.2H43l0.9,0.9v6.4L34.6,94.1z"></path><path d="M27.4,25.8v-1.2l6-6h1.2l9.2,9.2v6.4L43,35h-6.4L27.4,25.8z"></path><path opacity="0.6" d="M80.5,74.6h-8.8l-0.7-0.7V53.3c0-3.7-1.4-6.5-5.8-6.6c-2.3-0.1-4.9,0-7.6,0.1l-0.4,0.4v26.6l-0.7,0.7h-8.8 l-0.7-0.7V38.8l0.7-0.7h19.8c7.7,0,13.9,6.2,13.9,13.9v21.9L80.5,74.6z"></path><path d="M35.8,61.4H0.7L0,60.7v-8.8l0.7-0.7h35.1l0.7,0.7v8.8L35.8,61.4z"></path><path d="M127.3,61.4H92.2l-0.7-0.7v-8.8l0.7-0.7h35.1l0.7,0.7v8.8L127.3,61.4z"></path><path d="M58.9,27.1V0.7L59.7,0h8.8l0.7,0.7v26.3l-0.7,0.7h-8.8L58.9,27.1z"></path><path d="M58.9,111.9V85.6l0.7-0.7h8.8l0.7,0.7v26.3l-0.7,0.7h-8.8L58.9,111.9z"></path></svg>
-                      ) : tech.icon === 'tailwind' ? (
-                        <svg role="img" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[1.1em] h-[1.1em]"><title>Tailwind</title><path d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"/></svg>
-                      ) : tech.icon === 'nextjs' ? (
-                        <svg role="img" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none" class="w-[1em] h-[1em]"><title>Next.js</title><circle cx="8" cy="8" r="7.375" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.63 11V5" stroke="currentColor" stroke-width="1.25" stroke-miterlimit="1.41421"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5.995 5.00087V5H4.745V11H5.995V6.96798L12.3615 14.7076C12.712 14.4793 13.0434 14.2242 13.353 13.9453L5.99527 5.00065L5.995 5.00087Z" fill="currentColor"/></svg>
-                      ) : (
-                        <i class={tech.icon}></i>
-                      )}
-                    </div>
-
-                    
-                    <div class={`absolute ${globalIdx % 2 === 0 ? 'bottom-[100%] mb-2 origin-bottom' : 'top-[100%] mt-2 origin-top'} left-1/2 -translate-x-1/2 flex flex-col items-center opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none z-20`}>
-                      <div class="bg-[#1a1a1a]/80 backdrop-blur-xl border border-blanco/10 p-4 rounded-xl min-w-[200px] text-center whitespace-normal shadow-2xl">
-                        <p class="font-display text-xl mb-1" style={`color: ${tech.color};`}>{tech.name}</p>
-                        <p class="font-mono text-[10px] uppercase tracking-widest text-blanco/60 leading-relaxed">{tech.desc}</p>
+                    <div class="group relative flex flex-col items-center justify-center cursor-default z-10">
+                      <div
+                        class="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-[#0a0a0a] border border-blanco/10 flex items-center justify-center text-3xl md:text-4xl text-blanco/40 group-hover:bg-[#111] group-hover:scale-110 transition-all duration-500 transform-gpu relative z-10"
+                        style={`--h-color: ${tech.color};`}
+                        onmouseenter={`this.style.color='${tech.color}'; this.style.borderColor='${tech.color}50'; this.style.boxShadow='0 0 30px ${tech.color}20';`}
+                        onmouseleave="this.style.color=''; this.style.borderColor=''; this.style.boxShadow='';"
+                      >
+                        {tech.icon === "astro" ? (
+                          <svg
+                            role="img"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            class="w-[1em] h-[1em]"
+                          >
+                            <title>Astro</title>
+                            <path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.098.388-.229.608-.36.166.473.209.95.151 1.437-.14 1.185-.738 2.1-1.688 2.794-.38.277-.782.525-1.175.787-1.205.804-1.531 1.747-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.544-1.815c-.004-.32-.004-.642-.048-.958-.106-.769-.472-1.113-1.161-1.133-.707-.02-1.267.411-1.415 1.09-.012.053-.028.104-.045.165h.002zm-5.961-4.445s3.24-1.575 6.49-1.575l2.451-7.565c.092-.366.36-.614.662-.614.302 0 .57.248.662.614l2.45 7.565c3.85 0 6.491 1.575 6.491 1.575L16.088.727C15.93.285 15.663 0 15.303 0H8.697c-.36 0-.615.285-.784.727l-5.516 14.99z" />
+                          </svg>
+                        ) : tech.icon === "gsap" ? (
+                          <svg
+                            role="img"
+                            viewBox="0 0 82 30"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            class="w-[1.25em] h-[1.25em]"
+                          >
+                            <title>GSAP</title>
+                            <path d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z" />
+                            <path d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z" />
+                            <path d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z" />
+                            <path d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z" />
+                          </svg>
+                        ) : tech.icon === "netlify" ? (
+                          <svg
+                            role="img"
+                            viewBox="0 0 128 113"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            class="w-[1em] h-[1em]"
+                          >
+                            <title>Netlify</title>
+                            <path d="M34.6,94.1h-1.2l-6-6v-1.2l9.2-9.2H43l0.9,0.9v6.4L34.6,94.1z" />
+                            <path d="M27.4,25.8v-1.2l6-6h1.2l9.2,9.2v6.4L43,35h-6.4L27.4,25.8z" />
+                            <path
+                              opacity="0.6"
+                              d="M80.5,74.6h-8.8l-0.7-0.7V53.3c0-3.7-1.4-6.5-5.8-6.6c-2.3-0.1-4.9,0-7.6,0.1l-0.4,0.4v26.6l-0.7,0.7h-8.8 l-0.7-0.7V38.8l0.7-0.7h19.8c7.7,0,13.9,6.2,13.9,13.9v21.9L80.5,74.6z"
+                            />
+                            <path d="M35.8,61.4H0.7L0,60.7v-8.8l0.7-0.7h35.1l0.7,0.7v8.8L35.8,61.4z" />
+                            <path d="M127.3,61.4H92.2l-0.7-0.7v-8.8l0.7-0.7h35.1l0.7,0.7v8.8L127.3,61.4z" />
+                            <path d="M58.9,27.1V0.7L59.7,0h8.8l0.7,0.7v26.3l-0.7,0.7h-8.8L58.9,27.1z" />
+                            <path d="M58.9,111.9V85.6l0.7-0.7h8.8l0.7,0.7v26.3l-0.7,0.7h-8.8L58.9,111.9z" />
+                          </svg>
+                        ) : tech.icon === "tailwind" ? (
+                          <svg
+                            role="img"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            class="w-[1.1em] h-[1.1em]"
+                          >
+                            <title>Tailwind</title>
+                            <path d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z" />
+                          </svg>
+                        ) : tech.icon === "nextjs" ? (
+                          <svg
+                            role="img"
+                            viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            class="w-[1em] h-[1em]"
+                          >
+                            <title>Next.js</title>
+                            <circle
+                              cx="8"
+                              cy="8"
+                              r="7.375"
+                              stroke="currentColor"
+                              stroke-width="1.25"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M10.63 11V5"
+                              stroke="currentColor"
+                              stroke-width="1.25"
+                              stroke-miterlimit="1.41421"
+                            />
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M5.995 5.00087V5H4.745V11H5.995V6.96798L12.3615 14.7076C12.712 14.4793 13.0434 14.2242 13.353 13.9453L5.99527 5.00065L5.995 5.00087Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        ) : (
+                          <i class={tech.icon} />
+                        )}
                       </div>
-                      
-                      <div class={`w-0 h-0 border-x-6 border-x-transparent ${globalIdx % 2 === 0 ? 'border-t-6 border-t-blanco/20' : 'border-b-6 border-b-blanco/20 absolute -top-1.5'}`}></div>
+
+                      <div
+                        class={`absolute ${globalIdx % 2 === 0 ? "bottom-[100%] mb-2 origin-bottom" : "top-[100%] mt-2 origin-top"} left-1/2 -translate-x-1/2 flex flex-col items-center opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none z-20`}
+                      >
+                        <div class="bg-[#1a1a1a]/80 backdrop-blur-xl border border-blanco/10 p-4 rounded-xl min-w-[200px] text-center whitespace-normal shadow-2xl">
+                          <p
+                            class="font-display text-xl mb-1"
+                            style={`color: ${tech.color};`}
+                          >
+                            {tech.name}
+                          </p>
+                          <p class="font-mono text-[10px] uppercase tracking-widest text-blanco/60 leading-relaxed">
+                            {tech.desc}
+                          </p>
+                        </div>
+
+                        <div
+                          class={`w-0 h-0 border-x-6 border-x-transparent ${globalIdx % 2 === 0 ? "border-t-6 border-t-blanco/20" : "border-b-6 border-b-blanco/20 absolute -top-1.5"}`}
+                        />
+                      </div>
                     </div>
-                  </div>
                   );
-                })
-              }
-            </div>
-          ))
-        }
+                })}
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
-  </div>
 
-    <section id="crafted-with-purpose" class="bg-negro text-blanco overflow-hidden relative hidden lg:block">
-      <div class="cwp-pin-container relative w-full h-[calc(100vh-80px)] overflow-hidden flex items-center justify-center py-12 md:py-16">
-
-        
+    <section
+      id="crafted-with-purpose"
+      class="bg-negro text-blanco overflow-hidden relative hidden lg:block -mt-[180px] pt-[180px]"
+    >
+      <div
+        class="cwp-pin-container relative w-full h-[calc(100vh-80px)] bg-negro overflow-hidden flex items-center justify-center py-12 md:py-16"
+      >
         <svg class="hidden absolute w-0 h-0">
           <defs>
             <filter id="cwp-goo">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-              <feColorMatrix in="blur" mode="matrix" values="
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"
+              ></feGaussianBlur>
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="
                 1 0 0 0 0
                 0 1 0 0 0
                 0 0 1 0 0
-                0 0 0 18 -7" result="goo" />
-              <feBlend in="SourceGraphic" in2="goo" />
+                0 0 0 18 -7"
+                result="goo"></feColorMatrix>
+              <feBlend in="SourceGraphic" in2="goo"></feBlend>
             </filter>
           </defs>
         </svg>
 
-        
-        <div class="cwp-cards-wrapper relative w-full max-w-[1700px] h-full mx-auto px-4 md:px-16 lg:pr-32">
-
-          
-          <div class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col md:flex-row overflow-hidden origin-top transform-gpu will-change-transform" style="z-index: 1;">
-            <div class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"></div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro">
-              <img src="/process/discover/hero.webp" alt="Discover" class="cwp-img-1-1 absolute inset-0 w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-negro/40"></div>
-              <img src="/process/discover/detail.webp" alt="Discover Dashboard" class="cwp-img-1-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105" />
+        <div
+          class="cwp-cards-wrapper relative w-full max-w-[1700px] h-full mx-auto px-4 md:px-16 lg:pr-32"
+        >
+          <div
+            class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col md:flex-row overflow-hidden origin-top transform-gpu will-change-transform"
+            style="z-index: 1;"
+          >
+            <div
+              class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"
+            >
             </div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative">
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
+            >
+              <img
+                src="/process/discover/hero.webp"
+                alt="Discover"
+                class="cwp-img-1-1 absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-negro/40"></div>
+              <img
+                src="/process/discover/detail.webp"
+                alt="Discover Dashboard"
+                class="cwp-img-1-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
+              />
+            </div>
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative"
+            >
               <div class="flex items-center justify-between mb-8">
-                <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-blue-500/80">01 / Discover</span>
-                <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
-                  <div class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
-                  <span class="font-mono text-[9px] uppercase tracking-widest text-blue-500">Research Active</span>
+                <span
+                  class="font-mono text-[10px] tracking-[0.3em] uppercase text-blue-500/80"
+                  >01 / Descubrir</span
+                >
+                <div
+                  class="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20"
+                >
+                  <div
+                    class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"
+                  >
+                  </div>
+                  <span
+                    class="font-mono text-[9px] uppercase tracking-widest text-blue-500"
+                    >Investigación</span
+                  >
                 </div>
               </div>
               <div class="relative min-h-[240px]">
                 <div class="cwp-text-1-1 absolute top-0 left-0 w-full">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]">Diagnóstico<br/>Estratégico.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">No iniciamos ningún desarrollo sin un Product Discovery exhaustivo. Analizamos la viabilidad técnica, auditamos la arquitectura de información y evaluamos los cuellos de botella actuales de tu modelo de negocio.</p>
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]"
+                  >
+                    Diagnóstico<br />Estratégico.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    No iniciamos ningún desarrollo sin un Product Discovery
+                    exhaustivo. Analizamos la viabilidad técnica, auditamos la
+                    arquitectura de información y evaluamos los cuellos de
+                    botella actuales de tu modelo de negocio.
+                  </p>
                 </div>
-                <div class="cwp-text-1-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-blue-500">Métricas y<br/>Objetivos.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">Realizamos inteligencia competitiva y definimos KPIs reales. Desde el flujo de conversión hasta la retención, mapeamos cada interacción para que el diseño responda únicamente a datos y objetivos comerciales.</p>
+                <div
+                  class="cwp-text-1-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4"
+                >
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-blue-500"
+                  >
+                    Métricas y<br />Objetivos.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    Realizamos inteligencia competitiva y definimos KPIs reales.
+                    Desde el flujo de conversión hasta la retención, mapeamos
+                    cada interacción para que el diseño responda únicamente a
+                    datos y objetivos comerciales.
+                  </p>
                   <div class="flex flex-wrap gap-3 mt-8">
-                    <span class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80 flex items-center gap-2">
-                      <svg class="w-3 h-3 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                      Data
+                    <span
+                      class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80 flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-3 h-3 text-blue-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                        ></path></svg
+                      >
+                      Datos
                     </span>
-                    <span class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80">UX Audit</span>
+                    <span
+                      class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80"
+                      >Auditoría UX</span
+                    >
                   </div>
                 </div>
               </div>
 
-              
-              <div class="absolute bottom-8 right-8 p-4 border border-blanco/10 rounded-xl bg-[#111111] hidden lg:block opacity-70 hover:opacity-100 transition-opacity">
-                <div class="font-mono text-[9px] text-blanco/40 uppercase mb-3 border-b border-blanco/10 pb-2 tracking-widest">User Journey Mapping</div>
+              <div
+                class="absolute bottom-8 right-8 p-4 border border-blanco/10 rounded-xl bg-[#111111] hidden lg:block opacity-70 hover:opacity-100 transition-opacity"
+              >
+                <div
+                  class="font-mono text-[9px] text-blanco/40 uppercase mb-3 border-b border-blanco/10 pb-2 tracking-widest"
+                >
+                  Mapeo de Usuario
+                </div>
                 <div class="flex flex-col gap-2">
                   <div class="flex items-center gap-2">
-                    <div class="w-16 h-1 bg-blue-500/20 rounded-full overflow-hidden"><div class="h-full bg-blue-500 w-[80%]"></div></div>
+                    <div
+                      class="w-16 h-1 bg-blue-500/20 rounded-full overflow-hidden"
+                    >
+                      <div class="h-full bg-blue-500 w-[80%]"></div>
+                    </div>
                     <span class="font-mono text-[8px] text-blue-500">80%</span>
                   </div>
                   <div class="w-16 h-1 bg-blanco/10 rounded-full"></div>
@@ -611,79 +894,208 @@ import Footer from "../components/Footer.astro";
             </div>
           </div>
 
-          
-          <div class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col-reverse md:flex-row overflow-hidden origin-top transform-gpu will-change-transform" style="z-index: 2;">
-            <div class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"></div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative">
+          <div
+            class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col-reverse md:flex-row overflow-hidden origin-top transform-gpu will-change-transform"
+            style="z-index: 2;"
+          >
+            <div
+              class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"
+            >
+            </div>
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative"
+            >
               <div class="flex items-center justify-between mb-8">
-                <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-purple-500/80">02 / Design</span>
-                <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">
-                  <div class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse"></div>
-                  <span class="font-mono text-[9px] uppercase tracking-widest text-purple-500">System Ready</span>
+                <span
+                  class="font-mono text-[10px] tracking-[0.3em] uppercase text-purple-500/80"
+                  >02 / Diseño</span
+                >
+                <div
+                  class="flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20"
+                >
+                  <div
+                    class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse"
+                  >
+                  </div>
+                  <span
+                    class="font-mono text-[9px] uppercase tracking-widest text-purple-500"
+                    >Sistema Listo</span
+                  >
                 </div>
               </div>
               <div class="relative min-h-[240px]">
                 <div class="cwp-text-2-1 absolute top-0 left-0 w-full">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]">Sistemas<br/>Visuales.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">No hacemos simples maquetas estáticas. Construimos sistemas de diseño organizados. Definimos tokens, jerarquías tipográficas y componentes para que la interfaz se adapte perfectamente y el producto pueda escalar.</p>
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]"
+                  >
+                    Sistemas<br />Visuales.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    No hacemos simples maquetas estáticas. Construimos sistemas
+                    de diseño organizados. Definimos tokens, jerarquías
+                    tipográficas y componentes para que la interfaz se adapte
+                    perfectamente y el producto pueda escalar.
+                  </p>
                 </div>
-                <div class="cwp-text-2-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-purple-500">Pixel<br/>Perfect.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">Prototipado interactivo en altísima fidelidad. Verás cómo interactúa el usuario, cómo fluyen las micro-animaciones y cómo se comportan los estados de cada componente antes de programar una sola línea de código.</p>
+                <div
+                  class="cwp-text-2-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4"
+                >
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-purple-500"
+                  >
+                    Pixel<br />Perfect.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    Prototipado interactivo en altísima fidelidad. Verás cómo
+                    interactúa el usuario, cómo fluyen las micro-animaciones y
+                    cómo se comportan los estados de cada componente antes de
+                    programar una sola línea de código.
+                  </p>
                   <div class="flex flex-wrap gap-3 mt-8">
-                    <span class="border border-purple-500/30 bg-[#1a1122] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-purple-300">Design System</span>
-                    <span class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80">Prototyping</span>
+                    <span
+                      class="border border-purple-500/30 bg-[#1a1122] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-purple-300"
+                      >Sistema de Diseño</span
+                    >
+                    <span
+                      class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80"
+                      >Prototipado</span
+                    >
                   </div>
                 </div>
               </div>
 
-              
-              <div class="absolute bottom-8 left-8 flex gap-3 hidden lg:flex opacity-70">
-                <div class="w-8 h-8 rounded-full bg-blanco shadow-2xl border border-blanco/20 flex items-center justify-center"><div class="w-3 h-3 rounded-full bg-negro/10"></div></div>
-                <div class="w-8 h-8 rounded-full bg-negro shadow-2xl border border-blanco/20"></div>
-                <div class="w-8 h-8 rounded-full bg-purple-500 shadow-2xl border border-blanco/20 flex items-center justify-center"><div class="w-1.5 h-1.5 rounded-full bg-blanco"></div></div>
+              <div
+                class="absolute bottom-8 left-8 flex gap-3 hidden lg:flex opacity-70"
+              >
+                <div
+                  class="w-8 h-8 rounded-full bg-blanco shadow-2xl border border-blanco/20 flex items-center justify-center"
+                >
+                  <div class="w-3 h-3 rounded-full bg-negro/10"></div>
+                </div>
+                <div
+                  class="w-8 h-8 rounded-full bg-negro shadow-2xl border border-blanco/20"
+                >
+                </div>
+                <div
+                  class="w-8 h-8 rounded-full bg-purple-500 shadow-2xl border border-blanco/20 flex items-center justify-center"
+                >
+                  <div class="w-1.5 h-1.5 rounded-full bg-blanco"></div>
+                </div>
               </div>
             </div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro">
-              <img src="/process/design/hero.webp" alt="Design" class="cwp-img-2-1 absolute inset-0 w-full h-full object-cover" />
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
+            >
+              <img
+                src="/process/design/hero.webp"
+                alt="Design"
+                class="cwp-img-2-1 absolute inset-0 w-full h-full object-cover"
+              />
               <div class="absolute inset-0 bg-negro/40"></div>
-              <img src="/process/design/detail.webp" alt="Design Branding" class="cwp-img-2-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105" />
+              <img
+                src="/process/design/detail.webp"
+                alt="Design Branding"
+                class="cwp-img-2-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
+              />
             </div>
           </div>
 
-          
-          <div class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col md:flex-row overflow-hidden origin-top transform-gpu will-change-transform" style="z-index: 3;">
-            <div class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"></div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro">
-              <img src="/process/build/hero.webp" alt="Build" class="cwp-img-3-1 absolute inset-0 w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-negro/40"></div>
-              <img src="/process/build/detail.webp" alt="Build Performance" class="cwp-img-3-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105" />
+          <div
+            class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col md:flex-row overflow-hidden origin-top transform-gpu will-change-transform"
+            style="z-index: 3;"
+          >
+            <div
+              class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"
+            >
             </div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative">
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
+            >
+              <img
+                src="/process/build/hero.webp"
+                alt="Build"
+                class="cwp-img-3-1 absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-negro/40"></div>
+              <img
+                src="/process/build/detail.webp"
+                alt="Build Performance"
+                class="cwp-img-3-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
+              />
+            </div>
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative"
+            >
               <div class="flex items-center justify-between mb-8">
-                <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-emerald-500/80">03 / Build</span>
-                <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                  <span class="font-mono text-[9px] uppercase tracking-widest text-emerald-500">Compiling</span>
+                <span
+                  class="font-mono text-[10px] tracking-[0.3em] uppercase text-emerald-500/80"
+                  >03 / Desarrollo</span
+                >
+                <div
+                  class="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20"
+                >
+                  <div
+                    class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+                  >
+                  </div>
+                  <span
+                    class="font-mono text-[9px] uppercase tracking-widest text-emerald-500"
+                    >Compilando</span
+                  >
                 </div>
               </div>
               <div class="relative min-h-[240px]">
                 <div class="cwp-text-3-1 absolute top-0 left-0 w-full">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]">Arquitectura<br/>Moderna.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">Desarrollamos soluciones nativas y ligeras sin depender de plantillas infladas ni page builders lentos. Dominamos frameworks robustos como Astro, Next.js y Python para garantizar una performance absoluta.</p>
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]"
+                  >
+                    Arquitectura<br />Moderna.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    Desarrollamos soluciones nativas y ligeras sin depender de
+                    plantillas infladas ni page builders lentos. Dominamos
+                    frameworks robustos como Astro, Next.js y Python para
+                    garantizar una performance absoluta.
+                  </p>
                 </div>
-                <div class="cwp-text-3-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-emerald-500">Motion<br/>60 FPS.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">Implementamos físicas de scroll y micro-animaciones inmersivas mediante GSAP. Calculamos y coreografiamos cada transición del DOM para lograr una experiencia web fluida e hipnótica en cualquier dispositivo.</p>
+                <div
+                  class="cwp-text-3-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4"
+                >
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-emerald-500"
+                  >
+                    Motion<br />60 FPS.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    Implementamos físicas de scroll y micro-animaciones
+                    inmersivas mediante GSAP. Calculamos y coreografiamos cada
+                    transición del DOM para lograr una experiencia web fluida e
+                    hipnótica en cualquier dispositivo.
+                  </p>
                   <div class="flex flex-wrap gap-3 mt-8">
-                    <span class="border border-emerald-500/30 bg-[#0f1f15] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-emerald-300">Clean Code</span>
-                    <span class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80">GSAP WebGL</span>
+                    <span
+                      class="border border-emerald-500/30 bg-[#0f1f15] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-emerald-300"
+                      >Código Limpio</span
+                    >
+                    <span
+                      class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80"
+                      >GSAP WebGL</span
+                    >
                   </div>
                 </div>
               </div>
 
-              
-              <div class="absolute bottom-8 right-8 p-4 border border-blanco/10 rounded-xl bg-[#0a0a0a] hidden lg:block opacity-70 font-mono text-[9px] text-emerald-500/70 w-56 shadow-2xl">
+              <div
+                class="absolute bottom-8 right-8 p-4 border border-blanco/10 rounded-xl bg-[#0a0a0a] hidden lg:block opacity-70 font-mono text-[9px] text-emerald-500/70 w-56 shadow-2xl"
+              >
                 <div class="flex gap-1.5 mb-3 border-b border-blanco/10 pb-2">
                   <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
                   <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
@@ -693,63 +1105,151 @@ import Footer from "../components/Footer.astro";
                 <p class="text-blanco/40">> astro build</p>
                 <p class="mt-1 text-emerald-500/90">✔ bundling pages</p>
                 <p class="text-emerald-500/90">✔ optimizing assets</p>
-                <p class="text-emerald-500 mt-2 font-bold">build complete in 1.2s</p>
+                <p class="text-emerald-500 mt-2 font-bold">
+                  build complete in 1.2s
+                </p>
               </div>
             </div>
           </div>
 
-          
-          <div class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col-reverse md:flex-row overflow-hidden origin-top transform-gpu will-change-transform" style="z-index: 4;">
-            <div class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"></div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative">
+          <div
+            class="cwp-card absolute inset-0 bg-[#080808] rounded-[2rem] border border-blanco/10 shadow-2xl flex flex-col-reverse md:flex-row overflow-hidden origin-top transform-gpu will-change-transform"
+            style="z-index: 4;"
+          >
+            <div
+              class="cwp-card-darken absolute inset-0 bg-negro pointer-events-none opacity-0 z-50 transition-none"
+            >
+            </div>
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 lg:p-20 flex flex-col justify-center relative"
+            >
               <div class="flex items-center justify-between mb-8">
-                <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-amber-500/80">04 / Deliver</span>
-                <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20">
-                  <div class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></div>
-                  <span class="font-mono text-[9px] uppercase tracking-widest text-amber-500">Live</span>
+                <span
+                  class="font-mono text-[10px] tracking-[0.3em] uppercase text-amber-500/80"
+                  >04 / Entrega</span
+                >
+                <div
+                  class="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20"
+                >
+                  <div
+                    class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"
+                  >
+                  </div>
+                  <span
+                    class="font-mono text-[9px] uppercase tracking-widest text-amber-500"
+                    >En Vivo</span
+                  >
                 </div>
               </div>
               <div class="relative min-h-[240px]">
                 <div class="cwp-text-4-1 absolute top-0 left-0 w-full">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]">Calidad<br/>Absoluta.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">Realizamos QA técnico exhaustivo, validando accesibilidad y SEO On-Page de forma meticulosa. Optimizamos pesos de imágenes, precargas de fuentes y ejecución de scripts para eliminar cualquier latencia.</p>
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9]"
+                  >
+                    Calidad<br />Absoluta.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    Realizamos QA técnico exhaustivo, validando accesibilidad y
+                    SEO On-Page de forma meticulosa. Optimizamos pesos de
+                    imágenes, precargas de fuentes y ejecución de scripts para
+                    eliminar cualquier latencia.
+                  </p>
                 </div>
-                <div class="cwp-text-4-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4">
-                  <h2 class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-amber-500">Global<br/>Scale.</h2>
-                  <p class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md">Tu producto se despliega sobre infraestructuras Edge modernas y redes CDN globales. Nace cien por ciento optimizado y preparado estructuralmente para recibir tráfico masivo sin caídas.</p>
+                <div
+                  class="cwp-text-4-2 absolute top-0 left-0 w-full opacity-0 pointer-events-none translate-y-4"
+                >
+                  <h2
+                    class="font-display text-4xl md:text-5xl lg:text-6xl mb-6 leading-[0.9] text-amber-500"
+                  >
+                    Escala<br />Global.
+                  </h2>
+                  <p
+                    class="font-mono text-xs md:text-sm text-blanco/50 leading-relaxed max-w-md"
+                  >
+                    Tu producto se despliega sobre infraestructuras Edge
+                    modernas y redes CDN globales. Nace cien por ciento
+                    optimizado y preparado estructuralmente para recibir tráfico
+                    masivo sin caídas.
+                  </p>
                   <div class="flex flex-wrap gap-3 mt-8">
-                    <span class="border border-amber-500/30 bg-[#1f1a0f] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-amber-300 flex items-center gap-2">
-                      <svg class="w-3 h-3 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clip-rule="evenodd"/></svg>
-                      Performance
+                    <span
+                      class="border border-amber-500/30 bg-[#1f1a0f] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-amber-300 flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-3 h-3 text-amber-500"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        ><path
+                          fill-rule="evenodd"
+                          d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z"
+                          clip-rule="evenodd"></path></svg
+                      >
+                      Rendimiento
                     </span>
-                    <span class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80">Edge CDN</span>
+                    <span
+                      class="border border-blanco/10 bg-[#1a1a1a] rounded-full px-4 py-1.5 font-mono text-[10px] tracking-widest uppercase text-blanco/80"
+                      >Edge CDN</span
+                    >
                   </div>
                 </div>
               </div>
 
-              
-              <div class="absolute bottom-8 left-8 flex items-center gap-4 border border-blanco/10 rounded-xl bg-[#111111] p-4 hidden lg:flex opacity-80 shadow-2xl">
+              <div
+                class="absolute bottom-8 left-8 flex items-center gap-4 border border-blanco/10 rounded-xl bg-[#111111] p-4 hidden lg:flex opacity-80 shadow-2xl"
+              >
                 <div class="flex flex-col items-center gap-2">
-                  <div class="w-12 h-12 rounded-full border-2 border-emerald-500 flex items-center justify-center font-mono text-[11px] text-emerald-500 bg-emerald-500/10">100</div>
-                  <span class="font-mono text-[8px] uppercase tracking-widest text-blanco/40">Perf</span>
+                  <div
+                    class="w-12 h-12 rounded-full border-2 border-emerald-500 flex items-center justify-center font-mono text-[11px] text-emerald-500 bg-emerald-500/10"
+                  >
+                    100
+                  </div>
+                  <span
+                    class="font-mono text-[8px] uppercase tracking-widest text-blanco/40"
+                    >Rend</span
+                  >
                 </div>
                 <div class="flex flex-col items-center gap-2">
-                  <div class="w-12 h-12 rounded-full border-2 border-emerald-500 flex items-center justify-center font-mono text-[11px] text-emerald-500 bg-emerald-500/10">100</div>
-                  <span class="font-mono text-[8px] uppercase tracking-widest text-blanco/40">A11y</span>
+                  <div
+                    class="w-12 h-12 rounded-full border-2 border-emerald-500 flex items-center justify-center font-mono text-[11px] text-emerald-500 bg-emerald-500/10"
+                  >
+                    100
+                  </div>
+                  <span
+                    class="font-mono text-[8px] uppercase tracking-widest text-blanco/40"
+                    >Acc</span
+                  >
                 </div>
                 <div class="flex flex-col items-center gap-2">
-                  <div class="w-12 h-12 rounded-full border-2 border-emerald-500 flex items-center justify-center font-mono text-[11px] text-emerald-500 bg-emerald-500/10">100</div>
-                  <span class="font-mono text-[8px] uppercase tracking-widest text-blanco/40">SEO</span>
+                  <div
+                    class="w-12 h-12 rounded-full border-2 border-emerald-500 flex items-center justify-center font-mono text-[11px] text-emerald-500 bg-emerald-500/10"
+                  >
+                    100
+                  </div>
+                  <span
+                    class="font-mono text-[8px] uppercase tracking-widest text-blanco/40"
+                    >SEO</span
+                  >
                 </div>
               </div>
             </div>
-            <div class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro">
-              <img src="/process/deliver/hero.webp" alt="Deliver" class="cwp-img-4-1 absolute inset-0 w-full h-full object-cover" />
+            <div
+              class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
+            >
+              <img
+                src="/process/deliver/hero.webp"
+                alt="Deliver"
+                class="cwp-img-4-1 absolute inset-0 w-full h-full object-cover"
+              />
               <div class="absolute inset-0 bg-negro/40"></div>
-              <img src="/process/deliver/detail.webp" alt="Deliver Metrics" class="cwp-img-4-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105" />
+              <img
+                src="/process/deliver/detail.webp"
+                alt="Deliver Metrics"
+                class="cwp-img-4-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
+              />
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -762,6 +1262,7 @@ import Footer from "../components/Footer.astro";
           id="empresas-label"
         >
           <span
+            id="enfoque"
             class="font-mono text-xs tracking-[0.4em] uppercase text-blanco/30"
             >§ 05 — Enfoque</span
           >
@@ -784,7 +1285,9 @@ import Footer from "../components/Footer.astro";
             >
               Procesos Manuales
             </h3>
-            <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed">
+            <p
+              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
+            >
               Tienen tareas repetitivas y cuellos de botella que limitan su
               capacidad de escalar y ser eficientes.
             </p>
@@ -798,7 +1301,9 @@ import Footer from "../components/Footer.astro";
             >
               Buscan Automatización
             </h3>
-            <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed">
+            <p
+              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
+            >
               Necesitan integrar sistemas y automatizar flujos de trabajo para
               ganar velocidad operativa real.
             </p>
@@ -812,7 +1317,9 @@ import Footer from "../components/Footer.astro";
             >
               Herramientas Limitadas
             </h3>
-            <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed">
+            <p
+              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
+            >
               Quieren dejar atrás planillas de Excel o software enlatado que ya
               no se adapta a su realidad ni ritmo.
             </p>
@@ -826,7 +1333,9 @@ import Footer from "../components/Footer.astro";
             >
               Presencia Profesional
             </h3>
-            <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed">
+            <p
+              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
+            >
               Buscan una presencia digital de alto nivel que refleje la
               verdadera calidad y jerarquía de sus servicios.
             </p>
@@ -898,7 +1407,7 @@ import Footer from "../components/Footer.astro";
             class="font-mono text-sm md:text-base text-blanco/45 max-w-xl mx-auto leading-relaxed mb-12"
           >
             Contanos qué problema querés resolver. Tenemos una respuesta
-            honesta, sin vueltas, en menos de 24 horas.
+            honesta, sin vueltas, en menos de 4 horas hábiles.
           </p>
 
           <div
@@ -1070,7 +1579,8 @@ import Footer from "../components/Footer.astro";
       overflow: visible !important;
     }
 
-    #ticker-inner, #stack-ticker-inner {
+    #ticker-inner,
+    #stack-ticker-inner {
       width: max-content;
     }
 
@@ -1136,12 +1646,15 @@ import Footer from "../components/Footer.astro";
           xPercent: -(100 / 6),
           duration: 28,
           ease: "none",
-          repeat: -1
+          repeat: -1,
         });
-        wrap?.addEventListener("mouseenter", () => gsap.to(tween, { timeScale: 0, duration: 1.2, ease: "power3.out" }));
-        wrap?.addEventListener("mouseleave", () => gsap.to(tween, { timeScale: 1, duration: 1.2, ease: "power2.inOut" }));
+        wrap?.addEventListener("mouseenter", () =>
+          gsap.to(tween, { timeScale: 0, duration: 1.2, ease: "power3.out" }),
+        );
+        wrap?.addEventListener("mouseleave", () =>
+          gsap.to(tween, { timeScale: 1, duration: 1.2, ease: "power2.inOut" }),
+        );
       });
-
 
       const heroCanvas = document.getElementById(
         "hero-canvas",
@@ -1225,7 +1738,7 @@ import Footer from "../components/Footer.astro";
         const reloj = new THREE.Clock();
 
         function animarThree() {
-          if (!document.body.contains(heroCanvas)) return; 
+          if (!document.body.contains(heroCanvas)) return;
           requestAnimationFrame(animarThree);
           const t = reloj.getElapsedTime();
 
@@ -1257,7 +1770,7 @@ import Footer from "../components/Footer.astro";
         setTimeout(startThree, 4000);
       }
 
-      const tl = gsap.timeline({ delay: 0.5 }); 
+      const tl = gsap.timeline({ delay: 0.5 });
       tl.to(
         ".hero-line",
         { scaleX: 1, duration: 0.7, ease: "power3.out", stagger: 0.1 },
@@ -1533,96 +2046,270 @@ import Footer from "../components/Footer.astro";
         });
       });
 
-      const cwpCards = gsap.utils.toArray('.cwp-card') as Element[];
+      const cwpCards = gsap.utils.toArray(".cwp-card") as Element[];
 
       if (cwpCards.length > 0) {
-
-        const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+        const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
         if (isDesktop) {
-
           gsap.set(cwpCards.slice(1), { y: "150%" });
-          gsap.set(cwpCards, { transformOrigin: "top center", force3D: true, rotationZ: 0.01 });
+          gsap.set(cwpCards, {
+            transformOrigin: "top center",
+            force3D: true,
+            rotationZ: 0.01,
+          });
+
+          gsap.fromTo(
+            ".cwp-cards-wrapper",
+            { opacity: 0, y: 150, scale: 0.9 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#crafted-with-purpose",
+                start: "top 90%",
+                end: "top 80px",
+                scrub: 1.5,
+              },
+            },
+          );
 
           const cwpTl = gsap.timeline({
             scrollTrigger: {
               trigger: "#crafted-with-purpose",
-              start: "top 80px", 
-              end: "+=400%", 
+              start: "top 0px",
+              end: "+=450%",
               pin: true,
-              scrub: 1
-            }
+              pinType: "transform",
+              scrub: 1.5,
+            },
           });
 
+          cwpTl.to(
+            ".cwp-pin-container",
+            { y: -100, duration: 2.5, ease: "power2.out" },
+            0,
+          );
 
+          cwpTl
+            .to(".cwp-img-1-1", { scale: 1.05, duration: 2, ease: "none" }, 2.5)
+            .fromTo(
+              ".cwp-img-1-2",
+              { opacity: 0, scale: 1.05 },
+              { opacity: 1, scale: 1, duration: 2, ease: "none" },
+              2.5,
+            )
+            .fromTo(
+              ".cwp-text-1-1",
+              { opacity: 1, y: 0 },
+              { opacity: 0, y: -20, duration: 2, ease: "none" },
+              2.5,
+            )
+            .fromTo(
+              ".cwp-text-1-2",
+              { opacity: 0, y: 15 },
+              { opacity: 1, y: 0, duration: 2, ease: "none" },
+              2.5,
+            );
 
+          cwpTl.to({}, { duration: 2 });
 
+          cwpTl
+            .fromTo(
+              cwpCards[1],
+              { y: "150%" },
+              { y: "0%", duration: 2, ease: "none" },
+              6,
+            )
+            .fromTo(
+              cwpCards[0],
+              { scale: 1 },
+              { scale: 0.94, duration: 2, ease: "none" },
+              6,
+            )
+            .fromTo(
+              cwpCards[0].querySelector(".cwp-card-darken"),
+              { opacity: 0 },
+              { opacity: 0.6, duration: 2, ease: "none" },
+              6,
+            );
 
+          cwpTl.to({}, { duration: 2 });
 
+          cwpTl
+            .to(".cwp-img-2-1", { scale: 1.05, duration: 2, ease: "none" }, 10)
+            .fromTo(
+              ".cwp-img-2-2",
+              { opacity: 0, scale: 1.05 },
+              { opacity: 1, scale: 1, duration: 2, ease: "none" },
+              10,
+            )
+            .fromTo(
+              ".cwp-text-2-1",
+              { opacity: 1, y: 0 },
+              { opacity: 0, y: -20, duration: 2, ease: "none" },
+              10,
+            )
+            .fromTo(
+              ".cwp-text-2-2",
+              { opacity: 0, y: 15 },
+              { opacity: 1, y: 0, duration: 2, ease: "none" },
+              10,
+            );
 
-          cwpTl.to({}, { duration: 2 }); 
+          cwpTl.to({}, { duration: 2 });
 
-          cwpTl.to('.cwp-img-1-1', { scale: 1.05, duration: 2, ease: "none" }, 2)
-               .fromTo('.cwp-img-1-2', { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1, duration: 2, ease: "none" }, 2)
-               .fromTo('.cwp-text-1-1', { opacity: 1, y: 0 }, { opacity: 0, y: -20, duration: 2, ease: "none" }, 2)
-               .fromTo('.cwp-text-1-2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 2, ease: "none" }, 2);
+          cwpTl
+            .fromTo(
+              cwpCards[2],
+              { y: "150%" },
+              { y: "0%", duration: 2, ease: "none" },
+              14,
+            )
+            .fromTo(
+              cwpCards[1],
+              { scale: 1 },
+              { scale: 0.94, duration: 2, ease: "none" },
+              14,
+            )
+            .fromTo(
+              cwpCards[1].querySelector(".cwp-card-darken"),
+              { opacity: 0 },
+              { opacity: 0.6, duration: 2, ease: "none" },
+              14,
+            )
+            .fromTo(
+              cwpCards[0],
+              { scale: 0.94 },
+              { scale: 0.88, duration: 2, ease: "none" },
+              14,
+            )
+            .fromTo(
+              cwpCards[0].querySelector(".cwp-card-darken"),
+              { opacity: 0.6 },
+              { opacity: 0.75, duration: 2, ease: "none" },
+              14,
+            );
 
-          cwpTl.to({}, { duration: 2 }); 
+          cwpTl.to({}, { duration: 2 });
 
-          cwpTl.fromTo(cwpCards[1], { y: "150%" }, { y: "0%", duration: 2, ease: "none" }, 6)
-               .fromTo(cwpCards[0], { scale: 1 }, { scale: 0.94, duration: 2, ease: "none" }, 6)
-               .fromTo(cwpCards[0].querySelector('.cwp-card-darken'), { opacity: 0 }, { opacity: 0.6, duration: 2, ease: "none" }, 6);
+          cwpTl
+            .to(".cwp-img-3-1", { scale: 1.05, duration: 2, ease: "none" }, 18)
+            .fromTo(
+              ".cwp-img-3-2",
+              { opacity: 0, scale: 1.05 },
+              { opacity: 1, scale: 1, duration: 2, ease: "none" },
+              18,
+            )
+            .fromTo(
+              ".cwp-text-3-1",
+              { opacity: 1, y: 0 },
+              { opacity: 0, y: -20, duration: 2, ease: "none" },
+              18,
+            )
+            .fromTo(
+              ".cwp-text-3-2",
+              { opacity: 0, y: 15 },
+              { opacity: 1, y: 0, duration: 2, ease: "none" },
+              18,
+            );
 
-          cwpTl.to({}, { duration: 2 }); 
+          cwpTl.to({}, { duration: 2 });
 
-          cwpTl.to('.cwp-img-2-1', { scale: 1.05, duration: 2, ease: "none" }, 10)
-               .fromTo('.cwp-img-2-2', { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1, duration: 2, ease: "none" }, 10)
-               .fromTo('.cwp-text-2-1', { opacity: 1, y: 0 }, { opacity: 0, y: -20, duration: 2, ease: "none" }, 10)
-               .fromTo('.cwp-text-2-2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 2, ease: "none" }, 10);
+          cwpTl
+            .fromTo(
+              cwpCards[3],
+              { y: "150%" },
+              { y: "0%", duration: 2, ease: "none" },
+              22,
+            )
+            .fromTo(
+              cwpCards[2],
+              { scale: 1 },
+              { scale: 0.94, duration: 2, ease: "none" },
+              22,
+            )
+            .fromTo(
+              cwpCards[2].querySelector(".cwp-card-darken"),
+              { opacity: 0 },
+              { opacity: 0.6, duration: 2, ease: "none" },
+              22,
+            )
+            .fromTo(
+              cwpCards[1],
+              { scale: 0.94 },
+              { scale: 0.88, duration: 2, ease: "none" },
+              22,
+            )
+            .fromTo(
+              cwpCards[1].querySelector(".cwp-card-darken"),
+              { opacity: 0.6 },
+              { opacity: 0.75, duration: 2, ease: "none" },
+              22,
+            )
+            .fromTo(
+              cwpCards[0],
+              { scale: 0.88 },
+              { scale: 0.82, duration: 2, ease: "none" },
+              22,
+            )
+            .fromTo(
+              cwpCards[0].querySelector(".cwp-card-darken"),
+              { opacity: 0.75 },
+              { opacity: 0.85, duration: 2, ease: "none" },
+              22,
+            );
 
-          cwpTl.to({}, { duration: 2 }); 
+          cwpTl.to({}, { duration: 2 });
 
-          cwpTl.fromTo(cwpCards[2], { y: "150%" }, { y: "0%", duration: 2, ease: "none" }, 14)
-               .fromTo(cwpCards[1], { scale: 1 }, { scale: 0.94, duration: 2, ease: "none" }, 14)
-               .fromTo(cwpCards[1].querySelector('.cwp-card-darken'), { opacity: 0 }, { opacity: 0.6, duration: 2, ease: "none" }, 14)
-               .fromTo(cwpCards[0], { scale: 0.94 }, { scale: 0.88, duration: 2, ease: "none" }, 14)
-               .fromTo(cwpCards[0].querySelector('.cwp-card-darken'), { opacity: 0.6 }, { opacity: 0.75, duration: 2, ease: "none" }, 14);
+          cwpTl
+            .to(".cwp-img-4-1", { scale: 1.05, duration: 2, ease: "none" }, 26)
+            .fromTo(
+              ".cwp-img-4-2",
+              { opacity: 0, scale: 1.05 },
+              { opacity: 1, scale: 1, duration: 2, ease: "none" },
+              26,
+            )
+            .fromTo(
+              ".cwp-text-4-1",
+              { opacity: 1, y: 0 },
+              { opacity: 0, y: -20, duration: 2, ease: "none" },
+              26,
+            )
+            .fromTo(
+              ".cwp-text-4-2",
+              { opacity: 0, y: 15 },
+              { opacity: 1, y: 0, duration: 2, ease: "none" },
+              26,
+            );
 
-          cwpTl.to({}, { duration: 2 }); 
-
-          cwpTl.to('.cwp-img-3-1', { scale: 1.05, duration: 2, ease: "none" }, 18)
-               .fromTo('.cwp-img-3-2', { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1, duration: 2, ease: "none" }, 18)
-               .fromTo('.cwp-text-3-1', { opacity: 1, y: 0 }, { opacity: 0, y: -20, duration: 2, ease: "none" }, 18)
-               .fromTo('.cwp-text-3-2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 2, ease: "none" }, 18);
-
-          cwpTl.to({}, { duration: 2 }); 
-
-          cwpTl.fromTo(cwpCards[3], { y: "150%" }, { y: "0%", duration: 2, ease: "none" }, 22)
-               .fromTo(cwpCards[2], { scale: 1 }, { scale: 0.94, duration: 2, ease: "none" }, 22)
-               .fromTo(cwpCards[2].querySelector('.cwp-card-darken'), { opacity: 0 }, { opacity: 0.6, duration: 2, ease: "none" }, 22)
-               .fromTo(cwpCards[1], { scale: 0.94 }, { scale: 0.88, duration: 2, ease: "none" }, 22)
-               .fromTo(cwpCards[1].querySelector('.cwp-card-darken'), { opacity: 0.6 }, { opacity: 0.75, duration: 2, ease: "none" }, 22)
-               .fromTo(cwpCards[0], { scale: 0.88 }, { scale: 0.82, duration: 2, ease: "none" }, 22)
-               .fromTo(cwpCards[0].querySelector('.cwp-card-darken'), { opacity: 0.75 }, { opacity: 0.85, duration: 2, ease: "none" }, 22);
-
-          cwpTl.to({}, { duration: 2 }); 
-
-          cwpTl.to('.cwp-img-4-1', { scale: 1.05, duration: 2, ease: "none" }, 26)
-               .fromTo('.cwp-img-4-2', { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1, duration: 2, ease: "none" }, 26)
-               .fromTo('.cwp-text-4-1', { opacity: 1, y: 0 }, { opacity: 0, y: -20, duration: 2, ease: "none" }, 26)
-               .fromTo('.cwp-text-4-2', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 2, ease: "none" }, 26);
-
-          cwpTl.to({}, { duration: 2 }); 
+          cwpTl.to({}, { duration: 2 });
         } else {
-
-          gsap.set(cwpCards, { position: 'relative', y: 0, height: 'auto', marginBottom: '2rem' });
-          gsap.set('.cwp-cards-wrapper', { height: 'auto' });
-          gsap.set('.cwp-pin-container', { height: 'auto', display: 'block', padding: '100px 0' });
+          gsap.set(cwpCards, {
+            position: "relative",
+            y: 0,
+            height: "auto",
+            marginBottom: "2rem",
+          });
+          gsap.set(".cwp-cards-wrapper", { height: "auto" });
+          gsap.set(".cwp-pin-container", {
+            height: "auto",
+            display: "block",
+            padding: "100px 0",
+          });
 
           cwpCards.forEach((card: any) => {
-
-             gsap.set(card.querySelectorAll('img, div'), { opacity: 1, position: 'relative', y: 0, scale: 1 });
-             gsap.set(card.querySelectorAll('.absolute'), { position: 'relative' });
+            gsap.set(card.querySelectorAll("img, div"), {
+              opacity: 1,
+              position: "relative",
+              y: 0,
+              scale: 1,
+            });
+            gsap.set(card.querySelectorAll(".absolute"), {
+              position: "relative",
+            });
           });
         }
       }
@@ -1738,5 +2425,4 @@ import Footer from "../components/Footer.astro";
       }
     });
   </script>
-
 </Layout>

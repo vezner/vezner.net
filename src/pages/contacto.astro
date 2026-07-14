@@ -2,11 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 ---
 
 <Layout
-  title="Contacto — VEZNER"
-  description="Contactate con VEZNER. Respondemos en menos de 4 horas hábiles. Córdoba, Argentina."
+  title="Contacto — Presupuesto Diseño Web y Software en Argentina | VEZNER"
+  description="Contactá a VEZNER para empezar tu proyecto. Cotizamos diseño web a medida, software Python y automatización para empresas en Buenos Aires, Córdoba, Rosario, Mendoza y todo el país."
+  keywords="contacto VEZNER, presupuesto diseño web buenos aires, cotización software córdoba, agencia digital contacto argentina, contratar desarrollo web rosario, empresa de software mendoza, automatización de procesos caba"
 >
   <Header />
 
@@ -45,8 +47,8 @@ import Footer from "../components/Footer.astro";
             class="contact-sub font-mono font-medium text-sm text-negro/70 max-w-lg mt-8 leading-relaxed opacity-0"
           >
             No hay formularios complicados. Contanos brevemente qué necesitás y
-            te respondemos en menos de 24 horas hábiles, con información
-            concreta y sin vueltas.
+            te respondemos en menos de 4 horas hábiles, con información concreta
+            y sin vueltas.
           </p>
         </div>
 
@@ -56,9 +58,7 @@ import Footer from "../components/Footer.astro";
             class="contact-form opacity-0 relative z-10"
             autocomplete="off"
           >
-            
             <div id="step-1" class="space-y-8 transition-opacity duration-500">
-              
               <div class="form-group relative custom-dropdown-container z-50">
                 <label
                   class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
@@ -73,7 +73,8 @@ import Footer from "../components/Footer.astro";
                 />
                 <button
                   type="button"
-                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:border-negro transition-safe duration-300 text-left rounded-2xl hover:rounded-none"
+                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300 text-left appearance-none !rounded-none"
+                  style="border-radius: 0 !important; -webkit-appearance: none; appearance: none;"
                 >
                   <span class="dropdown-text"
                     >Seleccioná un servicio para continuar</span
@@ -84,7 +85,7 @@ import Footer from "../components/Footer.astro";
                   >
                 </button>
                 <div
-                  class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-safe duration-300"
+                  class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-safe duration-300 rounded-2xl overflow-hidden"
                 >
                   <div class="flex flex-col py-2 font-mono text-sm">
                     <button
@@ -112,9 +113,7 @@ import Footer from "../components/Footer.astro";
                 </div>
               </div>
 
-              
               <div id="dynamic-fields-container" class="space-y-6">
-                
                 <div
                   id="fields-Diseño Web"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -130,7 +129,7 @@ import Footer from "../components/Footer.astro";
                       id="web_actual"
                       name="web_actual"
                       placeholder="Ej: No, arranco de cero / Sí, miweb.com"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                       disabled
                     />
                   </div>
@@ -146,7 +145,7 @@ import Footer from "../components/Footer.astro";
                         id="web_objetivo"
                         name="web_objetivo"
                         placeholder="Ej: Vender online, Captar leads..."
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -163,7 +162,7 @@ import Footer from "../components/Footer.astro";
                         id="web_contenido"
                         name="web_contenido"
                         placeholder="Ej: Sí, tengo todo / Necesito redacción"
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -178,14 +177,13 @@ import Footer from "../components/Footer.astro";
                         id="web_referencias"
                         name="web_referencias"
                         placeholder="Ej: apple.com, stripe.com..."
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
                   </div>
                 </div>
 
-                
                 <div
                   id="fields-Software Python"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -202,7 +200,7 @@ import Footer from "../components/Footer.astro";
                         id="py_area"
                         name="py_area"
                         placeholder="Ej: Facturación, Ventas, Red Local..."
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -217,7 +215,7 @@ import Footer from "../components/Footer.astro";
                         id="py_usuarios"
                         name="py_usuarios"
                         placeholder="Ej: 5 PCs conectadas en red"
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -233,7 +231,7 @@ import Footer from "../components/Footer.astro";
                       id="py_integracion"
                       name="py_integracion"
                       placeholder="Ej: API de Mercadopago, Excel, Lector de código de barras..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                       disabled
                     />
                   </div>
@@ -248,12 +246,11 @@ import Footer from "../components/Footer.astro";
                       name="py_problema"
                       rows="3"
                       placeholder="Paso 1: Entra un pedido, Paso 2: El sistema imprime ticket..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300 resize-none"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300 resize-none"
                       disabled></textarea>
                   </div>
                 </div>
 
-                
                 <div
                   id="fields-Diseño de Identidad"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -270,7 +267,7 @@ import Footer from "../components/Footer.astro";
                         id="id_estado"
                         name="id_estado"
                         placeholder="Ej: Arrancamos de cero / Es un rediseño"
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -285,7 +282,7 @@ import Footer from "../components/Footer.astro";
                         id="id_nombre"
                         name="id_nombre"
                         placeholder="Nombre definido o al menos 5 opciones"
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -302,7 +299,7 @@ import Footer from "../components/Footer.astro";
                         id="id_vibra"
                         name="id_vibra"
                         placeholder="Ej: Exclusiva, Moderna, Tecnológica"
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -317,7 +314,7 @@ import Footer from "../components/Footer.astro";
                         id="id_entregables"
                         name="id_entregables"
                         placeholder="Ej: Menú, Tarjetas (Sin indumentaria/packaging)"
-                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                        class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                         disabled
                       />
                     </div>
@@ -333,12 +330,11 @@ import Footer from "../components/Footer.astro";
                       name="id_referencias"
                       rows="2"
                       placeholder="Dejá los links/IGs de marcas cuya estética te gustaría alcanzar..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300 resize-none"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300 resize-none"
                       disabled></textarea>
                   </div>
                 </div>
 
-                
                 <div
                   id="fields-Otro"
                   class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
@@ -354,7 +350,7 @@ import Footer from "../components/Footer.astro";
                       id="otro_servicio"
                       name="otro_servicio"
                       placeholder="¿Qué necesitás?"
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                       disabled
                       autocomplete="off"
                     />
@@ -370,12 +366,11 @@ import Footer from "../components/Footer.astro";
                       name="mensaje_otro"
                       rows="4"
                       placeholder="Contanos brevemente sobre tu empresa y qué objetivos tenés en mente..."
-                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300 resize-none"
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300 resize-none"
                       disabled></textarea>
                   </div>
                 </div>
 
-                
                 <div
                   id="continue-btn-container"
                   class="hidden opacity-0 transition-opacity duration-500 pt-4"
@@ -401,9 +396,7 @@ import Footer from "../components/Footer.astro";
                 </div>
               </div>
             </div>
-            
 
-            
             <div
               id="step-2"
               class="space-y-8 hidden opacity-0 transition-opacity duration-500"
@@ -432,7 +425,7 @@ import Footer from "../components/Footer.astro";
                     name="nombre"
                     required
                     placeholder="Tu nombre completo"
-                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                     autocomplete="off"
                   />
                 </div>
@@ -448,7 +441,7 @@ import Footer from "../components/Footer.astro";
                     id="empresa"
                     name="empresa"
                     placeholder="Opcional"
-                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                     autocomplete="off"
                   />
                 </div>
@@ -467,7 +460,7 @@ import Footer from "../components/Footer.astro";
                     name="email"
                     required
                     placeholder="tu@empresa.com"
-                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                     autocomplete="off"
                   />
                 </div>
@@ -483,7 +476,7 @@ import Footer from "../components/Footer.astro";
                     id="telefono"
                     name="telefono"
                     placeholder="Opcional"
-                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:border-negro transition-safe duration-300"
+                    class="w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
                     autocomplete="off"
                   />
                 </div>
@@ -569,7 +562,6 @@ import Footer from "../components/Footer.astro";
                 </button>
               </div>
             </div>
-            
 
             <div
               id="form-success"
@@ -613,11 +605,18 @@ import Footer from "../components/Footer.astro";
               >
                 Horario de atención
               </p>
-              <p class="font-mono font-medium text-sm text-negro/70">
-                Lun — Vie, 09:00 — 18:00 ART
+              <p class="font-mono text-[11px] text-negro/70 mb-1 leading-snug">
+                <span class="font-bold">Lun:</span> 14:30-17:30, 19:30-20:30<br
+                />
+                <span class="font-bold">Mar:</span> 14:30-18:30, 20:30-21:30<br
+                />
+                <span class="font-bold">Mié-Vie:</span> 14:30-19:30<br />
+                <span class="font-bold">Sáb:</span> 14:30-00:00 | <span
+                  class="font-bold">Dom:</span
+                > 12:30-22:00
               </p>
-              <p class="font-mono font-medium text-xs text-negro/60 mt-1">
-                Respuesta garantizada en ≤ 24 horas hábiles
+              <p class="font-mono font-medium text-[11px] text-negro/50 mt-2.5">
+                Respuesta garantizada en ≤ 4 horas hábiles
               </p>
             </div>
             <div>
@@ -693,8 +692,15 @@ import Footer from "../components/Footer.astro";
                   aria-label="Pexels"
                   class="social-icon-btn w-10 h-10 border border-negro/10 flex items-center justify-center group hover:border-[#05A081] hover:bg-[#05A081]/5 transition-safe duration-300 rounded-2xl hover:rounded-none"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-[18px] h-[18px] text-negro/60 group-hover:text-[#05A081] transition-colors">
-                    <path d="M8.8 22.2V15.4H2v-2.2h6.8V9a6.4 6.4 0 1 1 6.4 6.4H11v6.8z M11 13.2h4.2a4.2 4.2 0 1 0 -4.2-4.2z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="w-[18px] h-[18px] text-negro/60 group-hover:text-[#05A081] transition-colors"
+                  >
+                    <path
+                      d="M8.8 22.2V15.4H2v-2.2h6.8V9a6.4 6.4 0 1 1 6.4 6.4H11v6.8z M11 13.2h4.2a4.2 4.2 0 1 0 -4.2-4.2z"
+                    ></path>
                   </svg>
                 </a>
               </div>
@@ -704,7 +710,6 @@ import Footer from "../components/Footer.astro";
       </div>
     </section>
   </main>
-
   <Footer />
 </Layout>
 
@@ -814,7 +819,6 @@ import Footer from "../components/Footer.astro";
           }
 
           if (hiddenInput && hiddenInput.id === "servicio") {
-
             dynamicGroups.forEach((group) => {
               group.classList.add("opacity-0");
               setTimeout(() => {
@@ -840,7 +844,7 @@ import Footer from "../components/Footer.astro";
                 ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
                 inputs.forEach((input) => {
                   input.disabled = false;
-                  input.required = true; 
+                  input.required = true;
                 });
 
                 setTimeout(() => {
@@ -856,7 +860,7 @@ import Footer from "../components/Footer.astro";
                     }, 50);
                   }
                 }, 50);
-              }, 300); 
+              }, 300);
             }
           }
 

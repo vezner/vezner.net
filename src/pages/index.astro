@@ -4,7 +4,13 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CardServicio from "../components/CardServicio.astro";
 import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import InteractiveMap from "../components/InteractiveMap.astro";
+import { seoRubros } from "../data/seoRubros.js";
 import { getCollection } from "astro:content";
+
+const rubrosUnicos = Array.from(
+  new Map(seoRubros.map((r) => [r.nombreRubro, r])).values(),
+);
 ---
 
 <Layout
@@ -16,6 +22,17 @@ import { getCollection } from "astro:content";
   <Header />
 
   <main id="main-content">
+    <div id="vezner-preloader" class="hidden md:block fixed inset-0 z-[9999] bg-blanco overflow-hidden pointer-events-none">
+      <canvas id="preloader-lights-canvas" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+      <div class="absolute inset-0 pointer-events-none z-0 opacity-[0.025]" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 256px 256px;"></div>
+
+      <div id="preloader-lottie-container" class="absolute w-[250px] h-[250px] opacity-0">
+        <canvas id="preloader-lottie-canvas" class="w-full h-full block"></canvas>
+      </div>
+      <h2 id="preloader-somos" class="absolute font-display text-[25vw] md:text-[15vw] text-negro opacity-0 whitespace-nowrap">SOMOS</h2>
+      <img id="preloader-vezner-text" src="/assets/vezner-text.webp" alt="VEZNER" class="absolute h-[80px] md:h-[130px] w-auto opacity-0" />
+    </div>
+
     <section
       id="hero"
       class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-blanco"
@@ -42,99 +59,183 @@ import { getCollection } from "astro:content";
       >
       </div>
 
-      <div class="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <!-- Desktop Hero -->
+      <div
+        class="hidden md:grid grid-cols-2 relative z-10 text-left px-8 md:px-16 w-full mt-12 md:mt-0 h-full min-h-screen items-center"
+      >
+        <div class="flex flex-col justify-center">
+          <div
+            class="hero-tag-anim mb-6 md:mb-8 flex items-center justify-start gap-4"
+            style="opacity:0;"
+          >
+            <span
+              class="font-mono text-[10px] md:text-sm tracking-[0.4em] uppercase text-negro/60"
+              >Agencia de Ingeniería Digital</span
+            >
+            <div
+              class="hero-line w-12 md:w-32 h-px bg-negro/30 origin-left scale-x-0"
+            >
+            </div>
+          </div>
+
+          <h1
+            class="relative font-display leading-[1.1] tracking-tight text-negro overflow-hidden pt-4 -mt-4"
+            style="font-size: clamp(48px, 14vw, 180px);"
+          >
+            <span class="hero-word block css-hero-anim">DISEÑO WEB</span>
+            <span class="hero-word block css-hero-anim text-negro/80"
+              >& SOFTWARE</span
+            >
+          </h1>
+
+          <div
+            class="hero-sub-anim mt-6 md:mt-10"
+            style="opacity:0; transform: translateY(16px);"
+          >
+            <p
+              class="font-mono text-sm md:text-base tracking-[0.15em] uppercase text-negro/50 max-w-2xl leading-relaxed"
+            >
+              Construimos la infraestructura digital<br
+                class="hidden md:block"
+              />
+              que hace que las empresas <span class="text-negro/90 font-medium"
+                >escalen.</span
+              >
+            </p>
+          </div>
+
+          <div
+            class="hero-ctas-anim mt-10 md:mt-14 flex flex-col items-start gap-6 md:gap-8"
+            style="opacity:0; transform: translateY(20px);"
+          >
+            <div
+              class="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4"
+            >
+              <a
+                href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20cotizar%20un%20proyecto"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-8 md:px-10 py-4 font-mono text-[10px] md:text-xs tracking-widest uppercase overflow-hidden hover:rounded-none transition-[border-radius] duration-300 border border-transparent rounded-2xl w-auto justify-center"
+              >
+                <span class="relative z-10 flex items-center gap-2"
+                  ><i class="fa-brands fa-whatsapp text-base"></i> Cotizar Ahora</span
+                >
+                <span
+                  class="absolute inset-0 bg-[#25D366] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out z-0"
+                ></span>
+              </a>
+              <a
+                href="#servicios"
+                class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-8 md:px-10 py-4 font-mono text-[10px] md:text-xs tracking-widest uppercase overflow-hidden hover:border-negro hover:rounded-none transition-colors duration-300 rounded-2xl w-auto justify-center"
+              >
+                <span
+                  class="relative z-10 group-hover:text-blanco transition-colors duration-300"
+                  >Ver Servicios</span
+                >
+                <span
+                  class="relative z-10 group-hover:text-blanco transition-colors duration-300"
+                  >↓</span
+                >
+                <span
+                  class="absolute inset-0 bg-negro translate-y-[101%] group-hover:translate-y-0 transition-transform duration-350 ease-out z-0"
+                ></span>
+              </a>
+            </div>
+            <div
+              class="flex items-center justify-start gap-6 text-xs font-mono text-negro/50"
+            >
+              <span class="flex items-center gap-1.5"
+                ><i class="fa-solid fa-check text-[#00c851]"></i> Alta Gama</span
+              >
+              <span class="flex items-center gap-1.5"
+                ><i class="fa-solid fa-bolt text-yellow-500"></i> Máximo Rendimiento</span
+              >
+            </div>
+          </div>
+        </div>
+
         <div
-          id="hero-tag"
-          class="mb-10 flex items-center justify-center gap-3"
+          class="flex items-center justify-end w-full h-full p-4 lg:p-12 pr-0 select-none overflow-hidden"
+        >
+        </div>
+      </div>
+
+      <div
+        class="md:hidden relative z-10 text-center px-6 max-w-6xl mx-auto flex flex-col items-center justify-center h-full min-h-[80vh]"
+      >
+        <div
+          class="hero-tag-anim mb-8 flex items-center justify-center gap-3"
           style="opacity:0;"
         >
-          <div class="hero-line w-12 h-px bg-negro/30 origin-right scale-x-0">
+          <div class="hero-line w-8 h-px bg-negro/30 origin-right scale-x-0">
           </div>
           <span
-            class="font-mono text-xs tracking-[0.4em] uppercase text-negro/50"
+            class="font-mono text-[10px] tracking-[0.4em] uppercase text-negro/50"
             >Ingeniería Digital</span
           >
-          <div class="hero-line w-12 h-px bg-negro/30 origin-left scale-x-0">
+          <div class="hero-line w-8 h-px bg-negro/30 origin-left scale-x-0">
           </div>
         </div>
 
         <h1
           class="relative font-display leading-none tracking-tight text-negro overflow-hidden"
-          style="font-size: clamp(88px, 22vw, 280px);"
+          style="font-size: clamp(60px, 20vw, 120px);"
         >
           <span class="hero-word block css-hero-anim">VEZNER</span>
         </h1>
 
         <div
-          id="hero-sub"
-          class="mt-8"
+          class="hero-sub-anim mt-6"
           style="opacity:0; transform: translateY(16px);"
         >
           <p
-            class="font-mono text-sm md:text-base tracking-[0.15em] uppercase text-negro/40 max-w-lg mx-auto leading-loose"
+            class="font-mono text-[11px] tracking-[0.15em] uppercase text-negro/40 max-w-sm mx-auto leading-relaxed px-4"
           >
-            Construimos la infraestructura digital<br class="hidden md:block" />
-            que hace que los negocios <span class="text-negro/80 font-medium"
-              >escalen.</span
+            Construimos la infraestructura digital que hace que los negocios <span
+              class="text-negro/80 font-medium">escalen.</span
             >
           </p>
         </div>
 
         <div
-          id="hero-ctas"
-          class="mt-14 flex flex-col items-center justify-center gap-6"
+          class="hero-ctas-anim mt-10 flex flex-col items-center justify-center gap-4 w-full"
           style="opacity:0; transform: translateY(20px);"
         >
-          <div
-            class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
+          <a
+            href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20cotizar%20un%20proyecto"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-8 py-4 font-mono text-[10px] tracking-widest uppercase overflow-hidden hover:rounded-none transition-[border-radius] duration-300 border border-transparent rounded-2xl w-full justify-center"
           >
-            <a
-              href="https://wa.me/5493513323272?text=Hola%20VEZNER,%20quiero%20cotizar%20un%20proyecto."
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary group relative inline-flex items-center gap-3 bg-negro text-blanco px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:rounded-none transition-[border-radius] duration-300 border border-transparent rounded-2xl w-full sm:w-auto justify-center"
+            <span class="relative z-10 flex items-center gap-2"
+              ><i class="fa-brands fa-whatsapp text-base"></i> Cotizar Ahora</span
             >
-              <span class="relative z-10 flex items-center gap-2"
-                ><i class="fa-brands fa-whatsapp text-base"></i> Cotizar por WhatsApp</span
-              >
-              <span
-                class="absolute inset-0 bg-[#25D366] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out z-0"
-              ></span>
-            </a>
-            <a
-              href="#servicios"
-              class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-10 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden hover:border-negro hover:rounded-none transition-colors duration-300 rounded-2xl w-full sm:w-auto justify-center"
-            >
-              <span
-                class="relative z-10 group-hover:text-blanco transition-colors duration-300"
-                >Ver Servicios</span
-              >
-              <span
-                class="relative z-10 group-hover:text-blanco transition-colors duration-300"
-                >↓</span
-              >
-              <span
-                class="absolute inset-0 bg-negro translate-y-[101%] group-hover:translate-y-0 transition-transform duration-350 ease-out z-0"
-              ></span>
-            </a>
-          </div>
-
-          <div
-            class="flex items-center justify-center gap-6 text-xs font-mono text-negro/50"
+            <span
+              class="absolute inset-0 bg-[#25D366] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-400 ease-out z-0"
+            ></span>
+          </a>
+          <a
+            href="#servicios"
+            class="btn-secondary group relative inline-flex items-center gap-3 border border-negro/50 text-negro px-8 py-4 font-mono text-[10px] tracking-widest uppercase overflow-hidden hover:border-negro hover:rounded-none transition-colors duration-300 rounded-2xl w-full justify-center"
           >
-            <span class="flex items-center gap-1.5"
-              ><i class="fa-solid fa-check text-[#00c851]"></i> Respuestas Rápidas</span
+            <span
+              class="relative z-10 group-hover:text-blanco transition-colors duration-300"
+              >Ver Servicios</span
             >
-            <span class="flex items-center gap-1.5"
-              ><i class="fa-solid fa-bolt text-yellow-500"></i> Calidad Premium</span
+            <span
+              class="relative z-10 group-hover:text-blanco transition-colors duration-300"
+              >↓</span
             >
-          </div>
+            <span
+              class="absolute inset-0 bg-negro translate-y-[101%] group-hover:translate-y-0 transition-transform duration-350 ease-out z-0"
+            ></span>
+          </a>
         </div>
       </div>
 
       <div
         id="scroll-indicator"
-        class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        class="absolute bottom-8 right-12 hidden lg:flex flex-col items-center gap-2"
         style="opacity:0;"
       >
         <span class="font-mono text-xs tracking-[0.3em] uppercase text-negro/30"
@@ -273,6 +374,8 @@ import { getCollection } from "astro:content";
             class="manifesto-lottie hidden md:flex justify-center lg:justify-start lg:pl-12 w-full opacity-0 pointer-events-none"
           >
             <img
+              loading="lazy"
+              decoding="async"
               src="/assets/insfraestructure-animation.svg"
               alt="Infraestructura"
               class="w-full max-w-[500px] lg:max-w-[700px]"
@@ -284,7 +387,7 @@ import { getCollection } from "astro:content";
         </div>
 
         <div
-          class="manifesto-body grid md:grid-cols-2 gap-8 md:gap-12 mt-20 pt-16 border-t border-negro/8 items-start"
+          class="manifesto-body grid md:grid-cols-3 gap-8 md:gap-12 mt-20 pt-16 border-t border-negro/8 items-start"
           style="opacity:0; transform: translateY(24px);"
         >
           <div>
@@ -310,6 +413,18 @@ import { getCollection } from "astro:content";
               <strong class="text-negro font-semibold"
                 >A medida, siempre.</strong
               >
+            </p>
+          </div>
+          <div>
+            <p
+              data-gsap="fade-up"
+              class="font-mono text-sm md:text-base text-negro/55 leading-[1.9] max-w-lg"
+            >
+              El contacto es directo. Sin intermedios. Sin burocracia. Hablas <strong
+                class="text-negro font-semibold"
+              >
+                directamente con los desarrolladores.</strong
+              > Ágil, transparente y enfocado 100% en el código y el diseño.
             </p>
           </div>
 
@@ -362,7 +477,7 @@ import { getCollection } from "astro:content";
                     </p>
                   </div>
 
-                  <div class="opacity-0 lg:-translate-x-8 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] lg:group-hover:delay-100 hidden lg:flex items-center shrink-0 w-[190px] ml-4 pointer-events-none">
+                  <div class="opacity-0 lg:-translate-x-8 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] lg:group-hover:delay-100 hidden lg:flex items-center shrink-0 w-[190px] ml-4 pointer-events-none">
                     <p class="font-mono text-sm text-negro/60 leading-relaxed border-l border-negro/10 pl-5">
                       {stat.desc}
                     </p>
@@ -407,108 +522,101 @@ import { getCollection } from "astro:content";
           <div class="w-12 h-px bg-blanco/15"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a
-            href="/servicios/software-python"
-            class="servicio-card-simple group block relative opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-12 hover:bg-verde/5 hover:border-verde/30 transition-[background-color,border-color,border-radius,color,box-shadow] duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between rounded-2xl hover:rounded-none"
-          >
-            <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block group-hover:text-verde transition-colors duration-500"
-                >01</span
-              >
-              <h2
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-verde group-hover:translate-x-2 transition-all duration-500"
-              >
-                Software Python
-              </h2>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm group-hover:text-blanco/80 transition-colors duration-500"
-              >
-                Bots para Discord, APIs REST, y automatizaciones complejas a
-                medida.
-              </p>
-            </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-verde group-hover:gap-5 transition-colors duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
-              <span
-                class="text-xs group-hover:translate-x-2 transition-transform duration-300"
-                >→</span
-              >
-            </div>
-          </a>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+        >
+          <div class="relative w-full max-w-[500px] mx-auto lg:mx-0">
+            <InteractiveMap
+              servicioId=""
+              fillColor="rgba(255,255,255,0.03)"
+              strokeColor="rgba(255,255,255,0.15)"
+              hoverColor="#ff005c"
+              disableRedirect={true}
+            />
+          </div>
 
-          <a
-            href="/servicios/diseno-web"
-            class="servicio-card-simple group block relative opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-12 hover:bg-rosa/5 hover:border-rosa/30 transition-[background-color,border-color,border-radius,color,box-shadow] duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between rounded-2xl hover:rounded-none"
-          >
-            <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block group-hover:text-rosa transition-colors duration-500"
-                >02</span
-              >
-              <h2
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-rosa group-hover:translate-x-2 transition-all duration-500"
-              >
-                Diseño Web
-              </h2>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm group-hover:text-blanco/80 transition-colors duration-500"
-              >
-                Desarrollo web a medida con Astro, React y optimización extrema.
-                Animaciones fluidas y SEO técnico impecable.
-              </p>
-            </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-rosa group-hover:gap-5 transition-colors duration-300 mt-8"
+          <div class="flex flex-col">
+            <h2
+              id="servicios-title"
+              class="font-display text-5xl md:text-7xl text-blanco mb-10 transition-all duration-300"
             >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
-              <span
-                class="text-xs group-hover:translate-x-2 transition-transform duration-300"
-                >→</span
-              >
-            </div>
-          </a>
+              Nuestros Servicios
+            </h2>
 
-          <a
-            href="/servicios/diseno-identidad"
-            class="servicio-card-simple group block relative opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-12 hover:bg-yellow-400/5 hover:border-yellow-400/30 transition-[background-color,border-color,border-radius,color,box-shadow] duration-500 overflow-hidden min-h-[300px] flex flex-col justify-between rounded-2xl hover:rounded-none md:col-span-2"
-          >
-            <div>
-              <span
-                class="font-mono text-xs text-blanco/30 uppercase tracking-widest mb-6 block group-hover:text-yellow-400 transition-colors duration-500"
-                >03</span
+            <div class="grid grid-cols-1 gap-4">
+              <a
+                href="/servicios/software-python"
+                data-base-href="/servicios/software-python"
+                class="servicio-dyn-link group flex items-center justify-between border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-6 hover:bg-verde/5 hover:border-verde/30 rounded-2xl hover:rounded-none transition-all duration-300"
               >
-              <h2
-                class="font-display text-4xl md:text-5xl text-blanco leading-none mb-4 group-hover:text-yellow-400 group-hover:translate-x-2 transition-all duration-500"
+                <div>
+                  <span
+                    class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest block mb-2 group-hover:text-verde transition-colors"
+                    >01</span
+                  >
+                  <h3
+                    class="font-display text-2xl md:text-3xl text-blanco group-hover:text-verde transition-colors"
+                  >
+                    Software Python<span
+                      class="prov-name opacity-0 transition-opacity duration-300"
+                    ></span>
+                  </h3>
+                </div>
+                <span
+                  class="text-blanco/30 group-hover:text-verde group-hover:translate-x-2 transition-all text-xl"
+                  >→</span
+                >
+              </a>
+
+              <a
+                href="/servicios/diseno-web"
+                data-base-href="/servicios/diseno-web"
+                class="servicio-dyn-link group flex items-center justify-between border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-6 hover:bg-rosa/5 hover:border-rosa/30 rounded-2xl hover:rounded-none transition-all duration-300"
               >
-                Diseño de Identidad
-              </h2>
-              <p
-                class="font-mono text-sm text-blanco/50 leading-relaxed max-w-sm group-hover:text-blanco/80 transition-colors duration-500"
+                <div>
+                  <span
+                    class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest block mb-2 group-hover:text-rosa transition-colors"
+                    >02</span
+                  >
+                  <h3
+                    class="font-display text-2xl md:text-3xl text-blanco group-hover:text-rosa transition-colors"
+                  >
+                    Diseño Web<span
+                      class="prov-name opacity-0 transition-opacity duration-300"
+                    ></span>
+                  </h3>
+                </div>
+                <span
+                  class="text-blanco/30 group-hover:text-rosa group-hover:translate-x-2 transition-all text-xl"
+                  >→</span
+                >
+              </a>
+
+              <a
+                href="/servicios/diseno-identidad"
+                data-base-href="/servicios/diseno-identidad"
+                class="servicio-dyn-link group flex items-center justify-between border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-6 hover:bg-yellow-400/5 hover:border-yellow-400/30 rounded-2xl hover:rounded-none transition-all duration-300"
               >
-                Marcas con presencia imponente, geometría precisa y branding
-                premium.
-              </p>
+                <div>
+                  <span
+                    class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest block mb-2 group-hover:text-yellow-400 transition-colors"
+                    >03</span
+                  >
+                  <h3
+                    class="font-display text-2xl md:text-3xl text-blanco group-hover:text-yellow-400 transition-colors"
+                  >
+                    Diseño de Identidad<span
+                      class="prov-name opacity-0 transition-opacity duration-300"
+                    ></span>
+                  </h3>
+                </div>
+                <span
+                  class="text-blanco/30 group-hover:text-yellow-400 group-hover:translate-x-2 transition-all text-xl"
+                  >→</span
+                >
+              </a>
             </div>
-            <div
-              class="flex items-center gap-3 text-blanco group-hover:text-yellow-400 group-hover:gap-5 transition-colors duration-300 mt-8"
-            >
-              <span class="font-mono text-xs uppercase tracking-widest"
-                >Ver más</span
-              >
-              <span
-                class="text-xs group-hover:translate-x-2 transition-transform duration-300"
-                >→</span
-              >
-            </div>
-          </a>
+          </div>
         </div>
 
         <div
@@ -711,9 +819,11 @@ import { getCollection } from "astro:content";
                       </div>
 
                       <div
-                        class={`absolute ${globalIdx % 2 === 0 ? "bottom-[100%] mb-2 origin-bottom" : "top-[100%] mt-2 origin-top"} left-1/2 -translate-x-1/2 flex flex-col items-center opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none z-20`}
+                        class={`absolute ${globalIdx % 2 === 0 ? "bottom-[100%] mb-2 origin-bottom" : "top-[100%] mt-2 origin-top"} left-1/2 -translate-x-1/2 flex flex-col items-center opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none z-20`}
                       >
+                        {" "}
                         <div class="bg-[#1a1a1a]/80 backdrop-blur-xl border border-blanco/10 p-4 rounded-xl min-w-[200px] text-center whitespace-normal shadow-2xl">
+                          {" "}
                           <p
                             class="font-display text-xl mb-1"
                             style={`color: ${tech.color};`}
@@ -724,7 +834,6 @@ import { getCollection } from "astro:content";
                             {tech.desc}
                           </p>
                         </div>
-
                         <div
                           class={`w-0 h-0 border-x-6 border-x-transparent ${globalIdx % 2 === 0 ? "border-t-6 border-t-blanco/20" : "border-b-6 border-b-blanco/20 absolute -top-1.5"}`}
                         />
@@ -780,12 +889,16 @@ import { getCollection } from "astro:content";
               class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
             >
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/discover/hero.webp"
                 alt="Discover"
                 class="cwp-img-1-1 absolute inset-0 w-full h-full object-cover"
               />
               <div class="absolute inset-0 bg-negro/40"></div>
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/discover/detail.webp"
                 alt="Discover Dashboard"
                 class="cwp-img-1-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
@@ -991,12 +1104,16 @@ import { getCollection } from "astro:content";
               class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
             >
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/design/hero.webp"
                 alt="Design"
                 class="cwp-img-2-1 absolute inset-0 w-full h-full object-cover"
               />
               <div class="absolute inset-0 bg-negro/40"></div>
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/design/detail.webp"
                 alt="Design Branding"
                 class="cwp-img-2-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
@@ -1016,12 +1133,16 @@ import { getCollection } from "astro:content";
               class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
             >
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/build/hero.webp"
                 alt="Build"
                 class="cwp-img-3-1 absolute inset-0 w-full h-full object-cover"
               />
               <div class="absolute inset-0 bg-negro/40"></div>
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/build/detail.webp"
                 alt="Build Performance"
                 class="cwp-img-3-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
@@ -1238,12 +1359,16 @@ import { getCollection } from "astro:content";
               class="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden bg-negro"
             >
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/deliver/hero.webp"
                 alt="Deliver"
                 class="cwp-img-4-1 absolute inset-0 w-full h-full object-cover"
               />
               <div class="absolute inset-0 bg-negro/40"></div>
               <img
+                loading="lazy"
+                decoding="async"
                 src="/process/deliver/detail.webp"
                 alt="Deliver Metrics"
                 class="cwp-img-4-2 absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
@@ -1253,96 +1378,133 @@ import { getCollection } from "astro:content";
         </div>
       </div>
     </section>
-    <section
-      class="relative py-32 md:py-44 px-6 md:px-16 bg-[#050505] overflow-hidden border-t border-negro/10"
+
+    <div
+      class="w-full bg-negro pt-8 pb-32 relative z-10 border-t border-blanco/10 overflow-hidden"
     >
-      <div class="container mx-auto max-w-6xl relative z-10">
+      <div
+        class="container mx-auto max-w-6xl relative z-10 px-6 md:px-16 mb-16"
+      >
         <div
-          class="flex items-center gap-4 mb-16 opacity-0 translate-y-4"
-          id="empresas-label"
+          class="flex items-center gap-4 mb-8 opacity-0 translate-y-4"
+          id="rubros-label"
         >
           <span
-            id="enfoque"
             class="font-mono text-xs tracking-[0.4em] uppercase text-blanco/30"
-            >§ 05 — Enfoque</span
+            >§ 02 — Sectores</span
           >
           <div class="w-12 h-px bg-blanco/15"></div>
         </div>
-
         <h2
-          class="font-display text-4xl md:text-5xl lg:text-7xl text-blanco leading-[0.9] mb-16 max-w-4xl opacity-0 translate-y-8"
-          id="empresas-title"
+          class="font-display text-4xl md:text-5xl lg:text-7xl text-blanco leading-[0.9] max-w-4xl opacity-0 translate-y-8"
+          id="rubros-title"
         >
-          Trabajamos con empresas que...
+          Potenciamos sectores como...
         </h2>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div
+        class="flex flex-col gap-6 w-full relative z-10"
+        style="overflow-x: clip; overflow-y: visible;"
+      >
+        <div class="ticker-wrap w-full">
           <div
-            class="empresas-card group opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 p-10 bg-blanco/[0.03] backdrop-blur-2xl hover:bg-blanco/10 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300"
+            id="rubros-ticker-inner-1"
+            class="flex gap-4 whitespace-nowrap select-none w-max"
           >
-            <h3
-              class="font-display text-3xl md:text-4xl text-blanco group-hover:text-acento group-hover:translate-x-1 transition-all duration-300 mb-6"
-            >
-              Procesos Manuales
-            </h3>
-            <p
-              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
-            >
-              Tienen tareas repetitivas y cuellos de botella que limitan su
-              capacidad de escalar y ser eficientes.
-            </p>
-          </div>
-
-          <div
-            class="empresas-card group opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 p-10 bg-blanco/[0.03] backdrop-blur-2xl hover:bg-blanco/10 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300"
-          >
-            <h3
-              class="font-display text-3xl md:text-4xl text-blanco group-hover:text-verde group-hover:translate-x-1 transition-all duration-300 mb-6"
-            >
-              Buscan Automatización
-            </h3>
-            <p
-              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
-            >
-              Necesitan integrar sistemas y automatizar flujos de trabajo para
-              ganar velocidad operativa real.
-            </p>
-          </div>
-
-          <div
-            class="empresas-card group opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 p-10 bg-blanco/[0.03] backdrop-blur-2xl hover:bg-blanco/10 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300"
-          >
-            <h3
-              class="font-display text-3xl md:text-4xl text-blanco group-hover:text-yellow-400 group-hover:translate-x-1 transition-all duration-300 mb-6"
-            >
-              Herramientas Limitadas
-            </h3>
-            <p
-              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
-            >
-              Quieren dejar atrás planillas de Excel o software enlatado que ya
-              no se adapta a su realidad ni ritmo.
-            </p>
-          </div>
-
-          <div
-            class="empresas-card group opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 p-10 bg-blanco/[0.03] backdrop-blur-2xl hover:bg-blanco/10 rounded-2xl hover:rounded-none transition-colors transition-[border-radius] duration-300"
-          >
-            <h3
-              class="font-display text-3xl md:text-4xl text-blanco group-hover:text-rosa group-hover:translate-x-1 transition-all duration-300 mb-6"
-            >
-              Presencia Profesional
-            </h3>
-            <p
-              class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed"
-            >
-              Buscan una presencia digital de alto nivel que refleje la
-              verdadera calidad y jerarquía de sus servicios.
-            </p>
+            {
+              Array.from({ length: 6 }).map(() =>
+                rubrosUnicos
+                  .slice(0, Math.ceil(rubrosUnicos.length / 3))
+                  .map((rubro) => (
+                    <a
+                      href={`/servicios/${rubro.servicioId}/para-${rubro.rubroId}`}
+                      class="group flex items-center gap-4 px-8 py-4 bg-blanco/[0.03] border border-blanco/10 rounded-full hover:bg-blanco/10 hover:border-blanco/30 transition-all cursor-pointer"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-blanco/30 group-hover:bg-rosa transition-colors" />
+                      <span class="font-display text-2xl text-blanco/60 group-hover:text-blanco transition-colors">
+                        {rubro.nombreRubro}
+                      </span>
+                    </a>
+                  )),
+              )
+            }
           </div>
         </div>
+
+        <div class="ticker-wrap w-full">
+          <div
+            id="rubros-ticker-inner-2"
+            class="flex gap-4 whitespace-nowrap select-none w-max"
+          >
+            {
+              Array.from({ length: 6 }).map(() =>
+                rubrosUnicos
+                  .slice(
+                    Math.ceil(rubrosUnicos.length / 3),
+                    Math.ceil(rubrosUnicos.length / 3) * 2,
+                  )
+                  .map((rubro) => (
+                    <a
+                      href={`/servicios/${rubro.servicioId}/para-${rubro.rubroId}`}
+                      class="group flex items-center gap-4 px-8 py-4 bg-blanco/[0.03] border border-blanco/10 rounded-full hover:bg-blanco/10 hover:border-blanco/30 transition-all cursor-pointer"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-blanco/30 group-hover:bg-verde transition-colors" />
+                      <span class="font-display text-2xl text-blanco/60 group-hover:text-blanco transition-colors">
+                        {rubro.nombreRubro}
+                      </span>
+                    </a>
+                  )),
+              )
+            }
+          </div>
+        </div>
+
+        <div class="ticker-wrap w-full">
+          <div
+            id="rubros-ticker-inner-3"
+            class="flex gap-4 whitespace-nowrap select-none w-max"
+          >
+            {
+              Array.from({ length: 6 }).map(() =>
+                rubrosUnicos
+                  .slice(Math.ceil(rubrosUnicos.length / 3) * 2)
+                  .map((rubro) => (
+                    <a
+                      href={`/servicios/${rubro.servicioId}/para-${rubro.rubroId}`}
+                      class="group flex items-center gap-4 px-8 py-4 bg-blanco/[0.03] border border-blanco/10 rounded-full hover:bg-blanco/10 hover:border-blanco/30 transition-all cursor-pointer"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-blanco/30 group-hover:bg-yellow-400 transition-colors" />
+                      <span class="font-display text-2xl text-blanco/60 group-hover:text-blanco transition-colors">
+                        {rubro.nombreRubro}
+                      </span>
+                    </a>
+                  )),
+              )
+            }
+          </div>
+        </div>
+
+        <div
+          class="mt-12 text-center opacity-0 translate-y-4"
+          id="rubros-extra"
+        >
+          <p
+            class="font-mono text-xs md:text-sm text-blanco/40 uppercase tracking-widest mb-3"
+          >
+            ¿No encontrás tu rubro? <span
+              class="text-blanco/80 block mt-2 md:inline md:mt-0"
+              >Lo hacemos posible igual.</span
+            >
+          </p>
+          <p
+            class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest"
+          >
+            * Aplicamos todos nuestros servicios a cualquier industria.
+          </p>
+        </div>
       </div>
-    </section>
+    </div>
 
     <section
       id="cta-final"
@@ -1630,24 +1792,42 @@ import { getCollection } from "astro:content";
   <script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-    import * as THREE from "three";
     import { DotLottie } from "@lottiefiles/dotlottie-web";
 
     document.addEventListener("astro:page-load", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      const tickers = ["#ticker-inner", "#stack-ticker-inner"];
-      tickers.forEach((selector) => {
-        const el = document.querySelector(selector);
+      const tickers = [
+        { sel: "#ticker-inner", dir: -1 },
+        { sel: "#stack-ticker-inner", dir: -1 },
+        { sel: "#rubros-ticker-inner-1", dir: -1 },
+        { sel: "#rubros-ticker-inner-2", dir: 1 },
+        { sel: "#rubros-ticker-inner-3", dir: -1 },
+      ];
+
+      tickers.forEach(({ sel, dir }) => {
+        const el = document.querySelector(sel);
         if (!el) return;
         const wrap = el.closest(".ticker-wrap") || el.parentElement;
-        const tween = gsap.to(el, {
-          xPercent: -(100 / 6),
-          duration: 28,
-          ease: "none",
-          repeat: -1,
-        });
+
+        let tween: any;
+        if (dir === 1) {
+          gsap.set(el, { xPercent: -(100 / 6) });
+          tween = gsap.to(el, {
+            xPercent: 0,
+            duration: 28,
+            ease: "none",
+            repeat: -1,
+          });
+        } else {
+          tween = gsap.to(el, {
+            xPercent: -(100 / 6),
+            duration: 28,
+            ease: "none",
+            repeat: -1,
+          });
+        }
+
         wrap?.addEventListener("mouseenter", () =>
           gsap.to(tween, { timeScale: 0, duration: 1.2, ease: "power3.out" }),
         );
@@ -1661,104 +1841,116 @@ import { getCollection } from "astro:content";
       ) as HTMLCanvasElement;
       const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-      if (heroCanvas && isDesktop) {
-        const renderer = new THREE.WebGLRenderer({
-          canvas: heroCanvas,
-          antialias: true,
-          alpha: true,
-        });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setSize(window.innerWidth, window.innerHeight);
+      const initWebGLBackground = async (targetCanvas: HTMLCanvasElement) => {
+          if (!targetCanvas) return;
+          const THREE = await import("three");
 
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-          45,
-          window.innerWidth / window.innerHeight,
-          0.1,
-          100,
-        );
-        camera.position.set(0, 0, 10);
-
-        const lights: any[] = [];
-        const colors = [
-          { hex: 0x00ff73, css: "rgba(0, 255, 115, 1)" },
-          { hex: 0xff005c, css: "rgba(255, 0, 92, 1)" },
-          { hex: 0xffcc00, css: "rgba(255, 204, 0, 1)" },
-          { hex: 0x00aaff, css: "rgba(0, 170, 255, 1)" },
-        ];
-
-        function createGlowTexture(colorStr: string) {
-          const canvas = document.createElement("canvas");
-          canvas.width = 256;
-          canvas.height = 256;
-          const ctx = canvas.getContext("2d")!;
-          const gradient = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
-          gradient.addColorStop(0, colorStr);
-          gradient.addColorStop(0.5, colorStr.replace("1)", "0.5)"));
-          gradient.addColorStop(1, "rgba(0,0,0,0)");
-          ctx.fillStyle = gradient;
-          ctx.fillRect(0, 0, 256, 256);
-          return new THREE.CanvasTexture(canvas);
-        }
-
-        colors.forEach((col) => {
-          const spriteMat = new THREE.SpriteMaterial({
-            map: createGlowTexture(col.css),
-            color: 0xffffff,
-            transparent: true,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false,
+          const renderer = new THREE.WebGLRenderer({
+            canvas: targetCanvas,
+            antialias: true,
+            alpha: true,
           });
-          const sprite = new THREE.Sprite(spriteMat);
-
-          sprite.scale.set(40, 40, 1);
-
-          sprite.position.set(
-            (Math.random() - 0.5) * 30,
-            (Math.random() - 0.5) * 30,
-            -20,
-          );
-          scene.add(sprite);
-
-          lights.push({
-            mesh: sprite,
-            angX: Math.random() * Math.PI * 2,
-            angY: Math.random() * Math.PI * 2,
-            speed: 0.1 + Math.random() * 0.1,
-            radius: 10 + Math.random() * 10,
-          });
-        });
-
-        window.addEventListener("resize", () => {
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
           renderer.setSize(window.innerWidth, window.innerHeight);
-        });
 
-        const reloj = new THREE.Clock();
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(
+            45,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            100,
+          );
+          camera.position.set(0, 0, 10);
 
-        function animarThree() {
-          if (!document.body.contains(heroCanvas)) return;
-          requestAnimationFrame(animarThree);
-          const t = reloj.getElapsedTime();
+          const lights: any[] = [];
+          const colors = [
+            { hex: 0x00ff73, css: "rgba(0, 255, 115, 1)" },
+            { hex: 0xff005c, css: "rgba(255, 0, 92, 1)" },
+            { hex: 0xffcc00, css: "rgba(255, 204, 0, 1)" },
+            { hex: 0x00aaff, css: "rgba(0, 170, 255, 1)" },
+          ];
 
-          lights.forEach((l, i) => {
-            l.angX += l.speed * 0.005;
-            l.angY += l.speed * 0.007;
-            l.mesh.position.x = Math.cos(l.angX) * l.radius;
-            l.mesh.position.y = Math.sin(l.angY) * l.radius;
+          function createGlowTexture(colorStr: string) {
+            const canvas = document.createElement("canvas");
+            canvas.width = 256;
+            canvas.height = 256;
+            const ctx = canvas.getContext("2d")!;
+            const gradient = ctx.createRadialGradient(
+              128,
+              128,
+              0,
+              128,
+              128,
+              128,
+            );
+            gradient.addColorStop(0, colorStr);
+            gradient.addColorStop(0.5, colorStr.replace("1)", "0.5)"));
+            gradient.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 256, 256);
+            return new THREE.CanvasTexture(canvas);
+          }
+
+          colors.forEach((col) => {
+            const spriteMat = new THREE.SpriteMaterial({
+              map: createGlowTexture(col.css),
+              color: 0xffffff,
+              transparent: true,
+              blending: THREE.AdditiveBlending,
+              depthWrite: false,
+            });
+            const sprite = new THREE.Sprite(spriteMat);
+
+            sprite.scale.set(40, 40, 1);
+
+            sprite.position.set(
+              (Math.random() - 0.5) * 30,
+              (Math.random() - 0.5) * 30,
+              -20,
+            );
+            scene.add(sprite);
+
+            lights.push({
+              mesh: sprite,
+              angX: Math.random() * Math.PI * 2,
+              angY: Math.random() * Math.PI * 2,
+              speed: 0.1 + Math.random() * 0.1,
+              radius: 10 + Math.random() * 10,
+            });
           });
+
+          window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          });
+
+          const reloj = new THREE.Clock();
+
+          function animarThree() {
+            if (!document.body.contains(targetCanvas)) return;
+            requestAnimationFrame(animarThree);
+
+            lights.forEach((l) => {
+              l.angX += l.speed * 0.005;
+              l.angY += l.speed * 0.007;
+              l.mesh.position.x = Math.cos(l.angX) * l.radius;
+              l.mesh.position.y = Math.sin(l.angY) * l.radius;
+            });
+
+            renderer.render(scene, camera);
+          }
 
           renderer.render(scene, camera);
-        }
+          animarThree();
+      };
 
-        renderer.render(scene, camera);
-
+      if (isDesktop) {
         let threeStarted = false;
         const startThree = () => {
           if (threeStarted) return;
           threeStarted = true;
-          animarThree();
+          if (heroCanvas) initWebGLBackground(heroCanvas);
         };
 
         ["scroll", "mousemove", "touchstart"].forEach((evt) => {
@@ -1767,27 +1959,133 @@ import { getCollection } from "astro:content";
             passive: true,
           });
         });
-        setTimeout(startThree, 4000);
+        setTimeout(startThree, 100);
       }
 
-      const tl = gsap.timeline({ delay: 0.5 });
+      const tl = gsap.timeline({ paused: true, delay: 0.2 });
+      
+      const preloader = document.getElementById("vezner-preloader");
+      if (preloader && isDesktop && !sessionStorage.getItem("vezner_preloader_done")) {
+        sessionStorage.setItem("vezner_preloader_done", "true");
+        document.body.style.overflow = "hidden";
+        
+        const preloaderCanvas = document.getElementById("preloader-lights-canvas") as HTMLCanvasElement;
+        if (preloaderCanvas) initWebGLBackground(preloaderCanvas);
+        
+        gsap.set(preloader, { filter: "blur(50px)" });
+        gsap.to(preloader, { filter: "blur(0px)", duration: 1.2, ease: "power3.out" });
+
+        gsap.set("header", { opacity: 0 });
+
+        gsap.set(["#preloader-lottie-container", "#preloader-somos", "#preloader-vezner-text"], {
+          top: "50%",
+          left: "50%",
+          xPercent: -50,
+          yPercent: -50
+        });
+        gsap.set("#preloader-somos", { x: window.innerWidth });
+        gsap.set("#preloader-vezner-text", { x: window.innerWidth });
+
+        import("@lottiefiles/dotlottie-web").then(({ DotLottie }) => {
+          const canvas = document.getElementById("preloader-lottie-canvas") as HTMLCanvasElement;
+          if (!canvas) return;
+          
+          const dotLottie = new DotLottie({
+            canvas: canvas,
+            src: "/assets/logo.lottie",
+            autoplay: true,
+            loop: false,
+            speed: 1.8,
+          });
+
+          gsap.to("#preloader-lottie-container", { opacity: 1, duration: 0.5 });
+
+          let preloaderFinished = false;
+          let sequenceStarted = false;
+
+          const finishPreloader = () => {
+             if (preloaderFinished) return;
+             preloaderFinished = true;
+             gsap.to("header", { opacity: 1, duration: 0.8, ease: "power2.out" });
+             gsap.to(preloader, { opacity: 0, duration: 0.8, ease: "power2.inOut", onComplete: () => {
+               preloader.style.display = "none";
+               document.body.style.overflow = "";
+               tl.play();
+             }});
+          };
+
+          const startSequence = () => {
+             if (sequenceStarted) return;
+             sequenceStarted = true;
+             
+             const pTl = gsap.timeline({ onComplete: finishPreloader });
+             
+             const lottieTarget = document.querySelector("header .logo-wrapper > div:first-child");
+             const lottieSource = document.getElementById("preloader-lottie-container");
+             if (lottieTarget && lottieSource) {
+                const tr = lottieTarget.getBoundingClientRect();
+                const sr = lottieSource.getBoundingClientRect();
+                pTl.to(lottieSource, {
+                  x: "+=" + (tr.left - sr.left),
+                  y: "+=" + (tr.top - sr.top),
+                  scaleX: tr.width / sr.width,
+                  scaleY: tr.height / sr.height,
+                  transformOrigin: "top left",
+                  duration: 0.8,
+                  ease: "power3.inOut"
+                }, "start");
+             }
+             
+             pTl.to("#preloader-somos", { x: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, "start+=0.3");
+             pTl.to("#preloader-somos", { x: -window.innerWidth, opacity: 0, duration: 0.5, ease: "power3.in" }, "+=0.2");
+             pTl.to("#preloader-vezner-text", { x: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, "<0.2");
+             
+             pTl.add(() => {
+                const textTarget = document.querySelector("header img[alt='VEZNER']");
+                const textSource = document.getElementById("preloader-vezner-text");
+                if (textTarget && textSource) {
+                   const tr = textTarget.getBoundingClientRect();
+                   const sr = textSource.getBoundingClientRect();
+                   gsap.to(textSource, {
+                     x: "+=" + (tr.left - sr.left),
+                     y: "+=" + (tr.top - sr.top),
+                     scaleX: tr.width / sr.width,
+                     scaleY: tr.height / sr.height,
+                     transformOrigin: "top left",
+                     duration: 0.7,
+                     ease: "power3.inOut"
+                   });
+                }
+             }, "+=0.2");
+             
+             pTl.to({}, { duration: 0.9 }); 
+          };
+
+          dotLottie.addEventListener("complete", startSequence);
+          setTimeout(startSequence, 2000);
+        });
+      } else {
+        if (preloader) preloader.style.display = "none";
+        tl.play();
+      }
+
       tl.to(
         ".hero-line",
         { scaleX: 1, duration: 0.7, ease: "power3.out", stagger: 0.1 },
         "-=0.6",
       );
       tl.to(
-        "#hero-tag",
+        ".hero-tag-anim",
         { opacity: 1, duration: 0.6, ease: "power3.out" },
         "-=0.5",
       );
       tl.to(
-        "#hero-sub",
+        ".hero-sub-anim",
         { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
         "-=0.4",
       );
       tl.to(
-        "#hero-ctas",
+        ".hero-ctas-anim",
         { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
         "-=0.5",
       );
@@ -2006,44 +2304,42 @@ import { getCollection } from "astro:content";
         });
       });
 
-      gsap.to("#empresas-label", {
+      gsap.to("#rubros-label", {
         opacity: 1,
         y: 0,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: "#empresas-label",
+          trigger: "#rubros-label",
           start: "top 85%",
           once: true,
         },
       });
 
-      gsap.to("#empresas-title", {
+      gsap.to("#rubros-title", {
         opacity: 1,
         y: 0,
         duration: 1,
         ease: "power3.out",
         delay: 0.1,
         scrollTrigger: {
-          trigger: "#empresas-label",
+          trigger: "#rubros-label",
           start: "top 85%",
           once: true,
         },
       });
 
-      gsap.utils.toArray(".empresas-card").forEach((el, i) => {
-        gsap.to(el as Element, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          delay: i * 0.1,
-          scrollTrigger: {
-            trigger: ".empresas-card",
-            start: "top 80%",
-            once: true,
-          },
-        });
+      gsap.to("#rubros-extra", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: "#rubros-label",
+          start: "top 85%",
+          once: true,
+        },
       });
 
       const cwpCards = gsap.utils.toArray(".cwp-card") as Element[];
@@ -2320,109 +2616,184 @@ import { getCollection } from "astro:content";
     .proceso-step:hover .proceso-num {
       color: var(--hover-c);
     }
+
+    @keyframes ticker-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    @keyframes ticker-right {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    .animate-ticker-left {
+      animation: ticker-left 40s linear infinite;
+    }
+    .animate-ticker-right {
+      animation: ticker-right 40s linear infinite;
+    }
+    .hover\:animation-pause:hover {
+      animation-play-state: paused;
+    }
   </style>
 
   <script>
     document.addEventListener("astro:page-load", () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const empresa = urlParams.get("e") || urlParams.get("empresa");
+      const servTitle = document.getElementById("servicios-title");
+      const dynLinks = document.querySelectorAll(".servicio-dyn-link");
 
-      if (empresa && !sessionStorage.getItem(`vz_trk_full_${empresa}`)) {
-        sessionStorage.setItem(`vz_trk_full_${empresa}`, "true");
+      let lastSlug = "";
 
-        const startTime = Date.now();
-        let maxScroll = 0;
-        let geoData: any = {
-          ip: "Calculando...",
-          country: "Desconocido",
-          city: "Desconocida",
-          organization: "Desconocido",
-        };
+      document.addEventListener("map-province-clicked", (e: any) => {
+        const { slug, name, element } = e.detail;
 
-        fetch("https://ipv4.geojs.io/v1/ip/geo.json")
-          .then((res) => res.json())
-          .then((geo) => {
-            geoData = geo;
-          })
-          .catch(() => {});
+        if (!servTitle || !dynLinks.length) return;
 
-        window.addEventListener(
-          "scroll",
-          () => {
-            maxScroll = Math.max(maxScroll, window.scrollY);
-          },
-          { passive: true },
-        );
+        servTitle.style.opacity = "0";
+        dynLinks.forEach((link) => {
+          const provSpan = link.querySelector(".prov-name");
+          if (provSpan) (provSpan as HTMLElement).style.opacity = "0";
+        });
 
-        const sendData = async () => {
-          if (document.visibilityState !== "hidden") return;
+        setTimeout(() => {
+          if (lastSlug === slug) {
+            lastSlug = "";
+            servTitle.textContent = "Nuestros Servicios";
+            dynLinks.forEach((link) => {
+              const baseHref = link.getAttribute("data-base-href");
+              if (baseHref) link.setAttribute("href", baseHref);
+            });
+            document
+              .querySelectorAll(".province")
+              .forEach((p) => p.classList.remove("active-province"));
+          } else {
+            lastSlug = slug;
+            servTitle.textContent = `Servicios en ${name}`;
+            dynLinks.forEach((link) => {
+              const baseHref = link.getAttribute("data-base-href");
+              if (baseHref) link.setAttribute("href", `${baseHref}/${slug}`);
+              const provSpan = link.querySelector(".prov-name");
+              if (provSpan) {
+                provSpan.textContent = ` en ${name}`;
+                (provSpan as HTMLElement).style.opacity = "1";
+              }
+            });
+            document
+              .querySelectorAll(".province")
+              .forEach((p) => p.classList.remove("active-province"));
+            element.classList.add("active-province");
+          }
+          servTitle.style.opacity = "1";
+        }, 300);
+      });
+    });
+  </script>
 
-          document.removeEventListener("visibilitychange", sendData);
+  <script>
+    document.addEventListener("astro:page-load", async () => {
+      const SPAM_KEY = "trk_cooldown";
+      const COOLDOWN_MINUTES = 30;
+      const lastSent = localStorage.getItem(SPAM_KEY);
 
-          const timeSpentSeconds = Math.round((Date.now() - startTime) / 1000);
-          const scrollableHeight = Math.max(
-            1,
-            document.body.scrollHeight - window.innerHeight,
-          );
-          const scrollPercent = Math.min(
-            100,
-            Math.round((maxScroll / scrollableHeight) * 100),
-          );
-
-          let batteryStr = "No disponible";
-          try {
-            if ((navigator as any).getBattery) {
-              const bat = await (navigator as any).getBattery();
-              batteryStr = `${Math.round(bat.level * 100)}% ${bat.charging ? "(Cargando)" : "(Desenchufado)"}`;
-            }
-          } catch (e) {}
-
-          const connection = (navigator as any).connection;
-          const network = connection ? connection.effectiveType : "Desconocida";
-
-          const darkMode = window.matchMedia("(prefers-color-scheme: dark)")
-            .matches
-            ? "Sí"
-            : "No";
-          const referrer = document.referrer || "Directo / Desconocido";
-
-          const payload = {
-            Empresa: empresa,
-            Fecha: new Date().toLocaleString("es-AR", {
-              timeZone: "America/Argentina/Buenos_Aires",
-            }),
-            IP: geoData.ip,
-            Proveedor_Internet:
-              geoData.organization_name ||
-              geoData.organization ||
-              "Desconocido",
-            Ubicacion: `${geoData.city}, ${geoData.country}`,
-            Tiempo_En_Sitio: `${Math.floor(timeSpentSeconds / 60)}m ${timeSpentSeconds % 60}s`,
-            Profundidad_Scroll: `${scrollPercent}%`,
-            Origen_Visita: referrer,
-            Pantalla: `${window.screen.width}x${window.screen.height}`,
-            Sistema_Operativo: navigator.platform,
-            Idioma: navigator.language,
-            Modo_Oscuro: darkMode,
-            Red: network,
-            Bateria: batteryStr,
-            URL_Visitada: window.location.href,
-            UserAgent: navigator.userAgent,
-          };
-
-          fetch("https://formspree.io/f/mwvdjvaz", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(payload),
-            keepalive: true,
-          }).catch(() => {});
-        };
-
-        document.addEventListener("visibilitychange", sendData);
+      if (
+        lastSent &&
+        Date.now() - parseInt(lastSent) < COOLDOWN_MINUTES * 60 * 1000
+      ) {
+        return;
       }
+
+      localStorage.setItem(SPAM_KEY, Date.now().toString());
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramsExtraidos = Object.fromEntries(urlParams.entries());
+      const empresa =
+        urlParams.get("e") || urlParams.get("empresa") || "Sin Empresa";
+
+      let geoData: any = {
+        ip: "Desconocida",
+        country: "Desconocido",
+        city: "Desconocida",
+        organization: "Desconocido",
+      };
+      try {
+        const geoRes = await fetch("https://ipv4.geojs.io/v1/ip/geo.json");
+        if (geoRes.ok) geoData = await geoRes.json();
+      } catch (e) {}
+
+      let batteryStr = "No disponible";
+      try {
+        if ((navigator as any).getBattery) {
+          const bat = await (navigator as any).getBattery();
+          batteryStr = `${Math.round(bat.level * 100)}% ${bat.charging ? "(Cargando)" : "(Desenchufado)"}`;
+        }
+      } catch (e) {}
+
+      const connection = (navigator as any).connection;
+      const network = connection ? connection.effectiveType : "Desconocida";
+      const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "Sí"
+        : "No";
+      const referrer = document.referrer || "Directo / URL Escrita";
+
+      let tipoTrafico = "Directo";
+      const refLower = referrer.toLowerCase();
+      if (
+        refLower.includes("google") ||
+        refLower.includes("bing") ||
+        refLower.includes("yahoo")
+      ) {
+        tipoTrafico = "Orgánico (Buscador)";
+      } else if (
+        refLower.includes("facebook") ||
+        refLower.includes("instagram") ||
+        refLower.includes("t.co") ||
+        refLower.includes("linkedin")
+      ) {
+        tipoTrafico = "Social (Redes)";
+      } else if (referrer) {
+        tipoTrafico = "Referido (Otro Sitio)";
+      }
+
+      const payload = {
+        ...paramsExtraidos,
+        Empresa: empresa,
+        Tipo_Trafico: tipoTrafico,
+        Origen_Referrer: referrer,
+
+        Fecha_Ingreso: new Date().toLocaleString("es-AR", {
+          timeZone: "America/Argentina/Buenos_Aires",
+        }),
+        Pantalla_Resolucion: `${window.screen.width}x${window.screen.height}`,
+        Ventana_Real: `${window.innerWidth}x${window.innerHeight}`,
+        Sistema_Operativo: navigator.platform,
+        Idioma: navigator.language,
+        Modo_Oscuro: darkMode,
+        Bateria: batteryStr,
+        Red_Conexion: network,
+        UserAgent: navigator.userAgent,
+        URL_Visitada: window.location.href,
+
+        IP: geoData.ip,
+        Proveedor_ISP:
+          geoData.organization_name || geoData.organization || "Desconocido",
+        Ubicacion: `${geoData.city}, ${geoData.country}`,
+      };
+
+      fetch("https://formspree.io/f/mwvdjvaz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      }).catch(() => {});
     });
   </script>
 </Layout>

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import InteractiveMap from "../../components/InteractiveMap.astro";
 ---
 
 <Layout
@@ -42,19 +43,21 @@ import Footer from "../../components/Footer.astro";
           >
         </div>
 
-        <h1
-          class="font-display text-[clamp(60px,12vw,180px)] leading-[0.85] text-blanco uppercase overflow-hidden mb-12"
-        >
-          <span class="block overflow-hidden"
-            ><span class="title-line block translate-y-full">Software</span
-            ></span
+        <div class="relative">
+          <h1
+            class="font-display text-[clamp(60px,12vw,180px)] leading-[0.85] text-blanco uppercase overflow-hidden mb-12"
           >
-          <span class="block overflow-hidden"
-            ><span class="title-line block translate-y-full text-verde"
-              >Python</span
-            ></span
-          >
-        </h1>
+            <span class="block overflow-hidden"
+              ><span class="title-line block translate-y-full">Software</span
+              ></span
+            >
+            <span class="block overflow-hidden"
+              ><span class="title-line block translate-y-full text-verde"
+                >Python</span
+              ></span
+            >
+          </h1>
+        </div>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
           <div class="max-w-lg">
@@ -83,9 +86,13 @@ import Footer from "../../components/Footer.astro";
             </div>
           </div>
 
-          <div
-            class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
-          >
+          <div class="relative w-full">
+            <div class="absolute bottom-full right-[20%] lg:right-[30%] pb-4 hidden md:block z-10 pointer-events-auto">
+              <InteractiveMap servicioId="software-python" fillColor="rgba(255,255,255,0.03)" strokeColor="rgba(255,255,255,0.15)" hoverColor="#00ff73" />
+            </div>
+            <div
+              class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
+            >
             <div class="border-l border-verde/20 pl-4">
               <p class="font-display text-4xl text-blanco">Tiempo</p>
               <p
@@ -112,6 +119,7 @@ import Footer from "../../components/Footer.astro";
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <div
@@ -165,128 +173,7 @@ import Footer from "../../components/Footer.astro";
               },
             ].map((item, i) => (
               <div
-                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 bg-blanco/[0.03] backdrop-blur-2xl p-8 transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 rounded-2xl hover:rounded-none ${item.c} group`}
-              >
-                <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors duration-300">
-                  0{i + 1}
-                </div>
-                <h3 data-gsap="fade-up" class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform duration-300">{item.t}</h3>
-                <p class="font-mono text-xs text-blanco/50 leading-relaxed">
-                  {item.d}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="calidad"
-      class="py-32 px-6 md:px-16 bg-[#0a0a0a] border-y border-blanco/5 overflow-hidden"
-    >
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-20">
-          <h2 data-gsap="fade-up"
-            class="font-display text-5xl md:text-7xl text-blanco mb-6 term-title opacity-0 translate-y-10 uppercase"
-          >
-            La ingeniería detrás<br />del sistema
-          </h2>
-          <p
-            class="font-mono text-sm text-blanco/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10"
-          >
-            Usamos Python, PySide6 y MySQL para construir arquitecturas robustas de bases de datos centralizadas, interfaces de escritorio de carga instantánea y despliegues con Docker.
-          </p>
-        </div>
-
-        <div
-          data-gsap="fade-up" class="term-mockup opacity-0 translate-y-20 bg-[#0d1117] rounded-2xl hover:rounded-none transition-safe duration-300 shadow-2xl overflow-hidden border border-verde/20 transition-colors duration-300"
-        >
-          <div
-            class="flex items-center gap-3 px-6 py-4 bg-[#161b22] border-b border-verde/20"
-          >
-            <span class="w-3 h-3 rounded-full bg-rosa"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
-            <span class="w-3 h-3 rounded-full bg-verde"></span>
-            <span class="ml-4 font-mono text-xs text-blanco/40"
-              >user@vezner-server: ~/projects/etl_pipeline</span
-            >
-            <span
-              class="ml-auto font-mono text-xs text-verde px-2 py-1 bg-verde/10 rounded"
-              >PYTHON 3.13</span
-            >
-          </div>
-          <div
-            class="p-6 font-mono text-sm leading-relaxed relative min-h-[400px]"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0d1117] pointer-events-none z-10 top-1/2"
-            >
-            </div>
-            <div class="code-lines space-y-1 text-blanco/70 relative z-0">
-              <div class="text-verde">
-                C:\Projects\software_gestion> python main.py
-              </div>
-              {
-                [
-                  {
-                    t: "[INFO] Initializing PySide6 Application...",
-                    c: "text-blanco/40",
-                    d: 0.5,
-                  },
-                  {
-                    t: "[OK] UI Assets loaded successfully (42ms).",
-                    c: "text-verde",
-                    d: 1.2,
-                  },
-                  {
-                    t: "[INFO] Searching for local MySQL node at 192.168.1.10...",
-                    c: "text-yellow-400",
-                    d: 1.5,
-                  },
-                  {
-                    t: "[OK] Connection to MySQL established. Ping: 2ms.",
-                    c: "text-verde",
-                    d: 2.5,
-                  },
-                  {
-                    t: "[INFO] Authenticating user from Active Directory...",
-                    c: "text-azul",
-                    d: 3.0,
-                  },
-                  {
-                    t: "██████████████████████░░░░ 85% Syncing local state",
-                    c: "text-blanco/20 animate-pulse",
-                    d: 4.5,
-                  },
-                  {
-                    t: "[OK] State synchronized. 1,429 records updated.",
-                    c: "text-verde",
-                    d: 6.0,
-                  },
-                  {
-                    t: "[INFO] Starting async background workers...",
-                    c: "text-blanco/40",
-                    d: 7.0,
-                  },
-                  {
-                    t: "[OK] Software ready and running. MainWindow displayed.",
-                    c: "text-verde",
-                    d: 8.5,
-                  },
-                  {
-                    t: "---------------------------------------------------",
-                    c: "text-blanco/20",
-                    d: 9.0,
-                  },
-                  {
-                    t: "PIPELINE FINISHED IN 4.28s. ERRORS: 0",
-                    c: "text-verde font-bold",
-                    d: 9.5,
-                  },
-                ].map((line) => (
-                  <div
-                    class={`opacity-0 animate-[fadeIn_0s_forwards] ${line.c}`}
+                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 bg-blanco/[0.03] backdrop-blur-2xl p-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none ${item.c} group`} > <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors "> 0{i + 1} </div> <h3 data-gsap="fade-up" class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform ">{item.t}</h3> <p class="font-mono text-xs text-blanco/50 leading-relaxed"> {item.d} </p> </div> )) } </div> </div> </section> <section id="calidad" class="py-32 px-6 md:px-16 bg-[#0a0a0a] border-y border-blanco/5 overflow-hidden" > <div class="max-w-6xl mx-auto"> <div class="text-center mb-20"> <h2 data-gsap="fade-up" class="font-display text-5xl md:text-7xl text-blanco mb-6 term-title opacity-0 translate-y-10 uppercase" > La ingeniería detrás<br />del sistema </h2> <p class="font-mono text-sm text-blanco/50 max-w-xl mx-auto term-desc opacity-0 translate-y-10" > Usamos Python, PySide6 y MySQL para construir arquitecturas robustas de bases de datos centralizadas, interfaces de escritorio de carga instantánea y despliegues con Docker. </p> </div> <div data-gsap="fade-up" class="term-mockup opacity-0 translate-y-20 bg-[#0d1117] rounded-2xl hover:rounded-none transition-safe shadow-2xl overflow-hidden border border-verde/20 transition-colors " > <div class="flex items-center gap-3 px-6 py-4 bg-[#161b22] border-b border-verde/20" > <span class="w-3 h-3 rounded-full bg-rosa"></span> <span class="w-3 h-3 rounded-full bg-yellow-400"></span> <span class="w-3 h-3 rounded-full bg-verde"></span> <span class="ml-4 font-mono text-xs text-blanco/40" >user@vezner-server: ~/projects/etl_pipeline</span > <span class="ml-auto font-mono text-xs text-verde px-2 py-1 bg-verde/10 rounded" >PYTHON 3.13</span > </div> <div class="p-6 font-mono text-sm leading-relaxed relative min-h-[400px]" > <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0d1117] pointer-events-none z-10 top-1/2" > </div> <div class="code-lines space-y-1 text-blanco/70 relative z-0"> <div class="text-verde"> C:\Projects\software_gestion> python main.py </div> { [ { t: "[INFO] Initializing PySide6 Application...", c: "text-blanco/40", d: 0.5, }, { t: "[OK] UI Assets loaded successfully (42ms).", c: "text-verde", d: 1.2, }, { t: "[INFO] Searching for local MySQL node at 192.168.1.10...", c: "text-yellow-400", d: 1.5, }, { t: "[OK] Connection to MySQL established. Ping: 2ms.", c: "text-verde", d: 2.5, }, { t: "[INFO] Authenticating user from Active Directory...", c: "text-azul", d: 3.0, }, { t: "██████████████████████░░░░ 85% Syncing local state", c: "text-blanco/20 animate-pulse", d: 4.5, }, { t: "[OK] State synchronized. 1,429 records updated.", c: "text-verde", d: 6.0, }, { t: "[INFO] Starting async background workers...", c: "text-blanco/40", d: 7.0, }, { t: "[OK] Software ready and running. MainWindow displayed.", c: "text-verde", d: 8.5, }, { t: "---------------------------------------------------", c: "text-blanco/20", d: 9.0, }, { t: "PIPELINE FINISHED IN 4.28s. ERRORS: 0", c: "text-verde font-bold", d: 9.5, }, ].map((line) => ( <div class={`opacity-0 animate-[fadeIn_0s_forwards] ${line.c}`}
                     style={`animation-delay: ${line.d}s;`}
                   >
                     {line.t}
@@ -362,7 +249,7 @@ import Footer from "../../components/Footer.astro";
                 i: "fa-solid fa-heart-pulse",
               },
             ].map((f, i) => (
-              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 rounded-2xl hover:rounded-none hover:border-verde group hover:bg-blanco/[0.02] px-4 -mx-4 pb-4">
+              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none hover:border-verde group hover:bg-blanco/[0.02] px-4 -mx-4 pb-4">
                 <i class={`${f.i} text-3xl text-verde/50 group-hover:text-verde group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`} />
                 <h4 class="font-display text-3xl text-blanco mb-4 group-hover:translate-x-1 transition-transform duration-300">{f.t}</h4>
                 <p class="font-mono text-xs text-blanco/60 leading-relaxed">
@@ -420,7 +307,6 @@ import Footer from "../../components/Footer.astro";
         </div>
       </section>
 
-      
       <section id="contacto-servicio" class="py-32 px-6 md:px-16 bg-[#0a0a0a] border-t border-blanco/5 relative z-10">
         <div class="max-w-4xl mx-auto">
           <div class="mb-16">
@@ -434,8 +320,7 @@ import Footer from "../../components/Footer.astro";
 
           <form id="service-contact-form" class="space-y-12" autocomplete="off">
             <input type="hidden" name="servicio" value="Software Python" />
-            
-            
+
             <div class="space-y-6">
               <h3 class="font-mono font-medium text-xs tracking-widest uppercase text-verde mb-8 border-b border-blanco/10 pb-4">1. Sobre el Proyecto</h3>
               
@@ -461,7 +346,6 @@ import Footer from "../../components/Footer.astro";
               </div>
             </div>
 
-            
             <div class="space-y-6 pt-8">
               <h3 class="font-mono font-medium text-xs tracking-widest uppercase text-verde mb-8 border-b border-blanco/10 pb-4">2. Tus Datos</h3>
               
@@ -491,8 +375,8 @@ import Footer from "../../components/Footer.astro";
                 <label class="group flex items-center gap-4 cursor-pointer relative">
                   <input type="checkbox" name="acepta_legales" required class="peer sr-only" />
                   <div class="w-5 h-5 rounded border border-blanco/30 bg-transparent flex items-center justify-center transition-colors peer-checked:border-verde group-hover:border-verde shrink-0 relative overflow-hidden peer-checked:[&>div]:scale-100 peer-checked:[&>div]:opacity-100 peer-checked:[&>svg]:scale-100 peer-checked:[&>svg]:opacity-100">
-                    <div class="absolute inset-0 bg-verde scale-0 opacity-0 transition-transform duration-300 ease-out rounded-sm"></div>
-                    <svg class="relative z-10 w-3 h-3 text-negro opacity-0 scale-50 transition-all duration-300 delay-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="square" stroke-linejoin="miter" d="M4 12l4 4L19 6"></path></svg>
+                    <div class="absolute inset-0 bg-verde scale-0 opacity-0 transition-transform ease-out rounded-sm"></div>
+                    <svg class="relative z-10 w-3 h-3 text-negro opacity-0 scale-50 delay-75" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="square" stroke-linejoin="miter" d="M4 12l4 4L19 6"></path></svg>
                   </div>
                   <span class="font-mono text-sm text-blanco/50 leading-snug select-none">
                     He leído y acepto los <a href="/legal/terminos-y-condiciones" target="_blank" class="text-blanco underline decoration-blanco/30 underline-offset-4 hover:decoration-blanco transition-colors">Términos y Condiciones</a> y la <a href="/legal/politica-de-privacidad" target="_blank" class="text-blanco underline decoration-blanco/30 underline-offset-4 hover:decoration-blanco transition-colors">Política de Privacidad</a>.
@@ -713,5 +597,4 @@ import Footer from "../../components/Footer.astro";
     });
   });
 </script>
-
 

@@ -5,8 +5,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://vezner.net',
   integrations: [
-    tailwind(), 
+    tailwind(),
     sitemap({
+      filter: (page) => !page.includes('/legal/'),
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
@@ -22,10 +23,6 @@ export default defineConfig({
         if (item.url.includes('/blog')) {
           item.changefreq = 'weekly';
           item.priority = 0.8;
-        }
-        if (item.url.includes('/legal/')) {
-          item.changefreq = 'yearly';
-          item.priority = 0.3;
         }
         return item;
       }

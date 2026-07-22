@@ -1,0 +1,761 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { seoRubros } from "../../../data/seoRubros.js";
+import { seoProvincias } from "../../../data/seoProvincia.js";
+
+export function getStaticPaths() {
+  const paths: any[] = [];
+
+  const serviciosUnicos = [...new Set(seoRubros.map((r) => r.servicioId))];
+
+  serviciosUnicos.forEach((servicioId) => {
+    seoProvincias.forEach((provincia) => {
+      paths.push({
+        params: {
+          servicio: servicioId,
+          provincia: provincia.id,
+        },
+        props: {
+          provincia,
+          servicioId,
+          rubrosRegionales: seoRubros.filter(
+            (r) =>
+              provincia.rubrosDestacados.includes(r.rubroId) &&
+              r.servicioId === servicioId,
+          ),
+        },
+      });
+    });
+  });
+
+  return paths;
+}
+
+export const prerender = true;
+
+const { provincia, servicioId, rubrosRegionales } = Astro.props;
+
+if (!provincia) {
+  return Astro.redirect("/404");
+}
+
+const nombreServicioDisplay =
+  servicioId === "diseno-web"
+    ? "Diseño Web"
+    : servicioId === "software-python"
+      ? "Software Python"
+      : "Diseño de Identidad";
+
+const isDark = servicioId !== "diseno-web"; // Web is light, Python/Identidad are dark
+
+const t = {
+  bgPrimary: isDark ? "bg-[#050505]" : "bg-[#fafafa]",
+  bgSecondary: isDark ? "bg-[#111111]" : "bg-blanco",
+  textMain: isDark ? "text-blanco" : "text-negro",
+  textMuted: isDark ? "text-blanco/70" : "text-negro/70",
+  textSubMuted: isDark ? "text-blanco/40" : "text-negro/40",
+  borderSoft: isDark ? "border-blanco/10" : "border-negro/10",
+  borderMedium: isDark ? "border-blanco/20" : "border-negro/20",
+  glassBg: isDark ? "bg-blanco/[0.02]" : "bg-negro/[0.02]",
+};
+
+const aMap: Record<string, any> = {
+  "diseno-web": {
+    text: "text-rosa",
+    bg: "bg-rosa",
+    border: "border-rosa",
+    hoverBorder: "hover:border-rosa",
+    tickerText: "text-blanco",
+    openBorder: "open:border-rosa",
+    glow: "shadow-[0_0_15px_rgba(225,29,72,0.5)]",
+    ctaText: "text-blanco",
+    ctaBtn: "bg-blanco text-negro",
+  },
+  "software-python": {
+    text: "text-verde",
+    bg: "bg-verde",
+    border: "border-verde",
+    hoverBorder: "hover:border-verde",
+    tickerText: "text-negro",
+    openBorder: "open:border-verde",
+    glow: "shadow-[0_0_15px_rgba(37,211,102,0.5)]",
+    ctaText: "text-negro",
+    ctaBtn: "bg-negro text-blanco",
+  },
+  "diseno-identidad": {
+    text: "text-yellow-400",
+    bg: "bg-yellow-400",
+    border: "border-yellow-400",
+    hoverBorder: "hover:border-yellow-400",
+    tickerText: "text-negro",
+    openBorder: "open:border-yellow-400",
+    glow: "shadow-[0_0_15px_rgba(250,204,21,0.5)]",
+    ctaText: "text-negro",
+    ctaBtn: "bg-negro text-blanco",
+  },
+};
+const a = aMap[servicioId] || aMap["diseno-web"];
+
+const tituloSEO = provincia.tituloSEO;
+const descripcionSEO = provincia.descripcionSEO;
+
+const faqsRegionales = provincia.faqsLocales;
+---
+
+<Layout title={tituloSEO} description={descripcionSEO}>
+  <Header theme={isDark ? "dark" : "light"} />
+
+  <main
+    class={`${t.bgPrimary} ${t.textMain} min-h-screen overflow-hidden selection:bg-${a.bg.split("-")[1]} selection:text-blanco`}
+  >
+    
+    <div
+      class="pointer-events-none fixed inset-0 z-0 opacity-[0.03] mix-blend-overlay"
+      style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"
+    >
+    </div>
+
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div
+        class={`absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] ${a.bg}/20 rounded-full blur-[100px] animate-pulse`}
+      >
+      </div>
+      <div
+        class={`absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] ${a.bg}/10 rounded-full blur-[120px] animate-pulse`}
+        style="animation-delay: 2s;"
+      >
+      </div>
+      <div
+        class={`absolute inset-0 pointer-events-none z-0 ${isDark ? "opacity-[0.02]" : "opacity-[0.03]"}`}
+        style={`background-image: linear-gradient(${isDark ? "#fff" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#fff" : "#000"} 1px, transparent 1px); background-size: 60px 60px;`}
+      >
+      </div>
+    </div>
+
+    <section
+      class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20 z-10"
+    >
+      <div class="relative w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div
+            class={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border ${t.borderMedium} ${t.glassBg} backdrop-blur-md`}
+          >
+            <span class={`w-2 h-2 rounded-full ${a.bg} animate-pulse ${a.glow}`}
+            ></span>
+            <span
+              class={`font-mono text-[10px] tracking-widest uppercase ${t.textMain}`}
+              >Atención Remota Activa</span
+            >
+          </div>
+          <div class={`w-8 h-px ${a.bg} opacity-50 hidden sm:block`}></div>
+          <span
+            class={`font-mono text-xs tracking-[0.4em] uppercase ${a.text} font-bold hidden sm:block`}
+          >
+            {provincia.region} // COBERTURA REGIONAL
+          </span>
+        </div>
+
+        <h1
+          data-gsap="fade-up"
+          class={`font-display text-5xl md:text-7xl lg:text-[7rem] xl:text-[8rem] leading-[0.85] tracking-tighter ${t.textMain} mb-8 opacity-0 uppercase max-w-6xl`}
+        >
+          {provincia.heroTitle}
+        </h1>
+
+        <div
+          class="flex flex-col md:flex-row gap-8 md:gap-16 items-start mt-12 md:mt-24"
+        >
+          <div data-gsap="fade-up" class="opacity-0 max-w-2xl">
+            <p
+              class={`font-mono text-lg md:text-xl ${t.textMuted} leading-relaxed mb-4`}
+            >
+              {provincia.heroSubtitle}
+            </p>
+            <p class={`font-mono text-sm ${t.textSubMuted} leading-relaxed`}>
+              Cobertura en <strong>{provincia.ciudades.join(", ")}</strong> y alrededores.
+            </p>
+          </div>
+          <div data-gsap="fade-up" class="opacity-0 flex-shrink-0">
+            <a
+              href="#contacto-regional"
+              class={`inline-flex items-center gap-4 px-8 py-4 bg-transparent border ${t.borderMedium} ${t.textMain} hover:border-transparent transition-all duration-300 font-mono text-xs uppercase tracking-widest rounded-2xl hover:rounded-none group ${isDark ? "hover:bg-blanco hover:text-negro" : "hover:bg-negro hover:text-blanco"}`}
+            >
+              Cotizar Proyecto
+              <span
+                class="group-hover:translate-x-2 transition-transform duration-300"
+                >→</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class={`py-24 md:py-32 px-6 md:px-16 ${t.bgSecondary} border-y ${t.borderSoft} relative z-10`}
+    >
+      <div class="max-w-5xl mx-auto text-center">
+        <h2
+          data-gsap="fade-up"
+          class={`font-display text-4xl md:text-6xl lg:text-7xl leading-none ${t.textMain} mb-8 uppercase opacity-0`}
+        >
+          TRATO DIRECTO. <br class="hidden sm:block" />
+          <span class={t.textSubMuted}>CERO BUROCRACIA.</span>
+        </h2>
+        <p
+          data-gsap="fade-up"
+          class={`font-mono text-lg md:text-xl ${t.textMuted} leading-relaxed opacity-0 max-w-4xl mx-auto`}
+        >
+          Olvidate de los "ejecutivos de cuentas" que tardan días en responder o
+          agencias genéricas de Capital Federal. Si contratás desde {
+            provincia.nombre
+          }, el proyecto lo coordinás <strong
+            >directamente con los desarrolladores</strong
+          >. Ágil, transparente y enfocado 100% en el código y el diseño.
+        </p>
+      </div>
+    </section>
+
+    {
+      rubrosRegionales.length > 0 && (
+        <section
+          class={`py-32 md:py-40 px-6 md:px-16 ${t.bgPrimary} relative z-10`}
+        >
+          <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+              <h2
+                data-gsap="fade-up"
+                class={`font-display text-5xl md:text-7xl leading-none ${t.textMain} opacity-0 uppercase max-w-3xl`}
+              >
+                INDUSTRIAS CLAVE EN{" "}
+                <span class={a.text}>{provincia.nombre}</span>
+              </h2>
+              <p
+                data-gsap="fade-up"
+                class={`font-mono text-sm md:text-base ${t.textMuted} max-w-xl opacity-0 leading-relaxed`}
+              >
+                {" "}
+                {provincia.enfoqueProductivo}{" "}
+              </p>{" "}
+            </div>{" "}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {" "}
+              {rubrosRegionales.map((rubro: any, i: number) => (
+                <a
+                  href={`/servicios/${servicioId}/para-${rubro.rubroId}`}
+                  class={`rubro-card opacity-0 transform-gpu group block p-8 md:p-10 border ${t.borderSoft} ${t.glassBg} backdrop-blur-xl rounded-2xl hover:border-transparent relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,0,0,0.1)]`}
+                >
+                  {" "}
+                  <div
+                    class={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 ${a.bg}`}
+                  />
+                  <div class="relative z-10">
+                    <div class="flex justify-between items-start mb-16">
+                      <span
+                        class={`font-mono text-[10px] tracking-widest uppercase ${a.text} px-3 py-1 border ${a.border} rounded-full`}
+                      >
+                        Nicho Especializado
+                      </span>
+                      <i class="fa-solid fa-arrow-right -rotate-45 text-2xl opacity-50 group-hover:opacity-100 group-hover:rotate-0 transition-all duration-300" />
+                    </div>
+                    <h3
+                      class={`font-display text-3xl md:text-4xl ${t.textMain} mb-4`}
+                    >
+                      {rubro.nombreRubro}
+                    </h3>
+                    <p
+                      class={`font-mono text-sm ${t.textMuted} leading-relaxed line-clamp-3`}
+                    >
+                      {rubro.descripcionSEO}
+                    </p>
+                  </div>
+                </a>
+              ))}
+              <div
+                data-gsap="fade-up"
+                class={`opacity-0 block p-8 md:p-10 border border-dashed ${t.borderMedium} ${t.bgSecondary} rounded-2xl flex flex-col items-start justify-center col-span-1 ${
+                  2 - (rubrosRegionales.length % 2) === 1
+                    ? "md:col-span-1"
+                    : "md:col-span-2"
+                } ${
+                  3 - (rubrosRegionales.length % 3) === 1
+                    ? "lg:col-span-1"
+                    : 3 - (rubrosRegionales.length % 3) === 2
+                      ? "lg:col-span-2"
+                      : "lg:col-span-3"
+                }`}
+              >
+                <div
+                  class={`w-12 h-12 rounded-full border ${t.borderSoft} ${t.bgPrimary} flex items-center justify-center mb-6`}
+                >
+                  <i class={`fa-solid fa-industry text-xl ${a.text}`} />
+                </div>
+                <h3
+                  class={`font-display text-2xl md:text-3xl ${t.textMain} mb-4`}
+                >
+                  ¿TU RUBRO NO ESTÁ ACÁ?
+                </h3>
+                <p
+                  class={`font-mono text-sm md:text-base ${t.textMuted} leading-relaxed mb-8 max-w-2xl`}
+                >
+                  No te preocupes. Estas son solo algunas de las industrias
+                  clave de <strong>{provincia.nombre}</strong> con las que
+                  trabajamos, pero desarrollamos ecosistemas a medida para{" "}
+                  <strong>cualquier tipo de empresa o corporación</strong>.
+                </p>
+                <a
+                  href="#contacto-regional"
+                  class={`inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest ${a.text} hover:opacity-70 transition-opacity group`}
+                >
+                  Contactar por un desarrollo custom
+                  <span class="group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section
+      class={`py-32 md:py-40 px-6 md:px-16 ${t.bgSecondary} border-y ${t.borderSoft} relative z-10`}
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          data-gsap="fade-up"
+          class={`font-display text-5xl md:text-7xl leading-none ${t.textMain} mb-20 text-center opacity-0 uppercase`}
+        >
+          METODOLOGÍA <br class="hidden md:block" />
+          <span class={t.textSubMuted}>A DISTANCIA</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+          
+          <div
+            class={`hidden md:block absolute top-12 left-[10%] right-[10%] h-px border-t border-dashed ${t.borderMedium} z-0`}
+          >
+          </div>
+
+          {
+            [
+              {
+                step: "01",
+                title: "Diagnóstico",
+                desc: "Charla inicial para entender tu modelo de negocio y definir el alcance técnico del proyecto solicitado.",
+              },
+              {
+                step: "02",
+                title: "Canal Directo",
+                desc: "Creamos un grupo directo con los desarrolladores. Nada de tickets lentos. Feedback ágil y al instante durante todo el desarrollo.",
+              },
+              {
+                step: "03",
+                title: "Pruebas en Vivo",
+                desc: "Te damos un link privado para que veas cómo se construye tu plataforma en tiempo real, estés donde estés.",
+              },
+            ].map((item, i) => (
+              <div class="metodo-card opacity-0 transform-gpu relative z-10 flex flex-col items-center text-center group">
+                <div
+                  class={`w-24 h-24 rounded-full ${t.bgPrimary} border ${t.borderSoft} flex items-center justify-center font-display text-4xl ${a.text} mb-8 transition-transform duration-500 group-hover:scale-110 shadow-xl`}
+                >
+                  {item.step}
+                </div>
+                <h3
+                  class={`font-display text-2xl md:text-3xl ${t.textMain} mb-4`}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  class={`font-mono text-sm ${t.textMuted} max-w-sm leading-relaxed`}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      class={`py-24 md:py-32 px-6 md:px-16 ${t.bgSecondary} border-t ${t.borderSoft} relative z-10`}
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20"
+      >
+        <div data-gsap="fade-up" class="w-full lg:w-1/2">
+          <h2
+            class={`font-display text-5xl md:text-7xl lg:text-[6rem] leading-none ${t.textMain} uppercase mb-8`}
+          >
+            ESTÁNDARES DE <br />
+            <span class={a.text}>CLASE MUNDIAL.</span>
+          </h2>
+          <p
+            class={`font-mono text-lg md:text-xl ${t.textMuted} leading-relaxed mb-10 max-w-xl`}
+          >
+            No importa si tu empresa está en <strong
+              >{provincia.ciudades[0]}</strong
+            > o en cualquier otro lado. Entregamos infraestructura técnica que supera
+            las auditorías más estrictas de performance y seguridad.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div
+              class={`px-5 py-3 border ${t.borderMedium} rounded-xl ${t.bgPrimary} flex items-center gap-3`}
+            >
+              <i class={`fa-solid fa-gauge-high ${a.text}`}></i>
+              <span class={`font-mono text-sm ${t.textSubMuted}`}
+                >QA Lighthouse</span
+              >
+            </div>
+            <div
+              class={`px-5 py-3 border ${t.borderMedium} rounded-xl ${t.bgPrimary} flex items-center gap-3`}
+            >
+              <i class={`fa-solid fa-lock ${a.text}`}></i>
+              <span class={`font-mono text-sm ${t.textSubMuted}`}
+                >Cifrado de Datos</span
+              >
+            </div>
+            <div
+              class={`px-5 py-3 border ${t.borderMedium} rounded-xl ${t.bgPrimary} flex items-center gap-3`}
+            >
+              <i class={`fa-solid fa-server ${a.text}`}></i>
+              <span class={`font-mono text-sm ${t.textSubMuted}`}
+                >Uptime 99.9%</span
+              >
+            </div>
+            <div
+              class={`px-5 py-3 border ${t.borderMedium} rounded-xl ${t.bgPrimary} flex items-center gap-3`}
+            >
+              <i class={`fa-solid fa-bolt ${a.text}`}></i>
+              <span class={`font-mono text-sm ${t.textSubMuted}`}
+                >Carga &lt; 1s</span
+              >
+            </div>
+            <div
+              class={`px-5 py-3 border ${t.borderMedium} rounded-xl ${t.bgPrimary} flex items-center gap-3`}
+            >
+              <i class={`fa-solid fa-cubes ${a.text}`}></i>
+              <span class={`font-mono text-sm ${t.textSubMuted}`}
+                >Arquitectura Modular</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          data-gsap="fade-up"
+          class="w-full lg:w-1/2 relative flex items-center justify-center"
+        >
+          <img loading="lazy" decoding="async" src="/estclasemund.svg" 
+            alt="Estándares de Clase Mundial" 
+            class="w-full max-w-[400px] md:max-w-[500px] h-auto object-contain transition-transform duration-700 hover:scale-105" 
+            style="filter: drop-shadow(0 20px 50px rgba(37,211,102,0.15));"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section
+      class={`py-32 md:py-40 px-6 md:px-16 ${t.bgPrimary} border-b ${t.borderSoft} relative z-10`}
+    >
+      <div class="max-w-4xl mx-auto">
+        <h2
+          data-gsap="fade-up"
+          class={`font-display text-5xl md:text-7xl leading-none ${t.textMain} mb-20 text-center section-title opacity-0 uppercase`}
+        >
+          DUDAS SOBRE <br class="hidden md:block" /><span class={t.textSubMuted}
+            >TRABAJO REMOTO</span
+          >
+        </h2>
+        <div class="space-y-4">
+          {
+            faqsRegionales.map((faq: any, i: number) => (
+              <div
+                class={`faq-item group opacity-0 transform-gpu border ${t.borderSoft} ${t.glassBg} backdrop-blur-xl rounded-2xl overflow-hidden transition-shadow duration-300 hover:border-transparent hover:shadow-[0_0_20px_rgba(0,0,0,0.05)]`}
+              >
+                <button
+                  class={`faq-btn w-full flex items-center justify-between gap-6 p-6 md:p-8 cursor-pointer list-none ${t.textMain} font-display text-xl md:text-2xl transition-colors duration-300`}
+                >
+                  <span class="text-left">{faq.q}</span>
+                  <span
+                    class={`faq-icon flex-shrink-0 w-8 h-8 rounded-full border ${t.borderMedium} flex items-center justify-center transition-transform duration-500 group-hover:${a.bg} group-hover:border-transparent group-hover:text-blanco`}
+                  >
+                    <i class="fa-solid fa-chevron-down text-sm" />
+                  </span>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                  <div class="overflow-hidden">
+                    <div
+                      class={`p-6 md:p-8 pt-0 font-mono text-sm md:text-base ${t.textMuted} leading-relaxed`}
+                    >
+                      <p>{faq.a}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contacto-regional"
+      class={`py-32 md:py-40 px-6 md:px-16 ${t.bgSecondary} relative z-10`}
+    >
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2
+            data-gsap="fade-up"
+            class={`font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] ${t.textMain} mb-6 opacity-0 uppercase`}
+          >
+            POSICIONÁ TU <br />
+            <span class={a.text}>EMPRESA LOCAL.</span>
+          </h2>
+          <p
+            data-gsap="fade-up"
+            class={`font-mono text-lg md:text-xl ${t.textMuted} max-w-2xl mx-auto opacity-0`}
+          >
+            Dejanos tus datos. Te contactamos hoy mismo para evaluar la
+            arquitectura técnica de tu próximo proyecto.
+          </p>
+        </div>
+
+        <form
+          data-gsap="fade-up"
+          action="https://formspree.io/f/mqakezyw"
+          method="POST"
+          class="opacity-0 max-w-2xl mx-auto space-y-6"
+        >
+          
+          <input
+            type="hidden"
+            name="Provincia_Interes"
+            value={provincia.nombre}
+          />
+          <input
+            type="hidden"
+            name="Servicio_Interes"
+            value={nombreServicioDisplay}
+          />
+          <input
+            type="hidden"
+            name="_subject"
+            value={`Nuevo Lead de ${nombreServicioDisplay} desde ${provincia.nombre}!`}
+          />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label
+                for="nombre"
+                class={`font-mono text-xs uppercase tracking-widest ${t.textSubMuted}`}
+                >Nombre o Empresa</label
+              >
+              <input
+                required
+                type="text"
+                id="nombre"
+                name="nombre"
+                class={`w-full bg-transparent border-b ${t.borderMedium} py-3 px-0 focus:outline-none focus:border-${a.border.split("-")[1]} ${t.textMain} font-mono transition-colors duration-300 placeholder:${t.textSubMuted}`}
+                placeholder="Ingeniería S.A."
+              />
+            </div>
+            <div class="space-y-2">
+              <label
+                for="email"
+                class={`font-mono text-xs uppercase tracking-widest ${t.textSubMuted}`}
+                >Correo Electrónico</label
+              >
+              <input
+                required
+                type="email"
+                id="email"
+                name="email"
+                class={`w-full bg-transparent border-b ${t.borderMedium} py-3 px-0 focus:outline-none focus:border-${a.border.split("-")[1]} ${t.textMain} font-mono transition-colors duration-300 placeholder:${t.textSubMuted}`}
+                placeholder="contacto@empresa.com"
+              />
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label
+              for="mensaje"
+              class={`font-mono text-xs uppercase tracking-widest ${t.textSubMuted}`}
+              >¿De qué trata el proyecto?</label
+            >
+            <textarea
+              required
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              class={`w-full bg-transparent border-b ${t.borderMedium} py-3 px-0 focus:outline-none focus:border-${a.border.split("-")[1]} ${t.textMain} font-mono transition-colors duration-300 resize-none placeholder:${t.textSubMuted}`}
+              placeholder={`Estamos en ${provincia.ciudades[0] || provincia.nombre} y necesitamos...`}
+            ></textarea>
+          </div>
+
+          <div
+            class="flex flex-col sm:flex-row justify-between items-center gap-6 pt-6"
+          >
+            <label
+              class="group flex items-center gap-4 cursor-pointer relative max-w-xs sm:max-w-none"
+            >
+              <input
+                required
+                type="checkbox"
+                name="acepta_terminos"
+                class="peer sr-only"
+              />
+              <div
+                class={`w-5 h-5 rounded border ${t.borderMedium} bg-transparent flex items-center justify-center transition-all duration-300 peer-checked:border-transparent group-hover:border-${a.border.split("-")[1]} shrink-0 relative overflow-hidden peer-checked:[&>div]:scale-100 peer-checked:[&>div]:opacity-100 peer-checked:[&>svg]:scale-100 peer-checked:[&>svg]:opacity-100`}
+              >
+                <div
+                  class={`absolute inset-0 ${a.bg} scale-0 opacity-0 transition-all duration-300 ease-out rounded-sm`}
+                >
+                </div>
+                <svg
+                  class={`relative z-10 w-3 h-3 ${a.ctaText} opacity-0 scale-50 delay-75`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="4"
+                >
+                  <path
+                    stroke-linecap="square"
+                    stroke-linejoin="miter"
+                    d="M4 12l4 4L19 6"></path>
+                </svg>
+              </div>
+              <span
+                class={`font-mono text-xs md:text-sm ${t.textSubMuted} leading-snug select-none group-hover:${t.textMain} transition-colors duration-300`}
+              >
+                He leído y acepto los <a
+                  href="/legal/terminos-y-condiciones"
+                  target="_blank"
+                  class={`underline hover:${a.text}`}>Términos</a
+                > y <a
+                  href="/legal/politica-de-privacidad"
+                  target="_blank"
+                  class={`underline hover:${a.text}`}>Política de Privacidad</a
+                >
+              </span>
+            </label>
+
+            <button
+              type="submit"
+              class={`w-full sm:w-auto inline-flex justify-center items-center gap-3 px-10 py-5 ${a.bg} text-negro font-mono text-xs tracking-widest uppercase overflow-hidden rounded-2xl hover:rounded-none transition-all duration-300 font-bold hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]`}
+            >
+              Enviar Solicitud
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer theme={isDark ? "dark" : "light"} />
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("astro:page-load", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".hero-reveal", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: 0.2,
+      ease: "power3.out",
+    });
+
+    gsap.utils.toArray("[data-gsap='fade-up']").forEach((elem: any) => {
+      gsap.fromTo(
+        elem,
+        { opacity: 0, y: 40 },
+        {
+          scrollTrigger: { trigger: elem, start: "top 85%" },
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      );
+    });
+
+    gsap.utils.toArray(".rubro-card").forEach((card: any, i) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 40 },
+        {
+          scrollTrigger: { trigger: card, start: "top 85%" },
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: i * 0.1,
+          ease: "power2.out",
+        },
+      );
+    });
+
+    gsap.utils.toArray(".metodo-card").forEach((card: any, i) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, scale: 0.9, y: 30 },
+        {
+          scrollTrigger: { trigger: card, start: "top 85%" },
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.6,
+          delay: i * 0.15,
+          ease: "back.out(1.5)",
+        },
+      );
+    });
+
+    gsap.utils.toArray(".faq-item").forEach((card: any, i) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: { trigger: card, start: "top 95%" },
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: i * 0.08,
+          ease: "power2.out",
+        },
+      );
+    });
+
+    document.querySelectorAll(".faq-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item") as HTMLElement;
+        const content = item.querySelector(".faq-content") as HTMLElement;
+        const icon = item.querySelector(".faq-icon") as HTMLElement;
+
+        const isExpanded = content.style.gridTemplateRows === "1fr";
+
+        document
+          .querySelectorAll(".faq-content")
+          .forEach((c) => ((c as HTMLElement).style.gridTemplateRows = "0fr"));
+        document
+          .querySelectorAll(".faq-icon")
+          .forEach(
+            (i) => ((i as HTMLElement).style.transform = "rotate(0deg)"),
+          );
+
+        if (!isExpanded) {
+          content.style.gridTemplateRows = "1fr";
+          icon.style.transform = "rotate(180deg)";
+        }
+      });
+    });
+  });
+</script>

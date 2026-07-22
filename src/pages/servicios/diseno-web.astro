@@ -2,12 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import InteractiveMap from "../../components/InteractiveMap.astro";
 ---
 
 <Layout
   title="Diseño y Desarrollo Web a Medida en Argentina — Landing Pages y Sitios | VEZNER"
-  description="Diseño de Landing Pages y Sitios Web de alta gama para negocios. Optimizadas para conversión, ultrarrápidas y construidas a medida. Servicio en Córdoba, Buenos Aires, Rosario, Mendoza, Santa Fe y toda Argentina."
-  keywords="diseño web a medida, desarrollo web frontend, diseño web buenos aires, diseño web córdoba, diseño de paginas web rosario, agencia de diseño web mendoza, tiendas online santa fe, sitios web para empresas caba, desarrollo web premium argentina, landing pages de alta conversión, VEZNER web"
+  description="Diseño de Landing Pages y Sitios Web de alta gama. Desarrollo con código propio para sitios institucionales y expertos en Tiendanube y Shopify para E-commerce."
+  keywords="diseño web a medida, desarrollo web frontend, expertos tiendanube, desarrollo shopify, diseño web córdoba, diseño de paginas web rosario, agencia de diseño web mendoza, tiendas online santa fe, sitios web para empresas caba, desarrollo web premium argentina, landing pages de alta conversión, VEZNER web"
 >
   <Header />
 
@@ -41,30 +42,31 @@ import Footer from "../../components/Footer.astro";
           >
         </div>
 
-        <h1
-          class="font-display text-[clamp(60px,12vw,180px)] leading-none text-negro uppercase mb-12"
-        >
-          <span class="block overflow-hidden pt-12 -mt-12"
-            ><span class="title-line block translate-y-[120%]">Diseño</span
-            ></span
+        <div class="relative">
+          <h1
+            class="font-display text-[clamp(60px,12vw,180px)] leading-none text-negro uppercase mb-12"
           >
-          <span class="block overflow-hidden pt-12 -mt-12"
-            ><span class="title-line block translate-y-[120%] text-rosa"
-              >Web</span
-            ></span
-          >
-        </h1>
+            <span class="block overflow-hidden pt-12 -mt-12"
+              ><span class="title-line block translate-y-[120%]">Diseño</span
+              ></span
+            >
+            <span class="block overflow-hidden pt-12 -mt-12"
+              ><span class="title-line block translate-y-[120%] text-rosa"
+                >Web</span
+              ></span
+            >
+          </h1>
+        </div>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
           <div class="max-w-lg">
             <p
               class="hero-desc font-mono text-base md:text-lg text-negro/70 leading-relaxed opacity-0 transform translate-y-8 mb-8"
             >
-              Transformamos visitantes en clientes de alto valor. Diseñamos e
-              implementamos ecosistemas web ultrarrápidos, optimizados para <strong
-                >Core Web Vitals</strong
-              > y enfocados 100% en la conversión. Sin plantillas, pura ingeniería
-              estética para marcas.
+              Transformamos visitantes en clientes de alto valor. Desarrollamos <strong
+                >Landings y Webs Corporativas a medida con código propio</strong
+              >, y somos expertos en <strong>Tiendanube y Shopify</strong> para crear
+              e-commerces ultrarrápidos. Pura ingeniería de conversión.
             </p>
 
             <div
@@ -95,17 +97,21 @@ import Footer from "../../components/Footer.astro";
               class="hero-desc opacity-0 transform translate-y-8 flex items-center gap-4 text-xs font-mono text-negro/50"
             >
               <span class="flex items-center gap-1.5"
-                ><i class="fa-solid fa-check text-verde"></i> Desarrollo a medida</span
+                ><i class="fa-solid fa-code text-verde"></i> Código Propio</span
               >
               <span class="flex items-center gap-1.5"
-                ><i class="fa-solid fa-bolt text-yellow-500"></i> Carga &lt; 1s
+                ><i class="fa-brands fa-shopify text-yellow-500"></i> Shopify / Tiendanube
               </span>
             </div>
           </div>
 
-          <div
-            class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
-          >
+          <div class="relative w-full">
+            <div class="absolute bottom-full right-[20%] lg:right-[30%] pb-4 hidden md:block z-10 pointer-events-auto">
+              <InteractiveMap servicioId="diseno-web" fillColor="rgba(0,0,0,0.03)" strokeColor="rgba(0,0,0,0.15)" hoverColor="#ff005c" />
+            </div>
+            <div
+              class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
+            >
             <div
               class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
             >
@@ -151,6 +157,7 @@ import Footer from "../../components/Footer.astro";
           </div>
         </div>
       </div>
+      </div>
 
       <div
         class="scroll-prompt absolute bottom-10 left-6 md:left-16 flex items-center gap-4 opacity-0"
@@ -185,17 +192,17 @@ import Footer from "../../components/Footer.astro";
             [
               {
                 t: "Landing Pages",
-                d: "Sitios de una sola página ultra optimizados para captar leads y ventas directas con pasarelas de pago.",
+                d: "Sitios de una sola página ultra optimizados, desarrollados con código propio a medida para captar leads y ventas directas.",
                 c: "bg-[#111] hover:bg-rosa/10 hover:border-rosa/30",
               },
               {
                 t: "E-Commerce",
-                d: "Tiendas online completas integradas con plataformas sólidas como Shopify o TiendaNube.",
+                d: "Somos expertos en Tiendanube y Shopify. Diseñamos tu tienda de alta conversión sobre la plataforma que prefieras.",
                 c: "bg-[#111] hover:bg-yellow-400/10 hover:border-yellow-400/30",
               },
               {
                 t: "Web Corporativa",
-                d: "Sitios multipágina con una arquitectura de la información impecable y rendimiento auditado con Lighthouse.",
+                d: "Sitios institucionales multipágina construidos con código puro para garantizar una arquitectura y velocidad impecables.",
                 c: "bg-[#111] hover:bg-verde/10 hover:border-verde/30",
               },
               {
@@ -205,209 +212,7 @@ import Footer from "../../components/Footer.astro";
               },
             ].map((item, i) => (
               <div
-                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 bg-blanco/[0.03] backdrop-blur-2xl p-8 transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 rounded-2xl hover:rounded-none ${item.c} group`}
-              >
-                <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors duration-300">
-                  0{i + 1}
-                </div>
-                <h3
-                  data-gsap="fade-up"
-                  class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform duration-300"
-                >
-                  {item.t}
-                </h3>
-                <p class="font-mono text-xs text-blanco/50 leading-relaxed">
-                  {item.d}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="estandar"
-      class="py-32 bg-negro text-blanco relative overflow-hidden"
-    >
-      <div class="container mx-auto px-6 md:px-16 max-w-7xl relative z-10">
-        <div class="grid md:grid-cols-2 gap-20">
-          <div
-            data-gsap="fade-up"
-            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 hover:bg-blanco/5 rounded-2xl hover:rounded-none transition-all duration-500"
-          >
-            <span
-              class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-8 block"
-              >El estándar mediocre</span
-            >
-            <h3
-              data-gsap="fade-up"
-              class="font-display text-5xl mb-6 text-blanco/50"
-            >
-              Plantillas & <br />Desarrollo Genérico
-            </h3>
-            <ul class="space-y-4 font-mono text-sm text-blanco/40">
-              <li class="flex gap-4">
-                <span>×</span> Diseños genéricos que no transmiten autoridad.
-              </li>
-              <li class="flex gap-4">
-                <span>×</span> Carga extremadamente lenta que mata las ventas.
-              </li>
-              <li class="flex gap-4">
-                <span>×</span> Cero enfoque en jerarquía de información.
-              </li>
-              <li class="flex gap-4">
-                <span>×</span> UI rota en dispositivos móviles.
-              </li>
-            </ul>
-          </div>
-
-          <div
-            data-gsap="fade-up"
-            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/30 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 relative rounded-2xl hover:rounded-none transition-all duration-500"
-          >
-            <div
-              class="absolute top-0 right-0 w-24 h-24 bg-blanco/20 blur-[50px]"
-            >
-            </div>
-            <span
-              class="font-mono text-xs tracking-widest uppercase text-blanco mb-8 block"
-              >El estándar VEZNER</span
-            >
-            <h3
-              data-gsap="fade-up"
-              class="font-display text-5xl mb-6 text-blanco"
-            >
-              Ventas &<br />Autoridad
-            </h3>
-            <ul class="space-y-4 font-mono text-sm text-blanco/70">
-              <li class="flex gap-4">
-                <span class="text-blanco">✓</span> Desarrollo a medida (Astro, React,
-                HTML puro).
-              </li>
-              <li class="flex gap-4">
-                <span class="text-blanco">✓</span> E-commerce optimizado (Shopify
-                o TiendaNube).
-              </li>
-              <li class="flex gap-4">
-                <span class="text-blanco">✓</span> Diseño de alta gama, estético y
-                estratégico.
-              </li>
-              <li class="flex gap-4">
-                <span class="text-blanco">✓</span> Integración de pasarelas (Mercado
-                Pago, Stripe).
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="proceso"
-      class="py-32 px-6 md:px-16 bg-[#050505] text-blanco border-t border-blanco/10"
-    >
-      <div class="max-w-7xl mx-auto">
-        <h2
-          data-gsap="fade-up"
-          class="font-display text-5xl md:text-7xl text-blanco mb-20 text-center section-title opacity-0"
-        >
-          PROCESO DE CREACIÓN
-        </h2>
-        <div
-          class="space-y-0 relative border-l border-blanco/10 ml-4 md:ml-8 pl-8 md:pl-16 py-8"
-        >
-          {
-            [
-              {
-                n: "01",
-                t: "Investigación & Arquitectura",
-                d: "Analizamos tu negocio, competencia y objetivos. Definimos el mapa de sitio y la estructura de la información para maximizar la conversión.",
-              },
-              {
-                n: "02",
-                t: "Diseño UX/UI",
-                d: "Creamos interfaces estéticas, funcionales y alineadas a tu identidad de marca, priorizando la experiencia del usuario.",
-              },
-              {
-                n: "03",
-                t: "Desarrollo & Optimización",
-                d: "Escribimos el código a medida, implementamos animaciones e integramos plataformas asegurando un rendimiento impecable.",
-              },
-              {
-                n: "04",
-                t: "Pruebas & Lanzamiento",
-                d: "Auditamos la web en diferentes dispositivos, verificamos tiempos de carga y desplegamos el proyecto en producción.",
-              },
-            ].map((paso, i) => (
-              <div class="proceso-card opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 group">
-                <div class="absolute -left-8 md:-left-16 top-0 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-rosa group-hover:shadow-[0_0_15px_rgba(225,29,72,1)] transform -translate-x-1/2 transition-all duration-300" />
-                <span class="font-display text-4xl text-blanco/10 group-hover:text-rosa/40 transition-colors duration-300 absolute -left-12 top-0 -translate-x-full md:-translate-x-0 md:relative md:left-0 md:-top-4">
-                  {paso.n}
-                </span>
-                <h3
-                  data-gsap="fade-up"
-                  class="font-display text-3xl md:text-4xl text-blanco mb-4 mt-2 md:mt-0 group-hover:text-rosa transition-colors duration-300"
-                >
-                  {paso.t}
-                </h3>
-                <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors duration-300 leading-relaxed max-w-2xl">
-                  {paso.d}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section id="enfoque" class="py-32 px-6 md:px-16 bg-blanco">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <h2
-            data-gsap="fade-up"
-            class="font-display text-6xl md:text-8xl text-negro mb-6 section-title opacity-0"
-          >
-            INGENIERÍA<br />DE CONVERSIÓN
-          </h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-x-12 gap-y-20">
-          {
-            [
-              {
-                t: "Stack Moderno",
-                d: "Construimos sobre Astro, React y Next.js para garantizar optimización de Core Web Vitals y una experiencia veloz.",
-                i: "fa-solid fa-bolt",
-              },
-              {
-                t: "UI Dinámica",
-                d: "Implementamos animaciones fluidas, scroll interactivo y diseños estéticos de máxima calidad visual.",
-                i: "fa-solid fa-wand-magic-sparkles",
-              },
-              {
-                t: "Arquitectura",
-                d: "Estructura semántica HTML5 y buenas prácticas de desarrollo. Integraciones impecables con Shopify o TiendaNube.",
-                i: "fa-solid fa-magnifying-glass",
-              },
-              {
-                t: "Alta Conversión",
-                d: "Integramos pasarelas de pago como Mercado Pago y Stripe directo en la web, con botones estratégicos para guiar la acción.",
-                i: "fa-solid fa-arrow-trend-up",
-              },
-              {
-                t: "Responsive Puro",
-                d: "Cero problemas en móvil. Diseñamos con un enfoque mobile-first absoluto, para que se vea avanzado en cualquier pantalla.",
-                i: "fa-solid fa-mobile-screen-button",
-              },
-              {
-                t: "Hosting & Soporte",
-                d: "Nos encargamos de todo. Mantenimiento mensual, soporte directo, despliegue global automático y máxima seguridad para que vos te enfoques en vender.",
-                i: "fa-solid fa-server",
-              },
-            ].map((f, i) => (
-              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-negro/10 bg-negro/[0.03] backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 rounded-2xl hover:rounded-none hover:border-rosa group hover:bg-negro/[0.02] px-4 -mx-4 pb-4">
-                <i
-                  class={`${f.i} text-3xl text-negro/20 group-hover:text-rosa group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
+                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 bg-blanco/[0.03] backdrop-blur-2xl p-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none ${item.c} group`} > <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors "> 0{i + 1} </div> <h3 data-gsap="fade-up" class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform " > {item.t} </h3> <p class="font-mono text-xs text-blanco/50 leading-relaxed"> {item.d} </p> </div> )) } </div> </div> </section> <section id="estandar" class="py-32 bg-negro text-blanco relative overflow-hidden" > <div class="container mx-auto px-6 md:px-16 max-w-7xl relative z-10"> <div class="grid md:grid-cols-2 gap-20"> <div data-gsap="fade-up" class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 hover:bg-blanco/5 rounded-2xl hover:rounded-none " > <span class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-8 block" >El estándar mediocre</span > <h3 data-gsap="fade-up" class="font-display text-5xl mb-6 text-blanco/50" > Plantillas & <br />Desarrollo Genérico </h3> <ul class="space-y-4 font-mono text-sm text-blanco/40"> <li class="flex gap-4"> <span>×</span> Diseños de WordPress genéricos que no transmiten autoridad. </li> <li class="flex gap-4"> <span>×</span> E-commerces lentos donde los clientes abandonan el carrito. </li> <li class="flex gap-4"> <span>×</span> Cero enfoque en jerarquía de información. </li> <li class="flex gap-4"> <span>×</span> Interfaces (UI) rotas en dispositivos móviles. </li> </ul> </div> <div data-gsap="fade-up" class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/30 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 relative rounded-2xl hover:rounded-none " > <div class="absolute top-0 right-0 w-24 h-24 bg-blanco/20 blur-[50px]" > </div> <span class="font-mono text-xs tracking-widest uppercase text-blanco mb-8 block" >El estándar VEZNER</span > <h3 data-gsap="fade-up" class="font-display text-5xl mb-6 text-blanco" > Ventas &<br />Autoridad </h3> <ul class="space-y-4 font-mono text-sm text-blanco/70"> <li class="flex gap-4"> <span class="text-blanco">✓</span> Código Propio (Astro/React) para Landings y Sitios Corporativos. </li> <li class="flex gap-4"> <span class="text-blanco">✓</span> Expertos en desarrollo sobre Shopify y Tiendanube para Tiendas. </li> <li class="flex gap-4"> <span class="text-blanco">✓</span> Diseño de alta gama, estético y estratégico en ambas soluciones. </li> <li class="flex gap-4"> <span class="text-blanco">✓</span> Integración nativa de pasarelas (Mercado Pago, Stripe, MODO). </li> </ul> </div> </div> </div> </section> <section id="proceso" class="py-32 px-6 md:px-16 bg-[#050505] text-blanco border-t border-blanco/10" > <div class="max-w-7xl mx-auto"> <h2 data-gsap="fade-up" class="font-display text-5xl md:text-7xl text-blanco mb-20 text-center section-title opacity-0" > PROCESO DE CREACIÓN </h2> <div class="space-y-0 relative border-l border-blanco/10 ml-4 md:ml-8 pl-8 md:pl-16 py-8" > { [ { n: "01", t: "Investigación & Plataforma", d: "Analizamos tu negocio para definir la mejor arquitectura: código propio para institucionales/landings, o Shopify/Tiendanube para tu e-commerce.", }, { n: "02", t: "Diseño UX/UI", d: "Creamos interfaces estéticas, funcionales y alineadas a tu identidad de marca, priorizando la experiencia del usuario y la conversión.", }, { n: "03", t: "Desarrollo & Configuración", d: "Programamos desde cero tu web corporativa o implementamos el diseño a medida sobre el panel de control de tu nueva tienda online.", }, { n: "04", t: "Pruebas & Lanzamiento", d: "Auditamos la web en diferentes dispositivos, verificamos tiempos de carga, logística, pagos y desplegamos el proyecto en producción.", }, ].map((paso, i) => ( <div class="proceso-card opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] group"> <div class="absolute -left-8 md:-left-16 top-0 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-rosa group-hover:shadow-[0_0_15px_rgba(225,29,72,1)] transform -translate-x-1/2 " /> <span class="font-display text-4xl text-blanco/10 group-hover:text-rosa/40 transition-colors absolute -left-12 top-0 -translate-x-full md:-translate-x-0 md:relative md:left-0 md:-top-4"> {paso.n} </span> <h3 data-gsap="fade-up" class="font-display text-3xl md:text-4xl text-blanco mb-4 mt-2 md:mt-0 group-hover:text-rosa transition-colors " > {paso.t} </h3> <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors leading-relaxed max-w-2xl"> {paso.d} </p> </div> )) } </div> </div> </section> <section id="enfoque" class="py-32 px-6 md:px-16 bg-blanco"> <div class="max-w-7xl mx-auto"> <div class="text-center mb-20"> <h2 data-gsap="fade-up" class="font-display text-6xl md:text-8xl text-negro mb-6 section-title opacity-0" > INGENIERÍA<br />DE CONVERSIÓN </h2> </div> <div class="grid md:grid-cols-3 gap-x-12 gap-y-20"> { [ { t: "El Stack Correcto", d: "Usamos Astro, React y HTML puro para Landings ultrarrápidas. Para E-commerce, dominamos los ecosistemas de Tiendanube y Shopify.", i: "fa-solid fa-code", }, { t: "UI Dinámica", d: "Implementamos animaciones fluidas, scroll interactivo y diseños estéticos de máxima calidad visual, sin importar la plataforma.", i: "fa-solid fa-wand-magic-sparkles", }, { t: "Arquitectura", d: "Estructura semántica impecable en nuestros desarrollos propios e integraciones nativas avanzadas en plataformas de e-commerce.", i: "fa-solid fa-magnifying-glass", }, { t: "Alta Conversión", d: "Integramos pasarelas de pago directas o configuramos los potentes flujos de checkout nativos de Tiendanube y Shopify para maximizar ventas.", i: "fa-solid fa-arrow-trend-up", }, { t: "Responsive Puro", d: "Cero problemas en móvil. Diseñamos con un enfoque mobile-first absoluto, para que se vea avanzado en cualquier pantalla.", i: "fa-solid fa-mobile-screen-button", }, { t: "Hosting & Soporte", d: "Nos encargamos de todo. Mantenimiento mensual, despliegue global automático y máxima seguridad para que vos te enfoques en tu negocio.", i: "fa-solid fa-server", }, ].map((f, i) => ( <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-negro/10 bg-negro/[0.03] backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none hover:border-rosa group hover:bg-negro/[0.02] px-4 -mx-4 pb-4"> <i class={`${f.i} text-3xl text-negro/20 group-hover:text-rosa group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
                 />
                 <h4 class="font-display text-3xl text-negro mb-4 group-hover:translate-x-1 transition-transform duration-300">
                   {f.t}
@@ -532,7 +337,7 @@ import Footer from "../../components/Footer.astro";
                   type="text"
                   name="web_objetivo"
                   required
-                  placeholder="Ej: Vender online, Captar leads..."
+                  placeholder="Ej: Vender online con Shopify, Landing de leads..."
                   class="w-full bg-transparent border-b border-negro/20 py-3 font-mono text-sm text-negro placeholder:text-negro/20 focus:outline-none focus:border-rosa transition-colors"
                 />
               </div>
@@ -645,11 +450,11 @@ import Footer from "../../components/Footer.astro";
                   class="w-5 h-5 rounded border border-negro/30 bg-transparent flex items-center justify-center transition-colors peer-checked:border-rosa group-hover:border-rosa shrink-0 relative overflow-hidden peer-checked:[&>div]:scale-100 peer-checked:[&>div]:opacity-100 peer-checked:[&>svg]:scale-100 peer-checked:[&>svg]:opacity-100"
                 >
                   <div
-                    class="absolute inset-0 bg-rosa scale-0 opacity-0 transition-transform duration-300 ease-out rounded-sm"
+                    class="absolute inset-0 bg-rosa scale-0 opacity-0 transition-transform ease-out rounded-sm"
                   >
                   </div>
                   <svg
-                    class="relative z-10 w-3 h-3 text-blanco opacity-0 scale-50 transition-all duration-300 delay-75"
+                    class="relative z-10 w-3 h-3 text-blanco opacity-0 scale-50 delay-75"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

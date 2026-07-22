@@ -44,10 +44,9 @@ const posts = (await getCollection('blog')).sort(
             posts.map((post: any) => {
               const searchContent = `${post.data.title} ${post.data.description}`;
               return (
-                <a href={`/blog/${post.id}`} class="blog-card group block border border-negro/10 rounded-2xl bg-negro/[0.03] backdrop-blur-2xl hover:border-negro hover:rounded-none transition-safe duration-500 overflow-hidden relative transition-colors duration-300" data-search={searchContent} data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
+                <a href={`/blog/${post.id}`} class="blog-card group block border border-negro/10 rounded-2xl bg-negro/[0.03] backdrop-blur-2xl hover:border-negro hover:rounded-none transition-safe overflow-hidden relative transition-colors" data-search={searchContent} data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
                   <div class="aspect-[4/3] w-full overflow-hidden border-b border-negro/10">
-                  <img
-                    src={post.data.heroImage || '/og-image.webp'}
+                  <img loading="lazy" decoding="async" src={post.data.heroImage || '/og-image.webp'}
                     alt={post.data.title}
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   />
@@ -85,7 +84,6 @@ const posts = (await getCollection('blog')).sort(
           </div>
         )}
 
-        
         <div id="pagination-controls" class="hidden mt-16 pt-8 border-t border-negro/10 flex items-center justify-center gap-2">
           
         </div>

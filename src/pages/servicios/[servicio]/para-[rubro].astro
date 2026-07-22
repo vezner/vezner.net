@@ -1,0 +1,650 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { seoRubros } from "../../../data/seoRubros.js";
+
+export function getStaticPaths() {
+  return seoRubros.map((nicho) => ({
+    params: {
+      servicio: nicho.servicioId,
+      rubro: nicho.rubroId,
+    },
+    props: { nicho },
+  }));
+}
+
+export const prerender = true;
+
+const { nicho } = Astro.props;
+
+if (!nicho) {
+  return Astro.redirect('/404');
+}
+
+const isDark = nicho.theme === "dark";
+
+const t = {
+  bgPrimary: isDark ? "bg-[#050505]" : "bg-[#fafafa]",
+  bgSecondary: isDark ? "bg-[#111111]" : "bg-blanco",
+  textMain: isDark ? "text-blanco" : "text-negro",
+  textMuted: isDark ? "text-blanco/70" : "text-negro/70",
+  textSubMuted: isDark ? "text-blanco/40" : "text-negro/40",
+  borderSoft: isDark ? "border-blanco/10" : "border-negro/10",
+  borderMedium: isDark ? "border-blanco/20" : "border-negro/20",
+  glassBg: isDark ? "bg-blanco/[0.02]" : "bg-negro/[0.02]",
+  hoverGlass: isDark ? "hover:bg-blanco/5" : "hover:bg-negro/[0.04]",
+  hoverBorderMain: isDark ? "hover:border-blanco" : "hover:border-negro",
+  btnPrimary: isDark
+    ? "bg-blanco text-negro border-blanco"
+    : "bg-negro text-blanco border-negro",
+};
+
+const aMap: Record<string, any> = {
+  "diseno-web": {
+    text: "text-rosa",
+    bg: "bg-rosa",
+    border: "border-rosa",
+    hoverBorder: "hover:border-rosa",
+    tickerText: "text-blanco",
+    openBorder: "open:border-rosa",
+    glow: "shadow-[0_0_15px_rgba(225,29,72,0.5)]",
+    ctaText: "text-blanco",
+    ctaBtn: "bg-blanco text-negro",
+  },
+  "software-python": {
+    text: "text-verde",
+    bg: "bg-verde",
+    border: "border-verde",
+    hoverBorder: "hover:border-verde",
+    tickerText: "text-negro",
+    openBorder: "open:border-verde",
+    glow: "shadow-[0_0_15px_rgba(37,211,102,0.5)]",
+    ctaText: "text-negro",
+    ctaBtn: "bg-negro text-blanco",
+  },
+  "diseno-identidad": {
+    text: "text-yellow-400",
+    bg: "bg-yellow-400",
+    border: "border-yellow-400",
+    hoverBorder: "hover:border-yellow-400",
+    tickerText: "text-negro",
+    openBorder: "open:border-yellow-400",
+    glow: "shadow-[0_0_15px_rgba(250,204,21,0.5)]",
+    ctaText: "text-negro",
+    ctaBtn: "bg-negro text-blanco",
+  },
+};
+const a = aMap[nicho.servicioId] || aMap["diseno-web"];
+const headerTheme = isDark ? "dark" : "light";
+---
+
+<Layout
+  title={nicho.tituloSEO}
+  description={nicho.descripcionSEO}
+  keywords={nicho.keywords}
+>
+  <Header theme={headerTheme} />
+
+  <main
+    class={`${t.bgPrimary} ${t.textMain} min-h-screen overflow-hidden relative`}
+  >
+    
+    <div
+      class="pointer-events-none fixed inset-0 z-0 opacity-[0.03] mix-blend-overlay"
+      style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"
+    >
+    </div>
+
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div
+        class={`absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] ${a.bg}/20 rounded-full blur-[100px] animate-pulse`}
+      >
+      </div>
+      <div
+        class={`absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] ${a.bg}/10 rounded-full blur-[120px] animate-pulse`}
+        style="animation-delay: 2s;"
+      >
+      </div>
+      <div
+        class={`absolute inset-0 pointer-events-none z-0 ${isDark ? "opacity-[0.02]" : "opacity-[0.03]"}`}
+        style={`background-image: linear-gradient(${isDark ? "#fff" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#fff" : "#000"} 1px, transparent 1px); background-size: 60px 60px;`}
+      >
+      </div>
+    </div>
+
+    <section
+      id="hero"
+      class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20 z-10"
+    >
+      <div class="relative w-full max-w-7xl mx-auto">
+        <div class="hero-reveal flex items-center gap-4 mb-8 opacity-0">
+          <div
+            class={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border ${t.borderMedium} ${t.glassBg} backdrop-blur-md`}
+          >
+            <span class={`w-2 h-2 rounded-full ${a.bg} animate-pulse ${a.glow}`}
+            ></span>
+            <span
+              class={`font-mono text-[10px] tracking-widest uppercase ${t.textMain}`}
+              >Tomando Proyectos</span
+            >
+          </div>
+          <div class={`w-8 h-px ${a.bg} opacity-50 hidden sm:block`}></div>
+          <span
+            class={`font-mono text-xs tracking-[0.4em] uppercase ${a.text} font-bold hidden sm:block`}
+          >
+            {nicho.nombreServicio} // {nicho.nombreRubro}
+          </span>
+        </div>
+
+        <h1
+          class={`font-display text-[clamp(60px,12vw,180px)] leading-[0.85] mb-12 uppercase ${t.textMain} tracking-tighter break-words`}
+        >
+          <span class="block overflow-hidden pt-4 -mt-4 pb-4"
+            ><span class="title-line block translate-y-[120%]"
+              >{nicho.heroTitle.split(".")[0]}<span class={a.text}>.</span
+              ></span
+            ></span
+          >
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end mt-8">
+          <div class="max-w-lg">
+            <p
+              class={`hero-desc font-mono text-base md:text-lg ${t.textMuted} leading-relaxed opacity-0 transform translate-y-8 mb-8`} > <strong class={t.textMain}>{nicho.heroSubtitle}</strong><br /><br /> {nicho.solucion} </p> <div class="hero-desc opacity-0 transform translate-y-8 flex flex-col sm:flex-row gap-4 mb-6" > <a href={`/servicios/${nicho.servicioId}#contacto-servicio`}
+                class={`group relative inline-flex items-center justify-center gap-3 ${t.btnPrimary} px-8 py-4 font-mono text-xs tracking-widest uppercase overflow-hidden border-2 rounded-2xl hover:rounded-none transition-all duration-300 w-full sm:w-auto`}
+              >
+                <span class="relative z-10">Cotizar Proyecto</span>
+                <span
+                  class={`absolute inset-0 ${a.bg} translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0`}
+                ></span>
+              </a>
+              <a
+                href={`/servicios/${nicho.servicioId}`}
+                class={`inline-flex items-center justify-center px-8 py-4 font-mono text-xs tracking-widest uppercase border-2 ${t.borderMedium} ${t.textMain} rounded-2xl hover:rounded-none hover:${t.borderSoft} transition-all duration-300 w-full sm:w-auto`}
+              >
+                Ver {nicho.nombreServicio}
+              </a>
+            </div>
+
+            <div
+              class={`hero-desc opacity-0 transform translate-y-8 flex items-center gap-4 text-xs font-mono ${t.textSubMuted}`}
+            >
+              <span class="flex items-center gap-1.5"
+                ><i class={`fa-solid fa-check ${a.text}`}></i> Especializado en {
+                  nicho.nombreRubro
+                }</span
+              >
+              <span class="flex items-center gap-1.5"
+                ><i class={`fa-solid fa-bolt ${a.text}`}></i> Alta Gama</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8 pb-4"
+          >
+            <div
+              class={`border-l-2 ${a.border} pl-5 group hover:${t.hoverBorderMain} transition-colors duration-300`}
+            >
+              <p
+                class={`font-display text-5xl ${t.textMain} group-hover:${a.text} transition-colors duration-300`}
+              >
+                10X
+              </p>
+              <p
+                class={`font-mono text-[10px] ${t.textSubMuted} tracking-[0.2em] uppercase mt-1`}
+              >
+                Mejora en Percepción
+              </p>
+            </div>
+            <div
+              class={`border-l-2 ${a.border} pl-5 group hover:${t.hoverBorderMain} transition-colors duration-300`}
+            >
+              <p
+                class={`font-display text-5xl ${t.textMain} group-hover:${a.text} transition-colors duration-300`}
+              >
+                0%
+              </p>
+              <p
+                class={`font-mono text-[10px] ${t.textSubMuted} tracking-[0.2em] uppercase mt-1`}
+              >
+                Sistemas Genéricos
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class={`py-6 overflow-hidden flex whitespace-nowrap ${a.bg} ${a.tickerText} text-2xl md:text-5xl font-display uppercase tracking-widest border-y ${t.borderSoft} relative z-20`}
+    >
+      <div
+        class="animate-ticker flex items-center gap-12 px-6 shrink-0 min-w-max"
+      >
+        <span>{nicho.nombreServicio} PARA {nicho.nombreRubro}</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+        <span>ALTO RENDIMIENTO</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+        <span>VEZNER</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+      </div>
+      <div
+        class="animate-ticker flex items-center gap-12 px-6 shrink-0 min-w-max"
+      >
+        <span>{nicho.nombreServicio} PARA {nicho.nombreRubro}</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+        <span>ALTO RENDIMIENTO</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+        <span>VEZNER</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+      </div>
+      <div
+        class="animate-ticker flex items-center gap-12 px-6 shrink-0 min-w-max"
+      >
+        <span>{nicho.nombreServicio} PARA {nicho.nombreRubro}</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+        <span>ALTO RENDIMIENTO</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+        <span>VEZNER</span>
+        <i class="fa-solid fa-asterisk text-lg"></i>
+      </div>
+    </div>
+
+    <section
+      class={`py-32 md:py-40 ${t.bgSecondary} ${t.textMain} relative z-10`}
+    >
+      <div class="container mx-auto px-6 md:px-16 max-w-7xl">
+        <h2
+          data-gsap="fade-up"
+          class={`font-display text-5xl md:text-7xl lg:text-8xl leading-none mb-24 section-title opacity-0 text-center uppercase`} > ¿Por qué perdés <br class="hidden md:block" /><span class={t.textSubMuted}>contra tu competencia?</span > </h2> <div class="grid lg:grid-cols-2 gap-12 lg:gap-20"> <div data-gsap="fade-up" class={`vs-card opacity-0 transform-gpu border ${t.borderMedium} ${t.bgPrimary} p-10 md:p-16 rounded-3xl`}
+          >
+            <span
+              class={`font-mono text-sm tracking-widest uppercase ${t.textSubMuted} mb-10 block`}
+              >La realidad de {nicho.nombreRubro}</span
+            >
+            <ul
+              class={`space-y-8 font-mono text-base md:text-lg ${t.textMuted}`}
+            >
+              {
+                nicho.painPoints.map((pain: string) => (
+                  <li class="flex gap-6 items-start">
+                    <span class={`text-2xl ${a.text}`}>×</span>{" "}
+                    <span class="pt-1">{pain}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div
+            data-gsap="fade-up"
+            class={`vs-card opacity-0 transform-gpu border-2 ${a.border} ${t.bgPrimary} p-10 md:p-16 relative rounded-3xl overflow-hidden shadow-2xl`}
+          >
+            <div
+              class={`absolute -top-20 -right-20 w-64 h-64 ${a.bg} opacity-[0.15] blur-[80px]`}
+            >
+            </div>
+            <span
+              class={`font-mono text-sm tracking-widest uppercase ${t.textMain} mb-10 block relative z-10`}
+              >El estándar VEZNER</span
+            >
+            <ul
+              class={`space-y-8 font-mono text-base md:text-lg ${t.textMuted} relative z-10`}
+            >
+              <li class="flex gap-6 items-start font-bold text-xl mb-4">
+                <span class={t.textMain}>✓</span>
+                <span class="pt-1">{nicho.solucion}</span>
+              </li>
+              <li
+                class={`flex gap-6 items-start pt-8 border-t ${t.borderMedium} mt-8`}
+              >
+                <span class={a.text}>→</span>
+                <span class="pt-1"
+                  ><strong class={t.textMain}>Impacto directo:</strong> Destruir a
+                  la competencia genérica y posicionarte como el líder indiscutido.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class={`py-32 md:py-40 px-6 md:px-16 ${t.bgPrimary} border-y ${t.borderSoft} relative z-10`}
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-24">
+          <h2
+            data-gsap="fade-up"
+            class={`font-display text-5xl md:text-7xl lg:text-8xl leading-none ${t.textMain} mb-8 section-title opacity-0 uppercase`}
+          >
+            EL ENTREGABLE.
+          </h2>
+          <p
+            class={`font-mono text-lg md:text-xl ${t.textMuted} max-w-3xl mx-auto mb-12`}
+          >
+            No hacemos plantillas vacías. Te entregamos un ecosistema completo y
+            llave en mano diseñado específicamente para {nicho.nombreRubro}.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+          {
+            nicho.incluye.map((inc: string, i: number) => (
+              <div
+                class={`inc-card opacity-0 transform-gpu border-t-2 ${t.borderMedium} ${a.hoverBorder} pt-6 transition-colors duration-300`}
+              >
+                <span
+                  class={`font-mono text-[10px] tracking-widest ${t.textSubMuted} mb-3 block uppercase`}
+                >
+                  Módulo 0{i + 1}
+                </span>
+                <p class={`font-mono text-lg font-bold ${t.textMain}`}>{inc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      class={`py-32 md:py-40 px-6 md:px-16 ${t.bgSecondary} relative z-10`}
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-24">
+          <h2
+            data-gsap="fade-up"
+            class={`font-display text-5xl md:text-7xl lg:text-8xl leading-none ${t.textMain} mb-6 section-title opacity-0 uppercase`}
+          >
+            INGENIERÍA APLICADA
+          </h2>
+          <p class={`font-mono text-lg ${t.textMuted} max-w-2xl mx-auto`}>
+            Beneficios técnicos que separan a tu marca del resto.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-x-12 gap-y-20">
+          {
+            nicho.beneficios.map((ben: any, i: number) => (
+              <div
+                class={`feat-card opacity-0 transform-gpu border-t-2 ${t.borderSoft} ${t.glassBg} backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 rounded-2xl hover:rounded-none ${a.hoverBorder} group ${t.hoverGlass} px-4 -mx-4 pb-4`}
+              >
+                <div
+                  class={`text-3xl text-negro/20 group-hover:${a.text} group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
+                >
+                  <span class={`font-mono text-sm font-bold ${a.text}`}>
+                    0{i + 1}
+                  </span>
+                </div>
+                <h4
+                  class={`font-display text-3xl ${t.textMain} mb-4 group-hover:translate-x-1 transition-transform duration-300`}
+                >
+                  {ben.t}
+                </h4>
+                <p class={`font-mono text-xs ${t.textMuted} leading-relaxed`}>
+                  {ben.d}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      class={`py-32 md:py-40 px-6 md:px-16 ${t.bgPrimary} border-y ${t.borderSoft} relative z-10`}
+    >
+      <div class="max-w-4xl mx-auto">
+        <h2
+          data-gsap="fade-up"
+          class={`font-display text-5xl md:text-7xl lg:text-8xl leading-none ${t.textMain} mb-20 text-center section-title opacity-0 uppercase`}
+        >
+          PREGUNTAS<br class="hidden md:block" /><span class={t.textSubMuted}
+            >FRECUENTES</span
+          >
+        </h2>
+
+        <div class="space-y-4">
+          {
+            nicho.faqs.map((faq: any, i: number) => (
+              <div
+                class={`faq-item group opacity-0 transform-gpu border ${t.borderSoft} ${t.glassBg} backdrop-blur-xl rounded-2xl overflow-hidden transition-shadow hover:border-transparent hover:shadow-[0_0_20px_rgba(0,0,0,0.05)]`} > <button class={`faq-btn w-full flex items-center justify-between gap-6 p-6 md:p-8 cursor-pointer list-none ${t.textMain} font-display text-2xl md:text-3xl transition-colors duration-300`}
+                >
+                  <span class="text-left">{faq.q}</span>
+                  <span
+                    class={`faq-icon flex-shrink-0 w-8 h-8 rounded-full border ${t.borderMedium} flex items-center justify-center transition-transform duration-500 group-hover:${a.bg} group-hover:border-transparent group-hover:text-blanco`}
+                  >
+                    <i class="fa-solid fa-chevron-down text-sm" />
+                  </span>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                  <div class="overflow-hidden">
+                    <div
+                      class={`p-6 md:p-8 pt-0 font-mono text-sm md:text-base ${t.textMuted} leading-relaxed`}
+                    >
+                      <p>{faq.a}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="cta"
+      class={`py-32 md:py-40 ${a.bg} ${a.ctaText} text-center relative overflow-hidden z-20`}
+    >
+      <div class="absolute inset-0 z-0">
+        <div
+          class={`absolute inset-0 bg-gradient-to-t ${isDark ? "from-[#050505]" : "from-[#fafafa]"} to-transparent opacity-90`}
+        >
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-6">
+        <h2
+          data-gsap="fade-up"
+          class="font-display text-5xl md:text-7xl lg:text-9xl leading-[0.9] mb-8 cta-title uppercase"
+        >
+          ESCALÁ TU <span class="opacity-70">{nicho.tipoNegocio}</span> AHORA MISMO.
+        </h2>
+      </div>
+      <p
+        class="font-mono text-lg md:text-xl opacity-80 mb-16 max-w-3xl mx-auto leading-relaxed cta-desc"
+      >
+        Da el paso definitivo. Hablemos sobre tu proyecto y construyamos el
+        ecosistema digital más potente de {nicho.nombreRubro}.
+      </p>
+
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-6 cta-btns"
+      >
+        <a
+          href={`/servicios/${nicho.servicioId}#contacto-servicio`}
+          class={`group relative inline-flex items-center justify-center gap-3 ${a.ctaBtn} px-10 py-5 font-mono text-xs tracking-widest uppercase overflow-hidden rounded-2xl hover:rounded-none transition-all duration-300 w-full sm:w-auto font-bold hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]`}
+        >
+          Iniciar Proyecto Ahora
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<Footer />
+
+<style is:global>
+  @keyframes scrollX {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .animate-ticker {
+    animation: scrollX 15s linear infinite;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("astro:page-load", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline();
+    tl.to(".hero-reveal", {
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+    });
+    tl.to(
+      ".title-line",
+      { y: "0%", duration: 1.2, ease: "power4.out" },
+      "-=0.6",
+    );
+    tl.to(
+      ".hero-desc",
+      { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" },
+      "-=0.8",
+    );
+    tl.to(
+      ".hero-stats",
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+      "-=0.6",
+    );
+
+    gsap.utils.toArray(".section-title").forEach((title: any) => {
+      gsap.to(title, {
+        scrollTrigger: {
+          trigger: title,
+          start: "top 85%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+    });
+
+    gsap.utils.toArray(".vs-card").forEach((card: any, i) => {
+      gsap.to(card, {
+        scrollTrigger: { trigger: card, start: "top 85%" },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power3.out",
+      });
+    });
+
+    gsap.utils.toArray(".faq-item").forEach((card: any, i) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: { trigger: card, start: "top 95%" },
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: i * 0.08,
+          ease: "power2.out",
+        },
+      );
+    });
+
+    gsap.utils.toArray(".inc-card").forEach((card: any, i) => {
+      gsap.to(card, {
+        scrollTrigger: { trigger: card, start: "top 90%" },
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: (i % 3) * 0.1,
+        ease: "power3.out",
+      });
+    });
+
+    gsap.utils.toArray(".feat-card").forEach((card: any, i) => {
+      gsap.to(card, {
+        scrollTrigger: { trigger: card, start: "top 90%" },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: (i % 3) * 0.1,
+        ease: "power3.out",
+      });
+    });
+
+    gsap.to(".cta-title", {
+      scrollTrigger: { trigger: "#cta", start: "top 80%" },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+    gsap.to(".cta-desc", {
+      scrollTrigger: { trigger: "#cta", start: "top 80%" },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: 0.2,
+      ease: "power3.out",
+    });
+    gsap.to(".cta-btns", {
+      scrollTrigger: { trigger: "#cta", start: "top 80%" },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: 0.4,
+      ease: "power3.out",
+    });
+
+    document.querySelectorAll(".faq-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item") as HTMLElement;
+        const content = item.querySelector(".faq-content") as HTMLElement;
+        const icon = item.querySelector(".faq-icon") as HTMLElement;
+
+        const isExpanded = content.style.gridTemplateRows === "1fr";
+
+        document
+          .querySelectorAll(".faq-content")
+          .forEach((c) => ((c as HTMLElement).style.gridTemplateRows = "0fr"));
+        document
+          .querySelectorAll(".faq-icon")
+          .forEach(
+            (i) => ((i as HTMLElement).style.transform = "rotate(0deg)"),
+          );
+
+        if (!isExpanded) {
+          content.style.gridTemplateRows = "1fr";
+          icon.style.transform = "rotate(180deg)";
+        }
+      });
+    });
+  });
+</script>

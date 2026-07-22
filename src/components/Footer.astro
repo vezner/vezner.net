@@ -1,11 +1,7 @@
 ---
 import Logo from "./Logo.astro";
-import { getCollection } from "astro:content";
 
 const añoActual = new Date().getFullYear();
-const posts = (await getCollection("blog"))
-  .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 6);
 
 const redes = [
   {
@@ -90,31 +86,8 @@ const redes = [
             </a>
           </div>
 
-          <div class="mt-4 border-l-2 border-blanco/10 pl-5 text-left">
-            <p
-              class="font-mono text-xs lg:text-[13px] text-blanco/50 uppercase tracking-widest mb-3"
-            >
-              Horarios de Atención (ART)
-            </p>
-            <ul
-              class="font-mono text-xs lg:text-sm text-blanco/40 space-y-2 leading-relaxed"
-            >
-              <li>
-                <span class="text-blanco/60">Lun:</span> 14:30-17:30, 19:30-20:30
-              </li>
-              <li>
-                <span class="text-blanco/60">Mar:</span> 14:30-18:30, 20:30-21:30
-              </li>
-              <li>
-                <span class="text-blanco/60">Mié - Vie:</span> 14:30-19:30
-              </li>
-              <li><span class="text-blanco/60">Sáb:</span> 14:30-00:00</li>
-              <li><span class="text-blanco/60">Dom:</span> 12:30-22:00</li>
-            </ul>
-          </div>
-
           <div
-            class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4"
+            class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2"
           >
             {
               redes.map((r) => (
@@ -145,13 +118,86 @@ const redes = [
               ))
             }
           </div>
+
+          <div
+            class="flex flex-row justify-center lg:justify-start gap-8 lg:gap-12 w-full text-left mt-8 border-t border-blanco/10 pt-8"
+          >
+            <div class="flex-1 max-w-[180px]">
+              <p
+                class="font-mono text-[11px] lg:text-xs text-blanco/50 uppercase tracking-widest mb-4"
+              >
+                Horarios (ART)
+              </p>
+              <ul
+                class="font-mono text-[10px] lg:text-[11px] text-blanco/40 space-y-2 leading-relaxed"
+              >
+                <li>
+                  <span class="text-blanco/60">Lun:</span> 14:30-17:30, 19:30-20:30
+                </li>
+                <li>
+                  <span class="text-blanco/60">Mar:</span> 14:30-18:30, 20:30-21:30
+                </li>
+                <li>
+                  <span class="text-blanco/60">Mié - Vie:</span> 14:30-19:30
+                </li>
+                <li><span class="text-blanco/60">Sáb:</span> 14:30-00:00</li>
+                <li><span class="text-blanco/60">Dom:</span> 12:30-22:00</li>
+              </ul>
+            </div>
+
+            <div class="flex-1 max-w-[180px]">
+              <p
+                class="font-mono text-[11px] lg:text-xs text-blanco/50 uppercase tracking-widest mb-4"
+              >
+                Legal
+              </p>
+              <div class="flex flex-col gap-3 items-start text-left">
+                <a
+                  href="/legal/politica-de-privacidad"
+                  class="group font-mono text-[10px] lg:text-[11px] text-blanco/40 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 overflow-hidden inline-block text-[10px] whitespace-nowrap"
+                    >→</span
+                  >
+                  <span
+                    class="group-hover:translate-x-1 transition-transform duration-300"
+                    >Privacidad</span
+                  >
+                </a>
+                <a
+                  href="/legal/terminos-y-condiciones"
+                  class="group font-mono text-[10px] lg:text-[11px] text-blanco/40 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 overflow-hidden inline-block text-[10px] whitespace-nowrap"
+                    >→</span
+                  >
+                  <span
+                    class="group-hover:translate-x-1 transition-transform duration-300"
+                    >Términos y Condiciones</span
+                  >
+                </a>
+                <a
+                  href="/legal/politica-de-cookies"
+                  class="group font-mono text-[10px] lg:text-[11px] text-blanco/40 hover:text-blanco transition-colors flex items-center"
+                >
+                  <span
+                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 overflow-hidden inline-block text-[10px] whitespace-nowrap"
+                    >→</span
+                  >
+                  <span
+                    class="group-hover:translate-x-1 transition-transform duration-300"
+                    >Políticas de Cookies</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        
         <div class="lg:w-[68%] flex flex-col gap-16">
-          
           <div class="grid grid-cols-2 lg:grid-cols-6 gap-8">
-            
             <div class="flex flex-col footer-col">
               <a
                 href="/"
@@ -210,7 +256,6 @@ const redes = [
               </div>
             </div>
 
-            
             <div class="flex flex-col footer-col">
               <a
                 href="/servicios/software-python"
@@ -269,7 +314,6 @@ const redes = [
               </div>
             </div>
 
-            
             <div class="flex flex-col footer-col">
               <a
                 href="/servicios/diseno-web"
@@ -328,7 +372,6 @@ const redes = [
               </div>
             </div>
 
-            
             <div class="flex flex-col footer-col">
               <a
                 href="/servicios/diseno-identidad"
@@ -387,7 +430,6 @@ const redes = [
               </div>
             </div>
 
-            
             <div class="flex flex-col footer-col">
               <a
                 href="/nosotros"
@@ -434,7 +476,6 @@ const redes = [
               </div>
             </div>
 
-            
             <div class="flex flex-col footer-col">
               <a
                 href="/contacto"
@@ -484,126 +525,46 @@ const redes = [
             </div>
           </div>
 
-          <div class="w-full h-px bg-blanco/5 hidden md:block my-2"></div>
-
-          
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
-            
-            <div
-              class="md:col-span-2 flex flex-col text-center lg:text-left footer-col"
+          <div
+            class="hidden md:flex w-full pt-16 justify-end items-end select-none pointer-events-none mt-auto overflow-hidden [mask-image:linear-gradient(to_right,black_70%,transparent_100%)]"
+          >
+            <h2
+              id="footer-lets-build"
+              class="font-display text-[22vw] md:text-[20vw] lg:text-[15vw] xl:text-[17vw] leading-[0.75] tracking-[-0.04em] text-blanco whitespace-nowrap opacity-90 mix-blend-difference"
             >
-              <p
-                class="font-mono text-xs text-blanco/50 uppercase tracking-widest mb-6"
-              >
-                Blog
-              </p>
-              <div
-                class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-8 text-left"
-              >
-                {
-                  posts.map((post: any) => (
-                    <a
-                      href={`/blog/${post.id}`}
-                      class="group flex flex-col gap-1.5 w-full"
-                    >
-                      <span class="font-mono text-xs text-blanco/60 group-hover:text-blanco transition-colors line-clamp-2 leading-relaxed">
-                        {post.data.title}
-                      </span>
-                      <span class="font-mono text-[9px] text-blanco/30 uppercase tracking-widest group-hover:text-blanco/50 transition-colors">
-                        {post.data.pubDate.toLocaleDateString("es-AR", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })}
-                      </span>
-                    </a>
-                  ))
-                }
-                {
-                  posts.length === 0 && (
-                    <span class="font-mono text-xs text-blanco/40 col-span-2">
-                      Próximamente...
-                    </span>
-                  )
-                }
-              </div>
-              <div class="flex justify-center lg:justify-start">
-                <a
-                  href="/blog"
-                  class="group font-mono text-[10px] text-blanco uppercase tracking-widest border border-blanco/20 px-5 py-2.5 rounded-2xl hover:rounded-none hover:bg-blanco hover:text-negro transition-all duration-300 flex items-center gap-2"
-                >
-                  Ver Todos Los Artículos
-                  <span
-                    class="group-hover:translate-x-1 transition-transform duration-300"
-                    >→</span
-                  >
-                </a>
-              </div>
-            </div>
-
-            
-            <div class="flex flex-col text-center lg:text-left footer-col">
-              <p
-                class="font-mono text-xs text-blanco/50 uppercase tracking-widest mb-6"
-              >
-                Legal
-              </p>
-              <div class="flex flex-col gap-4 items-center lg:items-start">
-                <a
-                  href="/legal/politica-de-privacidad"
-                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-                >
-                  <span
-                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
-                    >→</span
-                  ><span
-                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-                    >Políticas de Privacidad</span
-                  >
-                </a>
-                <a
-                  href="/legal/terminos-y-condiciones"
-                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-                >
-                  <span
-                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
-                    >→</span
-                  ><span
-                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-                    >Términos y Condiciones</span
-                  >
-                </a>
-                <a
-                  href="/legal/politica-de-cookies"
-                  class="group font-mono text-xs text-blanco/60 hover:text-blanco transition-colors flex items-center"
-                >
-                  <span
-                    class="text-blanco opacity-0 w-0 -translate-x-3 group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden inline-block text-[12px] whitespace-nowrap"
-                    >→</span
-                  ><span
-                    class="group-hover:translate-x-1 transition-transform duration-500 ease-out"
-                    >Políticas de Cookies</span
-                  >
-                </a>
-              </div>
-            </div>
+              LET'S BUILD
+            </h2>
           </div>
         </div>
       </div>
 
       <div
-        class="pt-8 flex flex-col md:flex-row items-center justify-between gap-3 footer-col px-8 md:px-16 pb-10"
+        class="pt-8 flex flex-col md:flex-row items-center justify-between gap-3 px-8 md:px-16 pb-10"
       >
         <p
           class="font-mono text-[10px] text-blanco/40 uppercase tracking-widest text-center md:text-left"
         >
           © {new Date().getFullYear()} VEZNER. Todos los derechos reservados.
         </p>
-        <p
-          class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest text-center md:text-right"
-        >
-          vezner.net
-        </p>
+        <div class="flex items-center gap-4">
+          <a
+            href="/blog"
+            class="font-mono text-[10px] text-blanco/30 hover:text-blanco transition-colors uppercase tracking-widest text-center md:text-right"
+          >
+            Blog
+          </a>
+          <a
+            href="/mapa-del-sitio"
+            class="font-mono text-[10px] text-blanco/30 hover:text-blanco transition-colors uppercase tracking-widest text-center md:text-right"
+          >
+            Mapa del Sitio
+          </a>
+          <p
+            class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest text-center md:text-right hidden sm:block"
+          >
+            vezner.net
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -676,40 +637,38 @@ const redes = [
     const footer = document.getElementById("site-footer");
     const footerContent = document.getElementById("site-footer-content");
     const header = document.getElementById("header");
+    const letsBuild = document.getElementById("footer-lets-build");
 
-    if (footer && footerContent) {
-      let mm = gsap.matchMedia();
-
-      mm.add("(min-width: 1024px)", () => {
-        
-        gsap.fromTo(
-          footerContent,
-          { yPercent: -40 },
-          {
-            yPercent: 0,
-            ease: "none",
-            scrollTrigger: {
-              trigger: footer,
-              start: "top bottom",
-              end: "bottom bottom",
-              scrub: true,
-            },
+    if (footer && letsBuild) {
+      gsap.fromTo(
+        letsBuild,
+        { x: "50%", opacity: 0, filter: "blur(16px)" },
+        {
+          x: "-5%",
+          opacity: 0.9,
+          filter: "blur(0px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: footer,
+            start: "top 90%",
+            end: "bottom bottom",
+            scrub: 1.5,
           },
-        );
-      });
+        }
+      );
     }
 
     if (header) {
       ScrollTrigger.create({
         trigger: footer,
-        start: "bottom bottom+=5px",
+        start: "bottom bottom+=15px",
         refreshPriority: -1,
         onEnter: () => {
           gsap.to(header, {
             yPercent: -100,
             duration: 0.4,
             ease: "power2.out",
-            overwrite: true, 
+            overwrite: true,
           });
         },
         onLeaveBack: () => {

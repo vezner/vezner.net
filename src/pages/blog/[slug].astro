@@ -72,8 +72,7 @@ const relatedPosts = allPosts
           {
             post.data.heroImage && (
               <div class="w-full aspect-[16/9] md:aspect-[21/9] mb-16 overflow-hidden bg-negro/5 border border-negro/10 rounded-2xl">
-                <img
-                  src={post.data.heroImage}
+                <img loading="lazy" decoding="async" src={post.data.heroImage}
                   alt={post.data.title}
                   class="w-full h-full object-cover"
                 />
@@ -81,7 +80,6 @@ const relatedPosts = allPosts
             )
           }
 
-          
           <div class="blog-content w-full">
             <Content />
           </div>
@@ -102,7 +100,6 @@ const relatedPosts = allPosts
           }
         </div>
 
-        
         <aside class="lg:col-span-4">
           <div class="sticky top-32 flex flex-col gap-12">
             {

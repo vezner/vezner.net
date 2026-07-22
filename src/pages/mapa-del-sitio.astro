@@ -1,0 +1,152 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { seoRubros } from "../data/seoRubros.js";
+import { seoProvincias } from "../data/seoProvincia.js";
+import { getCollection } from "astro:content";
+
+const serviciosUnicos = [...new Set(seoRubros.map((r) => r.servicioId))];
+
+const rubrosPorServicio = serviciosUnicos.map((servicioId) => {
+  return {
+    servicioId,
+    rubros: seoRubros.filter((r) => r.servicioId === servicioId),
+  };
+});
+
+const blogPosts = await getCollection("blog");
+const latestPosts = blogPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 24);
+---
+
+<Layout
+  title="Mapa del Sitio — VEZNER"
+  description="Directorio completo de todas las páginas de VEZNER."
+  pageType="website"
+>
+  <Header />
+
+  <main class="bg-blanco min-h-screen pt-32 pb-32">
+    <section class="px-6 md:px-16 pt-20 pb-12 border-b border-negro/10">
+      <div class="container mx-auto max-w-6xl">
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-negro leading-[0.9] uppercase mb-6">
+          Mapa del<br />Sitio
+        </h1>
+        <p class="font-mono text-sm uppercase tracking-widest text-negro/40">
+          Directorio completo de URLs
+        </p>
+      </div>
+    </section>
+
+    <section class="px-6 md:px-16 py-20">
+      <div class="container mx-auto max-w-6xl">
+
+        <div class="mb-24">
+          <div class="flex items-center gap-4 mb-10">
+            <span class="font-mono text-xs tracking-[0.4em] uppercase text-negro/30">§ 01 — Institucional</span>
+            <div class="w-12 h-px bg-negro/15"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <a href="/" class="font-display text-2xl text-negro hover:text-negro/50 transition-colors">Inicio</a>
+            <a href="/nosotros" class="font-display text-2xl text-negro hover:text-negro/50 transition-colors">Nosotros</a>
+            <a href="/contacto" class="font-display text-2xl text-negro hover:text-negro/50 transition-colors">Contacto</a>
+            <a href="/#servicios" class="font-display text-2xl text-negro hover:text-negro/50 transition-colors">Servicios (General)</a>
+          </div>
+        </div>
+
+        <div class="mb-24">
+          <div class="flex items-center gap-4 mb-10">
+            <span class="font-mono text-xs tracking-[0.4em] uppercase text-negro/30">§ 02 — Servicios Top Level</span>
+            <div class="w-12 h-px bg-negro/15"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {serviciosUnicos.map((srv) => (
+              <a href={`/servicios/${srv}`} class="font-display text-2xl text-negro hover:text-negro/50 transition-colors capitalize">
+                {srv.replace(/-/g, ' ')}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="mb-24">
+          <div class="flex items-center gap-4 mb-10">
+            <span class="font-mono text-xs tracking-[0.4em] uppercase text-negro/30">§ 03 — Landings por Industria</span>
+            <div class="w-12 h-px bg-negro/15"></div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            {rubrosPorServicio.map((grupo) => (
+              <div>
+                <h3 class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-negro/30 mb-6 pb-3 border-b border-negro/10">
+                  {grupo.servicioId.replace(/-/g, ' ')}
+                </h3>
+                <ul class="space-y-4">
+                  {grupo.rubros.map((rubro) => (
+                    <li>
+                      <a href={`/servicios/${rubro.servicioId}/para-${rubro.rubroId}`} class="font-display text-lg md:text-xl text-negro/80 hover:text-negro transition-colors">
+                        {rubro.nombreRubro}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mb-24">
+          <div class="flex items-center gap-4 mb-10">
+            <span class="font-mono text-xs tracking-[0.4em] uppercase text-negro/30">§ 04 — Landings por Región</span>
+            <div class="w-12 h-px bg-negro/15"></div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            {serviciosUnicos.map((servicioId) => (
+              <div>
+                <h3 class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-negro/30 mb-6 pb-3 border-b border-negro/10">
+                  {servicioId.replace(/-/g, ' ')}
+                </h3>
+                <ul class="space-y-4">
+                  {seoProvincias.map((prov) => (
+                    <li>
+                      <a href={`/servicios/${servicioId}/${prov.id}`} class="font-display text-lg md:text-xl text-negro/80 hover:text-negro transition-colors">
+                        en {prov.nombre}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mb-24">
+          <div class="flex items-center gap-4 mb-10">
+            <span class="font-mono text-xs tracking-[0.4em] uppercase text-negro/30">§ 05 — Blog</span>
+            <div class="w-12 h-px bg-negro/15"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {latestPosts.map((post) => (
+              <a href={`/blog/${post.id}`} class="block group">
+                <h3 class="font-display text-xl md:text-2xl text-negro group-hover:text-negro/50 transition-colors mb-2 leading-tight">
+                  {post.data.title}
+                </h3>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-negro/40">
+                  {post.data.pubDate.toLocaleDateString("es-AR", { year: "numeric", month: "long", day: "numeric" })}
+                </p>
+              </a>
+            ))}
+          </div>
+          <div class="flex">
+            <a href="/blog" class="font-mono text-xs uppercase tracking-widest text-negro border border-negro/10 px-8 py-4 rounded-full hover:bg-negro hover:text-blanco transition-all duration-300 inline-block">
+              Ver todos los artículos &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

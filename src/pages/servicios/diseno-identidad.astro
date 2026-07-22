@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import InteractiveMap from "../../components/InteractiveMap.astro";
 ---
 
 <Layout
@@ -63,19 +64,21 @@ import Footer from "../../components/Footer.astro";
           >
         </div>
 
-        <h1
-          class="font-display text-[clamp(60px,12vw,180px)] leading-none text-blanco uppercase mb-12"
-        >
-          <span class="block overflow-hidden pt-12 -mt-12"
-            ><span class="title-line block translate-y-[120%]">Diseño &</span
-            ></span
+        <div class="relative">
+          <h1
+            class="font-display text-[clamp(60px,12vw,180px)] leading-none text-blanco uppercase mb-12"
           >
-          <span class="block overflow-hidden pt-12 -mt-12"
-            ><span class="title-line block translate-y-[120%] text-yellow-400"
-              >Identidad</span
-            ></span
-          >
-        </h1>
+            <span class="block overflow-hidden pt-12 -mt-12"
+              ><span class="title-line block translate-y-[120%]">Diseño &</span
+              ></span
+            >
+            <span class="block overflow-hidden pt-12 -mt-12"
+              ><span class="title-line block translate-y-[120%] text-yellow-400"
+                >Identidad</span
+              ></span
+            >
+          </h1>
+        </div>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
           <div class="max-w-lg">
@@ -125,9 +128,13 @@ import Footer from "../../components/Footer.astro";
             </div>
           </div>
 
-          <div
-            class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
-          >
+          <div class="relative w-full">
+            <div class="absolute bottom-full right-[20%] lg:right-[30%] pb-4 hidden md:block z-10 pointer-events-auto">
+              <InteractiveMap servicioId="diseno-identidad" fillColor="rgba(255,255,255,0.03)" strokeColor="rgba(255,255,255,0.15)" hoverColor="#ffd700" />
+            </div>
+            <div
+              class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
+            >
             <div class="border-l border-yellow-400/30 pl-4">
               <p class="font-display text-4xl text-blanco">Confianza</p>
               <p
@@ -154,6 +161,7 @@ import Footer from "../../components/Footer.astro";
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <div
@@ -194,7 +202,7 @@ import Footer from "../../components/Footer.astro";
 
         <div
           data-gsap="fade-up"
-          class="term-mockup opacity-0 translate-y-20 bg-[#111] rounded-2xl hover:rounded-none transition-safe duration-300 shadow-2xl overflow-hidden border border-blanco/10 max-w-5xl mx-auto p-2 transition-colors duration-300"
+          class="term-mockup opacity-0 translate-y-20 bg-[#111] rounded-2xl hover:rounded-none transition-safe shadow-2xl overflow-hidden border border-blanco/10 max-w-5xl mx-auto p-2 transition-colors"
         >
           <div class="border border-blanco/5 h-[500px] flex">
             <div
@@ -361,7 +369,7 @@ import Footer from "../../components/Footer.astro";
                 d: "Entrega del manual de marca definitivo y todos los archivos vectoriales necesarios para escalar tu negocio.",
               },
             ].map((item, i) => (
-              <div class="id-step opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-12 last:pb-0 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 group">
+              <div class="id-step opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-12 last:pb-0 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] group">
                 <div class="absolute -left-[30px] md:-left-[40px] top-4 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-yellow-400 group-hover:shadow-[0_0_15px_rgba(253,224,71,1)] transform -translate-x-1/2 transition-all duration-300" />
                 <div class="font-display text-6xl text-yellow-400/20 group-hover:text-yellow-400/50 transition-colors duration-300 mb-4">
                   {item.n}
@@ -417,7 +425,7 @@ import Footer from "../../components/Footer.astro";
             ].map((item, i) => (
               <div
                 data-gsap="fade-up"
-                class="plan-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 p-8 bg-blanco/[0.03] backdrop-blur-2xl hover:bg-yellow-400/5 hover:border-yellow-400/30 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] duration-300 group"
+                class="plan-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 p-8 bg-blanco/[0.03] backdrop-blur-2xl hover:bg-yellow-400/5 hover:border-yellow-400/30 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] group"
               >
                 <i
                   class={`${item.i} text-3xl text-yellow-400/50 group-hover:text-yellow-400 group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
@@ -669,11 +677,11 @@ import Footer from "../../components/Footer.astro";
                   class="w-5 h-5 rounded border border-blanco/30 bg-transparent flex items-center justify-center transition-colors peer-checked:border-yellow-400 group-hover:border-yellow-400 shrink-0 relative overflow-hidden peer-checked:[&>div]:scale-100 peer-checked:[&>div]:opacity-100 peer-checked:[&>svg]:scale-100 peer-checked:[&>svg]:opacity-100"
                 >
                   <div
-                    class="absolute inset-0 bg-yellow-400 scale-0 opacity-0 transition-transform duration-300 ease-out rounded-sm"
+                    class="absolute inset-0 bg-yellow-400 scale-0 opacity-0 transition-transform ease-out rounded-sm"
                   >
                   </div>
                   <svg
-                    class="relative z-10 w-3 h-3 text-negro opacity-0 scale-50 transition-all duration-300 delay-75"
+                    class="relative z-10 w-3 h-3 text-negro opacity-0 scale-50 delay-75"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

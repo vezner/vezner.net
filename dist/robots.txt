@@ -4,6 +4,7 @@ Allow: /
 # Bloquear páginas internas sin valor SEO
 Disallow: /api/
 Disallow: /_astro/
+Disallow: /legal/
 
 # Sitemap
 Sitemap: https://vezner.net/sitemap.xml

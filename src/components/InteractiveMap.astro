@@ -366,53 +366,59 @@ const { servicioId = "", fillColor, strokeColor, hoverColor, disableRedirect = f
 </style>
 
 <script define:vars={{ servicioId, disableRedirect }}>
+  const instanceId = Math.random().toString(36).slice(2, 9);
+
+  const currentScript = document.currentScript;
+
   const initMap = () => {
-    const mapContainer = document.querySelector(".map-container");
-    if (!mapContainer || mapContainer.hasAttribute("data-map-initialized")) return;
-    mapContainer.setAttribute("data-map-initialized", "true");
+    const allContainers = document.querySelectorAll(".map-container:not([data-map-initialized])");
+    
+    allContainers.forEach((mapContainer) => {
+      mapContainer.setAttribute("data-map-initialized", "true");
 
-    const tooltip = document.getElementById("map-tooltip");
-    const provinces = document.querySelectorAll(".province, .malvinas");
+      const tooltip = mapContainer.querySelector("#map-tooltip");
+      const provinces = mapContainer.querySelectorAll(".province, .malvinas");
 
-    if (!tooltip) return;
+      if (!tooltip || provinces.length === 0) return;
 
-    provinces.forEach((prov) => {
-      const name = prov.getAttribute("data-name");
-
-      prov.addEventListener("mouseenter", () => {
-        tooltip.textContent = name;
-        tooltip.style.opacity = "1";
-      });
-
-      prov.addEventListener("mousemove", (e) => {
-        const rect = mapContainer.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        tooltip.style.left = x + "px";
-        tooltip.style.top = y + "px";
-      });
-
-      prov.addEventListener("mouseleave", () => {
-        tooltip.style.opacity = "0";
-      });
-
-      prov.addEventListener("click", (e) => {
-        if (prov.classList.contains("malvinas")) return;
-        
-        const slug = prov.getAttribute("data-slug");
+      provinces.forEach((prov) => {
         const name = prov.getAttribute("data-name");
 
-        const event = new CustomEvent("map-province-clicked", { 
-          detail: { slug, name, element: prov } 
+        prov.addEventListener("mouseenter", () => {
+          tooltip.textContent = name;
+          tooltip.style.opacity = "1";
         });
-        document.dispatchEvent(event);
 
-        if (slug && !disableRedirect && servicioId !== "") {
-          window.location.href = `/servicios/${servicioId}/${slug}`;
-        }
+        prov.addEventListener("mousemove", (e) => {
+          const rect = mapContainer.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          tooltip.style.left = x + "px";
+          tooltip.style.top = y + "px";
+        });
+
+        prov.addEventListener("mouseleave", () => {
+          tooltip.style.opacity = "0";
+        });
+
+        prov.addEventListener("click", () => {
+          if (prov.classList.contains("malvinas")) return;
+
+          const slug = prov.getAttribute("data-slug");
+          const clickedName = prov.getAttribute("data-name");
+
+          document.dispatchEvent(new CustomEvent("map-province-clicked", {
+            detail: { slug, name: clickedName, element: prov }
+          }));
+
+          if (slug && !disableRedirect && servicioId !== "") {
+            window.location.href = `/servicios/${servicioId}/${slug}`;
+          }
+        });
       });
     });
   };
 
+  initMap();
   document.addEventListener("astro:page-load", initMap);
 </script>

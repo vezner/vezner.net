@@ -22,16 +22,6 @@ const rubrosUnicos = Array.from(
   <Header />
 
   <main id="main-content">
-    <div id="vezner-preloader" class="hidden md:block fixed inset-0 z-[9999] bg-blanco overflow-hidden pointer-events-none">
-      <canvas id="preloader-lights-canvas" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
-      <div class="absolute inset-0 pointer-events-none z-0 opacity-[0.025]" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size: 256px 256px;"></div>
-
-      <div id="preloader-lottie-container" class="absolute w-[250px] h-[250px] opacity-0">
-        <canvas id="preloader-lottie-canvas" class="w-full h-full block"></canvas>
-      </div>
-      <h2 id="preloader-somos" class="absolute font-display text-[25vw] md:text-[15vw] text-negro opacity-0 whitespace-nowrap">SOMOS</h2>
-      <img id="preloader-vezner-text" src="/assets/vezner-text.webp" alt="VEZNER" class="absolute h-[80px] md:h-[130px] w-auto opacity-0" />
-    </div>
 
     <section
       id="hero"
@@ -1963,112 +1953,8 @@ const rubrosUnicos = Array.from(
         setTimeout(startThree, 100);
       }
 
-      const tl = gsap.timeline({ paused: true, delay: 0.2 });
-      
-      const preloader = document.getElementById("vezner-preloader");
-      if (preloader && isDesktop && !sessionStorage.getItem("vezner_preloader_done")) {
-        sessionStorage.setItem("vezner_preloader_done", "true");
-        document.body.style.overflow = "hidden";
-        
-        const preloaderCanvas = document.getElementById("preloader-lights-canvas") as HTMLCanvasElement;
-        if (preloaderCanvas) initWebGLBackground(preloaderCanvas);
-        
-        gsap.set(preloader, { filter: "blur(50px)" });
-        gsap.to(preloader, { filter: "blur(0px)", duration: 1.2, ease: "power3.out" });
-
-        gsap.set("header", { opacity: 0 });
-
-        gsap.set(["#preloader-lottie-container", "#preloader-somos", "#preloader-vezner-text"], {
-          top: "50%",
-          left: "50%",
-          xPercent: -50,
-          yPercent: -50
-        });
-        gsap.set("#preloader-somos", { x: window.innerWidth });
-        gsap.set("#preloader-vezner-text", { x: window.innerWidth });
-
-        import("@lottiefiles/dotlottie-web").then(({ DotLottie }) => {
-          const canvas = document.getElementById("preloader-lottie-canvas") as HTMLCanvasElement;
-          if (!canvas) return;
-          
-          const dotLottie = new DotLottie({
-            canvas: canvas,
-            src: "/assets/logo.lottie",
-            autoplay: true,
-            loop: false,
-            speed: 1.8,
-          });
-
-          gsap.to("#preloader-lottie-container", { opacity: 1, duration: 0.5 });
-
-          let preloaderFinished = false;
-          let sequenceStarted = false;
-
-          const finishPreloader = () => {
-             if (preloaderFinished) return;
-             preloaderFinished = true;
-             gsap.to("header", { opacity: 1, duration: 0.8, ease: "power2.out" });
-             gsap.to(preloader, { opacity: 0, duration: 0.8, ease: "power2.inOut", onComplete: () => {
-               preloader.style.display = "none";
-               document.body.style.overflow = "";
-               tl.play();
-             }});
-          };
-
-          const startSequence = () => {
-             if (sequenceStarted) return;
-             sequenceStarted = true;
-             
-             const pTl = gsap.timeline({ onComplete: finishPreloader });
-             
-             const lottieTarget = document.querySelector("header .logo-wrapper > div:first-child");
-             const lottieSource = document.getElementById("preloader-lottie-container");
-             if (lottieTarget && lottieSource) {
-                const tr = lottieTarget.getBoundingClientRect();
-                const sr = lottieSource.getBoundingClientRect();
-                pTl.to(lottieSource, {
-                  x: "+=" + (tr.left - sr.left),
-                  y: "+=" + (tr.top - sr.top),
-                  scaleX: tr.width / sr.width,
-                  scaleY: tr.height / sr.height,
-                  transformOrigin: "top left",
-                  duration: 0.8,
-                  ease: "power3.inOut"
-                }, "start");
-             }
-             
-             pTl.to("#preloader-somos", { x: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, "start+=0.3");
-             pTl.to("#preloader-somos", { x: -window.innerWidth, opacity: 0, duration: 0.5, ease: "power3.in" }, "+=0.2");
-             pTl.to("#preloader-vezner-text", { x: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, "<0.2");
-             
-             pTl.add(() => {
-                const textTarget = document.querySelector("header img[alt='VEZNER']");
-                const textSource = document.getElementById("preloader-vezner-text");
-                if (textTarget && textSource) {
-                   const tr = textTarget.getBoundingClientRect();
-                   const sr = textSource.getBoundingClientRect();
-                   gsap.to(textSource, {
-                     x: "+=" + (tr.left - sr.left),
-                     y: "+=" + (tr.top - sr.top),
-                     scaleX: tr.width / sr.width,
-                     scaleY: tr.height / sr.height,
-                     transformOrigin: "top left",
-                     duration: 0.7,
-                     ease: "power3.inOut"
-                   });
-                }
-             }, "+=0.2");
-             
-             pTl.to({}, { duration: 0.9 }); 
-          };
-
-          dotLottie.addEventListener("complete", startSequence);
-          setTimeout(startSequence, 2000);
-        });
-      } else {
-        if (preloader) preloader.style.display = "none";
-        tl.play();
-      }
+      const tl = gsap.timeline({ delay: 0.2 });
+      tl.play();
 
       tl.to(
         ".hero-line",

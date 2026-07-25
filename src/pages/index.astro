@@ -144,9 +144,97 @@ const rubrosUnicos = Array.from(
           </div>
         </div>
 
-        <div
-          class="flex items-center justify-end w-full h-full p-4 lg:p-12 pr-0 select-none overflow-hidden"
-        >
+        <div class="flex items-center justify-end w-full h-full p-4 lg:p-12 pr-0 select-none overflow-hidden relative z-20">
+          <div class="hero-ctas-anim bg-negro/5 backdrop-blur-3xl border border-negro/10 rounded-3xl p-6 md:p-8 w-full max-w-[420px] shadow-2xl shadow-negro/5" style="opacity: 0; transform: translateY(20px);">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-8 h-px bg-negro/30"></div>
+              <span class="font-mono text-[10px] tracking-widest uppercase text-negro/50">Tu próximo proyecto</span>
+            </div>
+            <h3 class="font-display text-3xl text-negro mb-3 leading-none">Empezá hoy.</h3>
+            <p class="font-mono text-xs text-negro/60 mb-6 leading-relaxed">
+              Verificá si tu dominio ideal está disponible.
+            </p>
+            
+            <div class="flex gap-2 mb-4">
+              <input
+                type="text"
+                id="hero-domain-input"
+                placeholder="minegocio"
+                class="flex-1 bg-blanco border border-negro/10 rounded-xl px-4 py-3 font-mono text-sm text-negro placeholder:text-negro/30 focus:outline-none focus:border-negro/30 transition-colors shadow-sm"
+              />
+              <div class="relative hero-dropdown-container z-50 flex-none w-[100px]">
+                <input type="hidden" id="hero-tld-select" value=".com" data-ar="false" />
+                <button
+                  type="button"
+                  class="hero-dropdown-btn w-full flex items-center justify-between bg-blanco border border-negro/10 rounded-xl px-3 py-3 font-mono text-sm text-negro focus:outline-none focus:border-negro/30 transition-colors appearance-none cursor-pointer h-full shadow-sm"
+                >
+                  <span class="hero-dropdown-text">.com</span>
+                  <span class="hero-dropdown-icon text-[10px] transition-transform duration-300">▼</span>
+                </button>
+                <div class="hero-dropdown-options absolute top-full right-0 w-40 bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300 rounded-xl overflow-hidden max-h-48 overflow-y-auto custom-scroll z-[60]" data-lenis-prevent>
+                  <div class="flex flex-col py-1 font-mono text-sm">
+                    {[".com", ".net", ".org", ".io", ".co", ".app", ".dev", ".shop"].map(tld => (
+                      <button type="button" class="hero-dropdown-option text-left px-4 py-2 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors" data-value={tld} data-ar="false">{tld}</button>
+                    ))}
+                    {[".com.ar", ".ar"].map(tld => (
+                      <button type="button" class="hero-dropdown-option text-left px-4 py-2 text-yellow-600/70 hover:bg-yellow-400/10 hover:text-yellow-600 transition-colors" data-value={tld} data-ar="true">{tld} ⚠</button>
+                    ))}
+                  </div>
+                  <div class="border-t border-negro/10 p-1">
+                    <a href="/servicios/diseno-web#dominios" class="block w-full text-center px-4 py-2 font-mono text-[10px] tracking-widest uppercase text-negro/40 hover:text-negro/70 hover:bg-negro/5 transition-colors rounded-lg">Ver todos</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <button
+              type="button"
+              id="hero-check-btn"
+              class="group w-full bg-negro text-blanco px-6 py-3 font-mono text-[10px] tracking-widest uppercase rounded-xl hover:rounded-none transition-all duration-300 flex items-center justify-center gap-2 mb-4"
+            >
+              <span id="hero-check-text">Verificar Disponibilidad</span>
+              <span id="hero-check-spinner" class="hidden animate-spin">⟳</span>
+            </button>
+
+            <div
+              id="hero-ar-warning-wrapper"
+              class="grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              style="grid-template-rows: 0fr;"
+            >
+              <div class="overflow-hidden">
+                <div class="mb-4 bg-yellow-400/10 border border-yellow-400/30 rounded-xl px-4 py-3">
+                  <p class="font-mono text-xs text-yellow-300 leading-relaxed">
+                    ⚠ Los dominios <strong>.ar</strong> deben ser tramitados directamente por el titular en <a href="https://nic.ar" target="_blank" rel="noopener noreferrer" class="underline hover:text-yellow-200 transition-colors">nic.ar</a>. Nosotros te asesoramos en el proceso sin costo adicional.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="hero-domain-result-wrapper"
+              class="grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              style="grid-template-rows: 0fr;"
+            >
+              <div class="overflow-hidden">
+                <div id="hero-domain-result" class="rounded-xl p-4 font-mono text-xs transition-all duration-300 mb-2"></div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-negro/10">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-negro/40 mb-4">Explorá nuestras soluciones</p>
+              <div class="flex flex-col gap-3">
+                <a href="/servicios/diseno-web" class="group flex items-center justify-between text-negro/70 hover:text-negro transition-colors font-mono text-xs">
+                  <span class="flex items-center gap-2"><i class="fa-solid fa-code text-negro/30 group-hover:text-negro/60 transition-colors"></i> Diseño Web</span> <span class="group-hover:translate-x-1 transition-transform opacity-50 group-hover:opacity-100">→</span>
+                </a>
+                <a href="/servicios/software-python" class="group flex items-center justify-between text-negro/70 hover:text-negro transition-colors font-mono text-xs">
+                  <span class="flex items-center gap-2"><i class="fa-brands fa-python text-negro/30 group-hover:text-negro/60 transition-colors"></i> Software Python</span> <span class="group-hover:translate-x-1 transition-transform opacity-50 group-hover:opacity-100">→</span>
+                </a>
+                <a href="/servicios/diseno-identidad" class="group flex items-center justify-between text-negro/70 hover:text-negro transition-colors font-mono text-xs">
+                  <span class="flex items-center gap-2"><i class="fa-solid fa-pen-nib text-negro/30 group-hover:text-negro/60 transition-colors"></i> Diseño de Identidad</span> <span class="group-hover:translate-x-1 transition-transform opacity-50 group-hover:opacity-100">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -186,6 +274,8 @@ const rubrosUnicos = Array.from(
             >
           </p>
         </div>
+
+
 
         <div
           class="hero-ctas-anim mt-10 flex flex-col items-center justify-center gap-4 w-full"
@@ -837,6 +927,8 @@ const rubrosUnicos = Array.from(
         </div>
       </div>
     </div>
+
+
 
     <section
       id="crafted-with-purpose"
@@ -1496,6 +1588,8 @@ const rubrosUnicos = Array.from(
         </div>
       </div>
     </div>
+
+
 
     <section
       id="cta-final"
@@ -2584,7 +2678,127 @@ const rubrosUnicos = Array.from(
   </script>
 
   <script>
+    document.addEventListener("astro:page-load", () => {
+      const hInput = document.getElementById("hero-domain-input") as HTMLInputElement;
+      const hHiddenInput = document.getElementById("hero-tld-select") as HTMLInputElement;
+      const hBtn = document.getElementById("hero-check-btn") as HTMLButtonElement;
+      const hBtnText = document.getElementById("hero-check-text") as HTMLSpanElement;
+      const hBtnSpinner = document.getElementById("hero-check-spinner") as HTMLSpanElement;
+      const hResult = document.getElementById("hero-domain-result") as HTMLDivElement;
+
+      if (!hInput || !hHiddenInput || !hBtn) return;
+
+      const container = document.querySelector(".hero-dropdown-container");
+      if (container) {
+        const btnDropdown = container.querySelector(".hero-dropdown-btn") as HTMLButtonElement;
+        const optionsDiv = container.querySelector(".hero-dropdown-options") as HTMLDivElement;
+        const textSpan = container.querySelector(".hero-dropdown-text") as HTMLSpanElement;
+        const iconSpan = container.querySelector(".hero-dropdown-icon") as HTMLSpanElement;
+        const optionBtns = container.querySelectorAll(".hero-dropdown-option");
+
+        const closeDropdown = () => {
+          optionsDiv.classList.add("invisible", "opacity-0", "translate-y-2");
+          optionsDiv.classList.remove("opacity-100", "translate-y-0");
+          btnDropdown.classList.remove("border-negro/30");
+          iconSpan.style.transform = "rotate(0deg)";
+        };
+
+        btnDropdown.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = !optionsDiv.classList.contains("invisible");
+          if (!isOpen) {
+            optionsDiv.classList.remove("invisible", "opacity-0", "translate-y-2");
+            optionsDiv.classList.add("opacity-100", "translate-y-0");
+            btnDropdown.classList.add("border-negro/30");
+            iconSpan.style.transform = "rotate(180deg)";
+          } else {
+            closeDropdown();
+          }
+        });
+
+        const wrapperWarning = document.getElementById("hero-ar-warning-wrapper");
+        const wrapperResult = document.getElementById("hero-domain-result-wrapper");
+
+        optionBtns.forEach((opt) => {
+          opt.addEventListener("click", () => {
+            const val = opt.getAttribute("data-value") || ".com";
+            const isAr = opt.getAttribute("data-ar") === "true";
+            hHiddenInput.value = val;
+            hHiddenInput.setAttribute("data-ar", isAr ? "true" : "false");
+            textSpan.textContent = val;
+            closeDropdown();
+            
+            if (isAr) {
+              hBtn.disabled = true;
+              hBtn.classList.add("opacity-50", "cursor-not-allowed");
+              if (wrapperWarning) wrapperWarning.style.gridTemplateRows = "1fr";
+            } else {
+              hBtn.disabled = false;
+              hBtn.classList.remove("opacity-50", "cursor-not-allowed");
+              if (wrapperWarning) wrapperWarning.style.gridTemplateRows = "0fr";
+            }
+            if (wrapperResult) wrapperResult.style.gridTemplateRows = "0fr";
+          });
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!container.contains(e.target as Node)) closeDropdown();
+        });
+      }
+
+      const checkHeroDomain = async () => {
+        const name = hInput.value.trim().replace(/\s+/g, "").toLowerCase();
+        const tld = hHiddenInput.value;
+
+        if (!name) {
+          hInput.focus();
+          hInput.classList.add("border-negro/30");
+          setTimeout(() => hInput.classList.remove("border-negro/30"), 1500);
+          return;
+        }
+
+        const domain = `${name}${tld}`;
+        const wrapperResult = document.getElementById("hero-domain-result-wrapper");
+
+        hBtnText.textContent = "Verificando";
+        hBtnSpinner.classList.remove("hidden");
+        hBtn.disabled = true;
+        if (wrapperResult) wrapperResult.style.gridTemplateRows = "0fr";
+
+        try {
+          const res = await fetch(`/.netlify/functions/check-domain?domain=${encodeURIComponent(domain)}`);
+          const data = await res.json();
+
+          if (data.available === true) {
+            hResult.className = "rounded-xl p-4 font-mono text-[11px] bg-verde/10 border border-verde/30 text-[#00a843] mb-6";
+            hResult.innerHTML = `✓ <strong>${domain}</strong> disponible. <a href="/servicios/diseno-web" class="underline font-medium hover:text-[#008f39] transition-colors ml-1 block mt-1">Querés tu web con este dominio? →</a>`;
+          } else if (data.available === false) {
+            hResult.className = "rounded-xl p-4 font-mono text-[11px] bg-rosa/10 border border-rosa/30 text-rosa mb-6";
+            hResult.innerHTML = `✗ <strong>${domain}</strong> ya está registrado.`;
+          } else {
+            hResult.className = "rounded-xl p-4 font-mono text-[11px] bg-negro/5 border border-negro/10 text-negro/50 mb-6";
+            hResult.innerHTML = `⚠ No pudimos verificar <strong>${domain}</strong>. Proba buscando manualmente o contactanos.`;
+          }
+          if (wrapperResult) wrapperResult.style.gridTemplateRows = "1fr";
+        } catch {
+          hResult.className = "rounded-xl p-4 font-mono text-[11px] bg-negro/5 border border-negro/10 text-negro/50 mb-6";
+          hResult.innerHTML = "Error de conexión. Intentá nuevamente.";
+          if (wrapperResult) wrapperResult.style.gridTemplateRows = "1fr";
+        } finally {
+          hBtnText.textContent = "Verificar Disponibilidad";
+          hBtnSpinner.classList.add("hidden");
+          hBtn.disabled = false;
+        }
+      };
+
+      hBtn?.addEventListener("click", checkHeroDomain);
+      hInput?.addEventListener("keydown", (e) => { if (e.key === "Enter" && !hBtn.disabled) checkHeroDomain(); });
+    });
+  </script>
+
+  <script>
     document.addEventListener("astro:page-load", async () => {
+      if (!window.location.search.includes("?")) return;
       const SPAM_KEY = "trk_cooldown";
       const COOLDOWN_MINUTES = 30;
       const lastSent = localStorage.getItem(SPAM_KEY);

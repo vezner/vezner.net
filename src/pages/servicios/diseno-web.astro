@@ -106,57 +106,64 @@ import InteractiveMap from "../../components/InteractiveMap.astro";
           </div>
 
           <div class="relative w-full">
-            <div class="absolute bottom-full right-[20%] lg:right-[30%] pb-4 hidden md:block z-10 pointer-events-auto">
-              <InteractiveMap servicioId="diseno-web" fillColor="rgba(0,0,0,0.03)" strokeColor="rgba(0,0,0,0.15)" hoverColor="#ff005c" />
+            <div
+              class="absolute bottom-full right-[20%] lg:right-[30%] pb-4 hidden md:block z-10 pointer-events-auto"
+            >
+              <InteractiveMap
+                servicioId="diseno-web"
+                fillColor="rgba(0,0,0,0.03)"
+                strokeColor="rgba(0,0,0,0.15)"
+                hoverColor="#ff005c"
+              />
             </div>
             <div
               class="hero-stats flex flex-wrap gap-8 md:justify-end opacity-0 transform translate-y-8"
             >
-            <div
-              class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
-            >
-              <p
-                class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+              <div
+                class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
               >
-                UI/UX
-              </p>
-              <p
-                class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
+                <p
+                  class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+                >
+                  UI/UX
+                </p>
+                <p
+                  class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
+                >
+                  Calidad Premium
+                </p>
+              </div>
+              <div
+                class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
               >
-                Calidad Premium
-              </p>
-            </div>
-            <div
-              class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
-            >
-              <p
-                class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+                <p
+                  class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+                >
+                  MAX
+                </p>
+                <p
+                  class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
+                >
+                  Ingeniería de Conversión
+                </p>
+              </div>
+              <div
+                class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
               >
-                MAX
-              </p>
-              <p
-                class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
-              >
-                Ingeniería de Conversión
-              </p>
-            </div>
-            <div
-              class="border-l-2 border-rosa pl-5 group hover:border-negro transition-colors duration-300"
-            >
-              <p
-                class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
-              >
-                0%
-              </p>
-              <p
-                class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
-              >
-                Plantillas Genéricas
-              </p>
+                <p
+                  class="font-display text-5xl text-negro group-hover:text-rosa transition-colors duration-300"
+                >
+                  0%
+                </p>
+                <p
+                  class="font-mono text-[10px] text-negro/50 tracking-[0.2em] uppercase mt-1"
+                >
+                  Plantillas Genéricas
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
 
       <div
@@ -212,7 +219,215 @@ import InteractiveMap from "../../components/InteractiveMap.astro";
               },
             ].map((item, i) => (
               <div
-                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 bg-blanco/[0.03] backdrop-blur-2xl p-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none ${item.c} group`} > <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors "> 0{i + 1} </div> <h3 data-gsap="fade-up" class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform " > {item.t} </h3> <p class="font-mono text-xs text-blanco/50 leading-relaxed"> {item.d} </p> </div> )) } </div> </div> </section> <section id="estandar" class="py-32 bg-negro text-blanco relative overflow-hidden" > <div class="container mx-auto px-6 md:px-16 max-w-7xl relative z-10"> <div class="grid md:grid-cols-2 gap-20"> <div data-gsap="fade-up" class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 hover:bg-blanco/5 rounded-2xl hover:rounded-none " > <span class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-8 block" >El estándar mediocre</span > <h3 data-gsap="fade-up" class="font-display text-5xl mb-6 text-blanco/50" > Plantillas & <br />Desarrollo Genérico </h3> <ul class="space-y-4 font-mono text-sm text-blanco/40"> <li class="flex gap-4"> <span>×</span> Diseños de WordPress genéricos que no transmiten autoridad. </li> <li class="flex gap-4"> <span>×</span> E-commerces lentos donde los clientes abandonan el carrito. </li> <li class="flex gap-4"> <span>×</span> Cero enfoque en jerarquía de información. </li> <li class="flex gap-4"> <span>×</span> Interfaces (UI) rotas en dispositivos móviles. </li> </ul> </div> <div data-gsap="fade-up" class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/30 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 relative rounded-2xl hover:rounded-none " > <div class="absolute top-0 right-0 w-24 h-24 bg-blanco/20 blur-[50px]" > </div> <span class="font-mono text-xs tracking-widest uppercase text-blanco mb-8 block" >El estándar VEZNER</span > <h3 data-gsap="fade-up" class="font-display text-5xl mb-6 text-blanco" > Ventas &<br />Autoridad </h3> <ul class="space-y-4 font-mono text-sm text-blanco/70"> <li class="flex gap-4"> <span class="text-blanco">✓</span> Código Propio (Astro/React) para Landings y Sitios Corporativos. </li> <li class="flex gap-4"> <span class="text-blanco">✓</span> Expertos en desarrollo sobre Shopify y Tiendanube para Tiendas. </li> <li class="flex gap-4"> <span class="text-blanco">✓</span> Diseño de alta gama, estético y estratégico en ambas soluciones. </li> <li class="flex gap-4"> <span class="text-blanco">✓</span> Integración nativa de pasarelas (Mercado Pago, Stripe, MODO). </li> </ul> </div> </div> </div> </section> <section id="proceso" class="py-32 px-6 md:px-16 bg-[#050505] text-blanco border-t border-blanco/10" > <div class="max-w-7xl mx-auto"> <h2 data-gsap="fade-up" class="font-display text-5xl md:text-7xl text-blanco mb-20 text-center section-title opacity-0" > PROCESO DE CREACIÓN </h2> <div class="space-y-0 relative border-l border-blanco/10 ml-4 md:ml-8 pl-8 md:pl-16 py-8" > { [ { n: "01", t: "Investigación & Plataforma", d: "Analizamos tu negocio para definir la mejor arquitectura: código propio para institucionales/landings, o Shopify/Tiendanube para tu e-commerce.", }, { n: "02", t: "Diseño UX/UI", d: "Creamos interfaces estéticas, funcionales y alineadas a tu identidad de marca, priorizando la experiencia del usuario y la conversión.", }, { n: "03", t: "Desarrollo & Configuración", d: "Programamos desde cero tu web corporativa o implementamos el diseño a medida sobre el panel de control de tu nueva tienda online.", }, { n: "04", t: "Pruebas & Lanzamiento", d: "Auditamos la web en diferentes dispositivos, verificamos tiempos de carga, logística, pagos y desplegamos el proyecto en producción.", }, ].map((paso, i) => ( <div class="proceso-card opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] group"> <div class="absolute -left-8 md:-left-16 top-0 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-rosa group-hover:shadow-[0_0_15px_rgba(225,29,72,1)] transform -translate-x-1/2 " /> <span class="font-display text-4xl text-blanco/10 group-hover:text-rosa/40 transition-colors absolute -left-12 top-0 -translate-x-full md:-translate-x-0 md:relative md:left-0 md:-top-4"> {paso.n} </span> <h3 data-gsap="fade-up" class="font-display text-3xl md:text-4xl text-blanco mb-4 mt-2 md:mt-0 group-hover:text-rosa transition-colors " > {paso.t} </h3> <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors leading-relaxed max-w-2xl"> {paso.d} </p> </div> )) } </div> </div> </section> <section id="enfoque" class="py-32 px-6 md:px-16 bg-blanco"> <div class="max-w-7xl mx-auto"> <div class="text-center mb-20"> <h2 data-gsap="fade-up" class="font-display text-6xl md:text-8xl text-negro mb-6 section-title opacity-0" > INGENIERÍA<br />DE CONVERSIÓN </h2> </div> <div class="grid md:grid-cols-3 gap-x-12 gap-y-20"> { [ { t: "El Stack Correcto", d: "Usamos Astro, React y HTML puro para Landings ultrarrápidas. Para E-commerce, dominamos los ecosistemas de Tiendanube y Shopify.", i: "fa-solid fa-code", }, { t: "UI Dinámica", d: "Implementamos animaciones fluidas, scroll interactivo y diseños estéticos de máxima calidad visual, sin importar la plataforma.", i: "fa-solid fa-wand-magic-sparkles", }, { t: "Arquitectura", d: "Estructura semántica impecable en nuestros desarrollos propios e integraciones nativas avanzadas en plataformas de e-commerce.", i: "fa-solid fa-magnifying-glass", }, { t: "Alta Conversión", d: "Integramos pasarelas de pago directas o configuramos los potentes flujos de checkout nativos de Tiendanube y Shopify para maximizar ventas.", i: "fa-solid fa-arrow-trend-up", }, { t: "Responsive Puro", d: "Cero problemas en móvil. Diseñamos con un enfoque mobile-first absoluto, para que se vea avanzado en cualquier pantalla.", i: "fa-solid fa-mobile-screen-button", }, { t: "Hosting & Soporte", d: "Nos encargamos de todo. Mantenimiento mensual, despliegue global automático y máxima seguridad para que vos te enfoques en tu negocio.", i: "fa-solid fa-server", }, ].map((f, i) => ( <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-negro/10 bg-negro/[0.03] backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none hover:border-rosa group hover:bg-negro/[0.02] px-4 -mx-4 pb-4"> <i class={`${f.i} text-3xl text-negro/20 group-hover:text-rosa group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
+                class={`use-case opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/5 bg-blanco/[0.03] backdrop-blur-2xl p-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none ${item.c} group`}
+              >
+                {" "}
+                <div class="font-mono text-xs text-blanco/30 mb-6 group-hover:text-blanco transition-colors ">
+                  {" "}
+                  0{i + 1}{" "}
+                </div>{" "}
+                <h3
+                  data-gsap="fade-up"
+                  class="font-display text-3xl mb-4 text-blanco group-hover:translate-x-2 transition-transform "
+                >
+                  {" "}
+                  {item.t}{" "}
+                </h3>{" "}
+                <p class="font-mono text-xs text-blanco/50 leading-relaxed">
+                  {" "}
+                  {item.d}{" "}
+                </p>{" "}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <section
+      id="estandar"
+      class="py-32 bg-negro text-blanco relative overflow-hidden"
+    >
+      <div class="container mx-auto px-6 md:px-16 max-w-7xl relative z-10">
+        <div class="grid md:grid-cols-2 gap-20">
+          <div
+            data-gsap="fade-up"
+            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 hover:bg-blanco/5 rounded-2xl hover:rounded-none"
+          >
+            <span
+              class="font-mono text-xs tracking-widest uppercase text-blanco/30 mb-8 block"
+              >El estándar mediocre</span
+            >
+            <h3
+              data-gsap="fade-up"
+              class="font-display text-5xl mb-6 text-blanco/50"
+            >
+              Plantillas & <br />Desarrollo Genérico
+            </h3>
+            <ul class="space-y-4 font-mono text-sm text-blanco/40">
+              <li class="flex gap-4">
+                <span>×</span> Diseños de WordPress genéricos que no transmiten autoridad.
+              </li>
+              <li class="flex gap-4">
+                <span>×</span> E-commerces lentos donde los clientes abandonan el
+                carrito.
+              </li>
+              <li class="flex gap-4">
+                <span>×</span> Cero enfoque en jerarquía de información.
+              </li>
+              <li class="flex gap-4">
+                <span>×</span> Interfaces (UI) rotas en dispositivos móviles.
+              </li>
+            </ul>
+          </div>
+          <div
+            data-gsap="fade-up"
+            class="vs-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border border-blanco/30 bg-blanco/[0.03] backdrop-blur-2xl p-10 md:p-16 relative rounded-2xl hover:rounded-none"
+          >
+            <div
+              class="absolute top-0 right-0 w-24 h-24 bg-blanco/20 blur-[50px]"
+            >
+            </div>
+            <span
+              class="font-mono text-xs tracking-widest uppercase text-blanco mb-8 block"
+              >El estándar VEZNER</span
+            >
+            <h3
+              data-gsap="fade-up"
+              class="font-display text-5xl mb-6 text-blanco"
+            >
+              Ventas &<br />Autoridad
+            </h3>
+            <ul class="space-y-4 font-mono text-sm text-blanco/70">
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> Código Propio (Astro/React) para
+                Landings y Sitios Corporativos.
+              </li>
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> Expertos en desarrollo sobre Shopify
+                y Tiendanube para Tiendas.
+              </li>
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> Diseño de alta gama, estético y
+                estratégico en ambas soluciones.
+              </li>
+              <li class="flex gap-4">
+                <span class="text-blanco">✓</span> Integración nativa de pasarelas
+                (Mercado Pago, Stripe, MODO).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="proceso"
+      class="py-32 px-6 md:px-16 bg-[#050505] text-blanco border-t border-blanco/10"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          data-gsap="fade-up"
+          class="font-display text-5xl md:text-7xl text-blanco mb-20 text-center section-title opacity-0"
+        >
+          PROCESO DE CREACIÓN
+        </h2>
+        <div
+          class="space-y-0 relative border-l border-blanco/10 ml-4 md:ml-8 pl-8 md:pl-16 py-8"
+        >
+          {
+            [
+              {
+                n: "01",
+                t: "Investigación & Plataforma",
+                d: "Analizamos tu negocio para definir la mejor arquitectura: código propio para institucionales/landings, o Shopify/Tiendanube para tu e-commerce.",
+              },
+              {
+                n: "02",
+                t: "Diseño UX/UI",
+                d: "Creamos interfaces estéticas, funcionales y alineadas a tu identidad de marca, priorizando la experiencia del usuario y la conversión.",
+              },
+              {
+                n: "03",
+                t: "Desarrollo & Configuración",
+                d: "Programamos desde cero tu web corporativa o implementamos el diseño a medida sobre el panel de control de tu nueva tienda online.",
+              },
+              {
+                n: "04",
+                t: "Pruebas & Lanzamiento",
+                d: "Auditamos la web en diferentes dispositivos, verificamos tiempos de carga, logística, pagos y desplegamos el proyecto en producción.",
+              },
+            ].map((paso, i) => (
+              <div class="proceso-card opacity-0 transform-gpu will-change-transform will-change-[opacity] relative pb-16 last:pb-0 rounded-2xl hover:rounded-none transition-[background-color,border-color,border-radius,color,box-shadow] group">
+                {" "}
+                <div class="absolute -left-8 md:-left-16 top-0 w-3 h-3 rounded-full bg-blanco/20 group-hover:bg-rosa group-hover:shadow-[0_0_15px_rgba(225,29,72,1)] transform -translate-x-1/2 " />{" "}
+                <span class="font-display text-4xl text-blanco/10 group-hover:text-rosa/40 transition-colors absolute -left-12 top-0 -translate-x-full md:-translate-x-0 md:relative md:left-0 md:-top-4">
+                  {" "}
+                  {paso.n}{" "}
+                </span>{" "}
+                <h3
+                  data-gsap="fade-up"
+                  class="font-display text-3xl md:text-4xl text-blanco mb-4 mt-2 md:mt-0 group-hover:text-rosa transition-colors "
+                >
+                  {" "}
+                  {paso.t}{" "}
+                </h3>{" "}
+                <p class="font-mono text-sm text-blanco/50 group-hover:text-blanco/80 transition-colors leading-relaxed max-w-2xl">
+                  {" "}
+                  {paso.d}{" "}
+                </p>{" "}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <section id="enfoque" class="py-32 px-6 md:px-16 bg-blanco">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <h2
+            data-gsap="fade-up"
+            class="font-display text-6xl md:text-8xl text-negro mb-6 section-title opacity-0"
+          >
+            INGENIERÍA<br />DE CONVERSIÓN
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-x-12 gap-y-20">
+          {
+            [
+              {
+                t: "El Stack Correcto",
+                d: "Usamos Astro, React y HTML puro para Landings ultrarrápidas. Para E-commerce, dominamos los ecosistemas de Tiendanube y Shopify.",
+                i: "fa-solid fa-code",
+              },
+              {
+                t: "UI Dinámica",
+                d: "Implementamos animaciones fluidas, scroll interactivo y diseños estéticos de máxima calidad visual, sin importar la plataforma.",
+                i: "fa-solid fa-wand-magic-sparkles",
+              },
+              {
+                t: "Arquitectura",
+                d: "Estructura semántica impecable en nuestros desarrollos propios e integraciones nativas avanzadas en plataformas de e-commerce.",
+                i: "fa-solid fa-magnifying-glass",
+              },
+              {
+                t: "Alta Conversión",
+                d: "Integramos pasarelas de pago directas o configuramos los potentes flujos de checkout nativos de Tiendanube y Shopify para maximizar ventas.",
+                i: "fa-solid fa-arrow-trend-up",
+              },
+              {
+                t: "Responsive Puro",
+                d: "Cero problemas en móvil. Diseñamos con un enfoque mobile-first absoluto, para que se vea avanzado en cualquier pantalla.",
+                i: "fa-solid fa-mobile-screen-button",
+              },
+              {
+                t: "Hosting & Soporte",
+                d: "Nos encargamos de todo. Mantenimiento mensual, despliegue global automático y máxima seguridad para que vos te enfoques en tu negocio.",
+                i: "fa-solid fa-server",
+              },
+            ].map((f, i) => (
+              <div class="feat-card opacity-0 transform-gpu will-change-transform will-change-[opacity] border-t-2 border-negro/10 bg-negro/[0.03] backdrop-blur-2xl pt-8 transition-[background-color,border-color,border-radius,color,box-shadow] rounded-2xl hover:rounded-none hover:border-rosa group hover:bg-negro/[0.02] px-4 -mx-4 pb-4">
+                {" "}
+                <i
+                  class={`${f.i} text-3xl text-negro/20 group-hover:text-rosa group-hover:-translate-y-2 transition-all duration-300 mb-6 block drop-shadow-sm group-hover:drop-shadow-md`}
                 />
                 <h4 class="font-display text-3xl text-negro mb-4 group-hover:translate-x-1 transition-transform duration-300">
                   {f.t}
@@ -223,6 +438,741 @@ import InteractiveMap from "../../components/InteractiveMap.astro";
               </div>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="dominios"
+      class="py-32 px-6 md:px-16 bg-negro text-blanco relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 32px 32px;"
+      >
+      </div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-8 h-px bg-rosa/50"></div>
+          <span class="font-mono text-xs tracking-[0.4em] uppercase text-rosa"
+            >Servicio incluido</span
+          >
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 items-start mb-16">
+          <div>
+            <h2
+              class="font-display text-5xl md:text-7xl text-blanco mb-6 leading-none"
+            >
+              DOMINIO<br /><span class="text-rosa">&amp; HOSTING</span>
+            </h2>
+            <p class="font-mono text-sm text-blanco/60 leading-relaxed mb-6">
+              Nos encargamos de todo. Registramos el dominio, configuramos el
+              hosting de alto rendimiento y gestionamos las renovaciones. Vos te
+              enfocás en tu negocio.
+            </p>
+            <div class="flex flex-col gap-3">
+              <div
+                class="flex items-center gap-3 font-mono text-xs text-blanco/70"
+              >
+                <span class="text-verde">✓</span> Registro y renovación de dominio
+                incluida
+              </div>
+              <div
+                class="flex items-center gap-3 font-mono text-xs text-blanco/70"
+              >
+                <span class="text-verde">✓</span> Hosting global de alto rendimiento
+              </div>
+              <div
+                class="flex items-center gap-3 font-mono text-xs text-blanco/70"
+              >
+                <span class="text-verde">✓</span> SSL, caché y CDN automáticos
+              </div>
+              <div
+                class="flex items-center gap-3 font-mono text-xs text-blanco/70"
+              >
+                <span class="text-verde">✓</span>
+                <span
+                  >Dominios gestionados vía <strong class="text-blanco"
+                    >Cloudflare</strong
+                  > — el estándar global de infraestructura web</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="mt-8 inline-flex items-center gap-3 border border-blanco/10 rounded-xl px-5 py-3"
+            >
+              <i class="fa-brands fa-cloudflare"></i>
+              <span class="font-mono text-xs text-blanco/60"
+                >Powered by <span class="text-blanco font-medium"
+                  >Cloudflare</span
+                ></span
+              >
+            </div>
+          </div>
+
+          <div class="bg-blanco/[0.04] border border-blanco/10 rounded-2xl p-8">
+            <p
+              class="font-mono text-xs tracking-widest uppercase text-blanco/40 mb-6"
+            >
+              Verificá la disponibilidad de tu dominio
+            </p>
+
+            <div class="flex gap-3 mb-4" id="domain-checker-form">
+              <input
+                type="text"
+                id="domain-input"
+                placeholder="minegocio"
+                class="flex-1 bg-negro border border-blanco/20 rounded-xl px-4 py-3 font-mono text-sm text-blanco placeholder:text-blanco/20 focus:outline-none focus:border-rosa transition-colors"
+              />
+              <div
+                class="relative custom-dropdown-container z-50 flex-none w-[130px]"
+              >
+                <input
+                  type="hidden"
+                  id="tld-select"
+                  value=".com"
+                  data-ar="false"
+                />
+                <button
+                  type="button"
+                  class="dropdown-btn w-full flex items-center justify-between bg-negro border border-blanco/20 rounded-xl px-4 py-3 font-mono text-sm text-blanco focus:outline-none focus:border-rosa transition-colors appearance-none cursor-pointer h-full"
+                >
+                  <span class="dropdown-text">.com</span>
+                  <span
+                    class="dropdown-icon text-xs transition-transform duration-300"
+                    >▼</span
+                  >
+                </button>
+                <div
+                  class="dropdown-options absolute top-full right-0 w-48 bg-[#111] border border-blanco/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] mt-2 opacity-0 invisible translate-y-2 transition-all duration-300 rounded-xl overflow-hidden max-h-64 overflow-y-auto custom-scroll z-[60]"
+                  data-lenis-prevent
+                >
+                  <div class="flex flex-col py-1 font-mono text-sm">
+                    {
+                      [
+                        ".com",
+                        ".net",
+                        ".org",
+                        ".io",
+                        ".ai",
+                        ".app",
+                        ".dev",
+                        ".co",
+                        ".us",
+                        ".me",
+                        ".tv",
+                        ".biz",
+                        ".info",
+                        ".online",
+                        ".store",
+                        ".site",
+                        ".tech",
+                        ".design",
+                        ".digital",
+                        ".agency",
+                        ".studio",
+                        ".shop",
+                        ".services",
+                        ".solutions",
+                        ".company",
+                        ".business",
+                        ".marketing",
+                        ".consulting",
+                        ".management",
+                        ".software",
+                        ".systems",
+                        ".cloud",
+                        ".media",
+                        ".photography",
+                        ".gallery",
+                        ".art",
+                        ".blog",
+                        ".news",
+                        ".press",
+                        ".restaurant",
+                        ".cafe",
+                        ".bar",
+                        ".fitness",
+                        ".health",
+                        ".dental",
+                        ".doctor",
+                        ".lawyer",
+                        ".legal",
+                        ".attorney",
+                        ".finance",
+                        ".investments",
+                        ".realty",
+                        ".properties",
+                        ".construction",
+                        ".contractors",
+                        ".builders",
+                        ".education",
+                        ".school",
+                        ".academy",
+                        ".training",
+                        ".tours",
+                        ".travel",
+                        ".hotel",
+                        ".taxi",
+                        ".delivery",
+                        ".ca",
+                        ".uk",
+                        ".co.uk",
+                        ".nz",
+                        ".mx",
+                        ".com.mx",
+                        ".com.co",
+                        ".com.ai",
+                        ".xyz",
+                        ".club",
+                        ".fun",
+                        ".world",
+                        ".live",
+                        ".zone",
+                        ".space",
+                        ".run",
+                        ".link",
+                        ".page",
+                        ".wtf",
+                        ".lol",
+                      ].map((tld) => (
+                        <button
+                          type="button"
+                          class="dropdown-option text-left px-4 py-2 text-blanco/70 hover:bg-blanco/10 hover:text-blanco transition-colors"
+                          data-value={tld}
+                          data-ar="false"
+                        >
+                          {tld}
+                        </button>
+                      ))
+                    }
+                    {
+                      [".com.ar", ".net.ar", ".org.ar", ".ar"].map((tld) => (
+                        <button
+                          type="button"
+                          class="dropdown-option text-left px-4 py-2 text-yellow-300/70 hover:bg-yellow-400/10 hover:text-yellow-300 transition-colors"
+                          data-value={tld}
+                          data-ar="true"
+                        >
+                          {tld} ⚠
+                        </button>
+                      ))
+                    }
+                  </div>
+                </div>
+              </div>
+              <button
+                id="check-domain-btn"
+                class="group bg-rosa text-blanco px-6 py-3 font-mono text-xs tracking-widest uppercase rounded-xl hover:rounded-none transition-all duration-300 flex items-center gap-2 shrink-0"
+              >
+                <span id="check-btn-text">Verificar</span>
+                <span id="check-btn-spinner" class="hidden animate-spin">⟳</span
+                >
+              </button>
+            </div>
+
+            <div
+              id="ar-warning-wrapper"
+              class="grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              style="grid-template-rows: 0fr;"
+            >
+              <div class="overflow-hidden">
+                <div
+                  class="mb-4 bg-yellow-400/10 border border-yellow-400/30 rounded-xl px-4 py-3"
+                >
+                  <p class="font-mono text-xs text-yellow-300 leading-relaxed">
+                    ⚠ Los dominios <strong>.ar</strong> deben ser tramitados directamente por el titular en <a
+                      href="https://nic.ar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="underline hover:text-yellow-200 transition-colors"
+                    >nic.ar</a>. Nosotros te asesoramos en el proceso sin costo adicional.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="domain-result-wrapper"
+              class="grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              style="grid-template-rows: 0fr;"
+            >
+              <div class="overflow-hidden">
+                <div
+                  id="domain-result"
+                  class="rounded-xl p-4 font-mono text-sm transition-all duration-300"
+                >
+                </div>
+              </div>
+            </div>
+
+            <button
+              id="toggle-all-tlds"
+              class="mt-6 flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-blanco/30 hover:text-blanco/60 transition-colors"
+            >
+              <span id="tld-toggle-icon">+</span> Ver todos los tipos de dominio disponibles
+            </button>
+
+            <div
+              id="all-tlds-wrapper"
+              class="grid transition-[grid-template-rows] duration-500 ease-in-out"
+              style="grid-template-rows: 0fr;"
+            >
+              <div class="overflow-hidden">
+                <div
+                  id="all-tlds-panel"
+                  class="mt-4 opacity-0 transition-opacity duration-500"
+                >
+                  <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-1 max-h-64 overflow-y-auto pr-2 custom-scroll"
+                    data-lenis-prevent
+                  >
+                    {
+                      [
+                        "ab.ca",
+                        "ac",
+                        "academy",
+                        "accountant",
+                        "accountants",
+                        "actor",
+                        "adult",
+                        "agency",
+                        "ai",
+                        "airforce",
+                        "apartments",
+                        "app",
+                        "army",
+                        "associates",
+                        "attorney",
+                        "auction",
+                        "audio",
+                        "baby",
+                        "band",
+                        "bar",
+                        "bargains",
+                        "bc.ca",
+                        "beer",
+                        "bet",
+                        "bid",
+                        "bike",
+                        "bingo",
+                        "biz",
+                        "black",
+                        "blog",
+                        "blue",
+                        "boo",
+                        "boston",
+                        "boutique",
+                        "broker",
+                        "build",
+                        "builders",
+                        "business",
+                        "ca",
+                        "cab",
+                        "cafe",
+                        "cam",
+                        "camera",
+                        "camp",
+                        "capital",
+                        "cards",
+                        "care",
+                        "careers",
+                        "casa",
+                        "cash",
+                        "casino",
+                        "catering",
+                        "cc",
+                        "center",
+                        "ceo",
+                        "charity",
+                        "chat",
+                        "cheap",
+                        "christmas",
+                        "church",
+                        "city",
+                        "claims",
+                        "cleaning",
+                        "clinic",
+                        "clothing",
+                        "cloud",
+                        "club",
+                        "co",
+                        "co.nz",
+                        "co.uk",
+                        "coach",
+                        "codes",
+                        "coffee",
+                        "college",
+                        "com",
+                        "com.ai",
+                        "com.co",
+                        "com.mx",
+                        "community",
+                        "company",
+                        "compare",
+                        "computer",
+                        "condos",
+                        "construction",
+                        "consulting",
+                        "contact",
+                        "contractors",
+                        "cooking",
+                        "cool",
+                        "coupons",
+                        "credit",
+                        "creditcard",
+                        "cricket",
+                        "cruises",
+                        "dad",
+                        "dance",
+                        "date",
+                        "dating",
+                        "day",
+                        "dealer",
+                        "deals",
+                        "degree",
+                        "delivery",
+                        "democrat",
+                        "dental",
+                        "dentist",
+                        "design",
+                        "dev",
+                        "diamonds",
+                        "diet",
+                        "digital",
+                        "direct",
+                        "directory",
+                        "discount",
+                        "doctor",
+                        "dog",
+                        "domains",
+                        "download",
+                        "education",
+                        "email",
+                        "energy",
+                        "engineer",
+                        "engineering",
+                        "enterprises",
+                        "equipment",
+                        "esq",
+                        "estate",
+                        "events",
+                        "exchange",
+                        "expert",
+                        "exposed",
+                        "express",
+                        "fail",
+                        "faith",
+                        "family",
+                        "fan",
+                        "fans",
+                        "farm",
+                        "fashion",
+                        "feedback",
+                        "finance",
+                        "financial",
+                        "fish",
+                        "fishing",
+                        "fit",
+                        "fitness",
+                        "flights",
+                        "florist",
+                        "flowers",
+                        "fm",
+                        "foo",
+                        "football",
+                        "forex",
+                        "forsale",
+                        "forum",
+                        "foundation",
+                        "fun",
+                        "fund",
+                        "furniture",
+                        "futbol",
+                        "fyi",
+                        "gallery",
+                        "game",
+                        "games",
+                        "garden",
+                        "geek.nz",
+                        "gifts",
+                        "gives",
+                        "giving",
+                        "glass",
+                        "global",
+                        "gmbh",
+                        "gold",
+                        "golf",
+                        "graphics",
+                        "gratis",
+                        "green",
+                        "gripe",
+                        "group",
+                        "guide",
+                        "guitars",
+                        "guru",
+                        "haus",
+                        "health",
+                        "healthcare",
+                        "help",
+                        "hockey",
+                        "holdings",
+                        "holiday",
+                        "horse",
+                        "hospital",
+                        "host",
+                        "hosting",
+                        "house",
+                        "how",
+                        "icu",
+                        "immo",
+                        "immobilien",
+                        "inc",
+                        "industries",
+                        "info",
+                        "ing",
+                        "ink",
+                        "institute",
+                        "insure",
+                        "international",
+                        "investments",
+                        "io",
+                        "irish",
+                        "jetzt",
+                        "jewelry",
+                        "kaufen",
+                        "kim",
+                        "kitchen",
+                        "land",
+                        "lawyer",
+                        "lease",
+                        "legal",
+                        "lgbt",
+                        "life",
+                        "lighting",
+                        "limited",
+                        "limo",
+                        "link",
+                        "live",
+                        "loan",
+                        "loans",
+                        "lol",
+                        "love",
+                        "ltd",
+                        "luxe",
+                        "maison",
+                        "management",
+                        "market",
+                        "marketing",
+                        "markets",
+                        "mb.ca",
+                        "mba",
+                        "me",
+                        "me.uk",
+                        "media",
+                        "meme",
+                        "memorial",
+                        "men",
+                        "miami",
+                        "mobi",
+                        "moda",
+                        "mom",
+                        "money",
+                        "monster",
+                        "mortgage",
+                        "mov",
+                        "movie",
+                        "mx",
+                        "navy",
+                        "nb.ca",
+                        "net",
+                        "net.ai",
+                        "net.co",
+                        "net.nz",
+                        "net.uk",
+                        "network",
+                        "new",
+                        "news",
+                        "nexus",
+                        "ngo",
+                        "ninja",
+                        "nl.ca",
+                        "nom.co",
+                        "ns.ca",
+                        "nt.ca",
+                        "nu.ca",
+                        "nz",
+                        "observer",
+                        "off.ai",
+                        "on.ca",
+                        "ong",
+                        "online",
+                        "org",
+                        "org.ai",
+                        "org.mx",
+                        "org.nz",
+                        "org.uk",
+                        "organic",
+                        "page",
+                        "partners",
+                        "parts",
+                        "party",
+                        "pe.ca",
+                        "pet",
+                        "phd",
+                        "photography",
+                        "photos",
+                        "pics",
+                        "pictures",
+                        "pink",
+                        "pizza",
+                        "place",
+                        "plumbing",
+                        "plus",
+                        "press",
+                        "pro",
+                        "productions",
+                        "prof",
+                        "promo",
+                        "properties",
+                        "protection",
+                        "pub",
+                        "qc.ca",
+                        "racing",
+                        "realty",
+                        "recipes",
+                        "red",
+                        "rehab",
+                        "reise",
+                        "reisen",
+                        "rent",
+                        "rentals",
+                        "repair",
+                        "report",
+                        "republican",
+                        "rest",
+                        "restaurant",
+                        "review",
+                        "reviews",
+                        "rip",
+                        "rocks",
+                        "rodeo",
+                        "rsvp",
+                        "run",
+                        "sale",
+                        "salon",
+                        "sarl",
+                        "school",
+                        "schule",
+                        "science",
+                        "security",
+                        "select",
+                        "services",
+                        "sh",
+                        "shoes",
+                        "shop",
+                        "shopping",
+                        "show",
+                        "singles",
+                        "site",
+                        "sk.ca",
+                        "ski",
+                        "soccer",
+                        "social",
+                        "software",
+                        "solar",
+                        "solutions",
+                        "soy",
+                        "space",
+                        "storage",
+                        "store",
+                        "stream",
+                        "studio",
+                        "style",
+                        "supplies",
+                        "supply",
+                        "support",
+                        "surf",
+                        "surgery",
+                        "systems",
+                        "tax",
+                        "taxi",
+                        "team",
+                        "tech",
+                        "technology",
+                        "tennis",
+                        "theater",
+                        "theatre",
+                        "tienda",
+                        "tips",
+                        "tires",
+                        "today",
+                        "tools",
+                        "toronto.on.ca",
+                        "tours",
+                        "town",
+                        "toys",
+                        "trade",
+                        "trading",
+                        "training",
+                        "travel",
+                        "tv",
+                        "uk",
+                        "university",
+                        "uno",
+                        "us",
+                        "vacations",
+                        "ventures",
+                        "vet",
+                        "viajes",
+                        "video",
+                        "villas",
+                        "vin",
+                        "vip",
+                        "vision",
+                        "vodka",
+                        "voyage",
+                        "watch",
+                        "webcam",
+                        "website",
+                        "wedding",
+                        "wiki",
+                        "win",
+                        "wine",
+                        "work",
+                        "works",
+                        "world",
+                        "wtf",
+                        "xxx",
+                        "xyz",
+                        "yk.ca",
+                        "yoga",
+                        "yt.ca",
+                        "zone",
+                      ].map((tld) => (
+                        <span class="font-mono text-[10px] text-blanco/40 hover:text-blanco/70 cursor-default py-0.5">
+                          .{tld}
+                        </span>
+                      ))
+                    }
+                  </div>
+                  <div class="mt-4 pt-4 border-t border-blanco/10">
+                    <p class="font-mono text-[10px] text-yellow-300/70">
+                      ⚠ <strong>Dominios .ar</strong> (.com.ar, .net.ar, .org.ar,
+                      .ar): deben tramitarse directamente en <a
+                        href="https://nic.ar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="underline hover:text-yellow-200">nic.ar</a> por el titular. Te asesoramos sin costo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -243,7 +1193,7 @@ import InteractiveMap from "../../components/InteractiveMap.astro";
           data-gsap="fade-up"
           class="font-display text-6xl md:text-8xl mb-6 cta-title"
         >
-          ESCALÁ TUS VENTAS<br /><span class="text-negro/40">HOY MISMO</span>
+          ESCALÁ TUS VENTAS<br /><span class="text-negro/80">HOY MISMO</span>
         </h2>
         <p
           class="font-mono text-sm md:text-base text-blanco/70 mb-12 max-w-2xl mx-auto leading-relaxed cta-desc"
@@ -729,3 +1679,194 @@ import InteractiveMap from "../../components/InteractiveMap.astro";
     });
   });
 </script>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const input = document.getElementById("domain-input") as HTMLInputElement;
+    const hiddenInput = document.getElementById(
+      "tld-select",
+    ) as HTMLInputElement;
+    const btn = document.getElementById(
+      "check-domain-btn",
+    ) as HTMLButtonElement;
+    const btnText = document.getElementById(
+      "check-btn-text",
+    ) as HTMLSpanElement;
+    const btnSpinner = document.getElementById(
+      "check-btn-spinner",
+    ) as HTMLSpanElement;
+    const result = document.getElementById("domain-result") as HTMLDivElement;
+    const arWarning = document.getElementById("ar-warning") as HTMLDivElement;
+    const toggleBtn = document.getElementById(
+      "toggle-all-tlds",
+    ) as HTMLButtonElement;
+    const tldPanel = document.getElementById(
+      "all-tlds-panel",
+    ) as HTMLDivElement;
+    const toggleIcon = document.getElementById(
+      "tld-toggle-icon",
+    ) as HTMLSpanElement;
+
+    if (!input || !hiddenInput || !btn) return;
+
+    // Custom dropdown logic
+    const container = document.querySelector(".custom-dropdown-container");
+    if (container) {
+      const btnDropdown = container.querySelector(
+        ".dropdown-btn",
+      ) as HTMLButtonElement;
+      const optionsDiv = container.querySelector(
+        ".dropdown-options",
+      ) as HTMLDivElement;
+      const textSpan = container.querySelector(
+        ".dropdown-text",
+      ) as HTMLSpanElement;
+      const iconSpan = container.querySelector(
+        ".dropdown-icon",
+      ) as HTMLSpanElement;
+      const optionBtns = container.querySelectorAll(".dropdown-option");
+
+      const closeDropdown = () => {
+        optionsDiv.classList.add("invisible", "opacity-0", "translate-y-2");
+        optionsDiv.classList.remove("opacity-100", "translate-y-0");
+        btnDropdown.classList.remove("border-rosa");
+        iconSpan.style.transform = "rotate(0deg)";
+      };
+
+      btnDropdown.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = !optionsDiv.classList.contains("invisible");
+        if (!isOpen) {
+          optionsDiv.classList.remove(
+            "invisible",
+            "opacity-0",
+            "translate-y-2",
+          );
+          optionsDiv.classList.add("opacity-100", "translate-y-0");
+          btnDropdown.classList.add("border-rosa");
+          iconSpan.style.transform = "rotate(180deg)";
+        } else {
+          closeDropdown();
+        }
+      });
+
+      optionBtns.forEach((opt) => {
+        opt.addEventListener("click", () => {
+          const val = opt.getAttribute("data-value") || ".com";
+          const isAr = opt.getAttribute("data-ar") === "true";
+          hiddenInput.value = val;
+          hiddenInput.setAttribute("data-ar", isAr ? "true" : "false");
+          textSpan.textContent = val;
+          closeDropdown();
+
+          const wrapperWarning = document.getElementById("ar-warning-wrapper");
+          const wrapperResult = document.getElementById("domain-result-wrapper");
+          if (isAr) {
+            btn.disabled = true;
+            btn.classList.add("opacity-50", "cursor-not-allowed");
+            if (wrapperWarning) wrapperWarning.style.gridTemplateRows = "1fr";
+          } else {
+            btn.disabled = false;
+            btn.classList.remove("opacity-50", "cursor-not-allowed");
+            if (wrapperWarning) wrapperWarning.style.gridTemplateRows = "0fr";
+          }
+          if (wrapperResult) wrapperResult.style.gridTemplateRows = "0fr";
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!container.contains(e.target as Node)) closeDropdown();
+      });
+    }
+
+    toggleBtn?.addEventListener("click", () => {
+      const wrapper = document.getElementById("all-tlds-wrapper");
+      if (!wrapper || !tldPanel) return;
+      const isOpen = wrapper.style.gridTemplateRows === "1fr";
+
+      wrapper.style.gridTemplateRows = isOpen ? "0fr" : "1fr";
+      if (isOpen) {
+        tldPanel.classList.remove("opacity-100");
+        tldPanel.classList.add("opacity-0");
+      } else {
+        tldPanel.classList.remove("opacity-0");
+        tldPanel.classList.add("opacity-100");
+      }
+      toggleIcon.textContent = isOpen ? "+" : "−";
+    });
+
+    const checkDomain = async () => {
+      const name = input.value.trim().replace(/\s+/g, "").toLowerCase();
+      const tld = hiddenInput.value;
+
+      if (!name) {
+        input.focus();
+        input.classList.add("border-rosa");
+        setTimeout(() => input.classList.remove("border-rosa"), 1500);
+        return;
+      }
+
+      const domain = `${name}${tld}`;
+      const wrapperResult = document.getElementById("domain-result-wrapper");
+
+      btnText.textContent = "Verificando";
+      btnSpinner.classList.remove("hidden");
+      btn.disabled = true;
+      if (wrapperResult) wrapperResult.style.gridTemplateRows = "0fr";
+
+      try {
+        const res = await fetch(
+          `/.netlify/functions/check-domain?domain=${encodeURIComponent(domain)}`,
+        );
+        const data = await res.json();
+
+        if (data.available === true) {
+          result.className =
+            "rounded-xl p-4 font-mono text-sm bg-verde/10 border border-verde/30 text-verde";
+          result.innerHTML = `✓ <strong>${domain}</strong> está disponible. <a href="https://wa.me/5493513323272?text=Hola%20VEZNER%2C%20quiero%20registrar%20el%20dominio%20${encodeURIComponent(domain)}" target="_blank" class="underline hover:text-blanco transition-colors ml-2">→ Registrarlo con VEZNER</a>`;
+        } else if (data.available === false) {
+          let extra = "";
+          if (data.expiration) {
+            const exp = new Date(data.expiration).toLocaleDateString("es-AR");
+            extra = `<br><span class="text-blanco/40 text-xs">Vence: ${exp}</span>`;
+          }
+          result.className =
+            "rounded-xl p-4 font-mono text-sm bg-rosa/10 border border-rosa/30 text-rosa";
+          result.innerHTML = `✗ <strong>${domain}</strong> ya está registrado.${extra}`;
+        } else {
+          result.className =
+            "rounded-xl p-4 font-mono text-sm bg-blanco/5 border border-blanco/10 text-blanco/50";
+          result.innerHTML = `⚠ No se pudo verificar <strong>${domain}</strong>. Puede que este TLD no soporte consultas automáticas.`;
+        }
+        if (wrapperResult) wrapperResult.style.gridTemplateRows = "1fr";
+      } catch {
+        result.className =
+          "rounded-xl p-4 font-mono text-sm bg-blanco/5 border border-blanco/10 text-blanco/50";
+        result.innerHTML = "Error de conexión. Intentá nuevamente.";
+        if (wrapperResult) wrapperResult.style.gridTemplateRows = "1fr";
+      } finally {
+        btnText.textContent = "Verificar";
+        btnSpinner.classList.add("hidden");
+        btn.disabled = false;
+      }
+    };
+
+    btn.addEventListener("click", checkDomain);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") checkDomain();
+    });
+  });
+</script>
+
+<style>
+  .custom-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+</style>

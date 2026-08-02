@@ -59,59 +59,34 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
             autocomplete="off"
           >
             <div id="step-1" class="space-y-8 transition-opacity duration-500">
-              <div class="form-group relative custom-dropdown-container z-50">
+              <div class="form-group z-50">
                 <label
-                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
-                  >¿En qué te podemos ayudar?</label
+                  class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-4"
+                  >¿En qué te podemos ayudar? (Seleccioná uno o más)</label
                 >
-                <input
-                  type="hidden"
-                  id="servicio"
-                  name="servicio"
-                  value=""
-                  required
-                />
-                <button
-                  type="button"
-                  class="dropdown-btn w-full flex items-center justify-between bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro/70 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300 text-left appearance-none !rounded-none"
-                  style="border-radius: 0 !important; -webkit-appearance: none; appearance: none;"
-                >
-                  <span class="dropdown-text"
-                    >Seleccioná un servicio para continuar</span
-                  >
-                  <span
-                    class="dropdown-icon text-xs transition-transform duration-300"
-                    >▼</span
-                  >
-                </button>
-                <div
-                  class="dropdown-options absolute top-full left-0 w-full bg-blanco border border-negro/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] mt-2 opacity-0 invisible translate-y-2 transition-safe duration-300 rounded-2xl overflow-hidden"
-                  data-lenis-prevent
-                >
-                  <div class="flex flex-col py-2 font-mono text-sm">
-                    <button
-                      type="button"
-                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                      data-value="Diseño Web">Diseño Web</button
-                    >
-                    <button
-                      type="button"
-                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                      data-value="Software Python">Software Python</button
-                    >
-                    <button
-                      type="button"
-                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                      data-value="Diseño de Identidad"
-                      >Diseño de Identidad</button
-                    >
-                    <button
-                      type="button"
-                      class="dropdown-option text-left px-5 py-3 text-negro/70 hover:bg-negro/5 hover:text-negro transition-colors"
-                      data-value="Otro">Otro / Consulta general</button
-                    >
-                  </div>
+                <div class="flex flex-wrap gap-3" id="service-tags">
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="servicios[]" value="Diseño Web" class="peer sr-only service-checkbox">
+                    <div class="px-4 py-2 border border-negro/30 rounded-full font-mono text-sm text-negro/70 peer-checked:bg-negro peer-checked:text-blanco peer-checked:border-negro transition-colors hover:bg-negro/5">Diseño Web</div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="servicios[]" value="Software Python" class="peer sr-only service-checkbox">
+                    <div class="px-4 py-2 border border-negro/30 rounded-full font-mono text-sm text-negro/70 peer-checked:bg-negro peer-checked:text-blanco peer-checked:border-negro transition-colors hover:bg-negro/5">Software Python</div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="servicios[]" value="Diseño de Identidad" class="peer sr-only service-checkbox">
+                    <div class="px-4 py-2 border border-negro/30 rounded-full font-mono text-sm text-negro/70 peer-checked:bg-negro peer-checked:text-blanco peer-checked:border-negro transition-colors hover:bg-negro/5">Diseño de Identidad</div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="servicios[]" value="Flujos n8n" class="peer sr-only service-checkbox">
+                    <div class="px-4 py-2 border border-negro/30 rounded-full font-mono text-sm text-negro/70 peer-checked:bg-negro peer-checked:text-blanco peer-checked:border-negro transition-colors hover:bg-negro/5">Flujos n8n</div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="checkbox" name="servicios[]" value="Otro" class="peer sr-only service-checkbox">
+                    <div class="px-4 py-2 border border-negro/30 rounded-full font-mono text-sm text-negro/70 peer-checked:bg-negro peer-checked:text-blanco peer-checked:border-negro transition-colors hover:bg-negro/5">Otro / Consulta general</div>
+                  </label>
                 </div>
+                <div id="tags-error" class="text-red-500 font-mono text-xs hidden mt-3">⚠ Seleccioná al menos un servicio</div>
               </div>
 
               <div id="dynamic-fields-container" class="space-y-6">
@@ -333,6 +308,42 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
                       placeholder="Dejá los links/IGs de marcas cuya estética te gustaría alcanzar..."
                       class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300 resize-none"
                       disabled></textarea>
+                  </div>
+                </div>
+
+                <div
+                  id="fields-Flujos n8n"
+                  class="dynamic-group hidden opacity-0 transition-opacity duration-500 space-y-6"
+                >
+                  <div class="form-group">
+                    <label
+                      for="n8n_proceso"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >¿Qué proceso o tarea querés automatizar?</label
+                    >
+                    <input
+                      type="text"
+                      id="n8n_proceso"
+                      name="n8n_proceso"
+                      placeholder="Ej: Envío de emails, Carga de leads..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label
+                      for="n8n_apps"
+                      class="font-mono font-medium text-xs tracking-widest uppercase text-negro/60 block mb-2"
+                      >¿Qué aplicaciones usás actualmente?</label
+                    >
+                    <input
+                      type="text"
+                      id="n8n_apps"
+                      name="n8n_apps"
+                      placeholder="Ej: Gmail, Google Sheets, WhatsApp, CRMs..."
+                      class="dynamic-input w-full bg-transparent border-b border-negro/40 py-3 font-mono font-medium text-sm text-negro placeholder:text-negro/40 focus:outline-none focus:ring-0 focus:border-negro transition-colors duration-300"
+                      disabled
+                    />
                   </div>
                 </div>
 
@@ -758,115 +769,60 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
       "-=0.6",
     );
 
-    const dropdownContainers = document.querySelectorAll(
-      ".custom-dropdown-container",
-    );
-    const contactInfoContainer = document.getElementById(
-      "contact-info-container",
-    );
+    const serviceCheckboxes = document.querySelectorAll(".service-checkbox") as NodeListOf<HTMLInputElement>;
+    const tagsError = document.getElementById("tags-error");
+    const continueContainer = document.getElementById("continue-btn-container");
     const dynamicGroups = document.querySelectorAll(".dynamic-group");
 
-    dropdownContainers.forEach((container) => {
-      const btn = container.querySelector(".dropdown-btn") as HTMLButtonElement;
-      const optionsDiv = container.querySelector(
-        ".dropdown-options",
-      ) as HTMLDivElement;
-      const textSpan = container.querySelector(
-        ".dropdown-text",
-      ) as HTMLSpanElement;
-      const iconSpan = container.querySelector(
-        ".dropdown-icon",
-      ) as HTMLSpanElement;
-      const hiddenInput = container.querySelector("input") as HTMLInputElement;
-      const optionBtns = container.querySelectorAll(".dropdown-option");
-
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const isOpen = !optionsDiv.classList.contains("invisible");
-
-        closeAllDropdowns();
-
-        if (!isOpen) {
-          optionsDiv.classList.remove(
-            "invisible",
-            "opacity-0",
-            "translate-y-2",
-          );
-          optionsDiv.classList.add("opacity-100", "translate-y-0");
-          btn.classList.add("border-negro");
-          iconSpan.style.transform = "rotate(180deg)";
+    serviceCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const value = checkbox.value;
+        const targetGroup = document.getElementById(`fields-${value}`);
+        
+        if (tagsError) {
+          tagsError.classList.add("hidden");
         }
-      });
 
-      optionBtns.forEach((opt) => {
-        opt.addEventListener("click", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-
-          const btnEl = e.currentTarget as HTMLButtonElement;
-          const value =
-            btnEl.getAttribute("data-value") || btnEl.textContent?.trim() || "";
-          const text = btnEl.textContent?.trim() || "";
-
-          if (hiddenInput) {
-            hiddenInput.value = value;
-            hiddenInput.setAttribute("value", value);
-          }
-
-          if (textSpan) {
-            textSpan.textContent = text;
-            textSpan.classList.remove("text-negro/70");
-            textSpan.classList.add("text-negro");
-          }
-
-          if (hiddenInput && hiddenInput.id === "servicio") {
-            dynamicGroups.forEach((group) => {
-              group.classList.add("opacity-0");
-              setTimeout(() => {
-                group.classList.add("hidden");
-
-                const inputs = group.querySelectorAll(
-                  ".dynamic-input",
-                ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-                inputs.forEach((input) => {
-                  input.disabled = true;
-                  input.required = false;
-                });
-              }, 300);
+        if (checkbox.checked) {
+          if (targetGroup) {
+            targetGroup.classList.remove("hidden");
+            const inputs = targetGroup.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+            inputs.forEach(input => {
+              input.disabled = false;
+              input.required = true;
             });
-
-            const targetGroup = document.getElementById(`fields-${value}`);
-            if (targetGroup) {
-              setTimeout(() => {
-                targetGroup.classList.remove("hidden");
-
-                const inputs = targetGroup.querySelectorAll(
-                  ".dynamic-input",
-                ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
-                inputs.forEach((input) => {
-                  input.disabled = false;
-                  input.required = true;
-                });
-
-                setTimeout(() => {
-                  targetGroup.classList.remove("opacity-0");
-
-                  const continueContainer = document.getElementById(
-                    "continue-btn-container",
-                  );
-                  if (continueContainer?.classList.contains("hidden")) {
-                    continueContainer.classList.remove("hidden");
-                    setTimeout(() => {
-                      continueContainer.classList.remove("opacity-0");
-                    }, 50);
-                  }
-                }, 50);
-              }, 300);
-            }
+            setTimeout(() => {
+              targetGroup.classList.remove("opacity-0");
+            }, 50);
           }
+        } else {
+          if (targetGroup) {
+            targetGroup.classList.add("opacity-0");
+            setTimeout(() => {
+              targetGroup.classList.add("hidden");
+              const inputs = targetGroup.querySelectorAll(".dynamic-input") as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+              inputs.forEach(input => {
+                input.disabled = true;
+                input.required = false;
+              });
+            }, 300);
+          }
+        }
 
-          closeAllDropdowns();
-        });
+        const anyChecked = Array.from(serviceCheckboxes).some(cb => cb.checked);
+        if (anyChecked) {
+          if (continueContainer?.classList.contains("hidden")) {
+            continueContainer.classList.remove("hidden");
+            setTimeout(() => {
+              continueContainer.classList.remove("opacity-0");
+            }, 50);
+          }
+        } else {
+          continueContainer?.classList.add("opacity-0");
+          setTimeout(() => {
+            continueContainer?.classList.add("hidden");
+          }, 300);
+        }
       });
     });
 
@@ -876,6 +832,13 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
     const step2 = document.getElementById("step-2");
 
     continueBtn?.addEventListener("click", () => {
+      const anyChecked = Array.from(document.querySelectorAll(".service-checkbox") as NodeListOf<HTMLInputElement>).some(cb => cb.checked);
+      if (!anyChecked) {
+        const errorEl = document.getElementById("tags-error");
+        if (errorEl) errorEl.classList.remove("hidden");
+        return;
+      }
+
       let allValid = true;
       const visibleInputs = document.querySelectorAll(
         ".dynamic-group:not(.hidden) .dynamic-input",
@@ -886,20 +849,6 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
           try {
             visibleInputs[i].reportValidity();
           } catch (e) {
-            const container = visibleInputs[i].closest(".form-group");
-            if (container) {
-              const btn = container.querySelector(".dropdown-btn");
-              if (btn) {
-                btn.classList.remove("border-negro/40", "border-negro");
-                btn.classList.add("border-red-500", "text-red-500");
-                const text = container.querySelector(".dropdown-text");
-                if (text) {
-                  text.textContent = "⚠ Seleccioná una opción";
-                  text.classList.remove("text-negro/70", "text-negro");
-                  text.classList.add("text-red-500");
-                }
-              }
-            }
           }
           allValid = false;
           break;
@@ -932,8 +881,6 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
     });
 
     document.addEventListener("click", (e) => {
-      closeAllDropdowns();
-
       const target = e.target as HTMLElement;
       const provInput = document.getElementById("provincia");
       const provAuto = document.getElementById("provincia-autocomplete");
@@ -947,25 +894,6 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
         provAuto.classList.remove("opacity-100", "translate-y-0");
       }
     });
-
-    function closeAllDropdowns() {
-      dropdownContainers.forEach((container) => {
-        const optionsDiv = container.querySelector(
-          ".dropdown-options",
-        ) as HTMLDivElement;
-        const btn = container.querySelector(
-          ".dropdown-btn",
-        ) as HTMLButtonElement;
-        const iconSpan = container.querySelector(
-          ".dropdown-icon",
-        ) as HTMLSpanElement;
-
-        optionsDiv.classList.add("invisible", "opacity-0", "translate-y-2");
-        optionsDiv.classList.remove("opacity-100", "translate-y-0");
-        btn.classList.remove("border-negro");
-        iconSpan.style.transform = "rotate(0deg)";
-      });
-    }
 
     const form = document.getElementById("contact-form") as HTMLFormElement;
     const success = document.getElementById("form-success");
@@ -1007,16 +935,8 @@ import WhatsAppFloat from "../components/WhatsAppFloat.astro";
         if (response.ok) {
           form.reset();
 
-          dropdownContainers.forEach((container) => {
-            const textSpan = container.querySelector(
-              ".dropdown-text",
-            ) as HTMLSpanElement;
-            if (textSpan) {
-              textSpan.textContent = "Seleccioná una opción para continuar";
-              textSpan.classList.remove("text-negro");
-              textSpan.classList.add("text-negro/70");
-            }
-          });
+          const checkboxes = document.querySelectorAll(".service-checkbox") as NodeListOf<HTMLInputElement>;
+          checkboxes.forEach(cb => cb.checked = false);
 
           dynamicGroups.forEach((group) => {
             group.classList.add("opacity-0", "hidden");

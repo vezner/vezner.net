@@ -46,9 +46,11 @@ const nombreServicioDisplay =
     ? "Diseño Web"
     : servicioId === "software-python"
       ? "Software Python"
-      : "Diseño de Identidad";
+      : servicioId === "flujos-n8n"
+        ? "Flujos n8n"
+        : "Diseño de Identidad";
 
-const isDark = servicioId !== "diseno-web"; // Web is light, Python/Identidad are dark
+const isDark = servicioId !== "diseno-web"; // Web is light, Python/Identidad/n8n are dark
 
 const t = {
   bgPrimary: isDark ? "bg-[#050505]" : "bg-[#fafafa]",
@@ -92,6 +94,17 @@ const aMap: Record<string, any> = {
     tickerText: "text-negro",
     openBorder: "open:border-yellow-400",
     glow: "shadow-[0_0_15px_rgba(250,204,21,0.5)]",
+    ctaText: "text-negro",
+    ctaBtn: "bg-negro text-blanco",
+  },
+  "flujos-n8n": {
+    text: "text-orange-500",
+    bg: "bg-orange-500",
+    border: "border-orange-500",
+    hoverBorder: "hover:border-orange-500",
+    tickerText: "text-negro",
+    openBorder: "open:border-orange-500",
+    glow: "shadow-[0_0_15px_rgba(249,115,22,0.5)]",
     ctaText: "text-negro",
     ctaBtn: "bg-negro text-blanco",
   },

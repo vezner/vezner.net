@@ -229,6 +229,9 @@ const rubrosUnicos = Array.from(
                 <a href="/servicios/software-python" class="group flex items-center justify-between text-negro/70 hover:text-negro transition-colors font-mono text-xs">
                   <span class="flex items-center gap-2"><i class="fa-brands fa-python text-negro/30 group-hover:text-negro/60 transition-colors"></i> Software Python</span> <span class="group-hover:translate-x-1 transition-transform opacity-50 group-hover:opacity-100">→</span>
                 </a>
+                <a href="/servicios/flujos-n8n" class="group flex items-center justify-between text-negro/70 hover:text-negro transition-colors font-mono text-xs">
+                  <span class="flex items-center gap-2"><i class="fa-solid fa-network-wired text-negro/30 group-hover:text-negro/60 transition-colors"></i> Flujos N8N</span> <span class="group-hover:translate-x-1 transition-transform opacity-50 group-hover:opacity-100">→</span>
+                </a>
                 <a href="/servicios/diseno-identidad" class="group flex items-center justify-between text-negro/70 hover:text-negro transition-colors font-mono text-xs">
                   <span class="flex items-center gap-2"><i class="fa-solid fa-pen-nib text-negro/30 group-hover:text-negro/60 transition-colors"></i> Diseño de Identidad</span> <span class="group-hover:translate-x-1 transition-transform opacity-50 group-hover:opacity-100">→</span>
                 </a>
@@ -359,6 +362,11 @@ const rubrosUnicos = Array.from(
                   label: "Diseño de Identidad",
                   href: "/servicios/diseno-identidad",
                   color: "#ffcc00",
+                },
+                {
+                  label: "Flujos n8n",
+                  href: "/servicios/flujos-n8n",
+                  color: "#f97316",
                 },
               ].map((s) => (
                 <>
@@ -692,6 +700,30 @@ const rubrosUnicos = Array.from(
                 </div>
                 <span
                   class="text-blanco/30 group-hover:text-yellow-400 group-hover:translate-x-2 transition-all text-xl"
+                  >→</span
+                >
+              </a>
+
+              <a
+                href="/servicios/flujos-n8n"
+                data-base-href="/servicios/flujos-n8n"
+                class="servicio-dyn-link group flex items-center justify-between border border-blanco/10 bg-blanco/[0.03] backdrop-blur-2xl p-6 hover:bg-orange-500/5 hover:border-orange-500/30 rounded-2xl hover:rounded-none transition-all duration-300"
+              >
+                <div>
+                  <span
+                    class="font-mono text-[10px] text-blanco/30 uppercase tracking-widest block mb-2 group-hover:text-orange-500 transition-colors"
+                    >04</span
+                  >
+                  <h3
+                    class="font-display text-2xl md:text-3xl text-blanco group-hover:text-orange-500 transition-colors"
+                  >
+                    Flujos n8n<span
+                      class="prov-name opacity-0 transition-opacity duration-300"
+                    ></span>
+                  </h3>
+                </div>
+                <span
+                  class="text-blanco/30 group-hover:text-orange-500 group-hover:translate-x-2 transition-all text-xl"
                   >→</span
                 >
               </a>

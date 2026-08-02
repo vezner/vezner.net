@@ -424,7 +424,7 @@ export const seoRubros = [
     incluye: [
       "Sitio Web Odontológico a Medida",
       "Páginas de Servicio (Implantes, Estética, Ortodoncia)",
-      "Módulo de Casos de Éxito (Antes/Después)",
+      "Módulo de Casos de Ã‰xito (Antes/Después)",
       "Integración de Gestor de Turnos",
       "Optimización de SEO Local",
       "Diseño UI/UX de alta confianza",
@@ -902,7 +902,7 @@ export const seoRubros = [
       { t: "Trazabilidad Total", d: "Seguimiento de la materia prima desde el ingreso al depósito hasta el producto terminado." },
       { t: "Control de Costos", d: "Cálculo en tiempo real del costo de producción basado en mermas y tiempo de máquina." },
       { t: "Mantenimiento Preventivo", d: "Alertas automáticas para realizar service a las máquinas antes de que fallen." },
-      { t: "Órdenes Digitales", d: "Pantallas o tablets en la línea de producción para que los operarios vean qué deben ensamblar." },
+      { t: "Ã“rdenes Digitales", d: "Pantallas o tablets en la línea de producción para que los operarios vean qué deben ensamblar." },
       { t: "Inventario en Vivo", d: "Actualización automática del stock a medida que la línea consume materiales." },
       { t: "Reportes de Productividad", d: "Medición de OEE (Eficiencia General de los Equipos) y rendimiento por turnos." }
     ],
@@ -910,7 +910,7 @@ export const seoRubros = [
       "Auditoría del Flujo Productivo de la Planta",
       "Desarrollo de Panel Central de Producción",
       "Módulo de Recetas / Lista de Materiales (BOM)",
-      "Sistema de Órdenes de Trabajo (OT) Digitales",
+      "Sistema de Ã“rdenes de Trabajo (OT) Digitales",
       "Gestor de Mantenimiento de Maquinaria",
       "Módulo de Control de Calidad",
       "Diseño adaptable a tablets industriales",
@@ -1365,5 +1365,1351 @@ export const seoRubros = [
       { q: "¿Qué colores recomiendan para una productora?", a: "Suele funcionar un enfoque brutalista: blanco, negro y un color de acento muy saturado (rojo neón, azul eléctrico). Esto evita chocar con la colorimetría de tus propios videos." }
     ],
     theme: "dark"
+  },
+  {
+    rubroId: "empresas",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Empresas",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "empresa",
+    tituloSEO: "Automatización con Flujos n8n para Empresas en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos internos, integrando CRMs, ERPs, bases de datos y APIs a medida.",
+    keywords: "automatización n8n, flujos automatizados empresas, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida. Conectamos tus herramientas (CRM, ERP, correos, bases de datos) para que la información fluya sin intervención manual, eligiendo el plan de n8n que mejor se adapte a tu escala.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu empresa." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n o hostearlo vos mismo." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)",
+      "Mantenimiento continuo"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde a tu empresa, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Se puede conectar con mi software a medida?", a: "Sí, siempre que tu software disponga de una API o acceso a base de datos." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "estudios-contables",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Estudios Contables",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "estudio-contable",
+    tituloSEO: "Automatización con Flujos n8n para Estudios Contables en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Estudios Contables, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Estudios Contables, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Estudios Contables. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "logistica",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Logística",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "logistica",
+    tituloSEO: "Automatización con Flujos n8n para Logística en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Logística, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Logística, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Logística. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "educacion",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Colegios e Institutos",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "institucion-educativa",
+    tituloSEO: "Automatización con Flujos n8n para Colegios e Institutos en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Colegios e Institutos, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Colegios e Institutos, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Colegios e Institutos. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "marcas-moda",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Marcas de Moda",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "marca-moda",
+    tituloSEO: "Automatización con Flujos n8n para Marcas de Moda en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Marcas de Moda, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Marcas de Moda, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Marcas de Moda. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "productoras-audiovisuales",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Productoras Audiovisuales",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "productora",
+    tituloSEO: "Automatización con Flujos n8n para Productoras Audiovisuales en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Productoras Audiovisuales, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Productoras Audiovisuales, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Productoras Audiovisuales. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "agencias-turismo",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Agencias de Viajes",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "agencia-turismo",
+    tituloSEO: "Automatización con Flujos n8n para Agencias de Viajes en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Agencias de Viajes, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Agencias de Viajes, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Agencias de Viajes. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "brokers-seguros",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Brokers de Seguros",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "broker-seguros",
+    tituloSEO: "Automatización con Flujos n8n para Brokers de Seguros en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Brokers de Seguros, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Brokers de Seguros, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Brokers de Seguros. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "financieras",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Fintech y Financieras",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "financiera",
+    tituloSEO: "Automatización con Flujos n8n para Fintech y Financieras en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Fintech y Financieras, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Fintech y Financieras, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Fintech y Financieras. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "estudios-arquitectura",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Estudios de Arquitectura",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "estudio-arquitectura",
+    tituloSEO: "Automatización con Flujos n8n para Estudios de Arquitectura en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Estudios de Arquitectura, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Estudios de Arquitectura, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Estudios de Arquitectura. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "salud-clinicas",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Clínicas y Centros Médicos",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "clinica-medica",
+    tituloSEO: "Automatización con Flujos n8n para Clínicas y Centros Médicos en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Clínicas y Centros Médicos, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Clínicas y Centros Médicos, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Clínicas y Centros Médicos. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "ecommerce",
+    servicioId: "flujos-n8n",
+    nombreRubro: "E-commerce",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "ecommerce",
+    tituloSEO: "Automatización con Flujos n8n para E-commerce en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en E-commerce, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n E-commerce, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para E-commerce. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "prepagas",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Prepagas y Salud",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "prepaga",
+    tituloSEO: "Automatización con Flujos n8n para Prepagas y Salud en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Prepagas y Salud, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Prepagas y Salud, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Prepagas y Salud. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "restaurantes",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Gastronomía",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "restaurante",
+    tituloSEO: "Automatización con Flujos n8n para Gastronomía en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Gastronomía, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Gastronomía, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Gastronomía. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "constructoras",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Constructoras",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "constructora",
+    tituloSEO: "Automatización con Flujos n8n para Constructoras en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Constructoras, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Constructoras, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Constructoras. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "inmobiliarias",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Inmobiliarias",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "inmobiliaria",
+    tituloSEO: "Automatización con Flujos n8n para Inmobiliarias en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Inmobiliarias, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Inmobiliarias, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Inmobiliarias. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "concesionarias",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Concesionarias",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "concesionaria",
+    tituloSEO: "Automatización con Flujos n8n para Concesionarias en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Concesionarias, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Concesionarias, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Concesionarias. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "pymes",
+    servicioId: "flujos-n8n",
+    nombreRubro: "PyMEs y Empresas",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "pyme",
+    tituloSEO: "Automatización con Flujos n8n para PyMEs y Empresas en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en PyMEs y Empresas, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n PyMEs y Empresas, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para PyMEs y Empresas. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "bodegas",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Bodegas y Vinos",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "bodega",
+    tituloSEO: "Automatización con Flujos n8n para Bodegas y Vinos en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Bodegas y Vinos, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Bodegas y Vinos, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Bodegas y Vinos. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "clinicas-esteticas",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Clínicas Estéticas",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "clinica-estetica",
+    tituloSEO: "Automatización con Flujos n8n para Clínicas Estéticas en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Clínicas Estéticas, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Clínicas Estéticas, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Clínicas Estéticas. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "hoteles",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Hoteles",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "hotel",
+    tituloSEO: "Automatización con Flujos n8n para Hoteles en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Hoteles, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Hoteles, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Hoteles. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "cervecerias",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Cervecerías y Bares",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "cerveceria",
+    tituloSEO: "Automatización con Flujos n8n para Cervecerías y Bares en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Cervecerías y Bares, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Cervecerías y Bares, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Cervecerías y Bares. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "estudios-juridicos",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Estudios Jurídicos",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "estudio-juridico",
+    tituloSEO: "Automatización con Flujos n8n para Estudios Jurídicos en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Estudios Jurídicos, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Estudios Jurídicos, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Estudios Jurídicos. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "fabricas",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Fábricas e Industrias",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "fabrica",
+    tituloSEO: "Automatización con Flujos n8n para Fábricas e Industrias en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Fábricas e Industrias, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Fábricas e Industrias, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Fábricas e Industrias. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "agroindustria",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Agroindustria y Campo",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "agroindustria",
+    tituloSEO: "Automatización con Flujos n8n para Agroindustria y Campo en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Agroindustria y Campo, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Agroindustria y Campo, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Agroindustria y Campo. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "agencias-marketing",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Agencias de Marketing",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "agencia-marketing",
+    tituloSEO: "Automatización con Flujos n8n para Agencias de Marketing en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Agencias de Marketing, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Agencias de Marketing, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Agencias de Marketing. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "consultoras",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Consultoras Corporativas",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "consultora",
+    tituloSEO: "Automatización con Flujos n8n para Consultoras Corporativas en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Consultoras Corporativas, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Consultoras Corporativas, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Consultoras Corporativas. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "recursos-humanos",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Selectoras y RRHH",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "agencia-rrhh",
+    tituloSEO: "Automatización con Flujos n8n para Selectoras y RRHH en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Selectoras y RRHH, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Selectoras y RRHH, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Selectoras y RRHH. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "odontologos",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Clínicas Dentales",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "clinica-dental",
+    tituloSEO: "Automatización con Flujos n8n para Clínicas Dentales en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Clínicas Dentales, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Clínicas Dentales, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Clínicas Dentales. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "startups",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Startups Tech",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "startup",
+    tituloSEO: "Automatización con Flujos n8n para Startups Tech en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Startups Tech, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Startups Tech, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Startups Tech. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "cafeterias-especialidad",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Cafeterías de Especialidad",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "cafeteria",
+    tituloSEO: "Automatización con Flujos n8n para Cafeterías de Especialidad en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Cafeterías de Especialidad, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Cafeterías de Especialidad, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Cafeterías de Especialidad. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
+  }  ,
+  {
+    rubroId: "gimnasios",
+    servicioId: "flujos-n8n",
+    nombreRubro: "Gimnasios y Crossfit",
+    nombreServicio: "Flujos n8n",
+    tipoNegocio: "gimnasio",
+    tituloSEO: "Automatización con Flujos n8n para Gimnasios y Crossfit en Argentina | VEZNER",
+    descripcionSEO: "Implementamos flujos automatizados con n8n para optimizar procesos en Gimnasios y Crossfit, conectando sistemas y reduciendo tareas manuales.",
+    keywords: "automatización n8n Gimnasios y Crossfit, flujos automatizados, n8n argentina, integración de procesos",
+    heroTitle: "Automatización.",
+    heroSubtitle: "Optimizá tu tiempo y recursos con flujos de trabajo inteligentes.",
+    painPoints: [
+      "Tareas manuales repetitivas que consumen el tiempo de tu equipo.",
+      "Sistemas desconectados que requieren carga doble de información.",
+      "Errores humanos en la transferencia de datos entre plataformas."
+    ],
+    solucion: "Desarrollamos flujos automatizados en n8n a medida para Gimnasios y Crossfit. Conectamos tus herramientas para que la información fluya sin intervención manual.",
+    beneficios: [
+      { t: "Integración Total", d: "Conectamos cualquier API o servicio web." },
+      { t: "Reducción de Costos", d: "Menos horas en tareas repetitivas." },
+      { t: "Cero Errores", d: "La automatización elimina el factor de error humano." },
+      { t: "Escalabilidad", d: "Flujos que crecen junto al volumen de tu negocio." },
+      { t: "Monitoreo Constante", d: "Sistemas alerta y registros de cada ejecución." },
+      { t: "Asesoramiento n8n", d: "Te ayudamos a elegir el mejor plan de n8n." }
+    ],
+    incluye: [
+      "Auditoría de procesos manuales",
+      "Diseño arquitectónico del flujo",
+      "Desarrollo e implementación en n8n",
+      "Testing y validación de datos",
+      "Documentación del flujo",
+      "Asesoría de planes n8n",
+      "Soporte post-lanzamiento",
+      "Hosting n8n (opcional)"
+    ],
+    faqs: [
+      { q: "¿Qué es n8n?", a: "Es una herramienta de automatización de flujos de trabajo que conecta distintas aplicaciones mediante APIs." },
+      { q: "¿Necesito pagar una licencia de n8n?", a: "Te asesoramos con el plan más acorde, ya sea en la nube (n8n cloud) o auto-alojado para mayor privacidad." },
+      { q: "¿Cuánto tarda en implementarse un flujo?", a: "Depende de la complejidad, pero los flujos simples pueden estar listos en 1-2 semanas." }
+    ],
+    theme: "dark"
   }
-];
+];

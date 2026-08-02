@@ -29,8 +29,8 @@ export default defineConfig({
     })
   ],
   vite: {
-    optimizeDeps: {
-      include: ['gsap', 'gsap/ScrollTrigger', 'lenis', 'three']
+    ssr: {
+      noExternal: ['gsap', 'lenis', 'three']
     }
   }
 });

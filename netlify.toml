@@ -7,8 +7,3 @@
 
 [functions]
   directory = "netlify/functions"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Type = "text/html; charset=utf-8"

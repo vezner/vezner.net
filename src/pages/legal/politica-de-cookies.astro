@@ -8,7 +8,7 @@ const año = new Date().getFullYear();
 
 <Layout
   title="Política de Cookies — VEZNER"
-  description="Política de uso de cookies de VEZNER. Córdoba, Argentina."
+  description="Política de uso de cookies y tecnologías de rastreo de VEZNER. Argentina."
   noindex={true}
 >
   <Header />
@@ -30,42 +30,44 @@ const año = new Date().getFullYear();
         <div
           class="font-mono text-sm text-negro/60 leading-relaxed space-y-8 max-w-2xl"
         >
-          <p class="text-negro/30 text-xs">Última actualización: Enero 2026</p>
+          <p class="text-negro/30 text-xs">Última actualización: Agosto 2026</p>
 
           <div>
             <h2 class="font-display text-2xl text-negro mb-4">
-              ¿Qué son las cookies?
+              1. ¿Qué son las cookies y tecnologías similares?
             </h2>
             <p>
-              Las cookies son pequeños archivos de texto que se almacenan en tu
-              dispositivo cuando visitás un sitio web. Sirven para recordar
-              preferencias, analizar el tráfico y mejorar la experiencia de
-              navegación.
+              Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo (computadora, tablet o smartphone) cuando visitas un sitio web. Además de las cookies tradicionales, también utilizamos tecnologías de almacenamiento local del navegador, como <code>localStorage</code> y <code>sessionStorage</code>. Estas herramientas nos permiten recordar preferencias, proteger la seguridad del sitio y analizar el tráfico para mejorar tu experiencia de navegación.
             </p>
           </div>
 
           <div>
             <h2 class="font-display text-2xl text-negro mb-4">
-              Tipos de cookies que usamos
+              2. Tipos de tecnologías que utilizamos
             </h2>
-            <div class="space-y-4">
+            <div class="space-y-6 mt-4">
               <div class="border-l-2 border-verde/40 pl-4">
                 <p class="text-negro font-medium mb-1">
-                  Cookies técnicas (necesarias)
+                  Estrictamente Necesarias (Técnicas y Funcionales)
                 </p>
                 <p>
-                  Esenciales para el funcionamiento del sitio. No pueden
-                  desactivarse.
+                  Son esenciales para que el sitio funcione de manera correcta y segura. Utilizamos el almacenamiento local para implementar sistemas anti-spam (como periodos de "cooldown" para evitar envíos masivos de formularios) y para mantener configuraciones básicas de la interfaz durante tu visita. Estas tecnologías no pueden ser desactivadas en nuestros sistemas, ya que su ausencia impediría el correcto funcionamiento del sitio.
                 </p>
               </div>
               <div class="border-l-2 border-azul/40 pl-4">
                 <p class="text-negro font-medium mb-1">
-                  Cookies de análisis (Google Analytics)
+                  Cookies de Terceros: Analítica (Google Analytics y Google Tag Manager)
                 </p>
                 <p>
-                  Recopilan datos anónimos sobre el uso del sitio para mejorar
-                  su rendimiento. Pueden desactivarse sin afectar la
-                  funcionalidad.
+                  Utilizamos Google Analytics y Google Tag Manager para recopilar estadísticas anónimas sobre cómo interactúan los usuarios con nuestra web (tiempo de permanencia, páginas visitadas, origen del tráfico). Esto requiere la instalación de cookies de terceros gestionadas por Google LLC, las cuales nos ayudan a medir el rendimiento y optimizar nuestro contenido.
+                </p>
+              </div>
+              <div class="border-l-2 border-negro/20 pl-4">
+                <p class="text-negro font-medium mb-1">
+                  Otros Servicios de Terceros
+                </p>
+                <p>
+                  El sitio integra recursos externos (como tipografías de Google Fonts, íconos de Font Awesome y mapas de GeoJS). Aunque estos servicios no suelen almacenar cookies de seguimiento directamente en tu dispositivo, el navegador realiza peticiones a sus servidores, lo que puede implicar el registro de tu dirección IP por parte de dichos proveedores.
                 </p>
               </div>
             </div>
@@ -73,19 +75,25 @@ const año = new Date().getFullYear();
 
           <div>
             <h2 class="font-display text-2xl text-negro mb-4">
-              Control de cookies
+              3. Gestión y control
             </h2>
             <p>
-              Podés configurar tu navegador para bloquear o eliminar cookies.
-              Ten en cuenta que algunas funcionalidades del sitio pueden verse
-              afectadas. Para más información, consultá la configuración de
-              privacidad de tu navegador.
+              Como usuario, tienes el control total para configurar tu navegador y bloquear o eliminar las cookies y los datos de sitios locales en cualquier momento. A continuación, te indicamos cómo puedes gestionarlas en los principales navegadores:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" class="underline hover:text-negro transition-colors">Google Chrome</a></li>
+              <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer" class="underline hover:text-negro transition-colors">Mozilla Firefox</a></li>
+              <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" class="underline hover:text-negro transition-colors">Apple Safari</a></li>
+              <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" class="underline hover:text-negro transition-colors">Microsoft Edge</a></li>
+            </ul>
+            <p class="mt-4 text-sm text-negro/50">
+              Ten en cuenta que bloquear las cookies técnicas y el almacenamiento local puede afectar la funcionalidad del sitio o impedir el envío de formularios de contacto.
             </p>
           </div>
 
           <div class="pt-8 border-t border-negro/10">
             <p class="text-negro/40 text-xs">
-              © {año} VEZNER. hola@vezner.net
+              © {año} VEZNER. Todos los derechos reservados. legales@vezner.net
             </p>
           </div>
         </div>
